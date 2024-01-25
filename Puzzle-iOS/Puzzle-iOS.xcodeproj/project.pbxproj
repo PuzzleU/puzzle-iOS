@@ -18,6 +18,7 @@
 		718150322B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150312B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift */; };
 		7181504A2B629709005E4451 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 718150492B629709005E4451 /* Kingfisher */; };
 		7181504F2B629725005E4451 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7181504E2B629725005E4451 /* Then */; };
+		718150522B62E05F005E4451 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 718150512B62E05F005E4451 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		7181502B2B6291D8005E4451 /* Puzzle-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Puzzle-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7181502F2B6291D8005E4451 /* Puzzle_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSUITests.swift; sourceTree = "<group>"; };
 		718150312B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		718150512B62E05F005E4451 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		718150022B6291D7005E4451 = {
 			isa = PBXGroup;
 			children = (
+				718150512B62E05F005E4451 /* .swiftlint.yml */,
 				7181500D2B6291D7005E4451 /* Puzzle-iOS */,
 				718150242B6291D8005E4451 /* Puzzle-iOSTests */,
 				7181502E2B6291D8005E4451 /* Puzzle-iOSUITests */,
@@ -210,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 718150352B6291D8005E4451 /* Build configuration list for PBXNativeTarget "Puzzle-iOS" */;
 			buildPhases = (
+				718150502B62DEBD005E4451 /* SwiftLint Script */,
 				718150072B6291D7005E4451 /* Sources */,
 				718150082B6291D7005E4451 /* Frameworks */,
 				718150092B6291D7005E4451 /* Resources */,
@@ -318,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				718150522B62E05F005E4451 /* .swiftlint.yml in Resources */,
 				7181501B2B6291D8005E4451 /* LaunchScreen.storyboard in Resources */,
 				718150182B6291D8005E4451 /* Assets.xcassets in Resources */,
 				718150162B6291D7005E4451 /* Main.storyboard in Resources */,
@@ -339,6 +344,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		718150502B62DEBD005E4451 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		718150072B6291D7005E4451 /* Sources */ = {

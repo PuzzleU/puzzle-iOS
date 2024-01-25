@@ -1,10 +1,9 @@
 ---
-name:   WSS - Issue Template
-about: "WSS-iOS 이슈 템플릿입니다.🎇"
+name:   Puzzle - Issue Template
+about: "Puzzle-iOS 이슈 템플릿입니다."
 title: '[Prefix] 이슈 타이틀'
 labels: ''
 assignees: 'self'
-
 ---
 
 <!-- 

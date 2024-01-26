@@ -1,0 +1,780 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181500E2B6291D7005E4451 /* AppDelegate.swift */; };
+		718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150102B6291D7005E4451 /* SceneDelegate.swift */; };
+		718150132B6291D7005E4451 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150122B6291D7005E4451 /* ViewController.swift */; };
+		718150162B6291D7005E4451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718150142B6291D7005E4451 /* Main.storyboard */; };
+		718150182B6291D8005E4451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718150172B6291D8005E4451 /* Assets.xcassets */; };
+		7181501B2B6291D8005E4451 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718150192B6291D8005E4451 /* LaunchScreen.storyboard */; };
+		718150262B6291D8005E4451 /* Puzzle_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150252B6291D8005E4451 /* Puzzle_iOSTests.swift */; };
+		718150302B6291D8005E4451 /* Puzzle_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181502F2B6291D8005E4451 /* Puzzle_iOSUITests.swift */; };
+		718150322B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150312B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift */; };
+		7181504A2B629709005E4451 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 718150492B629709005E4451 /* Kingfisher */; };
+		7181504F2B629725005E4451 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7181504E2B629725005E4451 /* Then */; };
+		718150522B62E05F005E4451 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 718150512B62E05F005E4451 /* .swiftlint.yml */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		718150222B6291D8005E4451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 718150032B6291D7005E4451 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7181500A2B6291D7005E4451;
+			remoteInfo = "Puzzle-iOS";
+		};
+		7181502C2B6291D8005E4451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 718150032B6291D7005E4451 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7181500A2B6291D7005E4451;
+			remoteInfo = "Puzzle-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7181500B2B6291D7005E4451 /* Puzzle-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7181500E2B6291D7005E4451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		718150102B6291D7005E4451 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		718150122B6291D7005E4451 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		718150152B6291D7005E4451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		718150172B6291D8005E4451 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7181501A2B6291D8005E4451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7181501C2B6291D8005E4451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Puzzle-iOS/Application/Info.plist"; sourceTree = SOURCE_ROOT; };
+		718150212B6291D8005E4451 /* Puzzle-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Puzzle-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		718150252B6291D8005E4451 /* Puzzle_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSTests.swift; sourceTree = "<group>"; };
+		7181502B2B6291D8005E4451 /* Puzzle-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Puzzle-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7181502F2B6291D8005E4451 /* Puzzle_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSUITests.swift; sourceTree = "<group>"; };
+		718150312B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		718150512B62E05F005E4451 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		718150082B6291D7005E4451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7181504A2B629709005E4451 /* Kingfisher in Frameworks */,
+				7181504F2B629725005E4451 /* Then in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7181501E2B6291D8005E4451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		718150282B6291D8005E4451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		718150022B6291D7005E4451 = {
+			isa = PBXGroup;
+			children = (
+				718150512B62E05F005E4451 /* .swiftlint.yml */,
+				7181500D2B6291D7005E4451 /* Puzzle-iOS */,
+				718150242B6291D8005E4451 /* Puzzle-iOSTests */,
+				7181502E2B6291D8005E4451 /* Puzzle-iOSUITests */,
+				7181500C2B6291D7005E4451 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7181500C2B6291D7005E4451 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7181500B2B6291D7005E4451 /* Puzzle-iOS.app */,
+				718150212B6291D8005E4451 /* Puzzle-iOSTests.xctest */,
+				7181502B2B6291D8005E4451 /* Puzzle-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7181500D2B6291D7005E4451 /* Puzzle-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7181503E2B6294B9005E4451 /* Application */,
+				7181503F2B6294C8005E4451 /* Resource */,
+				718150402B6294EE005E4451 /* Data */,
+				718150442B629531005E4451 /* Global */,
+				718150452B629536005E4451 /* Network */,
+				718150462B62953F005E4451 /* Presentation */,
+			);
+			path = "Puzzle-iOS";
+			sourceTree = "<group>";
+		};
+		718150242B6291D8005E4451 /* Puzzle-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				718150252B6291D8005E4451 /* Puzzle_iOSTests.swift */,
+			);
+			path = "Puzzle-iOSTests";
+			sourceTree = "<group>";
+		};
+		7181502E2B6291D8005E4451 /* Puzzle-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7181502F2B6291D8005E4451 /* Puzzle_iOSUITests.swift */,
+				718150312B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift */,
+			);
+			path = "Puzzle-iOSUITests";
+			sourceTree = "<group>";
+		};
+		7181503E2B6294B9005E4451 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7181500E2B6291D7005E4451 /* AppDelegate.swift */,
+				718150102B6291D7005E4451 /* SceneDelegate.swift */,
+				718150142B6291D7005E4451 /* Main.storyboard */,
+				718150192B6291D8005E4451 /* LaunchScreen.storyboard */,
+				7181501C2B6291D8005E4451 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		7181503F2B6294C8005E4451 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				718150172B6291D8005E4451 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		718150402B6294EE005E4451 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				718150412B6294F9005E4451 /* DTO */,
+				718150422B6294FE005E4451 /* Entity */,
+				718150432B629507005E4451 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		718150412B6294F9005E4451 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		718150422B6294FE005E4451 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		718150432B629507005E4451 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		718150442B629531005E4451 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		718150452B629536005E4451 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		718150462B62953F005E4451 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				718150122B6291D7005E4451 /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7181500A2B6291D7005E4451 /* Puzzle-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 718150352B6291D8005E4451 /* Build configuration list for PBXNativeTarget "Puzzle-iOS" */;
+			buildPhases = (
+				718150502B62DEBD005E4451 /* SwiftLint Script */,
+				718150072B6291D7005E4451 /* Sources */,
+				718150082B6291D7005E4451 /* Frameworks */,
+				718150092B6291D7005E4451 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Puzzle-iOS";
+			packageProductDependencies = (
+				718150492B629709005E4451 /* Kingfisher */,
+				7181504E2B629725005E4451 /* Then */,
+			);
+			productName = "Puzzle-iOS";
+			productReference = 7181500B2B6291D7005E4451 /* Puzzle-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		718150202B6291D8005E4451 /* Puzzle-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 718150382B6291D8005E4451 /* Build configuration list for PBXNativeTarget "Puzzle-iOSTests" */;
+			buildPhases = (
+				7181501D2B6291D8005E4451 /* Sources */,
+				7181501E2B6291D8005E4451 /* Frameworks */,
+				7181501F2B6291D8005E4451 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				718150232B6291D8005E4451 /* PBXTargetDependency */,
+			);
+			name = "Puzzle-iOSTests";
+			productName = "Puzzle-iOSTests";
+			productReference = 718150212B6291D8005E4451 /* Puzzle-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7181502A2B6291D8005E4451 /* Puzzle-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7181503B2B6291D8005E4451 /* Build configuration list for PBXNativeTarget "Puzzle-iOSUITests" */;
+			buildPhases = (
+				718150272B6291D8005E4451 /* Sources */,
+				718150282B6291D8005E4451 /* Frameworks */,
+				718150292B6291D8005E4451 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7181502D2B6291D8005E4451 /* PBXTargetDependency */,
+			);
+			name = "Puzzle-iOSUITests";
+			productName = "Puzzle-iOSUITests";
+			productReference = 7181502B2B6291D8005E4451 /* Puzzle-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		718150032B6291D7005E4451 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					7181500A2B6291D7005E4451 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					718150202B6291D8005E4451 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 7181500A2B6291D7005E4451;
+					};
+					7181502A2B6291D8005E4451 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 7181500A2B6291D7005E4451;
+					};
+				};
+			};
+			buildConfigurationList = 718150062B6291D7005E4451 /* Build configuration list for PBXProject "Puzzle-iOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 718150022B6291D7005E4451;
+			packageReferences = (
+				718150472B6296FE005E4451 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */,
+				718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7181504B2B629714005E4451 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				7181504C2B62971D005E4451 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				7181504D2B629725005E4451 /* XCRemoteSwiftPackageReference "Then" */,
+			);
+			productRefGroup = 7181500C2B6291D7005E4451 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7181500A2B6291D7005E4451 /* Puzzle-iOS */,
+				718150202B6291D8005E4451 /* Puzzle-iOSTests */,
+				7181502A2B6291D8005E4451 /* Puzzle-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		718150092B6291D7005E4451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				718150522B62E05F005E4451 /* .swiftlint.yml in Resources */,
+				7181501B2B6291D8005E4451 /* LaunchScreen.storyboard in Resources */,
+				718150182B6291D8005E4451 /* Assets.xcassets in Resources */,
+				718150162B6291D7005E4451 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7181501F2B6291D8005E4451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		718150292B6291D8005E4451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		718150502B62DEBD005E4451 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		718150072B6291D7005E4451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
+				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
+				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7181501D2B6291D8005E4451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				718150262B6291D8005E4451 /* Puzzle_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		718150272B6291D8005E4451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				718150322B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift in Sources */,
+				718150302B6291D8005E4451 /* Puzzle_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		718150232B6291D8005E4451 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7181500A2B6291D7005E4451 /* Puzzle-iOS */;
+			targetProxy = 718150222B6291D8005E4451 /* PBXContainerItemProxy */;
+		};
+		7181502D2B6291D8005E4451 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7181500A2B6291D7005E4451 /* Puzzle-iOS */;
+			targetProxy = 7181502C2B6291D8005E4451 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		718150142B6291D7005E4451 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				718150152B6291D7005E4451 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		718150192B6291D8005E4451 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7181501A2B6291D8005E4451 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		718150332B6291D8005E4451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		718150342B6291D8005E4451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		718150362B6291D8005E4451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Q4H7X3Q58;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Puzzle-iOS/Application/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.puzzle.Puzzle-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		718150372B6291D8005E4451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Q4H7X3Q58;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Puzzle-iOS/Application/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.puzzle.Puzzle-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		718150392B6291D8005E4451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.puzzle.Puzzle-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Puzzle-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Puzzle-iOS";
+			};
+			name = Debug;
+		};
+		7181503A2B6291D8005E4451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.puzzle.Puzzle-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Puzzle-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Puzzle-iOS";
+			};
+			name = Release;
+		};
+		7181503C2B6291D8005E4451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.puzzle.Puzzle-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Puzzle-iOS";
+			};
+			name = Debug;
+		};
+		7181503D2B6291D8005E4451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.puzzle.Puzzle-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Puzzle-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		718150062B6291D7005E4451 /* Build configuration list for PBXProject "Puzzle-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				718150332B6291D8005E4451 /* Debug */,
+				718150342B6291D8005E4451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		718150352B6291D8005E4451 /* Build configuration list for PBXNativeTarget "Puzzle-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				718150362B6291D8005E4451 /* Debug */,
+				718150372B6291D8005E4451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		718150382B6291D8005E4451 /* Build configuration list for PBXNativeTarget "Puzzle-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				718150392B6291D8005E4451 /* Debug */,
+				7181503A2B6291D8005E4451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7181503B2B6291D8005E4451 /* Build configuration list for PBXNativeTarget "Puzzle-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7181503C2B6291D8005E4451 /* Debug */,
+				7181503D2B6291D8005E4451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		718150472B6296FE005E4451 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk-rx";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.20.0;
+			};
+		};
+		718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
+		7181504B2B629714005E4451 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+		7181504C2B62971D005E4451 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+		7181504D2B629725005E4451 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		718150492B629709005E4451 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		7181504E2B629725005E4451 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7181504D2B629725005E4451 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 718150032B6291D7005E4451 /* Project object */;
+}

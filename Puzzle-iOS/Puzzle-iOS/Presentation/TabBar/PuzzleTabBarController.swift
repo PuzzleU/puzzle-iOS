@@ -52,11 +52,11 @@ extension PuzzleTabBarController {
     }
     
     private func templateNavigationController(title: String, unselectedImage: UIImage?, selectedImage: UIImage?, rootViewController: UIViewController) -> UINavigationController {
-        let navigation = UINavigationController(rootViewController: rootViewController)
-        navigation.title = title
-        navigation.tabBarItem.image = unselectedImage
-        navigation.tabBarItem.selectedImage = selectedImage
-        navigation.navigationBar.isHidden = true
-        return navigation
+        return UINavigationController(rootViewController: rootViewController).then {
+            $0.title = title
+            $0.tabBarItem.image = unselectedImage
+            $0.tabBarItem.selectedImage = selectedImage
+            $0.navigationBar.isHidden = true
+        }
     }
 }

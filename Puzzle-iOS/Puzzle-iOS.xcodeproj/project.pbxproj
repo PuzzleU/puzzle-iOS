@@ -311,9 +311,7 @@
 			);
 			mainGroup = 718150022B6291D7005E4451;
 			packageReferences = (
-				718150472B6296FE005E4451 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */,
 				718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				7181504B2B629714005E4451 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				7181504C2B62971D005E4451 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				7181504D2B629725005E4451 /* XCRemoteSwiftPackageReference "Then" */,
 			);
@@ -733,28 +731,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		718150472B6296FE005E4451 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao/kakao-ios-sdk-rx";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.20.0;
-			};
-		};
 		718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.10.2;
-			};
-		};
-		7181504B2B629714005E4451 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.6.0;
 			};
 		};
 		7181504C2B62971D005E4451 /* XCRemoteSwiftPackageReference "SnapKit" */ = {

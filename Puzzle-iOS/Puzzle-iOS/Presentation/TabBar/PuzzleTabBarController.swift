@@ -33,18 +33,21 @@ extension PuzzleTabBarController {
     }
     
     private func setTabBarControllers() {
-        let tabBar = [
-            ("홈", "home", "home_fill", ViewController()),
-            ("검색", "search", "search_fill", ViewController()),
-            ("등록", "register", "register_fill", ViewController()),
-            ("지원 현황", "applicationStatus", "applicationStatus_fill", ViewController()),
-            ("My", "myPage", "my_fill", ViewController())
+        let tabBarItems: [PuzzleTabBarItem] = [
+            .home,
+            .search,
+            .register,
+            .applicationStatus,
+            .myPage
         ]
         
-        viewControllers = tabBar.map { title, unselected, selected, viewController in
-            let unselectedImage = UIImage(named: unselected) ?? UIImage()
-            let selectedImage = UIImage(named: selected) ?? UIImage()
-            return templateNavigationController(title: title, unselectedImage: unselectedImage, selectedImage: selectedImage, rootViewController: viewController)
+        viewControllers = tabBarItems.map { item in
+            return templateNavigationController(
+                title: item.title,
+                unselectedImage: item.unselectedImage,
+                selectedImage: item.selectedImage,
+                rootViewController: item.viewController
+            )
         }
     }
     

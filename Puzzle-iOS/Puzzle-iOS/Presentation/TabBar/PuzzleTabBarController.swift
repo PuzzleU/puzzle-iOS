@@ -22,29 +22,28 @@ class PuzzleTabBarController: UITabBarController {
 
 extension PuzzleTabBarController {
     private func setUI() {
-        //        tabBar.backgroundColor =
-        //        tabBar.unselectedItemTintColor =
-        //        tabBar.tintColor =
-        //        tabBar.layer.cornerRadius = 20
+        tabBar.backgroundColor = .white
+        tabBar.unselectedItemTintColor = .blue
+        tabBar.tintColor = .gray
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         //        tabBar.layer.applyShadow(alpha: 0.03, y: -4, blur: 5)
     }
     
     private func setTabBarControllers() {
         let tabBar = [
-            ("홈", "home", ViewController()),
-            ("검색", "search", ViewController()),
-            ("등록", "register", ViewController()),
-            ("지원 현황", "applicationStatus", ViewController()),
-            ("My", "myPage", ViewController())
+            ("홈", "home", "home_fill", ViewController()),
+            ("검색", "search", "search_fill", ViewController()),
+            ("등록", "register", "register_fill", ViewController()),
+            ("지원 현황", "applicationStatus", "applicationStatus_fill", ViewController()),
+            ("My", "myPage", "my_fill", ViewController())
         ]
         
-        viewControllers = tabBar.map { title, imageName, viewController in
-            let image = UIImage(named: imageName) ?? UIImage()
-            return templateNavigationController(title: title, unselectedImage: image, selectedImage: image, rootViewController: viewController)
+        viewControllers = tabBar.map { title, unselected, selected, viewController in
+            let unselectedImage = UIImage(named: unselected) ?? UIImage()
+            let selectedImage = UIImage(named: selected) ?? UIImage()
+            return templateNavigationController(title: title, unselectedImage: unselectedImage, selectedImage: selectedImage, rootViewController: viewController)
         }
     }
-    
     
     private func templateNavigationController(title: String, unselectedImage: UIImage?, selectedImage: UIImage?, rootViewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: rootViewController)

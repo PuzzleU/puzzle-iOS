@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Then
+
 class PuzzleTabBarController: UITabBarController {
     
     // MARK: - View Life Cycle
@@ -22,11 +24,12 @@ class PuzzleTabBarController: UITabBarController {
 
 extension PuzzleTabBarController {
     private func setUI() {
-        tabBar.backgroundColor = .white
-        tabBar.unselectedItemTintColor = .blue
-        tabBar.tintColor = .gray
-        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        //        tabBar.layer.applyShadow(alpha: 0.03, y: -4, blur: 5)
+        tabBar.do {
+            $0.backgroundColor = .white
+            $0.unselectedItemTintColor = .blue
+            $0.tintColor = .gray
+            $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
     }
     
     private func setTabBarControllers() {
@@ -46,11 +49,11 @@ extension PuzzleTabBarController {
     }
     
     private func templateNavigationController(title: String, unselectedImage: UIImage?, selectedImage: UIImage?, rootViewController: UIViewController) -> UINavigationController {
-        let nav = UINavigationController(rootViewController: rootViewController)
-        nav.title = title
-        nav.tabBarItem.image = unselectedImage
-        nav.tabBarItem.selectedImage = selectedImage
-        nav.navigationBar.isHidden = true
-        return nav
+        let navigation = UINavigationController(rootViewController: rootViewController)
+        navigation.title = title
+        navigation.tabBarItem.image = unselectedImage
+        navigation.tabBarItem.selectedImage = selectedImage
+        navigation.navigationBar.isHidden = true
+        return navigation
     }
 }

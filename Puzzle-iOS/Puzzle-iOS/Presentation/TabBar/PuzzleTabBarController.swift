@@ -7,13 +7,12 @@
 
 import UIKit
 
-class PuzzleTabBarController: UITabBarController, UITabBarControllerDelegate {
+class PuzzleTabBarController: UITabBarController {
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
         setUI()
         setTabBarControllers()
     }
@@ -32,29 +31,20 @@ extension PuzzleTabBarController {
     }
     
     private func setTabBarControllers() {
-        let homeNVC = templateNavigationController(title: "홈",
-                                                   unselectedImage: ,
-                                                   selectedImage: ,
-                                                   rootViewController: ViewController())
-        let searchNVC = templateNavigationController(title: "검색",
-                                                     unselectedImage: ,
-                                                     selectedImage: ,
-                                                     rootViewController: ViewController())
-        let enrollNVC = templateNavigationController(title: "등록",
-                                                     unselectedImage: UIImage(systemName: "plus.circle")!,
-                                                     selectedImage: UIImage(systemName: "plus.circle")!,
-                                                     rootViewController: ViewController())
-        let applicationStatusNVC = templateNavigationController(title: "지원 현황",
-                                                                unselectedImage: ,
-                                                                selectedImage: ,
-                                                                rootViewController: ViewController())
-        let myPageNVC = templateNavigationController(title: "My",
-                                                     unselectedImage: ,
-                                                     selectedImage: ,
-                                                     rootViewController: ViewController())
+        let tabBar = [
+            ("홈", "home", ViewController()),
+            ("검색", "search", ViewController()),
+            ("등록", "register", ViewController()),
+            ("지원 현황", "applicationStatus", ViewController()),
+            ("My", "myPage", ViewController())
+        ]
         
-        viewControllers = [homeNVC, searchNVC, enrollNVC, applicationStatusNVC, myPageNVC]
+        viewControllers = tabBar.map { title, imageName, viewController in
+            let image = UIImage(named: imageName) ?? UIImage()
+            return templateNavigationController(title: title, unselectedImage: image, selectedImage: image, rootViewController: viewController)
+        }
     }
+    
     
     private func templateNavigationController(title: String, unselectedImage: UIImage?, selectedImage: UIImage?, rootViewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: rootViewController)

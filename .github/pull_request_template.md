@@ -25,17 +25,17 @@ Prefix
 
 -->
 
-### ⭐️Issue
+### ⭐️ Issue
 <!-- #IssueNumber 써주세요 -->
 
 <br/>
 
-### 🌟Motivation
+### 🌟 Motivation
 <!-- 주요 작업 내용이나 리뷰어에게 알릴 메세지를 써주세요 -->
 
 <br/>
 
-### 🌟Key Changes
+### 🌟 Key Changes
 <!-- 주요 코드를 써주세요 -->
 
 ```swift
@@ -44,10 +44,10 @@ example Code
 
 <br/>
 
-### 🌟Simulation
+### 🌟 Simulation
 
 <br/>
 
-### 🌟Reference
+### 🌟 Reference
 
 <br/>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
+		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
 		7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181500E2B6291D7005E4451 /* AppDelegate.swift */; };
 		718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150102B6291D7005E4451 /* SceneDelegate.swift */; };
 		718150132B6291D7005E4451 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150122B6291D7005E4451 /* ViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
+		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		7181500B2B6291D7005E4451 /* Puzzle-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7181500E2B6291D7005E4451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		718150102B6291D7005E4451 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71773C5D2B64BD040041605E /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */,
+				71773C632B66AB770041605E /* PuzzleTabBarItem.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		718150022B6291D7005E4451 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +214,7 @@
 		718150462B62953F005E4451 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				71773C5D2B64BD040041605E /* TabBar */,
 				718150122B6291D7005E4451 /* ViewController.swift */,
 			);
 			path = Presentation;
@@ -300,9 +314,7 @@
 			);
 			mainGroup = 718150022B6291D7005E4451;
 			packageReferences = (
-				718150472B6296FE005E4451 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */,
 				718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				7181504B2B629714005E4451 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				7181504C2B62971D005E4451 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				7181504D2B629725005E4451 /* XCRemoteSwiftPackageReference "Then" */,
 			);
@@ -373,7 +385,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
+				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
+				71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */,
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,28 +735,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		718150472B6296FE005E4451 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao/kakao-ios-sdk-rx";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.20.0;
-			};
-		};
 		718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.10.2;
-			};
-		};
-		7181504B2B629714005E4451 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.6.0;
 			};
 		};
 		7181504C2B62971D005E4451 /* XCRemoteSwiftPackageReference "SnapKit" */ = {

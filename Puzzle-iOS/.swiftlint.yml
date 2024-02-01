@@ -18,7 +18,7 @@ opt_in_rules:
     - let_var_whitespace
     
 included:
-  - Runnect-iOS
+  - Puzzle-iOS
 excluded:
   # AppDelegate, SceneDelegate file 무시
   - Puzzle-iOS/Application/AppDelegate.swift

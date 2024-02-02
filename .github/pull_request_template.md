@@ -1,11 +1,6 @@
 <!-- 
 
 Title: [prefix] #이슈번호 - 이슈 내용
-Ex) 
-// 1번 이슈에서 새로운 기능(Feat)을 구현한 경우
-[Feat] #1 - 기능 구현
-// 1번 이슈에서 네트워크를 연결한 경우
-[Network] #1 - Home API 연결
 
 Prefix
 
@@ -27,6 +22,8 @@ Prefix
 
 ## ⭐️ Issue
 <!-- #IssueNumber 써주세요 -->
+<!-- 종료키워드 close, closes, closed- fix, fixes, fixed- resolve, resolves, resolved -->
+close #
 
 <br/>
 

@@ -7,6 +7,8 @@
 
 import UIKit
 
+// TODO: 이 부분을 Dummy로 빼기는 했는데 어떻게 모아놓을지 이야기 해보아야합니당 !
+
 struct LoginModel {
     let title: String
     let image: UIImage

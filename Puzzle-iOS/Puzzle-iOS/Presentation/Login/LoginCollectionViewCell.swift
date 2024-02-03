@@ -10,9 +10,13 @@ import UIKit
 import SnapKit
 import Then
 
-class LoginCollectionViewCell: UICollectionViewCell {
+final class LoginCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - Properties
     
     static let cellIdentifier: String = "LoginCollectionViewCell"
+    
+    // MARK: - UI Components
     
     private let loginButtonView = UIView()
     private let loginImageView = UIImageView()
@@ -29,6 +33,8 @@ class LoginCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Custom Methods
     
     private func setUI() {
         loginButtonView.do {

@@ -12,6 +12,8 @@ import Then
 
 final class LoginView: UIView {
     
+    // MARK: - UI Components
+    
     private let titleLabel = UILabel()
     lazy var loginCollectionView = UICollectionView(frame: .zero,
                                                     collectionViewLayout: UICollectionViewLayout())
@@ -27,6 +29,8 @@ final class LoginView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Custom Methods
     
     private func setUI() {
         self.backgroundColor = .white

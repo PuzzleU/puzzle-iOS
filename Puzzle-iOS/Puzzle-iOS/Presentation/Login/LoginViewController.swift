@@ -13,6 +13,8 @@ import Then
 
 final class LoginViewController: UIViewController {
     
+    // MARK: - Properties
+    
     private var cancelBag = CancelBag()
     private let viewModel: LoginViewModel
     private let rootView = LoginView()
@@ -28,6 +30,8 @@ final class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Life Cycles
+    
     override func loadView() {
         self.view = rootView
     }
@@ -39,6 +43,8 @@ final class LoginViewController: UIViewController {
         delegate()
         bindViewModel()
     }
+    
+    // MARK: - Custom Methods
     
     private func register() {
         rootView.loginCollectionView.register(LoginCollectionViewCell.self, forCellWithReuseIdentifier: LoginCollectionViewCell.cellIdentifier)
@@ -65,6 +71,8 @@ final class LoginViewController: UIViewController {
             .store(in: self.cancelBag)
     }
 }
+
+// MARK: - UICollectionView Extension
 
 extension LoginViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

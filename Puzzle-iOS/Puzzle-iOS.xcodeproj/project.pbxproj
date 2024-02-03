@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */; };
+		2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */; };
+		2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */; };
+		2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
 		7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181500E2B6291D7005E4451 /* AppDelegate.swift */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthKakaoService.swift; sourceTree = "<group>"; };
+		2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppleService.swift; sourceTree = "<group>"; };
+		2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
+		2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		7181500B2B6291D7005E4451 /* Puzzle-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +94,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C372A3A2B6B7A60009B7BF6 /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */,
+				2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */,
+			);
+			path = AuthService;
+			sourceTree = "<group>";
+		};
+		2C372A412B6B8C29009B7BF6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2C372A3A2B6B7A60009B7BF6 /* AuthService */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2C372A422B6B8C37009B7BF6 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		2C372A452B6B8CE9009B7BF6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2C372A462B6B8CFC009B7BF6 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2C372A462B6B8CFC009B7BF6 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		71773C5D2B64BD040041605E /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,8 +170,7 @@
 			children = (
 				7181503E2B6294B9005E4451 /* Application */,
 				7181503F2B6294C8005E4451 /* Resource */,
-				718150402B6294EE005E4451 /* Data */,
-				718150442B629531005E4451 /* Global */,
+				2C372A452B6B8CE9009B7BF6 /* Data */,
 				718150452B629536005E4451 /* Network */,
 				718150462B62953F005E4451 /* Presentation */,
 			);
@@ -166,47 +214,11 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		718150402B6294EE005E4451 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				718150412B6294F9005E4451 /* DTO */,
-				718150422B6294FE005E4451 /* Entity */,
-				718150432B629507005E4451 /* Repository */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		718150412B6294F9005E4451 /* DTO */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DTO;
-			sourceTree = "<group>";
-		};
-		718150422B6294FE005E4451 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		718150432B629507005E4451 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		718150442B629531005E4451 /* Global */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Global;
-			sourceTree = "<group>";
-		};
 		718150452B629536005E4451 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2C372A422B6B8C37009B7BF6 /* DTO */,
+				2C372A412B6B8C29009B7BF6 /* Service */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -384,6 +396,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
+				2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */,
+				2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */,
+				2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */,
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,

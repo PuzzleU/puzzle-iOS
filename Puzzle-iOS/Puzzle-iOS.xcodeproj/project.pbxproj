@@ -11,6 +11,7 @@
 		2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */; };
 		2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */; };
 		2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */; };
+		2C5310DA2B6E6FB700704371 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C5310D92B6E6FB700704371 /* SnapKit */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
 		7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181500E2B6291D7005E4451 /* AppDelegate.swift */; };
@@ -72,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5310DA2B6E6FB700704371 /* SnapKit in Frameworks */,
 				7181504A2B629709005E4451 /* Kingfisher in Frameworks */,
 				7181504F2B629725005E4451 /* Then in Frameworks */,
 			);
@@ -133,6 +135,13 @@
 				2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		2C5310D72B6E6BF000704371 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		71773C5D2B64BD040041605E /* TabBar */ = {
@@ -209,6 +218,7 @@
 		7181503F2B6294C8005E4451 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2C5310D72B6E6BF000704371 /* Font */,
 				718150172B6291D8005E4451 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -252,6 +262,7 @@
 			packageProductDependencies = (
 				718150492B629709005E4451 /* Kingfisher */,
 				7181504E2B629725005E4451 /* Then */,
+				2C5310D92B6E6FB700704371 /* SnapKit */,
 			);
 			productName = "Puzzle-iOS";
 			productReference = 7181500B2B6291D7005E4451 /* Puzzle-iOS.app */;
@@ -327,8 +338,8 @@
 			mainGroup = 718150022B6291D7005E4451;
 			packageReferences = (
 				718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				7181504C2B62971D005E4451 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				7181504D2B629725005E4451 /* XCRemoteSwiftPackageReference "Then" */,
+				2C5310D82B6E6FB700704371 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 7181500C2B6291D7005E4451 /* Products */;
 			projectDirPath = "";
@@ -751,20 +762,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2C5310D82B6E6FB700704371 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
 		718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.10.2;
-			};
-		};
-		7181504C2B62971D005E4451 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.0;
 			};
 		};
 		7181504D2B629725005E4451 /* XCRemoteSwiftPackageReference "Then" */ = {
@@ -778,6 +789,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2C5310D92B6E6FB700704371 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C5310D82B6E6FB700704371 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		718150492B629709005E4451 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */;

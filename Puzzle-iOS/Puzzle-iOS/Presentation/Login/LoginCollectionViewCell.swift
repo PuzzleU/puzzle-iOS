@@ -69,9 +69,9 @@ class LoginCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func bindData(_ data: String) {
-        loginButtonView.backgroundColor = .yellow
-        loginLabel.text = data
-//        loginImageView.image = data
+    func bindData(_ data: LoginModel) {
+        loginButtonView.backgroundColor = data.color
+        loginLabel.text = data.title
+        loginImageView.image = data.image
     }
 }

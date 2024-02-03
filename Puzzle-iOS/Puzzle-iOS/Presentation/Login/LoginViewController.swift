@@ -46,15 +46,8 @@ extension LoginViewController: UICollectionViewDelegate, UICollectionViewDataSou
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoginCollectionViewCell.cellIdentifier, for: indexPath) as? LoginCollectionViewCell
         else { return UICollectionViewCell()}
         
-        cell.bindData("HI")
+        cell.bindData(LoginButtonData[indexPath.row])
         
         return cell
-    }
-}
-
-extension LoginViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 330.0, height: 52.0)
     }
 }

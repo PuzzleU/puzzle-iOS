@@ -43,6 +43,7 @@ final class LoginView: UIView {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .vertical
             layout.minimumLineSpacing = 22
+            layout.itemSize = CGSize(width: 330.0, height: 52.0)
             
             $0.collectionViewLayout = layout
             $0.isScrollEnabled = false

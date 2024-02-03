@@ -1,0 +1,114 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  ############# version #############
+
+
+  desc "Set Marketing and Build version"
+  lane :set_version do |version|
+    increment_version_number(
+      version_number: version[:version],
+      xcodeproj: "./Puzzle-iOS.xcodeproj"
+    )
+  
+    increment_build_number(
+      build_number: Time.new.strftime("%Y.%m%d.%H%M"), # 2024.0202.0415
+      xcodeproj: "./Puzzle-iOS.xcodeproj"
+    )
+  end
+
+  
+  ############# beta #############
+
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do |version|
+    version = version[:version]
+
+    match(
+      type: "appstore",
+      app_identifier: "com.puzzle.PuzzleU-iOS",
+      readonly: true
+    )
+
+    if version
+      puts "버전 정보: #{version}"
+      set_version(version: version)
+    else 
+      puts "버전 입력 X"
+      increment_build_number(
+        build_number: Time.new.strftime("%Y.%m%d.%H%M"),
+        xcodeproj: "./Puzzle-iOS.xcodeproj"
+      )
+    end
+
+    build_app(workspace: "Puzzle-iOS.xcworkspace", scheme: "Puzzle-iOS")
+
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+
+    # ✅ Slack 설정.
+    slack(
+      username: "이명진",
+      message: "TestFlight 배포 성공.",
+      icon_url: "",
+      slack_url: ENV["PUZZLE_SLACK"],
+      payload: { "Version": version }
+    )
+    # ✅ 에러 처리.
+    error do |lane, exception, options|
+      slack(
+        message: "에러 발생 : #{exception}",
+        success: false,
+        slack_url: "https://hooks.slack.com/…"
+      )
+    end
+  end
+
+
+
+  ############# Device Management #############
+
+  desc "Register Devices"
+  lane :register_new_device do  |options|
+    device_name = prompt(text: "Enter the device name: ")
+    device_udid = prompt(text: "Enter the device UDID: ")
+    device_hash = {}
+    device_hash[device_name] = device_udid
+    register_devices(devices: device_hash)
+    match(type: "development", force_for_new_devices: true)
+  end
+
+  ############# match #############
+
+
+  desc "Match all code signing"
+  lane :match_read_only do
+    match(
+      type: "appstore",
+      app_identifier: "com.puzzle.PuzzleU-iOS",
+      readonly: true
+    )
+
+    match(
+      type: "development",
+      app_identifier: "com.puzzle.PuzzleU-iOS",
+      readonly: true
+    )
+  end
+end

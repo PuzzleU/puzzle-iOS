@@ -12,6 +12,7 @@
 		2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */; };
 		2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */; };
 		2C5310DA2B6E6FB700704371 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C5310D92B6E6FB700704371 /* SnapKit */; };
+		2C5310DC2B6E71A600704371 /* temporaryFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5310DB2B6E71A600704371 /* temporaryFile.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
 		7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181500E2B6291D7005E4451 /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppleService.swift; sourceTree = "<group>"; };
 		2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
 		2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		2C5310DB2B6E71A600704371 /* temporaryFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temporaryFile.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		7181500B2B6291D7005E4451 /* Puzzle-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 		2C5310D72B6E6BF000704371 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				2C5310DB2B6E71A600704371 /* temporaryFile.swift */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
 				71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */,
+				2C5310DC2B6E71A600704371 /* temporaryFile.swift in Sources */,
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

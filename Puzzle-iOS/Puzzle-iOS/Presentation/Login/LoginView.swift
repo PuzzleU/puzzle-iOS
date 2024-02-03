@@ -13,7 +13,8 @@ import Then
 final class LoginView: UIView {
     
     private let titleLabel = UILabel()
-    private let loginCollectionView = UICollectionView()
+    lazy var loginCollectionView = UICollectionView(frame: .zero,
+                                                    collectionViewLayout: UICollectionViewLayout())
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,6 +29,8 @@ final class LoginView: UIView {
     }
     
     private func setUI() {
+        self.backgroundColor = .white
+        
         titleLabel.do {
             $0.text = "같은 목표를 향해 함께\n달려나갈 팀원을 찾으세요."
             $0.font = .systemFont(ofSize: 30)
@@ -40,7 +43,6 @@ final class LoginView: UIView {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .vertical
             layout.minimumLineSpacing = 22
-            layout.itemSize = CGSize(width: 330.0, height: 52.0)
             
             $0.collectionViewLayout = layout
             $0.isScrollEnabled = false
@@ -54,17 +56,17 @@ final class LoginView: UIView {
     }
     
     private func setLayout() {
+        titleLabel.snp.makeConstraints() {
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(429)
+            $0.centerX.equalToSuperview()
+            $0.leading.equalToSuperview().inset(39)
+        } 
+        
         loginCollectionView.snp.makeConstraints() {
-            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(19)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-19)
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().inset(22)
             $0.height.equalTo(136)
         }
-        
-        titleLabel.snp.makeConstraints() {
-            $0.bottom.equalTo(loginCollectionView.snp.top).offset(80)
-            $0.centerX.equalToSuperview()
-            $0.leading.equalToSuperview().inset(39)
-        } 
     }
 }

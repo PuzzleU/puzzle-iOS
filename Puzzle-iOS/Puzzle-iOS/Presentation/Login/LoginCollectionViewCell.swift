@@ -12,6 +12,8 @@ import Then
 
 class LoginCollectionViewCell: UICollectionViewCell {
     
+    static let cellIdentifier: String = "LoginCollectionViewCell"
+    
     private let loginButtonView = UIView()
     private let loginImageView = UIImageView()
     private let loginLabel = UILabel()
@@ -29,6 +31,10 @@ class LoginCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUI() {
+        loginButtonView.do {
+            $0.layer.cornerRadius = 15
+        }
+        
         loginButtonView.do {
             $0.backgroundColor = .yellow
         }
@@ -66,6 +72,6 @@ class LoginCollectionViewCell: UICollectionViewCell {
     func bindData(_ data: String) {
         loginButtonView.backgroundColor = .yellow
         loginLabel.text = data
-        loginImageView.image = data
+//        loginImageView.image = data
     }
 }

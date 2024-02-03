@@ -8,13 +8,13 @@
 import Foundation
 import Combine
 
-protocol AuthAppleService {
-    func login() -> AnyPublisher<String, Error>
-} 
-
-final class DefaultAuthAppleService: AuthAppleService {
-    func login() -> AnyPublisher<String, Error> {
-        <#code#>
-    }
-    
-}
+//protocol AuthAppleService {
+//    func login() -> AnyPublisher<String, Error>
+//} 
+//
+//final class DefaultAuthAppleService: AuthAppleService {
+//    func login() -> AnyPublisher<String, Error> {
+//        <#code#>
+//    }
+//    
+//}

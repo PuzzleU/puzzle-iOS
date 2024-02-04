@@ -8,13 +8,13 @@
 import Foundation
 import Combine
 
-protocol AuthKakaoService {
-    func login() -> AnyPublisher<String, Error>
-} 
-
-final class DefaultAuthKakaoService: AuthKakaoService {
-    func login() -> AnyPublisher<String, Error> {
-        <#code#>
-    }
-    
-}
+//protocol AuthKakaoService {
+//    func login() -> AnyPublisher<String, Error>
+//} 
+//
+//final class DefaultAuthKakaoService: AuthKakaoService {
+//    func login() -> AnyPublisher<String, Error> {
+//        <#code#>
+//    }
+//    
+//}

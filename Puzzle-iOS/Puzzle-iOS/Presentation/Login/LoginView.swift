@@ -14,15 +14,31 @@ final class LoginView: UIView {
     
     // MARK: - UI Components
     
-    private let titleLabel = UILabel()
-    lazy var loginCollectionView = UICollectionView(frame: .zero,
-                                                    collectionViewLayout: UICollectionViewLayout())
+    private let titleLabel = UILabel().then {
+        $0.text = "같은 목표를 향해 함께\n달려나갈 팀원을 찾으세요."
+        $0.font = .systemFont(ofSize: 30)
+        $0.textColor = .black
+        $0.textAlignment = .left
+        $0.numberOfLines = 2
+    }
+    
+    lazy var loginCollectionView = UICollectionView().then {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 22
+        layout.itemSize = CGSize(width: 330.0, height: 52.0)
+        
+        $0.frame = .zero
+        $0.collectionViewLayout = layout
+        $0.isScrollEnabled = false
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setUI()
-        setHierachy()
+        self.backgroundColor = .white
+        
+        setHierarchy()
         setLayout()
     }
     
@@ -30,31 +46,9 @@ final class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Custom Methods
-    
-    private func setUI() {
-        self.backgroundColor = .white
-        
-        titleLabel.do {
-            $0.text = "같은 목표를 향해 함께\n달려나갈 팀원을 찾으세요."
-            $0.font = .systemFont(ofSize: 30)
-            $0.textColor = .black
-            $0.textAlignment = .left
-            $0.numberOfLines = 2
-        }
-        
-        loginCollectionView.do {
-            let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .vertical
-            layout.minimumLineSpacing = 22
-            layout.itemSize = CGSize(width: 330.0, height: 52.0)
-            
-            $0.collectionViewLayout = layout
-            $0.isScrollEnabled = false
-        }
-    }
-    
-    private func setHierachy() {
+    // MARK: - UI methods
+
+    private func setHierarchy() {
         [titleLabel, loginCollectionView].forEach {
             self.addSubview($0)
         }

@@ -18,15 +18,22 @@ final class LoginCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
-    private let loginButtonView = UIView()
+    private let loginButtonView = UIView().then {
+        $0.layer.cornerRadius = 15
+    }
+    
+    private let loginLabel = UILabel().then {
+        $0.text = "로그인"
+        $0.font = .systemFont(ofSize: 14)
+        $0.textColor = .black
+    }
+    
     private let loginImageView = UIImageView()
-    private let loginLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setUI()
-        setHierachy()
+        setHierarchy()
         setLayout()
     }
     
@@ -36,23 +43,15 @@ final class LoginCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Custom Methods
     
-    private func setUI() {
-        loginButtonView.do {
-            $0.layer.cornerRadius = 15
-        }
-        
-        loginButtonView.do {
-            $0.backgroundColor = .yellow
-        }
-        
-        loginLabel.do {
-            $0.text = "로그인"
-            $0.font = .systemFont(ofSize: 14)
-            $0.textColor = .black
-        }
+    func bindData(_ data: LoginModel) {
+        loginButtonView.backgroundColor = data.color
+        loginLabel.text = data.title
+        loginImageView.image = data.image
     }
     
-    private func setHierachy() {
+    // MARK: - UI Methods
+    
+    private func setHierarchy() {
         self.addSubview(loginButtonView)
         [loginLabel, loginImageView].forEach() {
             self.addSubview($0)
@@ -73,11 +72,5 @@ final class LoginCollectionViewCell: UICollectionViewCell {
             $0.trailing.equalTo(loginLabel.snp.leading).offset(7)
             $0.size.equalTo(20)
         }
-    }
-    
-    func bindData(_ data: LoginModel) {
-        loginButtonView.backgroundColor = data.color
-        loginLabel.text = data.title
-        loginImageView.image = data.image
     }
 }

@@ -22,13 +22,13 @@ final class LoginView: UIView {
         $0.numberOfLines = 2
     }
     
-    lazy var loginCollectionView = UICollectionView().then {
+    lazy var loginCollectionView = UICollectionView(frame: .zero,
+                                                    collectionViewLayout: UICollectionViewLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 22
         layout.itemSize = CGSize(width: 330.0, height: 52.0)
         
-        $0.frame = .zero
         $0.collectionViewLayout = layout
         $0.isScrollEnabled = false
     }

@@ -12,6 +12,7 @@ final class LoginViewModel: ViewModelType {
     
     private let cancelBag = CancelBag()
     private let userInfoPublisher = PassthroughSubject<Bool, Never>()
+    static let kakaoKEY: String = Bundle.main.object(forInfoDictionaryKey: Config.Keys.Plist.kakaoKey) as? String ?? "오잉"
     
     struct Input {
         let kakaoTapped: AnyPublisher<Void, Never>
@@ -26,6 +27,7 @@ final class LoginViewModel: ViewModelType {
         input.kakaoTapped
             .sink {
                 print("카카오 로그인 시작되는 코드")
+                print(LoginViewModel.kakaoKEY)
             }
             .store(in: cancelBag)
         

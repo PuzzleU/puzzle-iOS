@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C1765002B71FB1D00CD789E /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 2C1764FF2B71FB1D00CD789E /* KakaoSDKCommon */; };
+		2C1765082B7279A000CD789E /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1765072B7279A000CD789E /* StringLiterals.swift */; };
 		2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */; };
 		2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */; };
 		2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		2C1765012B7208FB00CD789E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		2C1765072B7279A000CD789E /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 		2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthKakaoService.swift; sourceTree = "<group>"; };
 		2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppleService.swift; sourceTree = "<group>"; };
 		2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C1765062B72799400CD789E /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+				2C1765072B7279A000CD789E /* StringLiterals.swift */,
+			);
+			path = Literals;
+			sourceTree = "<group>";
+		};
 		2C372A3A2B6B7A60009B7BF6 /* AuthService */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +325,7 @@
 		7181503F2B6294C8005E4451 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2C1765062B72799400CD789E /* Literals */,
 				2C55EEC12B71203B001AD42E /* Config */,
 				2C5310EE2B6E8C8F00704371 /* Extension */,
 				2C5310D72B6E6BF000704371 /* Font */,
@@ -518,6 +529,7 @@
 				2C5310E32B6E782B00704371 /* LoginCollectionViewCell.swift in Sources */,
 				2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */,
 				2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */,
+				2C1765082B7279A000CD789E /* StringLiterals.swift in Sources */,
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,

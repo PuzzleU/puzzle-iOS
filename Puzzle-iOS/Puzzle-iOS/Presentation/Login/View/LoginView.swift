@@ -15,7 +15,7 @@ final class LoginView: UIView {
     // MARK: - UI Components
     
     private let titleLabel = UILabel().then {
-        $0.text = "같은 목표를 향해 함께\n달려나갈 팀원을 찾으세요."
+        $0.text = StringLiterals.Login.title
         $0.font = .systemFont(ofSize: 30)
         $0.textColor = .black
         $0.textAlignment = .left

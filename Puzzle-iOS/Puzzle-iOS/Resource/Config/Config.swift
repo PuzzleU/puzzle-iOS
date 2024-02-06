@@ -8,9 +8,5 @@
 import Foundation
 
 enum Config {
-    enum Keys {
-        enum Plist {
-            static let kakaoKey = "KAKAO_NATIVE_APPKEY"
-        }
-    }
+    static let kakaoNativeAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APPKEY"] as! String
 }

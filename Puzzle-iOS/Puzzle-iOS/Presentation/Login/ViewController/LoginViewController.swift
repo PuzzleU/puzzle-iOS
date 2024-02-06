@@ -66,7 +66,9 @@ final class LoginViewController: UIViewController {
         output.userInfoPublisher
             .receive(on: RunLoop.main)
             .sink { value in
-                print(value)
+                if value {
+                    self.pushToViewController()
+                }
             }
             .store(in: self.cancelBag)
     }

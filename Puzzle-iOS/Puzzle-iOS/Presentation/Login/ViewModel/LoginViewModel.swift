@@ -110,7 +110,7 @@ extension LoginViewModel: ASAuthorizationControllerDelegate {
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
-        //        authorizationController.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+        authorizationController.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
         authorizationController.performRequests()
     }
     
@@ -121,17 +121,16 @@ extension LoginViewModel: ASAuthorizationControllerDelegate {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             
             /// 계정 정보 가져오기
-            if  let userIdentifier = appleIDCredential.authorizationCode,
-                let identityToken = appleIDCredential.identityToken,
-                let tokenStr = String(data: identityToken, encoding: .utf8) {
-                
-                print("User ID : \(userIdentifier)")
-                print("token : \(String(describing: tokenStr))")
-                
-                // 애플 로그인 서버 통신 구현
-                
-                userInfoPublisher.send(true)
-            }
+            let userIdentifier = appleIDCredential.authorizationCode
+            guard let identityToken = appleIDCredential.identityToken,
+                  let tokenStr = String(data: identityToken, encoding: .utf8) else { return }
+            
+            print("User ID : \(String(describing: userIdentifier))")
+            print("token : \(String(describing: tokenStr))")
+            
+            // 애플 로그인 서버 통신 구현
+            
+            userInfoPublisher.send(true)
         default:
             break
         }

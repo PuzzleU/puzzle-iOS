@@ -15,20 +15,20 @@ final class LoginView: UIView {
     // MARK: - UI Components
     
     private let titleLabel = UILabel().then {
-        $0.text = "같은 목표를 향해 함께\n달려나갈 팀원을 찾으세요."
+        $0.text = StringLiterals.Login.title
         $0.font = .systemFont(ofSize: 30)
         $0.textColor = .black
         $0.textAlignment = .left
         $0.numberOfLines = 2
     }
     
-    lazy var loginCollectionView = UICollectionView().then {
+    lazy var loginCollectionView = UICollectionView(frame: .zero,
+                                                    collectionViewLayout: UICollectionViewLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 22
         layout.itemSize = CGSize(width: 330.0, height: 52.0)
         
-        $0.frame = .zero
         $0.collectionViewLayout = layout
         $0.isScrollEnabled = false
     }

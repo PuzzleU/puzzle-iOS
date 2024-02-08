@@ -12,7 +12,7 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import AuthenticationServices
 
-final class LoginViewModel: ViewModelType {
+final class LoginViewModel: NSObject, ViewModelType {
     
     // MARK: - Properties
     
@@ -102,26 +102,25 @@ final class LoginViewModel: ViewModelType {
 
 //MARK: - Apple Login
 
-extension LoginViewModel {
+extension LoginViewModel: ASAuthorizationControllerDelegate {
     private func requestAppleLogin() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self as? ASAuthorizationControllerDelegate
+        authorizationController.delegate = self
+        //        authorizationController.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
         authorizationController.performRequests()
     }
     
-    // ASAuthorizationControllerDelegate
-    // 로그인 성공
+    /// 애플 로그인 성공
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
+            /// Applie ID
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
             
+            /// 계정 정보 가져오기
             if  let userIdentifier = appleIDCredential.authorizationCode,
                 let identityToken = appleIDCredential.identityToken,
                 let tokenStr = String(data: identityToken, encoding: .utf8) {
@@ -133,20 +132,12 @@ extension LoginViewModel {
                 
                 userInfoPublisher.send(true)
             }
-            
-        case let passwordCredential as ASPasswordCredential:
-            let username = passwordCredential.user
-            let password = passwordCredential.password
-            
-            print("username: \(username)")
-            print("password: \(password)")
-            
         default:
             break
         }
     }
     
-    // 애플 로그인 실패 처리
+    /// 애플 로그인 실패 처리
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("[🍎] Apple Login error - \(error.localizedDescription)")
     }

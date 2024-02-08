@@ -10,6 +10,7 @@ import Combine
 
 import KakaoSDKAuth
 import KakaoSDKUser
+import AuthenticationServices
 
 final class LoginViewModel: ViewModelType {
     
@@ -40,7 +41,7 @@ final class LoginViewModel: ViewModelType {
         
         input.appleTapped
             .sink {
-                print("애플 로그인 시작되는 코드")
+                self.requestAppleLogin()
             }
             .store(in: cancelBag)
         
@@ -87,7 +88,7 @@ final class LoginViewModel: ViewModelType {
             } else {
                 let token = oauthToken.accessToken
                 guard let email = user?.kakaoAccount?.email,
-                      let name = user?.kakaoAccount?.profile?.nickname 
+                      let name = user?.kakaoAccount?.profile?.nickname
                 else {
                     print("email, name 을 받지 못했습니다.")
                     return
@@ -97,6 +98,56 @@ final class LoginViewModel: ViewModelType {
             }
         }
     }
+}
+
+//MARK: - Apple Login
+
+extension LoginViewModel {
+    private func requestAppleLogin() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self as? ASAuthorizationControllerDelegate
+        authorizationController.performRequests()
+    }
     
-    //MARK: - Apple Login
+    // ASAuthorizationControllerDelegate
+    // 로그인 성공
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+            
+            if  let userIdentifier = appleIDCredential.authorizationCode,
+                let identityToken = appleIDCredential.identityToken,
+                let tokenStr = String(data: identityToken, encoding: .utf8) {
+                
+                print("User ID : \(userIdentifier)")
+                print("token : \(String(describing: tokenStr))")
+                
+                // 애플 로그인 서버 통신 구현
+                
+                userInfoPublisher.send(true)
+            }
+            
+        case let passwordCredential as ASPasswordCredential:
+            let username = passwordCredential.user
+            let password = passwordCredential.password
+            
+            print("username: \(username)")
+            print("password: \(password)")
+            
+        default:
+            break
+        }
+    }
+    
+    // 애플 로그인 실패 처리
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("[🍎] Apple Login error - \(error.localizedDescription)")
+    }
 }

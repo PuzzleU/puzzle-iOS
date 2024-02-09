@@ -8,9 +8,10 @@
 import Foundation
 import Combine
 
+import AuthenticationServices
+
 import KakaoSDKAuth
 import KakaoSDKUser
-import AuthenticationServices
 
 final class LoginViewModel: NSObject, ViewModelType {
     
@@ -100,7 +101,7 @@ final class LoginViewModel: NSObject, ViewModelType {
     }
 }
 
-//MARK: - Apple Login
+    //MARK: - Apple Login
 
 extension LoginViewModel: ASAuthorizationControllerDelegate {
     private func requestAppleLogin() {
@@ -121,15 +122,14 @@ extension LoginViewModel: ASAuthorizationControllerDelegate {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             
             /// 계정 정보 가져오기
-            let userIdentifier = appleIDCredential.authorizationCode
+            let userIdentifier = appleIDCredential.user
             guard let identityToken = appleIDCredential.identityToken,
                   let tokenStr = String(data: identityToken, encoding: .utf8) else { return }
             
             print("User ID : \(String(describing: userIdentifier))")
             print("token : \(String(describing: tokenStr))")
             
-            // 애플 로그인 서버 통신 구현
-            
+            // TODO: - 애플 로그인 서버 연동
             userInfoPublisher.send(true)
         default:
             break

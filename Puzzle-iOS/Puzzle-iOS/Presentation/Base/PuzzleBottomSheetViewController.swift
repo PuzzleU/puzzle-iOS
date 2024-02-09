@@ -31,7 +31,7 @@ final class PuzzleBottomSheetViewController: UIViewController {
     }
     private lazy var completeButton = PuzzleMainButton(title: StringLiterals.Onboarding.complete)
     private lazy var cancelButton = UIButton().then {
-        $0.setImage(UIImage.cancel, for: .normal)
+        $0.setImage(UIImage.icCancel, for: .normal)
     }
     
     // MARK: - Life Cycles
@@ -63,7 +63,7 @@ final class PuzzleBottomSheetViewController: UIViewController {
         bottomSheetShown = true
     }
     
-    // MARK: - UI methods
+    //MARK: - UI & Layout
 
     private func setHierarchy() {
         [dimmedView, bottomSheetView].forEach {

@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 @frozen
-enum NaviType {
+enum NavigationBarType {
     case leftTitle /// 좌측 타이틀만
     case centerTitle /// 중앙 타이틀만
     case leftTitleWithLeftButton /// 뒤로가기 버튼 + 좌측 타이틀
@@ -22,8 +22,8 @@ final class PuzzleNavigationBar: UIView {
     
     //MARK: - Properties
     
-    private var naviType: NaviType!
-    private var vc: UIViewController?
+    private var naviType: NavigationBarType!
+    private var viewController: UIViewController?
     private var leftButtonClosure: (() -> Void)?
     
     //MARK: - UI Components
@@ -44,9 +44,9 @@ final class PuzzleNavigationBar: UIView {
     
     // MARK: - Life Cycles
     
-    init(_ vc: UIViewController, type: NaviType) {
+    init(_ viewController: UIViewController, type: NavigationBarType) {
         super.init(frame: .zero)
-        self.vc = vc
+        self.viewController = viewController
         self.setUI(type)
         self.setLayout(type)
         self.setAddTarget(type)
@@ -61,18 +61,17 @@ final class PuzzleNavigationBar: UIView {
 //MARK: - UI & Layout
 
 extension PuzzleNavigationBar {
-    private func setUI(_ type: NaviType) {
+    private func setUI(_ type: NavigationBarType) {
         
         addSubviews(centerTitleLabel, leftTitleLabel, leftButton)
         
         leftButton.isHidden = (type == .leftTitle || type == .centerTitle) // Title만 있을때 버튼 제거
     }
     
-    private func setLayout(_ type: NaviType) {
+    private func setLayout(_ type: NavigationBarType) {
         leftButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.width.height.equalTo(40)
+            $0.leading.equalToSuperview().inset(20)
         }
         
         switch type {
@@ -94,9 +93,7 @@ extension PuzzleNavigationBar {
 
 extension PuzzleNavigationBar {
     func hideNaviBar(_ isHidden: Bool) {
-        UIView.animate(withDuration: 0.1,
-                       delay: 0,
-                       options: .curveEaseInOut) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut) {
             [self.leftTitleLabel, self.centerTitleLabel, self.leftButton].forEach { $0.alpha = isHidden ? 0 : 1 }
         }
     }
@@ -110,7 +107,7 @@ extension PuzzleNavigationBar {
     
     /// 기존 뒤로가기 버튼의 Action을 수정하고 싶을때 사용합니다.
     @discardableResult
-    func resetLeftButtonAction(_ closure: (() -> Void)? = nil, _ type: NaviType) -> Self {
+    func resetLeftButtonAction(_ closure: (() -> Void)? = nil, _ type: NavigationBarType) -> Self {
         self.leftButtonClosure = closure
         self.leftButton.removeTarget(self, action: nil, for: .touchUpInside)
         if closure != nil {
@@ -128,7 +125,7 @@ extension PuzzleNavigationBar {
         return self
     }
     
-    private func setAddTarget(_ type: NaviType) {
+    private func setAddTarget(_ type: NavigationBarType) {
         if type == .leftTitleWithLeftButton || type == .centerTitleWithLeftButton {
             leftButton.addTarget(self, action: #selector(popToPreviousVC), for: .touchUpInside)
         }
@@ -138,15 +135,7 @@ extension PuzzleNavigationBar {
 extension PuzzleNavigationBar {
     @objc
     private func popToPreviousVC() {
-        guard let vc = vc else {
-            return
-        }
-        
-        vc.navigationController?.popViewController(animated: true)
-        if vc.presentingViewController != nil {
-            self.vc?.dismiss(animated: true)
-            
-        }
+        self.viewController?.popOrDismissViewController()
     }
     
     @objc

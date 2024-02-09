@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
@@ -14,6 +15,8 @@ final class PuzzleBottomSheetViewController: UIViewController {
 
     // MARK: - Properties
     
+    @Published private var bottomSheetShown = false
+    private var cancelBag = CancelBag()
     private var bottomHeight = 700.0
     
     // MARK: - UI Components
@@ -24,10 +27,12 @@ final class PuzzleBottomSheetViewController: UIViewController {
         $0.backgroundColor = .puzzleRealWhite
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         $0.layer.cornerRadius = 20
+        $0.layer.masksToBounds = true
     }
     private lazy var completeButton = PuzzleMainButton(title: StringLiterals.Onboarding.complete)
     private lazy var cancelButton = UIButton().then {
         $0.setImage(UIImage.cancel, for: .normal)
+        $0.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }
     
     // MARK: - Life Cycles
@@ -49,6 +54,13 @@ final class PuzzleBottomSheetViewController: UIViewController {
 
         setHierarchy()
         setLayout()
+        setPublisher()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        bottomSheetShown = true
     }
     
     // MARK: - UI methods
@@ -80,14 +92,51 @@ final class PuzzleBottomSheetViewController: UIViewController {
             $0.size.equalTo(25)
         }
     }
+    
+    private func setPublisher() {
+        $bottomSheetShown
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] shown in
+                self?.updateBottomSheetUI(shown: shown)
+            }
+            .store(in: cancelBag)
+    }
 }
 
 extension PuzzleBottomSheetViewController {
-    func showBottomSheet() {
+    private func updateBottomSheetUI(shown: Bool) {
+        /// bottomSheet 표출
+        if shown {
+            bottomSheetView.snp.remakeConstraints {
+                $0.bottom.leading.trailing.equalToSuperview()
+                $0.top.equalToSuperview().inset(self.view.frame.height - bottomHeight)
+            }
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
+                self.dimmedView.backgroundColor = .black.withAlphaComponent(0.5)
+                self.view.layoutIfNeeded()
+            }
+        } 
         
+        /// bottomSheet 제거
+        else {
+            bottomSheetView.snp.remakeConstraints {
+                $0.bottom.leading.trailing.equalToSuperview()
+            }
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+                self.dimmedView.backgroundColor = .clear
+                self.view.layoutIfNeeded()
+            }, completion: { _ in 
+                if self.presentingViewController != nil {
+                    self.dismiss(animated: true)
+                }
+            })
+        }
     }
     
-    func hideBottomSheet() {
-        
+    @objc
+    private func cancelButtonTapped() {
+        bottomSheetShown = false
     }
 }

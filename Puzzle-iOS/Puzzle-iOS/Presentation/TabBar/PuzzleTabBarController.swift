@@ -11,7 +11,7 @@ import Then
 
 class PuzzleTabBarController: UITabBarController {
     
-    // MARK: - View Life Cycle
+    //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class PuzzleTabBarController: UITabBarController {
     }
 }
 
-// MARK: - Methods
+//MARK: - Methods
 
 extension PuzzleTabBarController {
     private func setUI() {

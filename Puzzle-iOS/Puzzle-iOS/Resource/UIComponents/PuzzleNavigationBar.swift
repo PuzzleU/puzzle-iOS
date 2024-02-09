@@ -20,19 +20,29 @@ enum NaviType {
 
 final class PuzzleNavigationBar: UIView {
     
-    // MARK: - Properties
+    //MARK: - Properties
     
     private var naviType: NaviType!
     private var vc: UIViewController?
     private var leftButtonClosure: (() -> Void)?
     
-    // MARK: - UI Components
+    //MARK: - UI Components
     
-    private let leftTitleLabel = UILabel()
-    private let centerTitleLabel = UILabel()
-    let leftButton = UIButton()
+    private let leftTitleLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 18)
+        $0.textColor = .black
+    }
     
-    // MARK: - initialization
+    private let centerTitleLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 18)
+        $0.textColor = .black
+    }
+    
+    let leftButton = UIButton().then {
+        $0.setImage(UIImage(resource: .icArrow), for: .normal)
+    }
+    
+    // MARK: - Life Cycles
     
     init(_ vc: UIViewController, type: NaviType) {
         super.init(frame: .zero)
@@ -48,7 +58,39 @@ final class PuzzleNavigationBar: UIView {
     
 }
 
-// MARK: - Methods
+//MARK: - UI & Layout
+
+extension PuzzleNavigationBar {
+    private func setUI(_ type: NaviType) {
+        
+        addSubviews(centerTitleLabel, leftTitleLabel, leftButton)
+        
+        leftButton.isHidden = (type == .leftTitle || type == .centerTitle) // Title만 있을때 버튼 제거
+    }
+    
+    private func setLayout(_ type: NaviType) {
+        leftButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.width.height.equalTo(40)
+        }
+        
+        switch type {
+        case .leftTitle, .leftTitleWithLeftButton:
+            leftTitleLabel.snp.makeConstraints {
+                $0.centerY.equalToSuperview()
+                $0.leading.equalTo(leftButton.snp.trailing).offset(16)
+                $0.leading.greaterThanOrEqualToSuperview().offset(20)
+            }
+        case .centerTitle, .centerTitleWithLeftButton:
+            centerTitleLabel.snp.makeConstraints {
+                $0.center.equalToSuperview()
+            }
+        }
+    }
+}
+
+//MARK: - Custom methods
 
 extension PuzzleNavigationBar {
     func hideNaviBar(_ isHidden: Bool) {
@@ -66,6 +108,7 @@ extension PuzzleNavigationBar {
         return self
     }
     
+    /// 기존 뒤로가기 버튼의 Action을 수정하고 싶을때 사용합니다.
     @discardableResult
     func resetLeftButtonAction(_ closure: (() -> Void)? = nil, _ type: NaviType) -> Self {
         self.leftButtonClosure = closure
@@ -86,19 +129,20 @@ extension PuzzleNavigationBar {
     }
     
     private func setAddTarget(_ type: NaviType) {
-        self.naviType = type
-        self.leftButton.addTarget(self, action: #selector(popToPreviousVC), for: .touchUpInside)
-        
+        if type == .leftTitleWithLeftButton || type == .centerTitleWithLeftButton {
+            leftButton.addTarget(self, action: #selector(popToPreviousVC), for: .touchUpInside)
+        }
     }
 }
-
-// MARK: - @objc Function
 
 extension PuzzleNavigationBar {
     @objc
     private func popToPreviousVC() {
-        guard let vc = vc else { return }
-        self.vc?.navigationController?.popViewController(animated: true)
+        guard let vc = vc else {
+            return
+        }
+        
+        vc.navigationController?.popViewController(animated: true)
         if vc.presentingViewController != nil {
             self.vc?.dismiss(animated: true)
             
@@ -108,101 +152,5 @@ extension PuzzleNavigationBar {
     @objc
     private func leftButtonDidTap() {
         self.leftButtonClosure?()
-    }
-}
-
-// MARK: - UI & Layout
-
-extension PuzzleNavigationBar {
-    private func setUI(_ type: NaviType) {
-        self.naviType = type
-        self.backgroundColor = .puzzleWhite
-        
-        switch type {
-        case .leftTitle:
-            leftTitleLabel.font = .systemFont(ofSize: 18)
-            leftTitleLabel.textColor = .black
-        case .centerTitle:
-            centerTitleLabel.font = .systemFont(ofSize: 18)
-            centerTitleLabel.textColor = .black
-        case .leftTitleWithLeftButton:
-            leftTitleLabel.text = ""
-            leftTitleLabel.font = .systemFont(ofSize: 18)
-            leftTitleLabel.textColor = .black
-            leftButton.setImage(UIImage(resource: .icArrow), for: .normal)
-        case .centerTitleWithLeftButton:
-            centerTitleLabel.text = ""
-            centerTitleLabel.font = .systemFont(ofSize: 18)
-            centerTitleLabel.textColor = .black
-            leftButton.setImage(UIImage(resource: .icArrow), for: .normal)
-        }
-    }
-    
-    private func setCenterTitleWithLeftButton() {
-        centerTitleLabel.text = ""
-        centerTitleLabel.font = .systemFont(ofSize: 18)
-        centerTitleLabel.textColor = .black
-        centerTitleLabel.isHidden = false
-        leftButton.isHidden = false
-        leftButton.setImage(UIImage(resource: .icArrow), for: .normal)
-    }
-    
-    private func setLayout(_ type: NaviType) {
-        switch type {
-        case .leftTitle:
-            setLeftTitleLayout()
-        case .centerTitle:
-            setCenterTitleLayout()
-        case .leftTitleWithLeftButton:
-            setLeftTitleWithLeftButtonLayout()
-        case .centerTitleWithLeftButton:
-            setCenterTitleWithLeftButtonLayout()
-        }
-    }
-    
-    private func setLeftTitleLayout() {
-        self.addSubview(leftTitleLabel)
-        
-        leftTitleLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(20)
-        }
-    }
-    
-    private func setCenterTitleLayout() {
-        self.addSubview(centerTitleLabel)
-        
-        centerTitleLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-    }
-    
-    private func setLeftTitleWithLeftButtonLayout() {
-        self.addSubviews(leftButton, leftTitleLabel)
-        
-        leftButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.width.height.equalTo(40)
-        }
-        
-        leftTitleLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalTo(leftButton.snp.trailing).offset(16)
-        }
-    }
-    
-    private func setCenterTitleWithLeftButtonLayout() {
-        self.addSubviews(leftButton, centerTitleLabel)
-        
-        leftButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.width.height.equalTo(40)
-        }
-        
-        centerTitleLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
     }
 }

@@ -11,6 +11,8 @@
 		2C1765082B7279A000CD789E /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1765072B7279A000CD789E /* StringLiterals.swift */; };
 		2C17650A2B7283A500CD789E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1765092B7283A500CD789E /* UIViewController+.swift */; };
 		2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */; };
+		2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B1772B764A7000A9476D /* OnboardingPlusViewController.swift */; };
+		2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B1792B764A8300A9476D /* OnboardingPlusView.swift */; };
 		2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */; };
 		2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */; };
 		2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */; };
@@ -66,6 +68,8 @@
 		2C1765092B7283A500CD789E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		2C33B1712B763CFB00A9476D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleMainButton.swift; sourceTree = "<group>"; };
+		2C33B1772B764A7000A9476D /* OnboardingPlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPlusViewController.swift; sourceTree = "<group>"; };
+		2C33B1792B764A8300A9476D /* OnboardingPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPlusView.swift; sourceTree = "<group>"; };
 		2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthKakaoService.swift; sourceTree = "<group>"; };
 		2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppleService.swift; sourceTree = "<group>"; };
 		2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
@@ -144,6 +148,31 @@
 				2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		2C33B1762B764A2400A9476D /* OnboardingPlus */ = {
+			isa = PBXGroup;
+			children = (
+				2C33B17C2B764A9800A9476D /* View */,
+				2C33B17B2B764A8700A9476D /* ViewController */,
+			);
+			path = OnboardingPlus;
+			sourceTree = "<group>";
+		};
+		2C33B17B2B764A8700A9476D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2C33B1772B764A7000A9476D /* OnboardingPlusViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2C33B17C2B764A9800A9476D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C33B1792B764A8300A9476D /* OnboardingPlusView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2C372A3A2B6B7A60009B7BF6 /* AuthService */ = {
@@ -361,6 +390,7 @@
 		718150462B62953F005E4451 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2C33B1762B764A2400A9476D /* OnboardingPlus */,
 				2C33B1722B76402600A9476D /* Base */,
 				2C5310EB2B6E8BC600704371 /* Protocol */,
 				2C5310DD2B6E71F200704371 /* Login */,
@@ -540,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
 				2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */,
 				2C5310E32B6E782B00704371 /* LoginCollectionViewCell.swift in Sources */,
@@ -555,6 +586,7 @@
 				71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */,
 				2C55EEC02B711BB5001AD42E /* Config.swift in Sources */,
 				2C5310DC2B6E71A600704371 /* temporaryFile.swift in Sources */,
+				2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,

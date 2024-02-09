@@ -32,7 +32,6 @@ final class PuzzleBottomSheetViewController: UIViewController {
     private lazy var completeButton = PuzzleMainButton(title: StringLiterals.Onboarding.complete)
     private lazy var cancelButton = UIButton().then {
         $0.setImage(UIImage.cancel, for: .normal)
-        $0.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }
     
     // MARK: - Life Cycles
@@ -55,6 +54,7 @@ final class PuzzleBottomSheetViewController: UIViewController {
         setHierarchy()
         setLayout()
         setPublisher()
+        setDismissAction()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,6 +93,8 @@ final class PuzzleBottomSheetViewController: UIViewController {
         }
     }
     
+    // MARK: - Publish methods
+    
     private func setPublisher() {
         $bottomSheetShown
             .receive(on: DispatchQueue.main)
@@ -102,6 +104,8 @@ final class PuzzleBottomSheetViewController: UIViewController {
             .store(in: cancelBag)
     }
 }
+
+// MARK: - Update BottomSheet UI
 
 extension PuzzleBottomSheetViewController {
     private func updateBottomSheetUI(shown: Bool) {
@@ -136,7 +140,18 @@ extension PuzzleBottomSheetViewController {
     }
     
     @objc
-    private func cancelButtonTapped() {
+    private func dismissBottomSheet() {
         bottomSheetShown = false
+    }
+    
+    private func setDismissAction() {
+        cancelButton.addTarget(self, action: #selector(dismissBottomSheet), for: .touchUpInside)
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissBottomSheet))
+        swipeGesture.direction = .down
+        self.bottomSheetView.addGestureRecognizer(swipeGesture)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissBottomSheet))
+        self.dimmedView.addGestureRecognizer(tapGesture)
     }
 }

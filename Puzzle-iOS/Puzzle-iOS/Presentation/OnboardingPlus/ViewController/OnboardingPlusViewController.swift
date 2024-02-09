@@ -23,9 +23,6 @@ final class OnboardingPlusViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { [weak self] timer in
-            self?.showToast(message: "입학 이전 연도는 선택하실 수 없습니다.")
-        }
     }
     
 }

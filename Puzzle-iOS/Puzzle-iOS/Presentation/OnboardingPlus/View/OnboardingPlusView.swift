@@ -9,9 +9,6 @@ import UIKit
 
 final class OnboardingPlusView: UIView {
 
-    // MARK: - UI Components
-    
-    private lazy var testButton = PuzzleMainButton(title: "다음")
     
     // MARK: - Life Cycles
     
@@ -19,7 +16,6 @@ final class OnboardingPlusView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = .puzzleRealWhite
-        self.addSubview(testButton)
     }
     
     required init?(coder: NSCoder) {

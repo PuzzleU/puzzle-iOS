@@ -12,4 +12,9 @@ enum StringLiterals {
         static let title = "같은 목표를 향해 함께\n달려나갈 팀원을 찾으세요."
         static let login = "로그인"
     }
+    
+    enum Onboarding {
+        static let complete = "항목 저장"
+    }
+    
 }

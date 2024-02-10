@@ -13,6 +13,8 @@
 		2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */; };
 		2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B1772B764A7000A9476D /* OnboardingPlusViewController.swift */; };
 		2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B1792B764A8300A9476D /* OnboardingPlusView.swift */; };
+		2C33B17E2B76537300A9476D /* PuzzleBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B17D2B76537300A9476D /* PuzzleBottomSheetViewController.swift */; };
+		2C33B1802B76595900A9476D /* PuzzleBottomSheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B17F2B76595900A9476D /* PuzzleBottomSheetType.swift */; };
 		2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */; };
 		2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */; };
 		2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */; };
@@ -77,6 +79,8 @@
 		2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleMainButton.swift; sourceTree = "<group>"; };
 		2C33B1772B764A7000A9476D /* OnboardingPlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPlusViewController.swift; sourceTree = "<group>"; };
 		2C33B1792B764A8300A9476D /* OnboardingPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPlusView.swift; sourceTree = "<group>"; };
+		2C33B17D2B76537300A9476D /* PuzzleBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBottomSheetViewController.swift; sourceTree = "<group>"; };
+		2C33B17F2B76595900A9476D /* PuzzleBottomSheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBottomSheetType.swift; sourceTree = "<group>"; };
 		2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthKakaoService.swift; sourceTree = "<group>"; };
 		2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppleService.swift; sourceTree = "<group>"; };
 		2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */,
+				2C33B17D2B76537300A9476D /* PuzzleBottomSheetViewController.swift */,
+				2C33B17F2B76595900A9476D /* PuzzleBottomSheetType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -605,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
+				2C33B1802B76595900A9476D /* PuzzleBottomSheetType.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
 				2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */,
@@ -629,6 +636,7 @@
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
 				2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */,
 				71814A872B76568B00B23378 /* UIView+.swift in Sources */,
+				2C33B17E2B76537300A9476D /* PuzzleBottomSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

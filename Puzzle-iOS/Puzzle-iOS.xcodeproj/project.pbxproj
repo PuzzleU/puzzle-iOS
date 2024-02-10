@@ -20,7 +20,6 @@
 		2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */; };
 		2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */; };
 		2C5310DA2B6E6FB700704371 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C5310D92B6E6FB700704371 /* SnapKit */; };
-		2C5310DC2B6E71A600704371 /* temporaryFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5310DB2B6E71A600704371 /* temporaryFile.swift */; };
 		2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5310DE2B6E71FF00704371 /* LoginView.swift */; };
 		2C5310E32B6E782B00704371 /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5310E22B6E782B00704371 /* LoginCollectionViewCell.swift */; };
 		2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5310E42B6E7B8700704371 /* LoginViewController.swift */; };
@@ -34,6 +33,14 @@
 		2C55EEC02B711BB5001AD42E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF2B711BB5001AD42E /* Config.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
+		71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A842B76554500B23378 /* PuzzleNavigationBar.swift */; };
+		71814A872B76568B00B23378 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A862B76568B00B23378 /* UIView+.swift */; };
+		71814A892B77353900B23378 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A882B77353900B23378 /* FontLiterals.swift */; };
+		71814AA82B775CEE00B23378 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA72B77599800B23378 /* Pretendard-Bold.otf */; };
+		71814AA92B775CF100B23378 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA32B77599800B23378 /* Pretendard-ExtraBold.otf */; };
+		71814AAA2B775CF300B23378 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA42B77599800B23378 /* Pretendard-Medium.otf */; };
+		71814AAB2B775CF500B23378 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA52B77599800B23378 /* Pretendard-Regular.otf */; };
+		71814AAC2B775CF600B23378 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA62B77599800B23378 /* Pretendard-SemiBold.otf */; };
 		7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181500E2B6291D7005E4451 /* AppDelegate.swift */; };
 		718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150102B6291D7005E4451 /* SceneDelegate.swift */; };
 		718150132B6291D7005E4451 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150122B6291D7005E4451 /* ViewController.swift */; };
@@ -78,7 +85,6 @@
 		2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppleService.swift; sourceTree = "<group>"; };
 		2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
 		2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
-		2C5310DB2B6E71A600704371 /* temporaryFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temporaryFile.swift; sourceTree = "<group>"; };
 		2C5310DE2B6E71FF00704371 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2C5310E22B6E782B00704371 /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C5310E42B6E7B8700704371 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +96,14 @@
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		71814A7F2B74F17100B23378 /* Puzzle-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Puzzle-iOS.entitlements"; sourceTree = "<group>"; };
+		71814A842B76554500B23378 /* PuzzleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleNavigationBar.swift; sourceTree = "<group>"; };
+		71814A862B76568B00B23378 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		71814A882B77353900B23378 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
+		71814AA32B77599800B23378 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		71814AA42B77599800B23378 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		71814AA52B77599800B23378 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		71814AA62B77599800B23378 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		71814AA72B77599800B23378 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		7181500B2B6291D7005E4451 /* Puzzle-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7181500E2B6291D7005E4451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		718150102B6291D7005E4451 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1765072B7279A000CD789E /* StringLiterals.swift */,
+				71814A882B77353900B23378 /* FontLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -223,12 +238,16 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		2C5310D72B6E6BF000704371 /* Font */ = {
+		2C5310D72B6E6BF000704371 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				2C5310DB2B6E71A600704371 /* temporaryFile.swift */,
+				71814AA72B77599800B23378 /* Pretendard-Bold.otf */,
+				71814AA32B77599800B23378 /* Pretendard-ExtraBold.otf */,
+				71814AA42B77599800B23378 /* Pretendard-Medium.otf */,
+				71814AA52B77599800B23378 /* Pretendard-Regular.otf */,
+				71814AA62B77599800B23378 /* Pretendard-SemiBold.otf */,
 			);
-			path = Font;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		2C5310DD2B6E71F200704371 /* Login */ = {
@@ -255,6 +274,7 @@
 			children = (
 				2C5310EF2B6E8CA000704371 /* CancelBag+.swift */,
 				2C1765092B7283A500CD789E /* UIViewController+.swift */,
+				71814A862B76568B00B23378 /* UIView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -307,6 +327,14 @@
 				71773C632B66AB770041605E /* PuzzleTabBarItem.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		71814A832B76546700B23378 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				71814A842B76554500B23378 /* PuzzleNavigationBar.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		718150022B6291D7005E4451 = {
@@ -375,10 +403,11 @@
 		7181503F2B6294C8005E4451 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				71814A832B76546700B23378 /* UIComponents */,
 				2C1765062B72799400CD789E /* Literals */,
 				2C55EEC12B71203B001AD42E /* Config */,
 				2C5310EE2B6E8C8F00704371 /* Extension */,
-				2C5310D72B6E6BF000704371 /* Font */,
+				2C5310D72B6E6BF000704371 /* Fonts */,
 				718150172B6291D8005E4451 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -526,8 +555,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71814AAA2B775CF300B23378 /* Pretendard-Medium.otf in Resources */,
 				718150522B62E05F005E4451 /* .swiftlint.yml in Resources */,
+				71814AA82B775CEE00B23378 /* Pretendard-Bold.otf in Resources */,
+				71814AA92B775CF100B23378 /* Pretendard-ExtraBold.otf in Resources */,
 				7181501B2B6291D8005E4451 /* LaunchScreen.storyboard in Resources */,
+				71814AAB2B775CF500B23378 /* Pretendard-Regular.otf in Resources */,
+				71814AAC2B775CF600B23378 /* Pretendard-SemiBold.otf in Resources */,
 				718150182B6291D8005E4451 /* Assets.xcassets in Resources */,
 				718150162B6291D7005E4451 /* Main.storyboard in Resources */,
 			);
@@ -576,6 +610,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
 				2C33B1802B76595900A9476D /* PuzzleBottomSheetType.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
@@ -589,10 +624,10 @@
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
+				71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */,
 				2C5310EA2B6E893C00704371 /* LoginViewModel.swift in Sources */,
 				71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */,
 				2C55EEC02B711BB5001AD42E /* Config.swift in Sources */,
-				2C5310DC2B6E71A600704371 /* temporaryFile.swift in Sources */,
 				2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
@@ -600,6 +635,7 @@
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
 				2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */,
+				71814A872B76568B00B23378 /* UIView+.swift in Sources */,
 				2C33B17E2B76537300A9476D /* PuzzleBottomSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

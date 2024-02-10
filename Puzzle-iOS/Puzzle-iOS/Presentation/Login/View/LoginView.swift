@@ -16,7 +16,7 @@ final class LoginView: UIView {
     
     private let titleLabel = UILabel().then {
         $0.text = StringLiterals.Login.title
-        $0.font = .systemFont(ofSize: 30)
+        $0.font = .h4
         $0.textColor = .black
         $0.textAlignment = .left
         $0.numberOfLines = 2
@@ -47,7 +47,7 @@ final class LoginView: UIView {
     }
     
     // MARK: - UI methods
-
+    
     private func setHierarchy() {
         [titleLabel, loginCollectionView].forEach {
             self.addSubview($0)
@@ -59,7 +59,7 @@ final class LoginView: UIView {
             $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(429)
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().inset(39)
-        } 
+        }
         
         loginCollectionView.snp.makeConstraints() {
             $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-19)

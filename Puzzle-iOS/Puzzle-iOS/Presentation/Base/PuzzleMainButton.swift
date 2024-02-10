@@ -36,7 +36,7 @@ final class PuzzleMainButton: UIButton {
         setLayout()
     }
     
-    //MARK: - UI methods
+    //MARK: - UI & Layout
     
     private func setUI(title: String) {
         setTitle(title, for: .normal)

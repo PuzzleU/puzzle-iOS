@@ -24,7 +24,7 @@ final class LoginCollectionViewCell: UICollectionViewCell {
     
     private let loginLabel = UILabel().then {
         $0.text = StringLiterals.Login.login
-        $0.font = .systemFont(ofSize: 14)
+        $0.font = .b4
         $0.textColor = .black
     }
     

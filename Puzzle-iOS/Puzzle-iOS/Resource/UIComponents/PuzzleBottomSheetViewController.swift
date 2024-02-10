@@ -11,6 +11,20 @@ import Combine
 import SnapKit
 import Then
 
+@frozen
+enum PuzzleBottomSheetType {
+    case high, low
+    
+    var height: Double {
+        switch self {
+        case .high:
+            return UIScreen.main.bounds.height * 0.86
+        case .low:
+            return 0
+        }
+    }
+}
+
 final class PuzzleBottomSheetViewController: UIViewController {
 
     // MARK: - Properties

@@ -14,7 +14,6 @@
 		2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B1772B764A7000A9476D /* OnboardingPlusViewController.swift */; };
 		2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B1792B764A8300A9476D /* OnboardingPlusView.swift */; };
 		2C33B17E2B76537300A9476D /* PuzzleBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B17D2B76537300A9476D /* PuzzleBottomSheetViewController.swift */; };
-		2C33B1802B76595900A9476D /* PuzzleBottomSheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33B17F2B76595900A9476D /* PuzzleBottomSheetType.swift */; };
 		2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */; };
 		2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */; };
 		2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */; };
@@ -81,7 +80,6 @@
 		2C33B1772B764A7000A9476D /* OnboardingPlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPlusViewController.swift; sourceTree = "<group>"; };
 		2C33B1792B764A8300A9476D /* OnboardingPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPlusView.swift; sourceTree = "<group>"; };
 		2C33B17D2B76537300A9476D /* PuzzleBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBottomSheetViewController.swift; sourceTree = "<group>"; };
-		2C33B17F2B76595900A9476D /* PuzzleBottomSheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBottomSheetType.swift; sourceTree = "<group>"; };
 		2C372A3B2B6B7ABE009B7BF6 /* AuthKakaoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthKakaoService.swift; sourceTree = "<group>"; };
 		2C372A3D2B6B7ACD009B7BF6 /* AuthAppleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppleService.swift; sourceTree = "<group>"; };
 		2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
@@ -161,16 +159,6 @@
 				71814A882B77353900B23378 /* FontLiterals.swift */,
 			);
 			path = Literals;
-			sourceTree = "<group>";
-		};
-		2C33B1722B76402600A9476D /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */,
-				2C33B17D2B76537300A9476D /* PuzzleBottomSheetViewController.swift */,
-				2C33B17F2B76595900A9476D /* PuzzleBottomSheetType.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		2C33B1762B764A2400A9476D /* OnboardingPlus */ = {
@@ -334,7 +322,9 @@
 		71814A832B76546700B23378 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */,
 				71814A842B76554500B23378 /* PuzzleNavigationBar.swift */,
+				2C33B17D2B76537300A9476D /* PuzzleBottomSheetViewController.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -437,7 +427,6 @@
 			isa = PBXGroup;
 			children = (
 				2C33B1762B764A2400A9476D /* OnboardingPlus */,
-				2C33B1722B76402600A9476D /* Base */,
 				2C5310EB2B6E8BC600704371 /* Protocol */,
 				2C5310DD2B6E71F200704371 /* Login */,
 				71773C5D2B64BD040041605E /* TabBar */,
@@ -622,7 +611,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
-				2C33B1802B76595900A9476D /* PuzzleBottomSheetType.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
 				71814AAF2B77776B00B23378 /* PuzzleToastView.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,

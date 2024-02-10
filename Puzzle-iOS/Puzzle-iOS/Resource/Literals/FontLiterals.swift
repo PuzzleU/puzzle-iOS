@@ -86,6 +86,10 @@ enum FontName: String {
 
 extension UIFont {
     static func font(_ style: FontName, ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: style.rawValue, size: size)!
+        guard let customFont = UIFont(name: style.rawValue, size: size) else {
+            print("Failed to load the \(style.rawValue) font. Return system font instead.")
+            return UIFont.systemFont(ofSize: size)
+        }
+        return customFont
     }
 }

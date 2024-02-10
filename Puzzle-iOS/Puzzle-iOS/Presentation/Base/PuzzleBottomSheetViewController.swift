@@ -50,7 +50,7 @@ final class PuzzleBottomSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setHierarchy()
         setLayout()
         setPublisher()
@@ -139,11 +139,6 @@ extension PuzzleBottomSheetViewController {
         }
     }
     
-    @objc
-    private func dismissBottomSheet() {
-        bottomSheetShown = false
-    }
-    
     private func setDismissAction() {
         cancelButton.addTarget(self, action: #selector(dismissBottomSheet), for: .touchUpInside)
         
@@ -153,5 +148,47 @@ extension PuzzleBottomSheetViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissBottomSheet))
         self.dimmedView.addGestureRecognizer(tapGesture)
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dismissBottomSheetByPanGesture))
+        bottomSheetView.addGestureRecognizer(panGesture)
+    }
+    
+    @objc
+    private func dismissBottomSheet() {
+        bottomSheetShown = false
+    }
+    
+    @objc
+    private func dismissBottomSheetByPanGesture(_ sender: UIPanGestureRecognizer) {
+        let viewTranslation = sender.translation(in: view)
+        let viewVelocity = sender.translation(in: view)
+        
+        switch sender.state {
+        case .changed:
+            if abs(viewVelocity.y) > abs(viewVelocity.x) {
+                if viewVelocity.y > 0 && viewVelocity.y < 200 {
+                    self.dimmedView.backgroundColor = .clear
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.view.transform = CGAffineTransform(translationX: 0, y: viewTranslation.y)
+                    })
+                }
+                else {
+                    bottomSheetShown = false
+                }
+            }
+            
+        case .ended:
+            if viewTranslation.y < 200 {
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.view.transform = .identity
+                })
+            }
+            else {
+                bottomSheetShown = false
+            }
+            
+        default:
+            break
+        }
     }
 }

@@ -33,6 +33,7 @@
 		2C55EEC02B711BB5001AD42E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF2B711BB5001AD42E /* Config.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
+		71814AAF2B77776B00B23378 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814AAE2B77776B00B23378 /* Toast.swift */; };
 		71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A842B76554500B23378 /* PuzzleNavigationBar.swift */; };
 		71814A872B76568B00B23378 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A862B76568B00B23378 /* UIView+.swift */; };
 		71814A892B77353900B23378 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A882B77353900B23378 /* FontLiterals.swift */; };
@@ -96,6 +97,7 @@
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		71814A7F2B74F17100B23378 /* Puzzle-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Puzzle-iOS.entitlements"; sourceTree = "<group>"; };
+		71814AAE2B77776B00B23378 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		71814A842B76554500B23378 /* PuzzleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleNavigationBar.swift; sourceTree = "<group>"; };
 		71814A862B76568B00B23378 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		71814A882B77353900B23378 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
@@ -329,6 +331,12 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		71814AAD2B77773A00B23378 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				71814AAE2B77776B00B23378 /* Toast.swift */,
+			);
+			path = Utils;
 		71814A832B76546700B23378 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +415,7 @@
 				2C1765062B72799400CD789E /* Literals */,
 				2C55EEC12B71203B001AD42E /* Config */,
 				2C5310EE2B6E8C8F00704371 /* Extension */,
+				71814AAD2B77773A00B23378 /* Utils */,
 				2C5310D72B6E6BF000704371 /* Fonts */,
 				718150172B6291D8005E4451 /* Assets.xcassets */,
 			);
@@ -613,6 +622,7 @@
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
 				2C33B1802B76595900A9476D /* PuzzleBottomSheetType.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
+				71814AAF2B77776B00B23378 /* Toast.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
 				2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */,
 				2C5310E32B6E782B00704371 /* LoginCollectionViewCell.swift in Sources */,

@@ -23,14 +23,14 @@ extension UIViewController {
     
     
     
-    func showToast(message: String, verticalOffset: CGFloat? = nil) {
-        let vertical = verticalOffset ?? 233 // defalut = 233
+    func showToast(message: String, heightOffset: CGFloat? = nil) {
+        let height = heightOffset ?? 233 // default 값
 
         Toast.show(
             message: message,
             view: self.view,
             safeAreaBottomInset: self.safeAreaBottomInset(),
-            verticalOffset: vertical
+            height: height
         )
     }
     

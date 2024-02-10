@@ -18,7 +18,7 @@ public class Toast {
         message: String,
         view: UIView,
         safeAreaBottomInset: CGFloat = 0,
-        verticalOffset: CGFloat = 233
+        height: CGFloat = 233
     ) {
         
         let toastContainer = UIView().then {
@@ -45,7 +45,7 @@ public class Toast {
         
         toastContainer.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(safeAreaBottomInset + verticalOffset)
+            $0.bottom.equalToSuperview().inset(safeAreaBottomInset + height)
             $0.width.equalTo(toastConatinerWidth)
             $0.height.equalTo(36)
         }

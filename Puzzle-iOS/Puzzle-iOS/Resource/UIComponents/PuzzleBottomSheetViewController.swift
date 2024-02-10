@@ -11,6 +11,20 @@ import Combine
 import SnapKit
 import Then
 
+@frozen
+enum PuzzleBottomSheetType {
+    case high, low
+    
+    var height: Double {
+        switch self {
+        case .high:
+            return UIScreen.main.bounds.height * 0.86
+        case .low:
+            return 0
+        }
+    }
+}
+
 final class PuzzleBottomSheetViewController: UIViewController {
 
     // MARK: - Properties
@@ -66,12 +80,8 @@ final class PuzzleBottomSheetViewController: UIViewController {
     //MARK: - UI & Layout
 
     private func setHierarchy() {
-        [dimmedView, bottomSheetView].forEach {
-            self.view.addSubview($0)
-        }
-        [insertView, completeButton, cancelButton].forEach {
-            bottomSheetView.addSubview($0)
-        }
+        self.view.addSubviews(dimmedView, bottomSheetView)
+        bottomSheetView.addSubviews(insertView, completeButton, cancelButton)
     }
     
     private func setLayout() {

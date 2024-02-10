@@ -32,6 +32,7 @@
 		2C55EEC02B711BB5001AD42E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF2B711BB5001AD42E /* Config.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
+		71814AAF2B77776B00B23378 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814AAE2B77776B00B23378 /* Toast.swift */; };
 		7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181500E2B6291D7005E4451 /* AppDelegate.swift */; };
 		718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150102B6291D7005E4451 /* SceneDelegate.swift */; };
 		718150132B6291D7005E4451 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150122B6291D7005E4451 /* ViewController.swift */; };
@@ -86,6 +87,7 @@
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		71814A7F2B74F17100B23378 /* Puzzle-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Puzzle-iOS.entitlements"; sourceTree = "<group>"; };
+		71814AAE2B77776B00B23378 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		7181500B2B6291D7005E4451 /* Puzzle-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7181500E2B6291D7005E4451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		718150102B6291D7005E4451 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -303,6 +305,14 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		71814AAD2B77773A00B23378 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				71814AAE2B77776B00B23378 /* Toast.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		718150022B6291D7005E4451 = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +383,7 @@
 				2C55EEC12B71203B001AD42E /* Config */,
 				2C5310EE2B6E8C8F00704371 /* Extension */,
 				2C5310D72B6E6BF000704371 /* Font */,
+				71814AAD2B77773A00B23378 /* Utils */,
 				718150172B6291D8005E4451 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -571,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
+				71814AAF2B77776B00B23378 /* Toast.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
 				2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */,
 				2C5310E32B6E782B00704371 /* LoginCollectionViewCell.swift in Sources */,

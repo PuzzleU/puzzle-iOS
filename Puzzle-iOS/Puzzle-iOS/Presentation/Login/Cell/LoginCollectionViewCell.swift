@@ -53,9 +53,7 @@ final class LoginCollectionViewCell: UICollectionViewCell {
     
     private func setHierarchy() {
         self.addSubview(loginButtonView)
-        [loginLabel, loginImageView].forEach() {
-            self.addSubview($0)
-        }
+        loginButtonView.addSubviews(loginLabel, loginImageView)
     }
     
     private func setLayout() {

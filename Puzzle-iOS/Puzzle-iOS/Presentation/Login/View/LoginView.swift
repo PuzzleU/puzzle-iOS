@@ -49,9 +49,7 @@ final class LoginView: UIView {
     // MARK: - UI methods
     
     private func setHierarchy() {
-        [titleLabel, loginCollectionView].forEach {
-            self.addSubview($0)
-        }
+        self.addSubviews(titleLabel, loginCollectionView)
     }
     
     private func setLayout() {

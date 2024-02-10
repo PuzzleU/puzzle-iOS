@@ -80,12 +80,8 @@ final class PuzzleBottomSheetViewController: UIViewController {
     //MARK: - UI & Layout
 
     private func setHierarchy() {
-        [dimmedView, bottomSheetView].forEach {
-            self.view.addSubview($0)
-        }
-        [insertView, completeButton, cancelButton].forEach {
-            bottomSheetView.addSubview($0)
-        }
+        self.view.addSubviews(dimmedView, bottomSheetView)
+        bottomSheetView.addSubviews(insertView, completeButton, cancelButton)
     }
     
     private func setLayout() {

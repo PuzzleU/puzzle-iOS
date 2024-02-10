@@ -29,12 +29,12 @@ final class PuzzleNavigationBar: UIView {
     //MARK: - UI Components
     
     private let leftTitleLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 18)
+        $0.font = .h2
         $0.textColor = .black
     }
     
     private let centerTitleLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 18)
+        $0.font = .h2
         $0.textColor = .black
     }
     

@@ -26,7 +26,7 @@ extension UIViewController {
     func showToast(message: String, heightOffset: CGFloat? = nil) {
         let height = heightOffset ?? 233 // default 값
         
-        Toast.show(
+        PuzzleToastView.show(
             message: message,
             view: self.view,
             safeAreaBottomInset: self.safeAreaBottomInset(),

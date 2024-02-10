@@ -9,17 +9,19 @@ import UIKit
 import SnapKit
 import Then
 
-public class Toast {
+public class PuzzleToastView {
     
     /// 토스트 메시지를 띄우는 함수입니다.
     /// verticalOffset 의 상수를 변경하여 원하는 위치로 높이를 지정 할 수 있습니다.
     /// default = 233
-    public static func show(
+    static func show(
         message: String,
         view: UIView,
         safeAreaBottomInset: CGFloat = 0,
         height: CGFloat = 233
     ) {
+        
+        // MARK: - UI Components
         
         let toastContainer = UIView().then {
             $0.backgroundColor = .gray.withAlphaComponent(0.7)
@@ -38,6 +40,8 @@ public class Toast {
             $0.sizeToFit()
         }
         
+        //MARK: - UI & Layout
+        
         let toastConatinerWidth = toastLabel.intrinsicContentSize.width + 40.0
         
         view.addSubview(toastContainer)
@@ -53,6 +57,8 @@ public class Toast {
         toastLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+        
+        //MARK: - Animation
         
         UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
             toastContainer.alpha = 1.0

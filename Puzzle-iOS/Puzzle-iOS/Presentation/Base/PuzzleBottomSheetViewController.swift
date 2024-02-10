@@ -166,7 +166,7 @@ extension PuzzleBottomSheetViewController {
         switch sender.state {
         case .changed:
             if abs(viewVelocity.y) > abs(viewVelocity.x) {
-                if viewVelocity.y > 0 && viewVelocity.y < 200 {
+                if viewVelocity.y > 0 && viewVelocity.y < 250 {
                     self.dimmedView.backgroundColor = .clear
                     UIView.animate(withDuration: 0.1, animations: {
                         self.view.transform = CGAffineTransform(translationX: 0, y: viewTranslation.y)
@@ -178,7 +178,7 @@ extension PuzzleBottomSheetViewController {
             }
             
         case .ended:
-            if viewTranslation.y < 200 {
+            if viewTranslation.y < 250 {
                 UIView.animate(withDuration: 0.1, animations: {
                     self.view.transform = .identity
                 })

@@ -15,10 +15,10 @@ final class PuzzleMainButton: UIButton {
     //MARK: - Life Cycle
     
     override var isSelected: Bool {
-            didSet {
-                updateButtonUI()
-            }
+        didSet {
+            updateButtonUI()
         }
+    }
     
     init(title: String) {
         super.init(frame: .zero)

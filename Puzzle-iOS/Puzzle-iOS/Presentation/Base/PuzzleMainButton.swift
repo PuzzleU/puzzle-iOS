@@ -15,10 +15,10 @@ final class PuzzleMainButton: UIButton {
     //MARK: - Life Cycle
     
     override var isSelected: Bool {
-            didSet {
-                updateButtonUI()
-            }
+        didSet {
+            updateButtonUI()
         }
+    }
     
     init(title: String) {
         super.init(frame: .zero)
@@ -36,7 +36,7 @@ final class PuzzleMainButton: UIButton {
         setLayout()
     }
     
-    //MARK: - UI methods
+    //MARK: - UI & Layout
     
     private func setUI(title: String) {
         setTitle(title, for: .normal)

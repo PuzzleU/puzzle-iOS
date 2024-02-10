@@ -8,9 +8,9 @@
 import UIKit
 
 final class OnboardingPlusViewController: UIViewController {
-
+    
     // MARK: - Properties
-
+    
     private let rootView = OnboardingPlusView()
     
     // MARK: - Life Cycles
@@ -21,7 +21,6 @@ final class OnboardingPlusViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

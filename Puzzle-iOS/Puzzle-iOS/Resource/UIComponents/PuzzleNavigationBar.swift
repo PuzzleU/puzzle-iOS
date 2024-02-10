@@ -28,15 +28,8 @@ final class PuzzleNavigationBar: UIView {
     
     //MARK: - UI Components
     
-    private let leftTitleLabel = UILabel().then {
-        $0.font = .h2
-        $0.textColor = .black
-    }
-    
-    private let centerTitleLabel = UILabel().then {
-        $0.font = .h2
-        $0.textColor = .black
-    }
+    private lazy var leftTitleLabel = createTitleLabel()
+    private lazy var centerTitleLabel = createTitleLabel()
     
     let leftButton = UIButton().then {
         $0.setImage(UIImage(resource: .icArrow), for: .normal)
@@ -87,6 +80,13 @@ extension PuzzleNavigationBar {
             }
         }
     }
+    
+    private func createTitleLabel() -> UILabel {
+        return UILabel().then {
+            $0.font = .h2
+            $0.textColor = .black
+        }
+    }
 }
 
 //MARK: - Custom methods
@@ -98,7 +98,7 @@ extension PuzzleNavigationBar {
         }
     }
     
-    @discardableResult
+    /// 내비게이션의 title을 세팅합니다.
     func setTitle(_ title: String) -> Self {
         self.leftTitleLabel.text = title
         self.centerTitleLabel.text = title
@@ -106,7 +106,6 @@ extension PuzzleNavigationBar {
     }
     
     /// 기존 뒤로가기 버튼의 Action을 수정하고 싶을때 사용합니다.
-    @discardableResult
     func resetLeftButtonAction(_ closure: (() -> Void)? = nil, _ type: NavigationBarType) -> Self {
         self.leftButtonClosure = closure
         self.leftButton.removeTarget(self, action: nil, for: .touchUpInside)
@@ -118,8 +117,8 @@ extension PuzzleNavigationBar {
         return self
     }
     
-    @discardableResult
-    func changeTitleWithLeftButton(_ font: UIFont, _ color: UIColor) -> Self {
+    /// 내비게이션의 title의 font와 textColor를 수정합니다.
+    func updateTitleFontAndColor(font: UIFont, color: UIColor) -> Self {
         centerTitleLabel.font = font
         centerTitleLabel.textColor = color
         return self

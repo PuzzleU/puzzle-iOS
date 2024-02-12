@@ -8,80 +8,87 @@
 import UIKit
 
 extension UIFont {
+    /// pretendardBold 30
+    @nonobjc class var largeTitle1: UIFont {
+        return UIFont.font(.pretendardBold, ofSize: 30)
+    }
+    
     /// pretendardBold 20
-    @nonobjc class var h1: UIFont {
+    @nonobjc class var largeTitle2: UIFont {
         return UIFont.font(.pretendardBold, ofSize: 20)
     }
     
     /// pretendardBold 18
-    @nonobjc class var h2: UIFont {
+    @nonobjc class var pageTitle: UIFont {
         return UIFont.font(.pretendardBold, ofSize: 18)
     }
     
-    /// pretendardSemiBold 18
-    @nonobjc class var h3: UIFont {
-        return UIFont.font(.pretendardSemiBold, ofSize: 18)
-    }
-    
-    ///pretendardExtraBold 30
-    @nonobjc class var h4: UIFont {
-        return UIFont.font(.pretendardExtraBold, ofSize: 30)
-    }
-}
-
-extension UIFont {
-    /// pretendardMedium 17
-    @nonobjc class var b1: UIFont {
-        return UIFont.font(.pretendardMedium, ofSize: 17)
-    }
-    
-    /// pretendardMedium 15
-    @nonobjc class var b2: UIFont {
-        return UIFont.font(.pretendardMedium, ofSize: 15)
-    }
-    
-    /// pretendardRegular 15
-    @nonobjc class var b3: UIFont {
-        return UIFont.font(.pretendardRegular, ofSize: 15)
+    /// pretendardMedium 10
+    @nonobjc class var pageSubTitle: UIFont {
+        return UIFont.font(.pretendardMedium, ofSize: 10)
     }
     
     /// pretendardMedium 14
-    @nonobjc class var b4: UIFont {
+    @nonobjc class var itemTitle: UIFont {
         return UIFont.font(.pretendardMedium, ofSize: 14)
     }
     
-    /// pretendardSemiBold 13
-    @nonobjc class var b5: UIFont {
-        return UIFont.font(.pretendardSemiBold, ofSize: 13)
-    }
-    
-    /// pretendardRegular 13
-    @nonobjc class var b6: UIFont {
-        return UIFont.font(.pretendardRegular, ofSize: 13)
-    }
-    
     /// pretendardMedium 12
-    @nonobjc class var b7: UIFont {
+    @nonobjc class var itemSubTitle1: UIFont {
         return UIFont.font(.pretendardMedium, ofSize: 12)
     }
     
-    /// pretendardRegular 12
-    @nonobjc class var b8: UIFont {
-        return UIFont.font(.pretendardRegular, ofSize: 12)
+    /// pretendardMedium 10
+    @nonobjc class var itemSubTitle2: UIFont {
+        return UIFont.font(.pretendardMedium, ofSize: 10)
     }
     
-    /// pretendardSemiBold 11
-    @nonobjc class var b9: UIFont {
-        return UIFont.font(.pretendardSemiBold, ofSize: 11)
+    /// pretendardMedium 8
+    @nonobjc class var itemSubTitle3: UIFont {
+        return UIFont.font(.pretendardMedium, ofSize: 8)
+    }
+    
+    /// pretendardBold 14
+    @nonobjc class var body1: UIFont {
+        return UIFont.font(.pretendardBold, ofSize: 14)
+    }
+    
+    /// pretendardMedium 14
+    @nonobjc class var body2: UIFont {
+        return UIFont.font(.pretendardMedium, ofSize: 14)
+    }
+    
+    /// pretendardRegular 14
+    @nonobjc class var body3: UIFont {
+        return UIFont.font(.pretendardRegular, ofSize: 14)
+    }
+    
+    /// pretendardLight 14
+    @nonobjc class var body4: UIFont {
+        return UIFont.font(.pretendardLight, ofSize: 14)
+    }
+    
+    /// pretendardBold 14
+    @nonobjc class var button1: UIFont {
+        return UIFont.font(.pretendardBold, ofSize: 14)
+    }
+    
+    /// pretendardMedium 14
+    @nonobjc class var button2: UIFont {
+        return UIFont.font(.pretendardMedium, ofSize: 14)
+    }
+    
+    /// pretendardBold 12
+    @nonobjc class var button3: UIFont {
+        return UIFont.font(.pretendardBold, ofSize: 12)
     }
 }
 
 enum FontName: String {
     case pretendardBold = "Pretendard-Bold"
-    case pretendardSemiBold = "Pretendard-SemiBold"
     case pretendardMedium = "Pretendard-Medium"
     case pretendardRegular = "Pretendard-Regular"
-    case pretendardExtraBold = "Pretendard-ExtraBold"
+    case pretendardLight = "Pretendard-Light"
 }
 
 extension UIFont {

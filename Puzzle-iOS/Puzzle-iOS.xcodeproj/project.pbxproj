@@ -36,10 +36,8 @@
 		71814A872B76568B00B23378 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A862B76568B00B23378 /* UIView+.swift */; };
 		71814A892B77353900B23378 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A882B77353900B23378 /* FontLiterals.swift */; };
 		71814AA82B775CEE00B23378 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA72B77599800B23378 /* Pretendard-Bold.otf */; };
-		71814AA92B775CF100B23378 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA32B77599800B23378 /* Pretendard-ExtraBold.otf */; };
 		71814AAA2B775CF300B23378 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA42B77599800B23378 /* Pretendard-Medium.otf */; };
 		71814AAB2B775CF500B23378 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA52B77599800B23378 /* Pretendard-Regular.otf */; };
-		71814AAC2B775CF600B23378 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71814AA62B77599800B23378 /* Pretendard-SemiBold.otf */; };
 		71814AAF2B77776B00B23378 /* PuzzleToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814AAE2B77776B00B23378 /* PuzzleToastView.swift */; };
 		7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181500E2B6291D7005E4451 /* AppDelegate.swift */; };
 		718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718150102B6291D7005E4451 /* SceneDelegate.swift */; };
@@ -53,6 +51,7 @@
 		7181504A2B629709005E4451 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 718150492B629709005E4451 /* Kingfisher */; };
 		7181504F2B629725005E4451 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7181504E2B629725005E4451 /* Then */; };
 		718150522B62E05F005E4451 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 718150512B62E05F005E4451 /* .swiftlint.yml */; };
+		718D090D2B7A40310021AD40 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 718D090C2B7A40310021AD40 /* Pretendard-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,10 +97,8 @@
 		71814A842B76554500B23378 /* PuzzleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleNavigationBar.swift; sourceTree = "<group>"; };
 		71814A862B76568B00B23378 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		71814A882B77353900B23378 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
-		71814AA32B77599800B23378 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		71814AA42B77599800B23378 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		71814AA52B77599800B23378 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		71814AA62B77599800B23378 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		71814AA72B77599800B23378 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		71814AAE2B77776B00B23378 /* PuzzleToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleToastView.swift; sourceTree = "<group>"; };
 		7181500B2B6291D7005E4451 /* Puzzle-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +115,7 @@
 		7181502F2B6291D8005E4451 /* Puzzle_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSUITests.swift; sourceTree = "<group>"; };
 		718150312B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		718150512B62E05F005E4451 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		718D090C2B7A40310021AD40 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,10 +230,9 @@
 			isa = PBXGroup;
 			children = (
 				71814AA72B77599800B23378 /* Pretendard-Bold.otf */,
-				71814AA32B77599800B23378 /* Pretendard-ExtraBold.otf */,
 				71814AA42B77599800B23378 /* Pretendard-Medium.otf */,
 				71814AA52B77599800B23378 /* Pretendard-Regular.otf */,
-				71814AA62B77599800B23378 /* Pretendard-SemiBold.otf */,
+				718D090C2B7A40310021AD40 /* Pretendard-Light.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -556,12 +553,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				71814AAA2B775CF300B23378 /* Pretendard-Medium.otf in Resources */,
+				718D090D2B7A40310021AD40 /* Pretendard-Light.otf in Resources */,
 				718150522B62E05F005E4451 /* .swiftlint.yml in Resources */,
 				71814AA82B775CEE00B23378 /* Pretendard-Bold.otf in Resources */,
-				71814AA92B775CF100B23378 /* Pretendard-ExtraBold.otf in Resources */,
 				7181501B2B6291D8005E4451 /* LaunchScreen.storyboard in Resources */,
 				71814AAB2B775CF500B23378 /* Pretendard-Regular.otf in Resources */,
-				71814AAC2B775CF600B23378 /* Pretendard-SemiBold.otf in Resources */,
 				718150182B6291D8005E4451 /* Assets.xcassets in Resources */,
 				718150162B6291D7005E4451 /* Main.storyboard in Resources */,
 			);

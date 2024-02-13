@@ -52,6 +52,9 @@
 		7181504F2B629725005E4451 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7181504E2B629725005E4451 /* Then */; };
 		718150522B62E05F005E4451 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 718150512B62E05F005E4451 /* .swiftlint.yml */; };
 		718D090D2B7A40310021AD40 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 718D090C2B7A40310021AD40 /* Pretendard-Light.otf */; };
+		718D09162B7A947F0021AD40 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09152B7A947F0021AD40 /* OnboardingViewController.swift */; };
+		718D09192B7A94930021AD40 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09182B7A94930021AD40 /* OnboardingView.swift */; };
+		718D091C2B7A9B090021AD40 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D091B2B7A9B090021AD40 /* OnboardingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +119,9 @@
 		718150312B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		718150512B62E05F005E4451 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		718D090C2B7A40310021AD40 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		718D09152B7A947F0021AD40 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		718D09182B7A94930021AD40 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		718D091B2B7A9B090021AD40 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +429,7 @@
 		718150462B62953F005E4451 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				718D09102B7A94060021AD40 /* Onboarding */,
 				2C33B1762B764A2400A9476D /* OnboardingPlus */,
 				2C5310EB2B6E8BC600704371 /* Protocol */,
 				2C5310DD2B6E71F200704371 /* Login */,
@@ -430,6 +437,40 @@
 				718150122B6291D7005E4451 /* ViewController.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		718D09102B7A94060021AD40 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				718D091A2B7A9AF90021AD40 /* ViewModel */,
+				718D09142B7A94660021AD40 /* ViewController */,
+				718D09132B7A94580021AD40 /* View */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		718D09132B7A94580021AD40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				718D09182B7A94930021AD40 /* OnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		718D09142B7A94660021AD40 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				718D09152B7A947F0021AD40 /* OnboardingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		718D091A2B7A9AF90021AD40 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				718D091B2B7A9B090021AD40 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -606,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				718D09192B7A94930021AD40 /* OnboardingView.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
 				71814AAF2B77776B00B23378 /* PuzzleToastView.swift in Sources */,
@@ -617,6 +659,7 @@
 				2C17650A2B7283A500CD789E /* UIViewController+.swift in Sources */,
 				2C1765082B7279A000CD789E /* StringLiterals.swift in Sources */,
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
+				718D09162B7A947F0021AD40 /* OnboardingViewController.swift in Sources */,
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
@@ -629,6 +672,7 @@
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
+				718D091C2B7A9B090021AD40 /* OnboardingViewModel.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
 				2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */,
 				71814A872B76568B00B23378 /* UIView+.swift in Sources */,

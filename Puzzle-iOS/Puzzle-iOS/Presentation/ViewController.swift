@@ -11,7 +11,9 @@ import SnapKit
 
 class ViewController: UIViewController {
 
-    private let rootView = PuzzleDropdownView()
+    let dummyData = ["강아지", "토끼", "이구아나", "뱀파이어", "드래곤볼", "딱따구리딱딱딱", "돼지꿀", "고양이", "새"]
+    
+    private let rootView = PuzzleDropdownView(title: "지워닝")
     
     // MARK: - Life Cycles
     
@@ -27,6 +29,11 @@ class ViewController: UIViewController {
             $0.width.equalTo(155)
             $0.height.equalTo(40)
         }
+        
+        makeDropdown(mainView: rootView,
+                     dropdownViewSize: CGSize(width: 150, height: 150),
+                     dropdownViewLayout: .leading,
+                     dropdownData: dummyData)
     }
 }
 

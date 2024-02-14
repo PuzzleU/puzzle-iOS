@@ -14,7 +14,7 @@ final class PuzzleDropdownView: UIView {
     
     // MARK: - UI Components
     
-    private let dropdownView = UIView().then {
+    let dropdownView = UIView().then {
         $0.backgroundColor = .puzzleRealWhite
         $0.layer.borderColor = UIColor.puzzleLightGray.cgColor
         $0.layer.borderWidth = 1
@@ -33,7 +33,7 @@ final class PuzzleDropdownView: UIView {
     init(title: String) {
         super.init(frame: .zero)
         
-        self.backgroundColor = .puzzleRealWhite
+        self.backgroundColor = .clear
         
         bindTitle(title: title)
         setHierarchy()
@@ -72,14 +72,4 @@ final class PuzzleDropdownView: UIView {
             $0.size.equalTo(9)
         }
     }
-    
-//    private func setGesture() {
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dropdownTapped))
-//        dropdownView.addGestureRecognizer(tapGesture)
-//    }
-//    
-//    @objc
-//    private func dropdownTapped() {
-//        dropdownTableView.isHidden.toggle()
-//    }
 }

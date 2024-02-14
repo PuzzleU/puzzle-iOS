@@ -19,6 +19,10 @@ final class PuzzleDropDownTableViewCell: UITableViewCell {
         $0.textColor = .black
     }
     
+    private let divderView = UIView().then {
+        $0.backgroundColor = .puzzleLightGray
+    }
+    
     // MARK: - Life Cycles
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -35,10 +39,16 @@ final class PuzzleDropDownTableViewCell: UITableViewCell {
     //MARK: - UI & Layout
 
     private func setHierarchy() {
-        self.addSubview(cellLabel)
+        self.addSubviews(divderView,
+                         cellLabel)
     }
     
     private func setLayout() {
+        divderView.snp.makeConstraints {
+            $0.top.width.equalToSuperview()
+            $0.height.equalTo(0.3)
+        }
+        
         cellLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(27)

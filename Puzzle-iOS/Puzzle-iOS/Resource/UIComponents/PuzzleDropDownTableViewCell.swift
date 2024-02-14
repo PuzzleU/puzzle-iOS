@@ -44,4 +44,10 @@ final class PuzzleDropDownTableViewCell: UITableViewCell {
             $0.leading.trailing.equalToSuperview().inset(27)
         }
     }
+    
+    //MARK: - Data
+    
+    func bindText(text: String) {
+        cellLabel.text = text
+    }
 }

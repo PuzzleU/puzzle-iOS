@@ -7,17 +7,41 @@
 
 import UIKit
 
-class PuzzleDropDownTableViewCell: UITableViewCell {
+import SnapKit
+import Then
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+final class PuzzleDropDownTableViewCell: UITableViewCell {
+
+    // MARK: - UI Components
+    
+    private let cellLabel = UILabel().then {
+        $0.font = .body3
+        $0.textColor = .black
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    // MARK: - Life Cycles
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setHierarchy()
+        setLayout()
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - UI & Layout
 
+    private func setHierarchy() {
+        self.addSubview(cellLabel)
+    }
+    
+    private func setLayout() {
+        cellLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(27)
+        }
+    }
 }

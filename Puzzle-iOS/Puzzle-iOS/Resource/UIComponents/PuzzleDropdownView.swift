@@ -12,16 +12,7 @@ import Then
 
 final class PuzzleDropdownView: UIView {
     
-    let dummyData = ["강아지", "토끼", "이구아나", "뱀파이어", "드래곤볼", "딱따구리딱딱딱", "돼지꿀", "고양이", "새"]
-    let dummyTitle = "지워닝"
-    
     // MARK: - UI Components
-    
-    private let dropdownStackView = UIStackView().then {
-        $0.axis = .vertical
-        $0.alignment = .fill
-        $0.distribution = .fill
-    }
     
     private let dropdownView = UIView().then {
         $0.backgroundColor = .puzzleRealWhite
@@ -37,52 +28,36 @@ final class PuzzleDropdownView: UIView {
     
     private let dropdownImageView = UIImageView(image: .dropdown)
     
-    private let dropdownTableView = UITableView().then {
-        $0.backgroundColor = .puzzleRealWhite
-        $0.layer.cornerRadius = 10
-        $0.layer.masksToBounds = true
-        $0.register(PuzzleDropDownTableViewCell.self, forCellReuseIdentifier: PuzzleDropDownTableViewCell.reuseIdentifier)
-        $0.isHidden = true
-    }
-    
     // MARK: - Life Cycles
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(title: String) {
+        super.init(frame: .zero)
         
         self.backgroundColor = .puzzleRealWhite
         
-        setDelegate()
+        bindTitle(title: title)
         setHierarchy()
         setLayout()
-        setGesture()
-        
-        bindData()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Delegate
-    
-    private func setDelegate() {
-        dropdownTableView.dataSource = self
-        dropdownTableView.delegate = self
-    }
-    
     //MARK: - UI & Layout
     
+    private func bindTitle(title: String) {
+        dropdownLabel.text = title
+    }
+    
     private func setHierarchy() {
-        self.addSubview(dropdownStackView)
-        dropdownStackView.addArrangedSubviews(dropdownView,
-                                              dropdownTableView)
+        self.addSubview(dropdownView)
         dropdownView.addSubviews(dropdownLabel,
                                  dropdownImageView)
     }
     
     private func setLayout() {
-        dropdownStackView.snp.makeConstraints {
+        dropdownView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
@@ -98,43 +73,13 @@ final class PuzzleDropdownView: UIView {
         }
     }
     
-    private func bindData() {
-        dropdownLabel.text = dummyTitle
-    }
-    
-    private func setGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dropdownTapped))
-        dropdownView.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc
-    private func dropdownTapped() {
-        dropdownTableView.isHidden.toggle()
-    }
+//    private func setGesture() {
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dropdownTapped))
+//        dropdownView.addGestureRecognizer(tapGesture)
+//    }
+//    
+//    @objc
+//    private func dropdownTapped() {
+//        dropdownTableView.isHidden.toggle()
+//    }
 }
-
-//MARK: - TableView DataSource and Delegate
-
-extension PuzzleDropdownView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PuzzleDropDownTableViewCell.reuseIdentifier, for: indexPath) as? PuzzleDropDownTableViewCell else { return UITableViewCell() }
-        cell.bindText(text: dummyData[indexPath.row])
-        
-        return cell
-    }
-}
-
-extension PuzzleDropdownView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
-    }
-}
-

@@ -11,11 +11,12 @@ import SnapKit
 import Then
 
 final class PuzzleDropdownView: UIView {
-
+    
     let dummyData = ["강아지", "토끼", "이구아나", "뱀파이어", "드래곤볼", "딱따구리딱딱딱", "돼지꿀", "고양이", "새"]
+    let dummyTitle = "지워닝"
     
     // MARK: - UI Components
-
+    
     private let dropdownStackView = UIStackView().then {
         $0.axis = .vertical
         $0.alignment = .fill
@@ -54,6 +55,8 @@ final class PuzzleDropdownView: UIView {
         setDelegate()
         setHierarchy()
         setLayout()
+        
+        bindData()
     }
     
     required init?(coder: NSCoder) {
@@ -93,6 +96,10 @@ final class PuzzleDropdownView: UIView {
             $0.size.equalTo(9)
         }
     }
+    
+    private func bindData() {
+        dropdownLabel.text = dummyTitle
+    }
 }
 
 //MARK: - TableView DataSource and Delegate
@@ -111,5 +118,12 @@ extension PuzzleDropdownView: UITableViewDataSource {
 }
 
 extension PuzzleDropdownView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
+    }
 }
 

@@ -30,6 +30,8 @@
 		2C55EEBB2B711ACA001AD42E /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2C55EEBA2B711ACA001AD42E /* KakaoSDKAuth */; };
 		2C55EEBD2B711ACA001AD42E /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 2C55EEBC2B711ACA001AD42E /* KakaoSDKUser */; };
 		2C55EEC02B711BB5001AD42E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF2B711BB5001AD42E /* Config.swift */; };
+		2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */; };
+		2C9813B92B7CEA4B00C56D0B /* UITableViewCell+ in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813B82B7CEA4B00C56D0B /* UITableViewCell+ */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
 		71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A842B76554500B23378 /* PuzzleNavigationBar.swift */; };
@@ -91,6 +93,8 @@
 		2C5310EC2B6E8BD200704371 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		2C5310EF2B6E8CA000704371 /* CancelBag+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CancelBag+.swift"; sourceTree = "<group>"; };
 		2C55EEBF2B711BB5001AD42E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropDownTableViewCell.swift; sourceTree = "<group>"; };
+		2C9813B82B7CEA4B00C56D0B /* UITableViewCell+ */ = {isa = PBXFileReference; lastKnownFileType = text; path = "UITableViewCell+"; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		71814A7F2B74F17100B23378 /* Puzzle-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Puzzle-iOS.entitlements"; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				2C5310EF2B6E8CA000704371 /* CancelBag+.swift */,
 				2C1765092B7283A500CD789E /* UIViewController+.swift */,
 				71814A862B76568B00B23378 /* UIView+.swift */,
+				2C9813B82B7CEA4B00C56D0B /* UITableViewCell+ */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */,
 				71814A842B76554500B23378 /* PuzzleNavigationBar.swift */,
 				2C33B17D2B76537300A9476D /* PuzzleBottomSheetViewController.swift */,
+				2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -620,9 +626,11 @@
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
+				2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */,
 				71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */,
 				2C5310EA2B6E893C00704371 /* LoginViewModel.swift in Sources */,
 				71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */,
+				2C9813B92B7CEA4B00C56D0B /* UITableViewCell+ in Sources */,
 				2C55EEC02B711BB5001AD42E /* Config.swift in Sources */,
 				2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,

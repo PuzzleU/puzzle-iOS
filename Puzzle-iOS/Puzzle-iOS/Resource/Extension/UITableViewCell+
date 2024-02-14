@@ -1,0 +1,14 @@
+//
+//  UITableViewCell+.swift
+//  Puzzle-iOS
+//
+//  Created by 신지원 on 2/14/24.
+//
+
+import UIKit
+
+extension UITableViewCell {
+    static var cellIdentifier : String {
+        return String(describing: self)
+    }
+}

@@ -12,6 +12,8 @@ import Then
 
 final class PuzzleDropdownView: UIView {
 
+    let dummyData = ["강아지", "토끼", "이구아나", "뱀파이어", "드래곤볼", "딱따구리딱딱딱", "돼지꿀", "고양이", "새"]
+    
     // MARK: - UI Components
 
     private let dropdownStackView = UIStackView().then {

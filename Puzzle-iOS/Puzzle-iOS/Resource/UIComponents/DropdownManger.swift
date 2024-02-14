@@ -29,7 +29,7 @@ class DropdownManager {
     
     // MARK: - Create Dropdown
     
-    func createDropdown(for mainView: PuzzleDropdownView, in viewController: UIViewController, withSize dropboxSize: CGSize, dropdownAlign: DropDownLayout, dropboxData: [String]) {
+    func createDropdown(mainView: PuzzleDropdownView, viewController: UIViewController, dropboxSize: CGSize, dropdownAlign: DropDownLayout, dropboxData: [String]) {
         guard dropdowns[mainView] == nil else { return }
         
         let dropdownView = PuzzleDropdownTableView()
@@ -40,13 +40,16 @@ class DropdownManager {
         dropdownView.snp.makeConstraints {
             $0.top.equalTo(mainView.snp.bottom)
             $0.width.equalTo(dropboxSize.width)
-            $0.height.equalTo(dropboxSize.height)
             
             if dropdownAlign.rawValue == "leading" {
                 $0.leading.equalTo(mainView.snp.leading)
             } else {
                 $0.trailing.equalTo(mainView.snp.trailing)
             }
+            
+            let calculateHeight = CGFloat(dropboxData.count * 30)
+            let resetHeight = calculateHeight < dropboxSize.height ? calculateHeight : dropboxSize.height
+            $0.height.equalTo(resetHeight)
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dropdownTapped(_:)))

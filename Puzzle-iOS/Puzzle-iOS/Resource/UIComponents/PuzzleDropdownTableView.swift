@@ -87,7 +87,7 @@ extension PuzzleDropdownTableView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 31
+        return 30
     }
 }
 

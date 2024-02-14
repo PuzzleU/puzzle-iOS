@@ -29,20 +29,20 @@ class DropdownManager {
     
     // MARK: - Create Dropdown
     
-    func createDropdown(for mainView: PuzzleDropdownView, in viewController: UIViewController, withSize size: CGSize, layout: DropDownLayout, data: [String]) {
+    func createDropdown(for mainView: PuzzleDropdownView, in viewController: UIViewController, withSize dropboxSize: CGSize, dropdownAlign: DropDownLayout, dropboxData: [String]) {
         guard dropdowns[mainView] == nil else { return }
         
         let dropdownView = PuzzleDropdownTableView()
-        dropdownView.dropdownData = data
+        dropdownView.dropdownData = dropboxData
         dropdownView.isHidden = true
         
         viewController.view.addSubview(dropdownView)
         dropdownView.snp.makeConstraints {
             $0.top.equalTo(mainView.snp.bottom)
-            $0.width.equalTo(size.width)
-            $0.height.equalTo(size.height)
+            $0.width.equalTo(dropboxSize.width)
+            $0.height.equalTo(dropboxSize.height)
             
-            if layout.rawValue == "leading" {
+            if dropdownAlign.rawValue == "leading" {
                 $0.leading.equalTo(mainView.snp.leading)
             } else {
                 $0.trailing.equalTo(mainView.snp.trailing)

@@ -48,13 +48,21 @@ final class PuzzleDropdownView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = .puzzleRealWhite
-
+        
+        setDelegate()
         setHierarchy()
         setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Delegate
+    
+    private func setDelegate() {
+        dropdownTableView.dataSource = self
+        dropdownTableView.delegate = self
     }
     
     //MARK: - UI & Layout
@@ -84,3 +92,22 @@ final class PuzzleDropdownView: UIView {
         }
     }
 }
+
+//MARK: - TableView DataSource and Delegate
+
+extension PuzzleDropdownView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dummyData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PuzzleDropDownTableViewCell.reuseIdentifier, for: indexPath) as? PuzzleDropDownTableViewCell else { return UITableViewCell() }
+        cell.bindText(text: dummyData[indexPath.row])
+        
+        return cell
+    }
+}
+
+extension PuzzleDropdownView: UITableViewDelegate {
+}
+

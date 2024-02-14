@@ -55,6 +55,7 @@ final class PuzzleDropdownView: UIView {
         setDelegate()
         setHierarchy()
         setLayout()
+        setGesture()
         
         bindData()
     }
@@ -99,6 +100,16 @@ final class PuzzleDropdownView: UIView {
     
     private func bindData() {
         dropdownLabel.text = dummyTitle
+    }
+    
+    private func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dropdownTapped))
+        dropdownView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    private func dropdownTapped() {
+        dropdownTableView.isHidden.toggle()
     }
 }
 

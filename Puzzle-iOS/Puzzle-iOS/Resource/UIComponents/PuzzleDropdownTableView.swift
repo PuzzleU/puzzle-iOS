@@ -59,6 +59,10 @@ final class PuzzleDropdownTableView: UIView {
             $0.edges.equalToSuperview()
         }
     }
+    
+    func sendTitle(title: String) {
+        NotificationCenter.default.post(name: NSNotification.Name("updatePuzzleDropdownTitle"), object: self, userInfo: ["title": title])
+    }
 }
 
 //MARK: - TableView DataSource and Delegate
@@ -76,9 +80,9 @@ extension PuzzleDropdownTableView: UITableViewDataSource {
 }
 
 extension PuzzleDropdownTableView: UITableViewDelegate {
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-    //    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        sendTitle(title: dropdownData[indexPath.row])
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 31

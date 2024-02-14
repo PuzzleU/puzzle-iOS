@@ -21,7 +21,7 @@ final class PuzzleDropdownView: UIView {
         $0.layer.cornerRadius = 10
     }
     
-    private let dropdownLabel = UILabel().then {
+    let dropdownLabel = UILabel().then {
         $0.font = .body2
         $0.textColor = .black
     }
@@ -46,7 +46,7 @@ final class PuzzleDropdownView: UIView {
     
     //MARK: - UI & Layout
     
-    private func bindTitle(title: String) {
+    func bindTitle(title: String) {
         dropdownLabel.text = title
     }
     

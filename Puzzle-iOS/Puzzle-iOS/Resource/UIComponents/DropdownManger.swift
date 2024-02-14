@@ -18,11 +18,16 @@ enum DropDownLayout: String {
 
 class DropdownManager {
     
-    static let shared = DropdownManager()
+    // MARK: - Properties
     
+    static let shared = DropdownManager()
     private init() {}
     
+    // MARK: - UI Components
+    
     private var dropdowns: [UIView : PuzzleDropdownTableView] = [:]
+    
+    // MARK: - Create Dropdown
     
     func createDropdown(for mainView: PuzzleDropdownView, in viewController: UIViewController, withSize size: CGSize, layout: DropDownLayout, data: [String]) {
         guard dropdowns[mainView] == nil else { return }

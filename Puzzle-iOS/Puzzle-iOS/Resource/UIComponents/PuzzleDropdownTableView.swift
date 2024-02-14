@@ -60,6 +60,8 @@ final class PuzzleDropdownTableView: UIView {
         }
     }
     
+    //MARK: - Notification
+    
     func sendTitle(title: String) {
         NotificationCenter.default.post(name: NSNotification.Name("updatePuzzleDropdownTitle"), object: self, userInfo: ["title": title])
     }

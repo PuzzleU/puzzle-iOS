@@ -30,6 +30,7 @@
 		2C55EEBB2B711ACA001AD42E /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2C55EEBA2B711ACA001AD42E /* KakaoSDKAuth */; };
 		2C55EEBD2B711ACA001AD42E /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 2C55EEBC2B711ACA001AD42E /* KakaoSDKUser */; };
 		2C55EEC02B711BB5001AD42E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF2B711BB5001AD42E /* Config.swift */; };
+		2C804D572B7DB7C100379C07 /* NumberLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C804D562B7DB7C100379C07 /* NumberLiterals.swift */; };
 		2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */; };
 		2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */; };
 		2C9813BD2B7CF28C00C56D0B /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BC2B7CF28C00C56D0B /* UITableViewCell+.swift */; };
@@ -97,6 +98,7 @@
 		2C5310EC2B6E8BD200704371 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		2C5310EF2B6E8CA000704371 /* CancelBag+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CancelBag+.swift"; sourceTree = "<group>"; };
 		2C55EEBF2B711BB5001AD42E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2C804D562B7DB7C100379C07 /* NumberLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberLiterals.swift; sourceTree = "<group>"; };
 		2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropDownTableViewCell.swift; sourceTree = "<group>"; };
 		2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropdownView.swift; sourceTree = "<group>"; };
 		2C9813BC2B7CF28C00C56D0B /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			children = (
 				2C1765072B7279A000CD789E /* StringLiterals.swift */,
 				71814A882B77353900B23378 /* FontLiterals.swift */,
+				2C804D562B7DB7C100379C07 /* NumberLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */,
 				2C9813C52B7D4CC200C56D0B /* DropdownManger.swift in Sources */,
 				2C5310E32B6E782B00704371 /* LoginCollectionViewCell.swift in Sources */,
+				2C804D572B7DB7C100379C07 /* NumberLiterals.swift in Sources */,
 				2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */,
 				2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */,
 				2C17650A2B7283A500CD789E /* UIViewController+.swift in Sources */,

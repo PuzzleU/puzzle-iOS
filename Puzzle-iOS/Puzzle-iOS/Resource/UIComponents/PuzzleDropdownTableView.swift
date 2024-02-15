@@ -50,6 +50,8 @@ final class PuzzleDropdownTableView: UIView {
         dropdownTableView.delegate = self
     }
     
+    //MARK: - UI & Layout
+    
     private func setHierarchy() {
         self.addSubview(dropdownTableView)
     }
@@ -87,7 +89,7 @@ extension PuzzleDropdownTableView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30
+        return CGFloat(NumberLiterals.DropDown.dropDownHeight)
     }
 }
 

@@ -16,5 +16,4 @@ enum StringLiterals {
     enum Onboarding {
         static let complete = "항목 저장"
     }
-    
 }

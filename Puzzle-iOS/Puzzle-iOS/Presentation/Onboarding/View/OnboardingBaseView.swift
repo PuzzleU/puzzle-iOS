@@ -7,10 +7,10 @@
 
 import UIKit
 
-class OnboardingView: UIView {
-
+class OnboardingBaseView: UIView {
+    
     // MARK: - UI Components
-
+    
     private let nextButton = PuzzleMainButton(title: StringLiterals.Onboarding.next)
     
     // MARK: - Life Cycles
@@ -18,7 +18,6 @@ class OnboardingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
-        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -33,11 +32,4 @@ class OnboardingView: UIView {
         addSubview(nextButton)
     }
     
-    private func setLayout() {
-        nextButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(51)
-            $0.centerX.equalToSuperview()
-        }
-    }
-
 }

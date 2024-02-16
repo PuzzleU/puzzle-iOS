@@ -11,70 +11,88 @@ import Combine
 import Then
 import SnapKit
 
-class OnboardingViewController: UIPageViewController {
-
-    // MARK: - Properties
+final class OnboardingViewController: UIPageViewController {
     
-    private let rootView = OnboardingView()
-
-    private var cancelBag = CancelBag()
-    var viewModel: OnboardingViewModel!
+    // MARK: - Properties
+    lazy var orderedViewControllers: [UIViewController] = {
+        return [OnboardingSignUpIdVC(), OnboardingSignUpNameVC()]
+    }()
+    
     
     
     // MARK: - UI Conponents
-
-    private let inputId = UITextField().then {
-        $0.placeholder = "아이디를 입력해주세요"
-    }
     
     // MARK: - Life Cycles
     
-    override func loadView() {
-        self.view = rootView
-    }
+    let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
-        setLayout()
-        setBindings()
-    }
-    
-    
-    // MARK: - UI & Layout
-    
-    private func setUI() {
-        view.addSubview(inputId)
-    }
-    
-    private func setLayout() {
         
-        inputId.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
+        view.addSubviews(pageViewController.view)
+        view.backgroundColor = .puzzleRealWhite
+        addChild(pageViewController)
+        pageViewController.dataSource = self
+        pageViewController.delegate = self
+        
+        if let firstViewController = orderedViewControllers.first {
+            pageViewController.setViewControllers([firstViewController], direction: .forward, animated: false, completion: nil)
+        }
+        
+        pageViewController.view.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalToSuperview()
         }
         
     }
     
-    private func setBindings() {
-        
-        viewModel = OnboardingViewModel()
-        
-        inputId.textPublisher
-            .print()
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.textFieldOnboarding, on: viewModel)
-            .store(in: cancelBag)
-    }
-
 }
 
-// UITextField의 text 변화를 감지하는 Publisher 확장
-extension UITextField {
-    var textPublisher: AnyPublisher<String, Never> {
-        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: self)
-            .compactMap { $0.object as? UITextField }
-            .map { $0.text ?? "" }
-            .eraseToAnyPublisher()
+extension OnboardingViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
+            return nil
+        }
+        
+        let previousIndex = viewControllerIndex - 1
+        
+        guard previousIndex >= 0 else {
+            return nil
+        }
+        
+        guard orderedViewControllers.count > previousIndex else {
+            return nil
+        }
+        
+        return orderedViewControllers[previousIndex]
     }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
+            return nil
+        }
+        
+        let nextIndex = viewControllerIndex + 1
+        let orderedViewControllersCount = orderedViewControllers.count
+        
+        guard orderedViewControllersCount != nextIndex else {
+            return nil
+        }
+        
+        guard orderedViewControllersCount > nextIndex else {
+            return nil
+        }
+        
+        return orderedViewControllers[nextIndex]
+    }
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return self.orderedViewControllers.count
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        guard let first = viewControllers?.first, let index = orderedViewControllers.firstIndex(of: first) else { return 0}
+        return index
+    }
+    
 }

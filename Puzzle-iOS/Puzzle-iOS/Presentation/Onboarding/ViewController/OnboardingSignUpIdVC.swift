@@ -23,7 +23,22 @@ class OnboardingSignUpIdVC: UIViewController {
     // MARK: - UI Conponents
     
     private let inputId = UITextField().then {
-        $0.placeholder = "아이디를 입력해주세요"
+        $0.attributedPlaceholder = NSAttributedString(
+            string: "이름을 입력해주세요!",
+            attributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.puzzleLightGray
+            ]
+        )
+        
+        $0.layer.cornerRadius = 4
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.puzzleLightGray.cgColor
+        
+        $0.font = .body3
+        $0.textColor = .black
+        
+        $0.addLeftPadding(width: 11)
     }
     
     // MARK: - Life Cycles
@@ -40,25 +55,23 @@ class OnboardingSignUpIdVC: UIViewController {
         setupNavigationBar()
     }
     
-    private func setupNavigationBar() {
-        view.addSubview(naviBar)
-        naviBar.snp.makeConstraints { make in
-            make.leading.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            make.height.equalTo(40)
-        }
-    }
-    
     
     // MARK: - UI & Layout
     
     private func setUI() {
-        view.addSubview(inputId)
+        view.addSubviews(naviBar, inputId)
     }
-    
     private func setLayout() {
+        
+        naviBar.snp.makeConstraints {
+            $0.leading.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(40)
+        }
+        
         inputId.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
+            $0.top.equalTo(naviBar.snp.bottom).offset(20)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(28)
+            $0.height.equalTo(32)
         }
     }
     
@@ -68,7 +81,7 @@ class OnboardingSignUpIdVC: UIViewController {
         
         inputId.textPublisher
             .receive(on: DispatchQueue.main)
-            .assign(to: \.userName, on: viewModel)
+            .assign(to: \.userId, on: viewModel)
             .store(in: cancelBag)
     }
     

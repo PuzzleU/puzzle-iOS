@@ -106,6 +106,7 @@ extension PuzzleNavigationBar {
     }
     
     /// 기존 뒤로가기 버튼의 Action을 수정하고 싶을때 사용합니다.
+    @discardableResult
     func resetLeftButtonAction(_ closure: (() -> Void)? = nil, _ type: NavigationBarType) -> Self {
         self.leftButtonClosure = closure
         self.leftButton.removeTarget(self, action: nil, for: .touchUpInside)

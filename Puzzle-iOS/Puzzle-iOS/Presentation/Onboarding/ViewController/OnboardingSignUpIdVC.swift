@@ -15,12 +15,11 @@ class OnboardingSignUpIdVC: UIViewController {
     
     private var cancelBag = CancelBag()
     
-    private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("ID 입력")
-    
-    private var viewModel: OnboardingViewModel!
+    private var viewModel: OnboardingViewModel
     
     
     // MARK: - UI Conponents
+    private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("퍼즐에서 사용할 아이디를 입력해주세요")
     
     private let inputId = UITextField().then {
         $0.attributedPlaceholder = NSAttributedString(
@@ -43,6 +42,15 @@ class OnboardingSignUpIdVC: UIViewController {
     
     // MARK: - Life Cycles
     
+    init(viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         self.view = rootView
     }
@@ -52,7 +60,7 @@ class OnboardingSignUpIdVC: UIViewController {
         setUI()
         setLayout()
         setBindings()
-        setupNavigationBar()
+        setupNaviBindings()
     }
     
     
@@ -77,12 +85,23 @@ class OnboardingSignUpIdVC: UIViewController {
     
     private func setBindings() {
         
-        viewModel = OnboardingViewModel()
-        
         inputId.textPublisher
+            .print()
             .receive(on: DispatchQueue.main)
             .assign(to: \.userId, on: viewModel)
             .store(in: cancelBag)
     }
     
+}
+
+
+// MARK: - Methods
+
+extension OnboardingSignUpIdVC {
+    private func setupNaviBindings() {
+        naviBar.resetLeftButtonAction({ [weak self] in
+            print("네비 뒤로")
+            self?.viewModel.backButtonTapped.send()
+        }, .leftTitleWithLeftButton)
+    }
 }

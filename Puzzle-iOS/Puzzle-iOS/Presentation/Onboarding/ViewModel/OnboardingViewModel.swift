@@ -12,6 +12,9 @@ class OnboardingViewModel {
     @Published var userName: String = ""
     @Published var userId: String = ""
     
+    // 뒤로가기 버튼 액션을 처리하기 위한 PassthroughSubject
+     let backButtonTapped = PassthroughSubject<Void, Never>()
+    
     struct Input {
         let textFieldOnboarding: AnyPublisher<String, Never>
     }

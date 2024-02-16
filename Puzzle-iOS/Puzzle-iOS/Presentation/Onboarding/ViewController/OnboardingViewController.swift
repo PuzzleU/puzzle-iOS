@@ -14,8 +14,15 @@ import SnapKit
 final class OnboardingViewController: UIPageViewController {
     
     // MARK: - Properties
+    
+    private var viewModel = OnboardingViewModel()
+    
+    private var cancelBag = CancelBag()
+    
     lazy var orderedViewControllers: [UIViewController] = {
-        return [OnboardingSignUpIdVC(), OnboardingSignUpNameVC()]
+        let signUpNameVC = OnboardingSignUpNameVC(viewModel: viewModel)
+        let signUpIdVC = OnboardingSignUpIdVC(viewModel: viewModel)
+        return [signUpNameVC, signUpIdVC]
     }()
     
     
@@ -28,6 +35,8 @@ final class OnboardingViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupBindings()
         
         view.addSubviews(pageViewController.view)
         view.backgroundColor = .puzzleRealWhite
@@ -96,3 +105,30 @@ extension OnboardingViewController: UIPageViewControllerDataSource, UIPageViewCo
     }
     
 }
+
+extension OnboardingViewController {
+    
+    private func setupBindings() {
+        viewModel.backButtonTapped
+            .print()
+            .sink { [weak self] _ in
+                print("여긴오나?")
+                self?.moveToPreviousPage()
+            }
+            .store(in: cancelBag)
+    }
+    
+    private func moveToPreviousPage() {
+        print("이게되네 ...")
+        
+        guard let currentViewController = pageViewController.viewControllers?.first,
+              let currentIndex = orderedViewControllers.firstIndex(of: currentViewController),
+              currentIndex > 0 else {
+            return
+        }
+        
+        let previousViewController = orderedViewControllers[currentIndex - 1]
+        pageViewController.setViewControllers([previousViewController], direction: .reverse, animated: true, completion: nil)
+    }
+}
+

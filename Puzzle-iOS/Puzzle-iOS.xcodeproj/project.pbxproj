@@ -58,6 +58,7 @@
 		718D091E2B7E23C20021AD40 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D091D2B7E23C20021AD40 /* UITextField+.swift */; };
 		718D09202B7E305C0021AD40 /* OnboardingSignUpIdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D091F2B7E305C0021AD40 /* OnboardingSignUpIdVC.swift */; };
 		718D09222B7E30D10021AD40 /* OnboardingSignUpNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09212B7E30D10021AD40 /* OnboardingSignUpNameVC.swift */; };
+		718D09242B7FCE950021AD40 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09232B7FCE950021AD40 /* ProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		718D091D2B7E23C20021AD40 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		718D091F2B7E305C0021AD40 /* OnboardingSignUpIdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSignUpIdVC.swift; sourceTree = "<group>"; };
 		718D09212B7E30D10021AD40 /* OnboardingSignUpNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSignUpNameVC.swift; sourceTree = "<group>"; };
+		718D09232B7FCE950021AD40 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				718D09182B7A94930021AD40 /* OnboardingBaseView.swift */,
+				718D09232B7FCE950021AD40 /* ProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -679,6 +682,7 @@
 				718D09202B7E305C0021AD40 /* OnboardingSignUpIdVC.swift in Sources */,
 				2C55EEC02B711BB5001AD42E /* Config.swift in Sources */,
 				2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */,
+				718D09242B7FCE950021AD40 /* ProgressView.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,

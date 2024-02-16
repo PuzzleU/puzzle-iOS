@@ -19,10 +19,13 @@ final class OnboardingViewController: UIPageViewController {
     
     private var cancelBag = CancelBag()
     
+    private lazy var progressBar = ProgressView(totalSteps: orderedViewControllers.count)
+    
     lazy var orderedViewControllers: [UIViewController] = {
         let signUpNameVC = OnboardingSignUpNameVC(viewModel: viewModel)
         let signUpIdVC = OnboardingSignUpIdVC(viewModel: viewModel)
-        return [signUpNameVC, signUpIdVC]
+        let VC = ViewController()
+        return [signUpNameVC, signUpIdVC, VC]
     }()
     
     
@@ -52,6 +55,15 @@ final class OnboardingViewController: UIPageViewController {
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalToSuperview()
         }
+        
+        view.addSubview(progressBar)
+        progressBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(8)
+        }
+        
+        progressBar.setCurrentStep(1)
         
     }
     
@@ -102,6 +114,12 @@ extension OnboardingViewController: UIPageViewControllerDataSource, UIPageViewCo
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         guard let first = viewControllers?.first, let index = orderedViewControllers.firstIndex(of: first) else { return 0}
         return index
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed, let visibleViewController = pageViewController.viewControllers?.first, let index = orderedViewControllers.firstIndex(of: visibleViewController) {
+            progressBar.setCurrentStep(index + 1)
+        }
     }
     
 }

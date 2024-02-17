@@ -9,6 +9,6 @@ import Foundation
 
 enum NumberLiterals {
     enum DropDown {
-        static let dropDownHeight = 30
+        static let dropDownHeight: CGFloat = 30
     }
 }

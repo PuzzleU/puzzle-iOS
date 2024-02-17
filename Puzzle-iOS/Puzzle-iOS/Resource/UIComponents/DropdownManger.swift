@@ -48,7 +48,7 @@ class DropdownManager {
                 $0.trailing.equalTo(mainView.snp.trailing)
             }
             
-            let calculateHeight = CGFloat(dropboxData.count * NumberLiterals.DropDown.dropDownHeight)
+            let calculateHeight = CGFloat(dropboxData.count) * NumberLiterals.DropDown.dropDownHeight
             let resetHeight = calculateHeight < dropboxSize.height ? calculateHeight : dropboxSize.height
             $0.height.equalTo(resetHeight)
         }

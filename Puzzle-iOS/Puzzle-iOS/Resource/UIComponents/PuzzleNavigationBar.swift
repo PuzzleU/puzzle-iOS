@@ -65,6 +65,8 @@ extension PuzzleNavigationBar {
         leftButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(20)
+            $0.width.equalTo(13)
+            $0.height.equalTo(20)
         }
         
         switch type {

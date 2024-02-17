@@ -13,20 +13,19 @@ class OnboardingSignUpIdVC: UIViewController {
     
     private let rootView = OnboardingBaseView()
     
-    private var viewModel: OnboardingViewModel
+    private var viewModel: OnboardingTextViewModel
     private var cancelBag = CancelBag()
     
     
-    // MARK: - UI Conponents
+    // MARK: - UI Components
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("퍼즐에서 사용할 아이디를 입력해주세요")
     
     private let inputId = UITextField().then {
-        // 플레이스홀더 설정
         $0.attributedPlaceholder = NSAttributedString(
             string: "아이디를 입력해주세요. (최대 20자)",
             attributes: [
-                .font: UIFont.body3,  // 폰트 설정
-                .foregroundColor: UIColor.puzzleLightGray  // 색상 설정
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.puzzleLightGray
             ]
         )
         
@@ -49,8 +48,8 @@ class OnboardingSignUpIdVC: UIViewController {
         
         atSymbolLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(11)  // 컨테이너 뷰 내에서 "@" 왼쪽에 11의 패딩
-            make.trailing.equalToSuperview().offset(-11)  // "@"와 플레이스홀더 사이에 11의 패딩
+            make.leading.equalToSuperview().offset(11)
+            make.trailing.equalToSuperview().offset(-11)
         }
         
         // 컨테이너 뷰의 크기를 레이블과 패딩에 맞게 조절

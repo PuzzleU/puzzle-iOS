@@ -66,33 +66,26 @@ class OnboardingSignUpIdVC: UIViewController {
     
     
     private let recommededLabel = UILabel().then {
-        
         let label = "인스타그램 아이디를 사용하면 친구들이 찾기 쉬워요!"
-        
         let specialCharacter = "인스타그램 아이디"
-        let specialCharacterRange = (specialCharacter as NSString).range(of: specialCharacter)
         
-        let attributeLabel = NSMutableAttributedString(
-            string: label,
-            attributes: [
-                .font: UIFont.subTitle3,
+        $0.highlightSpecialText(
+            mainText: label,
+            specialTexts: [specialCharacter],
+            mainAttributes: [
+                .font: UIFont.body3,
                 .foregroundColor: UIColor.black
+            ],
+            specialAttributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.puzzlePurple
             ]
         )
-        
-        // 특정 문자에만 다른 폰트와 색상 적용하는 코드 입니다.
-        attributeLabel.addAttributes([
-            .font: UIFont.subTitle3,
-            .foregroundColor: UIColor.puzzlePurple
-        ], range: specialCharacterRange)
-        
-        $0.attributedText = attributeLabel
-        
     }
     
     // MARK: - Life Cycles
     
-    init(viewModel: OnboardingViewModel) {
+    init(viewModel: OnboardingTextViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

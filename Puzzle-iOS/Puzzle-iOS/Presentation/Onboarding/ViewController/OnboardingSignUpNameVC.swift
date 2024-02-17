@@ -13,12 +13,11 @@ class OnboardingSignUpNameVC: UIViewController {
     
     private let rootView = OnboardingBaseView()
     
+    private var viewModel: OnboardingTextViewModel
     private var cancelBag = CancelBag()
     
-    private var viewModel: OnboardingViewModel
+    // MARK: - UI Components
     
-    
-    // MARK: - UI Conponents
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("이름을 알려주세요")
     
     private let inputId = UITextField().then {
@@ -42,11 +41,11 @@ class OnboardingSignUpNameVC: UIViewController {
     
     // MARK: - Life Cycles
     
-    init(viewModel: OnboardingViewModel) {
+    init(viewModel: OnboardingTextViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

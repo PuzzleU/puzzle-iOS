@@ -11,18 +11,18 @@ import SnapKit
 import Then
 
 class AnimalView: UIView {
-
+    
     // MARK: - UI Components
     
     lazy var animalCollectionView = UICollectionView(frame: .zero,
-                                                    collectionViewLayout: UICollectionViewLayout()).then {
+                                                     collectionViewLayout: UICollectionViewLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 100, height: 100)
         
         $0.collectionViewLayout = layout
         $0.isScrollEnabled = false
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

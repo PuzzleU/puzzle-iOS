@@ -8,7 +8,7 @@
 import UIKit
 
 class OnboardingSelectProfileImageVC: UIViewController {
-
+    
     // MARK: - Properties
     
     private let rootView = OnboardingBaseView()
@@ -82,7 +82,7 @@ class OnboardingSelectProfileImageVC: UIViewController {
         animalView.animalCollectionView.delegate = self
         animalView.animalCollectionView.dataSource = self
     }
-
+    
 }
 
 // MARK: - Methods

@@ -34,7 +34,7 @@ class OnboardingSignUpIdVC: UIViewController {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.puzzleLightGray.cgColor
         
-        $0.font = .body3
+        $0.font = .body2
         $0.textColor = .black
         
         $0.addLeftPadding(width: 11)

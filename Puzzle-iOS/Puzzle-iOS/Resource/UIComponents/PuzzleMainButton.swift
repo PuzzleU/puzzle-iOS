@@ -40,7 +40,7 @@ final class PuzzleMainButton: UIButton {
     
     private func setUI(title: String) {
         setTitle(title, for: .normal)
-        titleLabel?.font = .itemTitle
+        titleLabel?.font = .body2
         setTitleColor(.puzzleRealWhite, for: .normal)
         backgroundColor = .puzzleLightGray
         layer.cornerRadius = 15

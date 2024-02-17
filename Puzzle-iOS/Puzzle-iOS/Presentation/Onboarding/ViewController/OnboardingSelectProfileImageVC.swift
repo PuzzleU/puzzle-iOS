@@ -13,7 +13,7 @@ class OnboardingSelectProfileImageVC: UIViewController {
     
     private let rootView = OnboardingBaseView()
     
-    private var animalView = AnimalView()
+    private var profileImageCollectionView = OnboardingCollectionView()
     private var viewModel: AnimalsViewModel
     private var cancelBag = CancelBag()
     
@@ -52,7 +52,7 @@ class OnboardingSelectProfileImageVC: UIViewController {
     }
     
     private func setUI() {
-        view.addSubviews(naviBar, alertLabel, animalView)
+        view.addSubviews(naviBar, alertLabel, profileImageCollectionView)
     }
     
     private func setLayout() {
@@ -67,7 +67,7 @@ class OnboardingSelectProfileImageVC: UIViewController {
             $0.leading.equalTo(self.view.safeAreaLayoutGuide).offset(46)
         }
         
-        animalView.snp.makeConstraints {
+        profileImageCollectionView.snp.makeConstraints {
             $0.top.equalTo(alertLabel.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(29)
             $0.bottom.equalToSuperview().inset(227)
@@ -75,12 +75,12 @@ class OnboardingSelectProfileImageVC: UIViewController {
     }
     
     private func register() {
-        animalView.animalCollectionView.register(AnimalCollectionViewCell.self, forCellWithReuseIdentifier: AnimalCollectionViewCell.className)
+        profileImageCollectionView.onboardingCollectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: OnboardingCollectionViewCell.className)
     }
     
     private func delegate() {
-        animalView.animalCollectionView.delegate = self
-        animalView.animalCollectionView.dataSource = self
+        profileImageCollectionView.onboardingCollectionView.delegate = self
+        profileImageCollectionView.onboardingCollectionView.dataSource = self
     }
     
 }
@@ -94,7 +94,7 @@ extension OnboardingSelectProfileImageVC: UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AnimalCollectionViewCell.className, for: indexPath) as? AnimalCollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell()}
         cell.bind(with: viewModel.animalImages[indexPath.row])
         return cell
     }
@@ -113,7 +113,7 @@ extension OnboardingSelectProfileImageVC: UICollectionViewDataSource, UICollecti
         viewModel.$animalImages
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
-                self?.animalView.animalCollectionView.reloadData()
+                self?.profileImageCollectionView.onboardingCollectionView.reloadData()
             }
             .store(in: cancelBag)
     }

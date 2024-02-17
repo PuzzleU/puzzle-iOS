@@ -10,12 +10,12 @@ import UIKit
 import SnapKit
 import Then
 
-class AnimalView: UIView {
+class OnboardingCollectionView: UIView {
     
     // MARK: - UI Components
     
-    lazy var animalCollectionView = UICollectionView(frame: .zero,
-                                                     collectionViewLayout: UICollectionViewLayout()).then {
+    lazy var onboardingCollectionView = UICollectionView(frame: .zero,
+                                                         collectionViewLayout: UICollectionViewLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 100, height: 100)
         
@@ -39,11 +39,11 @@ class AnimalView: UIView {
     // MARK: - UI methods
     
     private func setHierarchy() {
-        self.addSubviews(animalCollectionView)
+        self.addSubviews(onboardingCollectionView)
     }
     
     private func setLayout() {
-        animalCollectionView.snp.makeConstraints() {
+        onboardingCollectionView.snp.makeConstraints() {
             $0.edges.equalToSuperview()
         }
     }

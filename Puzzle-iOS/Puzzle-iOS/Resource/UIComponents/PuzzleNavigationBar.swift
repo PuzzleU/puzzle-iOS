@@ -84,7 +84,7 @@ extension PuzzleNavigationBar {
     private func createTitleLabel() -> UILabel {
         return UILabel().then {
             $0.font = .pageTitle
-            $0.textColor = .black
+            $0.textColor = .puzzleBlack
         }
     }
 }

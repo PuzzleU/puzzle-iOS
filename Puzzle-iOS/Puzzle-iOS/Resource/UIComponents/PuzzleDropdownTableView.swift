@@ -19,7 +19,7 @@ final class PuzzleDropdownTableView: UIView {
     // MARK: - UI Components
     
     let dropdownTableView = UITableView().then {
-        $0.backgroundColor = .puzzleRealWhite
+        $0.backgroundColor = .puzzleWhite
         $0.layer.cornerRadius = 10
         $0.layer.masksToBounds = true
         $0.register(PuzzleDropDownTableViewCell.self, forCellReuseIdentifier: PuzzleDropDownTableViewCell.reuseIdentifier)

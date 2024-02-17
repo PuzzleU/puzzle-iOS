@@ -21,5 +21,5 @@ let LoginButtonData = [
                color: .kakao),
     LoginModel(title: "Apple 로그인",
                image: UIImage(named: "heart.fill") ?? UIImage(),
-               color: .white)
+               color: .puzzleWhite)
 ]

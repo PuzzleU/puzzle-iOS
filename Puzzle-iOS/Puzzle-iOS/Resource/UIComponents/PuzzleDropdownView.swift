@@ -15,15 +15,15 @@ final class PuzzleDropdownView: UIView {
     // MARK: - UI Components
     
     let dropdownView = UIView().then {
-        $0.backgroundColor = .puzzleRealWhite
-        $0.layer.borderColor = UIColor.puzzleLightGray.cgColor
+        $0.backgroundColor = .puzzleWhite
+        $0.layer.borderColor = UIColor.puzzleGray300.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 10
     }
     
     let dropdownLabel = UILabel().then {
         $0.font = .body2
-        $0.textColor = .black
+        $0.textColor = .puzzleWhite
     }
     
     private let dropdownImageView = UIImageView(image: .dropdown)

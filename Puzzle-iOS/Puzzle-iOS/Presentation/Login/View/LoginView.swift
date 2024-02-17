@@ -17,7 +17,7 @@ final class LoginView: UIView {
     private let titleLabel = UILabel().then {
         $0.text = StringLiterals.Login.title
         $0.font = .largeTitle1
-        $0.textColor = .black
+        $0.textColor = .puzzleBlack
         $0.textAlignment = .left
         $0.numberOfLines = 2
     }
@@ -36,7 +36,7 @@ final class LoginView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .puzzleRealWhite
+        self.backgroundColor = .puzzleWhite
         
         setHierarchy()
         setLayout()

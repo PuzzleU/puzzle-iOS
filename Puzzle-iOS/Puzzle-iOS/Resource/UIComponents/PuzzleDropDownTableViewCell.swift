@@ -16,11 +16,11 @@ final class PuzzleDropDownTableViewCell: UITableViewCell {
     
     private let cellLabel = UILabel().then {
         $0.font = .body3
-        $0.textColor = .black
+        $0.textColor = .puzzleBlack
     }
     
     private let divderView = UIView().then {
-        $0.backgroundColor = .puzzleLightGray
+        $0.backgroundColor = .puzzleGray300
     }
     
     // MARK: - Life Cycles

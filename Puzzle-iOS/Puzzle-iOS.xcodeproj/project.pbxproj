@@ -30,6 +30,13 @@
 		2C55EEBB2B711ACA001AD42E /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2C55EEBA2B711ACA001AD42E /* KakaoSDKAuth */; };
 		2C55EEBD2B711ACA001AD42E /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 2C55EEBC2B711ACA001AD42E /* KakaoSDKUser */; };
 		2C55EEC02B711BB5001AD42E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF2B711BB5001AD42E /* Config.swift */; };
+		2C804D572B7DB7C100379C07 /* NumberLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C804D562B7DB7C100379C07 /* NumberLiterals.swift */; };
+		2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */; };
+		2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */; };
+		2C9813BD2B7CF28C00C56D0B /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BC2B7CF28C00C56D0B /* UITableViewCell+.swift */; };
+		2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BE2B7CF38100C56D0B /* UIStackView+.swift */; };
+		2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */; };
+		2C9813C52B7D4CC200C56D0B /* DropdownManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
 		71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A842B76554500B23378 /* PuzzleNavigationBar.swift */; };
@@ -91,6 +98,13 @@
 		2C5310EC2B6E8BD200704371 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		2C5310EF2B6E8CA000704371 /* CancelBag+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CancelBag+.swift"; sourceTree = "<group>"; };
 		2C55EEBF2B711BB5001AD42E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2C804D562B7DB7C100379C07 /* NumberLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberLiterals.swift; sourceTree = "<group>"; };
+		2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropDownTableViewCell.swift; sourceTree = "<group>"; };
+		2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropdownView.swift; sourceTree = "<group>"; };
+		2C9813BC2B7CF28C00C56D0B /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		2C9813BE2B7CF38100C56D0B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropdownTableView.swift; sourceTree = "<group>"; };
+		2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownManger.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		71814A7F2B74F17100B23378 /* Puzzle-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Puzzle-iOS.entitlements"; sourceTree = "<group>"; };
@@ -155,6 +169,7 @@
 			children = (
 				2C1765072B7279A000CD789E /* StringLiterals.swift */,
 				71814A882B77353900B23378 /* FontLiterals.swift */,
+				2C804D562B7DB7C100379C07 /* NumberLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -262,6 +277,8 @@
 				2C5310EF2B6E8CA000704371 /* CancelBag+.swift */,
 				2C1765092B7283A500CD789E /* UIViewController+.swift */,
 				71814A862B76568B00B23378 /* UIView+.swift */,
+				2C9813BE2B7CF38100C56D0B /* UIStackView+.swift */,
+				2C9813BC2B7CF28C00C56D0B /* UITableViewCell+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -322,6 +339,10 @@
 				2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */,
 				71814A842B76554500B23378 /* PuzzleNavigationBar.swift */,
 				2C33B17D2B76537300A9476D /* PuzzleBottomSheetViewController.swift */,
+				2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */,
+				2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */,
+				2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */,
+				2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -606,20 +627,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
 				71814AAF2B77776B00B23378 /* PuzzleToastView.swift in Sources */,
+				2C9813BD2B7CF28C00C56D0B /* UITableViewCell+.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
 				2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */,
+				2C9813C52B7D4CC200C56D0B /* DropdownManger.swift in Sources */,
 				2C5310E32B6E782B00704371 /* LoginCollectionViewCell.swift in Sources */,
+				2C804D572B7DB7C100379C07 /* NumberLiterals.swift in Sources */,
 				2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */,
 				2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */,
 				2C17650A2B7283A500CD789E /* UIViewController+.swift in Sources */,
+				2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */,
 				2C1765082B7279A000CD789E /* StringLiterals.swift in Sources */,
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
+				2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */,
+				2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */,
 				71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */,
 				2C5310EA2B6E893C00704371 /* LoginViewModel.swift in Sources */,
 				71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */,

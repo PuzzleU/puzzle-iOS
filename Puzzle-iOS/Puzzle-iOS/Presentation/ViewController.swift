@@ -7,13 +7,16 @@
 
 import UIKit
 
+import SnapKit
+
 class ViewController: UIViewController {
 
+    // MARK: - Life Cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
-    }
-
+        
+        }
 
 }
 

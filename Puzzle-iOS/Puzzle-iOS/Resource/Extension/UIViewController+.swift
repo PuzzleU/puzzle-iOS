@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 extension UIViewController {
     
     func pushToViewController() {
@@ -36,6 +39,5 @@ extension UIViewController {
     
     private func safeAreaBottomInset() -> CGFloat {
         return view.safeAreaInsets.bottom
-        
     }
 }

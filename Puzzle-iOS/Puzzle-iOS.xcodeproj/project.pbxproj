@@ -35,6 +35,7 @@
 		7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */; };
 		7127DA562B820DA800B262DA /* InterestSelectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA552B820DA800B262DA /* InterestSelectionViewHeader.swift */; };
 		7127DA5F2B825E6400B262DA /* Publisher+UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA5E2B825E6400B262DA /* Publisher+UIControl.swift */; };
+		7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA602B82601000B262DA /* Publisher+UIGesture.swift */; };
 		71355AEA2B80E371007E1822 /* OnboardingInterestSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AE92B80E371007E1822 /* OnboardingInterestSelectionVC.swift */; };
 		71355AEC2B80ECC1007E1822 /* InterestSelectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
@@ -118,6 +119,7 @@
 		7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
 		7127DA552B820DA800B262DA /* InterestSelectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewHeader.swift; sourceTree = "<group>"; };
 		7127DA5E2B825E6400B262DA /* Publisher+UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+UIControl.swift"; sourceTree = "<group>"; };
+		7127DA602B82601000B262DA /* Publisher+UIGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+UIGesture.swift"; sourceTree = "<group>"; };
 		71355AE92B80E371007E1822 /* OnboardingInterestSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInterestSelectionVC.swift; sourceTree = "<group>"; };
 		71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewCell.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				7127DA5E2B825E6400B262DA /* Publisher+UIControl.swift */,
+				7127DA602B82601000B262DA /* Publisher+UIGesture.swift */,
 			);
 			path = "Combine+UIKit";
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 				2C5310EA2B6E893C00704371 /* LoginViewModel.swift in Sources */,
 				7127DA562B820DA800B262DA /* InterestSelectionViewHeader.swift in Sources */,
 				71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */,
+				7127DA5F2B825E6400B262DA /* Publisher+UIControl.swift in Sources */,
 				718D09202B7E305C0021AD40 /* OnboardingSignUpIdVC.swift in Sources */,
 				2C55EEC02B711BB5001AD42E /* Config.swift in Sources */,
 				2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */,
@@ -768,6 +772,7 @@
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
 				718D09222B7E30D10021AD40 /* OnboardingSignUpNameVC.swift in Sources */,
 				718D091C2B7A9B090021AD40 /* OnboardingTextViewModel.swift in Sources */,
+				7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
 				718D09372B80D7CE0021AD40 /* PositionViewModel.swift in Sources */,
 				2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */,

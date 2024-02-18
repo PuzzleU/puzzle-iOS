@@ -99,7 +99,7 @@ extension OnboardingViewController {
             .store(in: cancelBag)
         
         positionViewModel.backButtonTapped
-            .sink { [weak self] in
+            .sink { [weak self] _ in
                 self?.moveToPreviousPage()
             }
             .store(in: cancelBag)

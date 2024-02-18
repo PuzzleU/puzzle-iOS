@@ -69,8 +69,8 @@ class OnboardingSelectPositionVC: UIViewController {
         }
         
         positionCollectionView.snp.makeConstraints {
-            $0.top.equalTo(alertLabel.snp.bottom).offset(20)
-            $0.leading.trailing.equalToSuperview().inset(29)
+            $0.top.equalTo(alertLabel.snp.bottom).offset(27)
+            $0.leading.trailing.equalToSuperview().inset(28)
             $0.bottom.equalToSuperview().inset(227)
         }
     }
@@ -90,7 +90,6 @@ class OnboardingSelectPositionVC: UIViewController {
 
 extension OnboardingSelectPositionVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("갯수 \(viewModel.positionImages.count)")
         return viewModel.positionImages.count
     }
     
@@ -101,7 +100,7 @@ extension OnboardingSelectPositionVC: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        print("OnboardingSelectPositionVC 의 \(indexPath.row) 터치 ")
     }
     
     private func setupNaviBindings() {
@@ -119,4 +118,3 @@ extension OnboardingSelectPositionVC: UICollectionViewDataSource, UICollectionVi
             .store(in: cancelBag)
     }
 }
-

@@ -45,9 +45,9 @@ class OnboardingSelectProfileImageVC: UIViewController {
         super.viewDidLoad()
         setUI()
         setLayout()
+        setDelegate()
+        setNaviBindings()
         register()
-        delegate()
-        setupNaviBindings()
         bindViewModel()
     }
     
@@ -78,7 +78,7 @@ class OnboardingSelectProfileImageVC: UIViewController {
         profileImageCollectionView.onboardingCollectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: OnboardingCollectionViewCell.className)
     }
     
-    private func delegate() {
+    private func setDelegate() {
         profileImageCollectionView.onboardingCollectionView.delegate = self
         profileImageCollectionView.onboardingCollectionView.dataSource = self
     }
@@ -89,7 +89,6 @@ class OnboardingSelectProfileImageVC: UIViewController {
 
 extension OnboardingSelectProfileImageVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("갯수 \(viewModel.animalImages.count)")
         return viewModel.animalImages.count
     }
     
@@ -100,10 +99,10 @@ extension OnboardingSelectProfileImageVC: UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        print("OnboardingSelectProfileImageVC 의 \(indexPath.row) 터치 ")
     }
     
-    private func setupNaviBindings() {
+    private func setNaviBindings() {
         naviBar.resetLeftButtonAction({ [weak self] in
             self?.viewModel.backButtonTapped.send()
         }, .leftTitleWithLeftButton)

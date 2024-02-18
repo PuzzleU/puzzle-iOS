@@ -8,8 +8,8 @@
 import UIKit
 import Combine
 
-import Then
 import SnapKit
+import Then
 
 final class OnboardingViewController: UIPageViewController {
     
@@ -18,6 +18,7 @@ final class OnboardingViewController: UIPageViewController {
     private var onboardingViewModel = OnboardingTextViewModel()
     private var animalViewModel = AnimalsViewModel()
     private var positionViewModel = PositionViewModel()
+    private var interestViewModel = InterestViewModel()
     private var cancelBag = CancelBag()
     
     
@@ -32,7 +33,8 @@ final class OnboardingViewController: UIPageViewController {
         let signUpIdVC = OnboardingSignUpIdVC(viewModel: onboardingViewModel)
         let selectProfileVC = OnboardingSelectProfileImageVC(viewModel: animalViewModel)
         let selectPositionVC = OnboardingSelectPositionVC(viewModel: positionViewModel)
-        return [signUpNameVC, signUpIdVC, selectProfileVC,selectPositionVC]
+        let interestVC = InterestSelectionViewController(viewModel: interestViewModel)
+        return [signUpNameVC, signUpIdVC, selectProfileVC, selectPositionVC, interestVC]
     }()
     
     // MARK: - Life Cycles
@@ -99,6 +101,12 @@ extension OnboardingViewController {
             .store(in: cancelBag)
         
         positionViewModel.backButtonTapped
+            .sink { [weak self] _ in
+                self?.moveToPreviousPage()
+            }
+            .store(in: cancelBag)
+        
+        interestViewModel.backButtonTapped
             .sink { [weak self] _ in
                 self?.moveToPreviousPage()
             }

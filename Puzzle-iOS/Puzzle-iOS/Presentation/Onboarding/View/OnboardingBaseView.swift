@@ -32,4 +32,9 @@ class OnboardingBaseView: UIView {
         addSubview(nextButton)
     }
     
+    /// 버튼을 최상단으로 올리는 코드 입니다.
+    func bringNextButtonToFront() {
+        bringSubviewToFront(nextButton)
+    }
+    
 }

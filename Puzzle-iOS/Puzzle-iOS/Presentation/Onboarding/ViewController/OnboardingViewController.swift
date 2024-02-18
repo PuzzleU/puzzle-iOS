@@ -33,7 +33,7 @@ final class OnboardingViewController: UIPageViewController {
         let signUpIdVC = OnboardingSignUpIdVC(viewModel: onboardingViewModel)
         let selectProfileVC = OnboardingSelectProfileImageVC(viewModel: animalViewModel)
         let selectPositionVC = OnboardingSelectPositionVC(viewModel: positionViewModel)
-        let interestVC = InterestSelectionViewController(viewModel: interestViewModel)
+        let interestVC = OnboardingInterestSelectionVC(viewModel: interestViewModel)
         return [signUpNameVC, signUpIdVC, selectProfileVC, selectPositionVC, interestVC]
     }()
     
@@ -60,16 +60,16 @@ final class OnboardingViewController: UIPageViewController {
             pageViewController.setViewControllers([firstViewController], direction: .forward, animated: false, completion: nil)
         }
         
-        pageViewController.view.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalToSuperview()
+        pageViewController.view.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
         }
         
         view.addSubview(progressBar)
-        progressBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(8)
+        progressBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(8)
         }
         
         progressBar.setCurrentStep(1)

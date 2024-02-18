@@ -42,17 +42,17 @@ class InterestSelectionViewCell: UICollectionViewCell {
     }
 
     private func setLayout() {
-        titleLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.top.equalToSuperview().offset(5.5)
-            make.bottom.equalToSuperview().offset(-5.5)
+        titleLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.top.equalToSuperview().offset(5.5)
+            $0.bottom.equalToSuperview().offset(-5.5)
         }
     }
     // MARK: - Method
     
-    func bind(with text: String) {
+    func bindData(with text: String) {
         titleLabel.text = text
     }
 }

@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class OnboardingSelectProfileImageVC: UIViewController {
     
     // MARK: - Properties
@@ -51,6 +54,8 @@ class OnboardingSelectProfileImageVC: UIViewController {
         bindViewModel()
     }
     
+    // MARK: - UI & Layout
+    
     private func setUI() {
         view.addSubviews(naviBar, alertLabel, profileImageCollectionView)
     }
@@ -94,7 +99,7 @@ extension OnboardingSelectProfileImageVC: UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell()}
-        cell.bind(with: viewModel.animalImages[indexPath.row])
+        cell.bindData(with: viewModel.animalImages[indexPath.row])
         return cell
     }
     

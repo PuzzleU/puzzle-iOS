@@ -9,6 +9,9 @@ import UIKit
 import Combine
 
 class PositionViewModel {
+    
+    // MARK: - Properties
+    
     @Published var positionImages: [UIImage] = []
     let backButtonTapped = PassthroughSubject<Void, Never>()
     

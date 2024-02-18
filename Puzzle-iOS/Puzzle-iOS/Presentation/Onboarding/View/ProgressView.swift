@@ -7,8 +7,8 @@
 
 import UIKit
 
-import Then
 import SnapKit
+import Then
 
 class ProgressView: UIView {
     
@@ -36,7 +36,7 @@ class ProgressView: UIView {
         self.totalSteps = max(totalSteps, 1) // 최소 단계 수를 1로 설정하여 0으로 나누는 것을 방지
         
         super.init(frame: .zero)
-        setupProgressView()
+        setProgressView()
     }
     
     required init?(coder: NSCoder) {
@@ -45,13 +45,15 @@ class ProgressView: UIView {
     
     // MARK: - UI & Layout
     
-    private func setupProgressView() {
+    private func setProgressView() {
         addSubview(progressView)
         
         progressView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
+    
+    // MARK: - Methods
     
     private func updateProgress() {
         let progress = Float(currentStep) / Float(totalSteps)

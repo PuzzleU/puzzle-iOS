@@ -1,5 +1,5 @@
 //
-//  AnimalView.swift
+//  OnboardingCollectionView.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/17/24.
@@ -34,12 +34,14 @@ class OnboardingCollectionView: UIView {
         $0.isScrollEnabled = false
     }
     
+    // MARK: - Life Cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = .puzzleDarkGray
         
-        setHierarchy()
+        setUI()
         setLayout()
     }
     
@@ -47,14 +49,14 @@ class OnboardingCollectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - UI methods
+    // MARK: - UI & Layout
     
-    private func setHierarchy() {
+    private func setUI() {
         self.addSubviews(onboardingCollectionView)
     }
     
     private func setLayout() {
-        onboardingCollectionView.snp.makeConstraints() {
+        onboardingCollectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }

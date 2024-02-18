@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class OnboardingSelectPositionVC: UIViewController {
     
     // MARK: - Properties
@@ -23,7 +26,7 @@ class OnboardingSelectPositionVC: UIViewController {
     private let alertLabel = UILabel().then {
         let label = "포지션에 맞는 공모전을 추천해드려요.\n(최대 2개까지 선택 가능)"
         $0.highlightSpecialText(mainText: label, specialTexts: ["공모전"], mainAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.black], specialAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.puzzlePurple])
-        $0.numberOfLines = 0 // 라벨이 필요한 만큼 줄 수를 가질 수 있도록 설정
+        $0.numberOfLines = 0
     }
     
     // MARK: - Life Cycles
@@ -51,6 +54,8 @@ class OnboardingSelectPositionVC: UIViewController {
         setupNaviBindings()
         bindViewModel()
     }
+    
+    // MARK: - UI & Layout
     
     private func setUI() {
         view.addSubviews(naviBar, alertLabel, positionCollectionView)
@@ -88,20 +93,7 @@ class OnboardingSelectPositionVC: UIViewController {
 
 // MARK: - Methods
 
-extension OnboardingSelectPositionVC: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.positionImages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell()}
-        cell.bind(with: viewModel.positionImages[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("OnboardingSelectPositionVC 의 \(indexPath.row) 터치 ")
-    }
+extension OnboardingSelectPositionVC {
     
     private func setupNaviBindings() {
         naviBar.resetLeftButtonAction({ [weak self] in
@@ -117,4 +109,30 @@ extension OnboardingSelectPositionVC: UICollectionViewDataSource, UICollectionVi
             }
             .store(in: cancelBag)
     }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension OnboardingSelectPositionVC: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("OnboardingSelectPositionVC 의 \(indexPath.row) 터치 ")
+    }
+    
+}
+
+
+// MARK: - UICollectionViewDataSource
+
+extension OnboardingSelectPositionVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.positionImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell()}
+        cell.bindData(with: viewModel.positionImages[indexPath.row])
+        return cell
+    }
+    
 }

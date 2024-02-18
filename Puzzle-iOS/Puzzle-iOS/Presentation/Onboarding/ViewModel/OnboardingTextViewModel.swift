@@ -4,10 +4,12 @@
 //
 //  Created by 이명진 on 2/13/24.
 //
-import Foundation
+
 import Combine
 
 class OnboardingTextViewModel {
+    
+    // MARK: - Properties
     
     @Published var userName: String = ""
     @Published var userId: String = ""

@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class OnboardingSignUpIdVC: UIViewController {
     
     // MARK: - Properties
@@ -20,7 +23,7 @@ class OnboardingSignUpIdVC: UIViewController {
     // MARK: - UI Components
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("퍼즐에서 사용할 아이디를 입력해주세요")
     
-    private let inputId = UITextField().then {
+    private let idTextField = UITextField().then {
         $0.attributedPlaceholder = NSAttributedString(
             string: "아이디를 입력해주세요. (최대 20자)",
             attributes: [
@@ -46,10 +49,10 @@ class OnboardingSignUpIdVC: UIViewController {
         let containerView = UIView()
         containerView.addSubview(atSymbolLabel)
         
-        atSymbolLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(11)
-            make.trailing.equalToSuperview().offset(-11)
+        atSymbolLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(11)
+            $0.trailing.equalToSuperview().offset(-11)
         }
         
         // 컨테이너 뷰의 크기를 레이블과 패딩에 맞게 조절
@@ -109,7 +112,7 @@ class OnboardingSignUpIdVC: UIViewController {
     // MARK: - UI & Layout
     
     private func setUI() {
-        view.addSubviews(naviBar, inputId, recommededLabel)
+        view.addSubviews(naviBar, idTextField, recommededLabel)
     }
     private func setLayout() {
         
@@ -119,21 +122,21 @@ class OnboardingSignUpIdVC: UIViewController {
             $0.height.equalTo(40)
         }
         
-        inputId.snp.makeConstraints {
+        idTextField.snp.makeConstraints {
             $0.top.equalTo(naviBar.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(28)
             $0.height.equalTo(32)
         }
         
         recommededLabel.snp.makeConstraints {
-            $0.top.equalTo(inputId.snp.bottom).offset(8)
+            $0.top.equalTo(idTextField.snp.bottom).offset(8)
             $0.leading.equalTo(view.safeAreaLayoutGuide).inset(28)
         }
     }
     
     private func setBindings() {
         
-        inputId.textPublisher
+        idTextField.textPublisher
             .print()
             .receive(on: DispatchQueue.main)
             .assign(to: \.userId, on: viewModel)

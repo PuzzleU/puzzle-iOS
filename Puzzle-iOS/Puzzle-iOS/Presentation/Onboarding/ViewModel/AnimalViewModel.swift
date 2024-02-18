@@ -9,6 +9,9 @@ import UIKit
 import Combine
 
 class AnimalsViewModel {
+    
+    // MARK: - Properties
+    
     @Published var animalImages: [UIImage] = []
     let backButtonTapped = PassthroughSubject<Void, Never>()
     

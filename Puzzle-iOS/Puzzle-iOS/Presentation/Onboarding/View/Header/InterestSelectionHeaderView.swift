@@ -1,5 +1,5 @@
 //
-//  InterestSelectionHeaderView.swift
+//  InterestSelectionViewHeader.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/18/24.
@@ -30,6 +30,14 @@ class InterestSelectionHeaderView: UICollectionReusableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    
+    // MARK: - Method
+    
+    func configure(with title: String) {
+        titleLabel.text = title
+    }
+    
     
     // MARK: - UI & Layout
     
@@ -37,15 +45,9 @@ class InterestSelectionHeaderView: UICollectionReusableView {
         addSubview(titleLabel)
         
         backgroundColor = .clear
-        titleLabel.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
+        titleLabel.snp.makeConstraints { make in
+            make.leading.top.equalToSuperview()
         }
-    }
-    
-    // MARK: - Methods
-    
-    func bindData(with title: String) {
-        titleLabel.text = title
     }
 }
 

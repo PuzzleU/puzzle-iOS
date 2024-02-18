@@ -34,7 +34,7 @@
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
 		7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */; };
 		7127DA562B820DA800B262DA /* InterestSelectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA552B820DA800B262DA /* InterestSelectionViewHeader.swift */; };
-		71355AEA2B80E371007E1822 /* InterestSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AE92B80E371007E1822 /* InterestSelectionViewController.swift */; };
+		71355AEA2B80E371007E1822 /* OnboardingInterestSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AE92B80E371007E1822 /* OnboardingInterestSelectionVC.swift */; };
 		71355AEC2B80ECC1007E1822 /* InterestSelectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
@@ -116,7 +116,7 @@
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
 		7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
 		7127DA552B820DA800B262DA /* InterestSelectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewHeader.swift; sourceTree = "<group>"; };
-		71355AE92B80E371007E1822 /* InterestSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewController.swift; sourceTree = "<group>"; };
+		71355AE92B80E371007E1822 /* OnboardingInterestSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInterestSelectionVC.swift; sourceTree = "<group>"; };
 		71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewCell.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
@@ -518,7 +518,7 @@
 				718D091F2B7E305C0021AD40 /* OnboardingSignUpIdVC.swift */,
 				718D09272B808A3F0021AD40 /* OnboardingSelectProfileImageVC.swift */,
 				718D093A2B80DC8E0021AD40 /* OnboardingSelectPositionVC.swift */,
-				71355AE92B80E371007E1822 /* InterestSelectionViewController.swift */,
+				71355AE92B80E371007E1822 /* OnboardingInterestSelectionVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -739,7 +739,7 @@
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,
 				718D091E2B7E23C20021AD40 /* UITextField+.swift in Sources */,
-				71355AEA2B80E371007E1822 /* InterestSelectionViewController.swift in Sources */,
+				71355AEA2B80E371007E1822 /* OnboardingInterestSelectionVC.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
 				718D093B2B80DC8E0021AD40 /* OnboardingSelectPositionVC.swift in Sources */,
 				718D09312B8093170021AD40 /* AnimalViewModel.swift in Sources */,

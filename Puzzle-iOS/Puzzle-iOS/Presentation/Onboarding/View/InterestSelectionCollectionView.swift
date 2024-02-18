@@ -36,7 +36,7 @@ class InterestSelectionCollectionView: UIView {
         
         self.backgroundColor = .puzzleRealWhite
         
-        setHierarchy()
+        setUI()
         setLayout()
     }
     
@@ -46,7 +46,7 @@ class InterestSelectionCollectionView: UIView {
     
     // MARK: - UI & Layout
     
-    private func setHierarchy() {
+    private func setUI() {
         self.addSubviews(mapCollectionView)
     }
     

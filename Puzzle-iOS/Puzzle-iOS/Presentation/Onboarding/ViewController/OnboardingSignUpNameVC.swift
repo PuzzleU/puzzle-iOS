@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class OnboardingSignUpNameVC: UIViewController {
     
     // MARK: - Properties
@@ -20,7 +23,7 @@ class OnboardingSignUpNameVC: UIViewController {
     
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("이름을 알려주세요")
     
-    private let inputId = UITextField().then {
+    private let nameTextField = UITextField().then {
         $0.attributedPlaceholder = NSAttributedString(
             string: "이름을 입력해주세요!",
             attributes: [
@@ -65,17 +68,17 @@ class OnboardingSignUpNameVC: UIViewController {
     // MARK: - UI & Layout
     
     private func setUI() {
-        view.addSubviews(naviBar, inputId)
+        view.addSubviews(naviBar, nameTextField)
     }
+    
     private func setLayout() {
-        
         naviBar.snp.makeConstraints {
             $0.top.equalToSuperview().offset(8 + 5)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(40)
         }
         
-        inputId.snp.makeConstraints {
+        nameTextField.snp.makeConstraints {
             $0.top.equalTo(naviBar.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(28)
             $0.height.equalTo(32)
@@ -83,8 +86,7 @@ class OnboardingSignUpNameVC: UIViewController {
     }
     
     private func setBindings() {
-        
-        inputId.textPublisher
+        nameTextField.textPublisher
             .print()
             .receive(on: DispatchQueue.main)
             .assign(to: \.userName, on: viewModel)

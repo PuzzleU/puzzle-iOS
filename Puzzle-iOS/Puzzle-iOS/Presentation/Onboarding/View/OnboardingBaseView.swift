@@ -1,5 +1,5 @@
 //
-//  OnboardingView.swift
+//  OnboardingBaseView.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/13/24.
@@ -28,9 +28,11 @@ class OnboardingBaseView: UIView {
     // MARK: - UI & Layout
     
     private func setUI() {
-        self.backgroundColor = .puzzleRealWhite
+        backgroundColor = .puzzleRealWhite
         addSubview(nextButton)
     }
+    
+    // MARK: - Methods
     
     /// 버튼을 최상단으로 올리는 코드 입니다.
     func bringNextButtonToFront() {

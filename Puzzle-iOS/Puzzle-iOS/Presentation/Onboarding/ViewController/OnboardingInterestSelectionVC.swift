@@ -1,5 +1,5 @@
 //
-//  InterestSelectionViewController.swift
+//  OnboardingInterestSelectionVC.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/17/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class InterestSelectionViewController: UIViewController {
+class OnboardingInterestSelectionVC: UIViewController {
     
     // MARK: - Properties
     
@@ -84,7 +84,7 @@ class InterestSelectionViewController: UIViewController {
     private func register() {
         interestCollectionView.mapCollectionView.register(InterestSelectionViewCell.self, forCellWithReuseIdentifier: InterestSelectionViewCell.className)
         
-        interestCollectionView.mapCollectionView.register(InterestSelectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: InterestSelectionViewHeader.className)
+        interestCollectionView.mapCollectionView.register(InterestSelectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: InterestSelectionHeaderView.className)
     }
     
     private func delegate() {
@@ -96,7 +96,7 @@ class InterestSelectionViewController: UIViewController {
 
 // MARK: - Methods
 
-extension InterestSelectionViewController {
+extension OnboardingInterestSelectionVC {
     private func setupNaviBindings() {
         naviBar.resetLeftButtonAction({ [weak self] in
             self?.viewModel.backButtonTapped.send()
@@ -106,7 +106,7 @@ extension InterestSelectionViewController {
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
-extension InterestSelectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension OnboardingInterestSelectionVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
@@ -136,13 +136,13 @@ extension InterestSelectionViewController: UICollectionViewDelegate, UICollectio
         default:
             text = ""
         }
-        cell.bind(with: text)
+        cell.bindData(with: text)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: InterestSelectionViewHeader.className, for: indexPath) as? InterestSelectionViewHeader else {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: InterestSelectionHeaderView.className, for: indexPath) as? InterestSelectionHeaderView else {
                 return UICollectionReusableView()
             }
             
@@ -158,7 +158,7 @@ extension InterestSelectionViewController: UICollectionViewDelegate, UICollectio
                 sectionTitle = ""
             }
             
-            headerView.configure(with: sectionTitle)
+            headerView.bindData(with: sectionTitle)
             
             return headerView
         } else {
@@ -169,7 +169,7 @@ extension InterestSelectionViewController: UICollectionViewDelegate, UICollectio
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension InterestSelectionViewController: UICollectionViewDelegateFlowLayout {
+extension OnboardingInterestSelectionVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text: String
         switch indexPath.section {

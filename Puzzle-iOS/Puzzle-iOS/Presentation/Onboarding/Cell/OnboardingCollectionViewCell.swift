@@ -1,11 +1,13 @@
 //
-//  AnimalCollectionViewCell.swift
+//  OnboardingCollectionViewCell.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/17/24.
 //
 
 import UIKit
+
+import SnapKit
 
 class OnboardingCollectionViewCell: UICollectionViewCell {
     
@@ -18,14 +20,16 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupLayout()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
+    // MARK: - UI & Layout
+    
+    private func setLayout() {
         self.addSubview(imageView)
         
         imageView.snp.makeConstraints {
@@ -35,7 +39,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Custom Methods
     
-    func bind(with image: UIImage) {
+    func bindData(with image: UIImage) {
         imageView.image = image
         print(image)
     }

@@ -197,12 +197,11 @@ extension OnboardingInterestSelectionVC: UICollectionViewDelegateFlowLayout {
         return 8 // 라인 간 최소 간격
     }
     
-    // 섹션 간 간격 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 35, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 35, right: 0) // 섹션 간 간격 설정
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 35)
+        return CGSize(width: collectionView.frame.width, height: 35) // 헤더 뷰 높이 설정
     }
 }

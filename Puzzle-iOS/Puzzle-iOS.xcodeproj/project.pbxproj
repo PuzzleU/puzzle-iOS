@@ -34,8 +34,12 @@
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
 		7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */; };
 		7127DA562B820DA800B262DA /* InterestSelectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA552B820DA800B262DA /* InterestSelectionViewHeader.swift */; };
+		7127DA592B82435500B262DA /* AreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA582B82435500B262DA /* AreaViewModel.swift */; };
+		7127DA5C2B8243CB00B262DA /* OnboardingSelectAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA5B2B8243CB00B262DA /* OnboardingSelectAreaVC.swift */; };
 		7127DA5F2B825E6400B262DA /* Publisher+UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA5E2B825E6400B262DA /* Publisher+UIControl.swift */; };
 		7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA602B82601000B262DA /* Publisher+UIGesture.swift */; };
+		7127DA632B832E9800B262DA /* AreaTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA622B832E9800B262DA /* AreaTableView.swift */; };
+		7127DA652B8330C500B262DA /* AreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA642B8330C500B262DA /* AreaTableViewCell.swift */; };
 		71355AEA2B80E371007E1822 /* OnboardingInterestSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AE92B80E371007E1822 /* OnboardingInterestSelectionVC.swift */; };
 		71355AEC2B80ECC1007E1822 /* InterestSelectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
@@ -118,8 +122,12 @@
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
 		7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
 		7127DA552B820DA800B262DA /* InterestSelectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewHeader.swift; sourceTree = "<group>"; };
+		7127DA582B82435500B262DA /* AreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewModel.swift; sourceTree = "<group>"; };
+		7127DA5B2B8243CB00B262DA /* OnboardingSelectAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectAreaVC.swift; sourceTree = "<group>"; };
 		7127DA5E2B825E6400B262DA /* Publisher+UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+UIControl.swift"; sourceTree = "<group>"; };
 		7127DA602B82601000B262DA /* Publisher+UIGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+UIGesture.swift"; sourceTree = "<group>"; };
+		7127DA622B832E9800B262DA /* AreaTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaTableView.swift; sourceTree = "<group>"; };
+		7127DA642B8330C500B262DA /* AreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaTableViewCell.swift; sourceTree = "<group>"; };
 		71355AE92B80E371007E1822 /* OnboardingInterestSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInterestSelectionVC.swift; sourceTree = "<group>"; };
 		71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewCell.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
@@ -519,6 +527,7 @@
 				718D09232B7FCE950021AD40 /* ProgressView.swift */,
 				718D09342B80A3BF0021AD40 /* OnboardingCollectionView.swift */,
 				7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */,
+				7127DA622B832E9800B262DA /* AreaTableView.swift */,
 				7127DA572B820DAE00B262DA /* Header */,
 			);
 			path = View;
@@ -533,6 +542,7 @@
 				718D09272B808A3F0021AD40 /* OnboardingSelectProfileImageVC.swift */,
 				718D093A2B80DC8E0021AD40 /* OnboardingSelectPositionVC.swift */,
 				71355AE92B80E371007E1822 /* OnboardingInterestSelectionVC.swift */,
+				7127DA5B2B8243CB00B262DA /* OnboardingSelectAreaVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -544,6 +554,7 @@
 				718D09302B8093170021AD40 /* AnimalViewModel.swift */,
 				718D09362B80D7CE0021AD40 /* PositionViewModel.swift */,
 				7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */,
+				7127DA582B82435500B262DA /* AreaViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -553,6 +564,7 @@
 			children = (
 				718D092E2B8091D30021AD40 /* OnboardingCollectionViewCell.swift */,
 				71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */,
+				7127DA642B8330C500B262DA /* AreaTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -758,6 +770,7 @@
 				718D093B2B80DC8E0021AD40 /* OnboardingSelectPositionVC.swift in Sources */,
 				718D09312B8093170021AD40 /* AnimalViewModel.swift in Sources */,
 				71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */,
+				7127DA632B832E9800B262DA /* AreaTableView.swift in Sources */,
 				2C5310EA2B6E893C00704371 /* LoginViewModel.swift in Sources */,
 				7127DA562B820DA800B262DA /* InterestSelectionViewHeader.swift in Sources */,
 				71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */,
@@ -768,6 +781,7 @@
 				718D09242B7FCE950021AD40 /* ProgressView.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
+				7127DA5C2B8243CB00B262DA /* OnboardingSelectAreaVC.swift in Sources */,
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
 				718D09222B7E30D10021AD40 /* OnboardingSignUpNameVC.swift in Sources */,
@@ -775,11 +789,13 @@
 				7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
 				718D09372B80D7CE0021AD40 /* PositionViewModel.swift in Sources */,
+				7127DA652B8330C500B262DA /* AreaTableViewCell.swift in Sources */,
 				2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */,
 				718D09262B807EF40021AD40 /* UILabel+.swift in Sources */,
 				718D092F2B8091D30021AD40 /* OnboardingCollectionViewCell.swift in Sources */,
 				71355AEC2B80ECC1007E1822 /* InterestSelectionViewCell.swift in Sources */,
 				71814A872B76568B00B23378 /* UIView+.swift in Sources */,
+				7127DA592B82435500B262DA /* AreaViewModel.swift in Sources */,
 				2C33B17E2B76537300A9476D /* PuzzleBottomSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,10 +12,6 @@ import Then
 
 class InterestSelectionCollectionView: UIView {
     
-    // MARK: - Property
-    
-    var viewModel: InterestViewModel!
-    
     // MARK: - UI Components
     
     lazy var mapCollectionView = UICollectionView(frame: .zero, collectionViewLayout: LeftAlignedFlowLayout()).then {

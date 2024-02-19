@@ -11,14 +11,15 @@ import Combine
 import SnapKit
 import Then
 
-final class OnboardingViewController: UIPageViewController {
+final class OnboardingViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var onboardingViewModel = OnboardingTextViewModel()
-    private var animalViewModel = AnimalsViewModel()
-    private var positionViewModel = PositionViewModel()
-    private var interestViewModel = InterestViewModel()
+    private let onboardingViewModel = OnboardingTextViewModel()
+    private let animalViewModel = AnimalsViewModel()
+    private let positionViewModel = PositionViewModel()
+    private let interestViewModel = InterestViewModel()
+    private let areaViewModel = AreaViewModel()
     private var cancelBag = CancelBag()
     
     
@@ -34,7 +35,8 @@ final class OnboardingViewController: UIPageViewController {
         let selectProfileVC = OnboardingSelectProfileImageVC(viewModel: animalViewModel)
         let selectPositionVC = OnboardingSelectPositionVC(viewModel: positionViewModel)
         let interestVC = OnboardingInterestSelectionVC(viewModel: interestViewModel)
-        return [signUpNameVC, signUpIdVC, selectProfileVC, selectPositionVC, interestVC]
+        let areaVC = OnboardingSelectAreaVC(viewModel: areaViewModel)
+        return [signUpNameVC, signUpIdVC, selectProfileVC, selectPositionVC, interestVC, areaVC]
     }()
     
     // MARK: - Life Cycles
@@ -46,6 +48,19 @@ final class OnboardingViewController: UIPageViewController {
         setLayout()
         setDelegate()
         setBindings()
+    }
+    
+    // areaVC 에서 바텀시트를 띄울 임시 코드입니다.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let areaVC = orderedViewControllers.first(where: { $0 is OnboardingSelectAreaVC }) as? OnboardingSelectAreaVC {
+            areaVC.showBottomSheetSubject
+                .sink { [weak self] _ in
+                    self?.showAreaBottomSheet()
+                }
+                .store(in: cancelBag)
+        }
     }
     
     // MARK: - UI & Layout
@@ -111,6 +126,12 @@ extension OnboardingViewController {
                 self?.moveToPreviousPage()
             }
             .store(in: cancelBag)
+        
+        areaViewModel.backButtonTapped
+            .sink { [weak self] _ in
+                self?.moveToPreviousPage()
+            }
+            .store(in: cancelBag)
     }
     
     /// 네비게이션 바로 터치로 Page 뒤로가는 부분 구현 함수 입니다.
@@ -127,6 +148,13 @@ extension OnboardingViewController {
         pageViewController.setViewControllers([previousViewController], direction: .reverse, animated: true, completion: nil)
         
         progressBar.setCurrentStep(currentIndex)
+    }
+    
+    // 바텀시트를 띄우는 임시 코드 입니다.
+    private func showAreaBottomSheet() {
+        let bottomSheetVC = PuzzleBottomSheetViewController(bottomType: .high, insertView: OnboardingPlusView())
+        bottomSheetVC.modalPresentationStyle = .overFullScreen
+        present(bottomSheetVC, animated: true)
     }
 }
 

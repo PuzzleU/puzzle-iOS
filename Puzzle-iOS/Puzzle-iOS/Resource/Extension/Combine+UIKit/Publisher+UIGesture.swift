@@ -10,6 +10,39 @@ import Foundation
 import Combine
 import UIKit
 
+public extension UIView {
+    func gesture(_ gestureType: GestureType = .tap()) -> GesturePublisher {
+        self.isUserInteractionEnabled = true
+        return GesturePublisher(view: self, gestureType: gestureType)
+    }
+}
+
+public enum GestureType {
+    case tap(UITapGestureRecognizer = .init())
+    case swipe(UISwipeGestureRecognizer = .init())
+    case longPress(UILongPressGestureRecognizer = .init())
+    case pan(UIPanGestureRecognizer = .init())
+    case pinch(UIPinchGestureRecognizer = .init())
+    case edge(UIScreenEdgePanGestureRecognizer = .init())
+    
+    public func get() -> UIGestureRecognizer {
+        switch self {
+        case let .tap(tapGesture):
+            return tapGesture
+        case let .swipe(swipeGesture):
+            return swipeGesture
+        case let .longPress(longPressGesture):
+            return longPressGesture
+        case let .pan(panGesture):
+            return panGesture
+        case let .pinch(pinchGesture):
+            return pinchGesture
+        case let .edge(edgePanGesture):
+            return edgePanGesture
+        }
+    }
+}
+
 public struct GesturePublisher: Publisher {
     public typealias Output = GestureType
     public typealias Failure = Never
@@ -59,38 +92,5 @@ final class GestureSubscription<S: Subscriber>: Subscription where S.Input == Ge
     @objc
     private func handler() {
         _ = self.subscriber?.receive(self.gestureType)
-    }
-}
-
-public enum GestureType {
-    case tap(UITapGestureRecognizer = .init())
-    case swipe(UISwipeGestureRecognizer = .init())
-    case longPress(UILongPressGestureRecognizer = .init())
-    case pan(UIPanGestureRecognizer = .init())
-    case pinch(UIPinchGestureRecognizer = .init())
-    case edge(UIScreenEdgePanGestureRecognizer = .init())
-    
-    public func get() -> UIGestureRecognizer {
-        switch self {
-        case let .tap(tapGesture):
-            return tapGesture
-        case let .swipe(swipeGesture):
-            return swipeGesture
-        case let .longPress(longPressGesture):
-            return longPressGesture
-        case let .pan(panGesture):
-            return panGesture
-        case let .pinch(pinchGesture):
-            return pinchGesture
-        case let .edge(edgePanGesture):
-            return edgePanGesture
-        }
-    }
-}
-
-public extension UIView {
-    func gesture(_ gestureType: GestureType = .tap()) -> GesturePublisher {
-        self.isUserInteractionEnabled = true
-        return GesturePublisher(view: self, gestureType: gestureType)
     }
 }

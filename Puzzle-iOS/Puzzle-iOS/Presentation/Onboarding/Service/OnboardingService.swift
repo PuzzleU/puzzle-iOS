@@ -18,7 +18,8 @@ class OnboardingService: OnboardingServiceType {
         return ["imgMouse", "imgFox", "imgDog", "imgTiger", "imgOx", "imgLion", "imgPanda", "imgMonkey", "imgRabbit", "imgBear", "imgCat", "imgRobot"]
             .publisher
             .catch { error in
-                return Fail(error: error).eraseToAnyPublisher()
+                return Fail(error: error)
+                    .eraseToAnyPublisher()
             }.compactMap { UIImage(named: $0) }
             .eraseToAnyPublisher()
     }

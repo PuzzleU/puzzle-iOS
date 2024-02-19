@@ -121,6 +121,10 @@ extension OnboardingInterestSelectionVC: UICollectionViewDelegate, UICollectionV
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("OnboardingInterestSelectionVC 의 \(indexPath) 터치 ")
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InterestSelectionViewCell.className, for: indexPath) as? InterestSelectionViewCell else {
             return UICollectionViewCell()

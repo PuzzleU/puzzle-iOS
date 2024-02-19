@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
@@ -13,8 +14,9 @@ import Then
 class OnboardingSelectProfileImageVC: UIViewController {
     
     // MARK: - Properties
-    
     private let rootView = OnboardingBaseView()
+    
+    private lazy var viewDidLoadPublisher = PassthroughSubject<Void, Never>()
     
     private var profileImageCollectionView = OnboardingCollectionView()
     private var viewModel: AnimalsViewModel
@@ -52,6 +54,10 @@ class OnboardingSelectProfileImageVC: UIViewController {
         setNaviBindings()
         register()
         bindViewModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     // MARK: - UI & Layout
@@ -114,12 +120,14 @@ extension OnboardingSelectProfileImageVC: UICollectionViewDataSource, UICollecti
     }
     
     private func bindViewModel() {
-        viewModel.$animalImages
-            .receive(on: RunLoop.main)
-            .sink { [weak self] _ in
-                self?.profileImageCollectionView.onboardingCollectionView.reloadData()
-            }
-            .store(in: cancelBag)
+        
+        let input = AnimalsViewModel.Input(
+            viewDidAppear: viewDidLoadPublisher.eraseToAnyPublisher()
+        )
+        
+        let output = viewModel.transform(from: input, cancelBag: cancelBag)
+        
+        viewDidLoadPublisher.send()
     }
 }
 

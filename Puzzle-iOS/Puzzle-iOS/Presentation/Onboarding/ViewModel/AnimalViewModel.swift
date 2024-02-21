@@ -10,6 +10,8 @@ import Combine
 
 class AnimalsViewModel: ViewModelType {
     
+    // MARK: - Properties
+    
     struct Input {
         let viewDidAppear: AnyPublisher<Void, Never>
     }
@@ -23,14 +25,17 @@ class AnimalsViewModel: ViewModelType {
     
     private var cancelBag = CancelBag()
     
+    @Published var animalImages: [UIImage] = []
+    let backButtonTapped = PassthroughSubject<Void, Never>()
+    
+    
+    // MARK: - Life Cycles
+    
     init(onboardingServiceType: OnboardingServiceType = OnboardingService()) {
         self.onboardingServiceType = onboardingServiceType
     }
     
-    // MARK: - Properties
-    
-    @Published var animalImages: [UIImage] = []
-    let backButtonTapped = PassthroughSubject<Void, Never>()
+    // MARK: - Methods
     
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         input.viewDidAppear

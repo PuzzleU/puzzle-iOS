@@ -10,22 +10,17 @@ import UIKit
 import SnapKit
 import Then
 
-class AreaTableViewCell: UITableViewCell {
+final class AreaTableViewCell: UITableViewCell {
     
     // MARK: - UI Components
     
     private let areaLabel = UILabel().then {
-        $0.text = "지역"
+        $0.text = StringLiterals.Onboarding.area
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -39,20 +34,20 @@ class AreaTableViewCell: UITableViewCell {
     
     // MARK: - UI & Layout
     
-    private func setUI() {
+    private func setHierarchy() {
         contentView.addSubview(areaLabel)
     }
-
+    
     private func setLayout() {
         areaLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().offset(51)
         }
     }
+    
     // MARK: - Method
     
     func bindData(with text: String) {
         areaLabel.text = text
     }
-    
 }

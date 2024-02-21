@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ProgressView: UIView {
+final class ProgressView: UIView {
     
     // MARK: - Properties
     

@@ -1,5 +1,5 @@
 //
-//  OnboardingSelectPositionVC.swift
+//  OnboardingSelectPositionViewController.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/17/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class OnboardingSelectPositionVC: UIViewController {
+final class OnboardingSelectPositionViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -44,20 +44,19 @@ class OnboardingSelectPositionVC: UIViewController {
         self.view = rootView
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        setHierarchy()
+        setDelegate()
         setLayout()
         register()
-        delegate()
-        setupNaviBindings()
+        setNaviBindings()
         bindViewModel()
     }
     
     // MARK: - UI & Layout
     
-    private func setUI() {
+    private func setHierarchy() {
         view.addSubviews(naviBar, alertLabel, positionCollectionView)
     }
     
@@ -84,7 +83,7 @@ class OnboardingSelectPositionVC: UIViewController {
         positionCollectionView.onboardingCollectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: OnboardingCollectionViewCell.className)
     }
     
-    private func delegate() {
+    private func setDelegate() {
         positionCollectionView.onboardingCollectionView.delegate = self
         positionCollectionView.onboardingCollectionView.dataSource = self
     }
@@ -93,9 +92,8 @@ class OnboardingSelectPositionVC: UIViewController {
 
 // MARK: - Methods
 
-extension OnboardingSelectPositionVC {
-    
-    private func setupNaviBindings() {
+extension OnboardingSelectPositionViewController {
+    private func setNaviBindings() {
         naviBar.resetLeftButtonAction({ [weak self] in
             self?.viewModel.backButtonTapped.send()
         }, .leftTitleWithLeftButton)
@@ -113,18 +111,16 @@ extension OnboardingSelectPositionVC {
 
 // MARK: - UICollectionViewDelegate
 
-extension OnboardingSelectPositionVC: UICollectionViewDelegate {
-    
+extension OnboardingSelectPositionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("OnboardingSelectPositionVC 의 \(indexPath.row) 터치 ")
     }
-    
 }
 
 
 // MARK: - UICollectionViewDataSource
 
-extension OnboardingSelectPositionVC: UICollectionViewDataSource {
+extension OnboardingSelectPositionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.positionImages.count
     }
@@ -134,5 +130,4 @@ extension OnboardingSelectPositionVC: UICollectionViewDataSource {
         cell.bindData(with: viewModel.positionImages[indexPath.row])
         return cell
     }
-    
 }

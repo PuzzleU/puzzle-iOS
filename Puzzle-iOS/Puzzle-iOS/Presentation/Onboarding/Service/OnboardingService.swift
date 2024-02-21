@@ -10,12 +10,11 @@ protocol OnboardingServiceType {
 }
 
 import UIKit
-
 import Combine
 
 class OnboardingService: OnboardingServiceType {
     func getAnimalImage() -> AnyPublisher<UIImage, Error> {
-        return ["imgMouse", "imgFox", "imgDog", "imgTiger", "imgOx", "imgLion", "imgPanda", "imgMonkey", "imgRabbit", "imgBear", "imgCat", "imgRobot"]
+        return animalProfile
             .publisher
             .catch { error in
                 return Fail(error: error)

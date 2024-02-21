@@ -1,5 +1,5 @@
 //
-//  OnboardingSignUpIdVC.swift
+//  OnboardingUserIdViewController.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/15/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class OnboardingSignUpIdVC: UIViewController {
+final class OnboardingUserIdViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -102,20 +102,19 @@ class OnboardingSignUpIdVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        setHierarchy()
         setLayout()
         setBindings()
         setupNaviBindings()
     }
     
-    
     // MARK: - UI & Layout
     
-    private func setUI() {
+    private func setHierarchy() {
         view.addSubviews(naviBar, idTextField, recommededLabel)
     }
+    
     private func setLayout() {
-        
         naviBar.snp.makeConstraints {
             $0.top.equalToSuperview().offset(8 + 5)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
@@ -135,20 +134,18 @@ class OnboardingSignUpIdVC: UIViewController {
     }
     
     private func setBindings() {
-        
         idTextField.textPublisher
             .print()
             .receive(on: DispatchQueue.main)
             .assign(to: \.userId, on: viewModel)
             .store(in: cancelBag)
     }
-    
 }
 
 
 // MARK: - Methods
 
-extension OnboardingSignUpIdVC {
+extension OnboardingUserIdViewController {
     private func setupNaviBindings() {
         naviBar.resetLeftButtonAction({ [weak self] in
             self?.viewModel.backButtonTapped.send()

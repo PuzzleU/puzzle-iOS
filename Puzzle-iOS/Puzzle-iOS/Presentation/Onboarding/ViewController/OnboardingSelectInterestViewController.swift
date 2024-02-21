@@ -1,5 +1,5 @@
 //
-//  OnboardingInterestSelectionVC.swift
+//  OnboardingSelectInterestViewController.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/17/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class OnboardingInterestSelectionVC: UIViewController {
+final class OnboardingSelectInterestViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -47,18 +47,16 @@ class OnboardingInterestSelectionVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        setHierarchy()
+        setDelegate()
         setLayout()
         register()
-        delegate()
-        setupNaviBindings()
+        setNaviBindings()
     }
     
     // MARK: - UI & Layout
-    
-    private func setUI() {
+    private func setHierarchy() {
         view.addSubviews(naviBar, alertLabel, interestCollectionView)
-        
         rootView.bringNextButtonToFront()
     }
     
@@ -87,7 +85,7 @@ class OnboardingInterestSelectionVC: UIViewController {
         interestCollectionView.mapCollectionView.register(InterestSelectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: InterestSelectionHeaderView.className)
     }
     
-    private func delegate() {
+    private func setDelegate() {
         interestCollectionView.mapCollectionView.delegate = self
         interestCollectionView.mapCollectionView.dataSource = self
     }
@@ -96,18 +94,26 @@ class OnboardingInterestSelectionVC: UIViewController {
 
 // MARK: - Methods
 
-extension OnboardingInterestSelectionVC {
-    private func setupNaviBindings() {
+extension OnboardingSelectInterestViewController {
+    private func setNaviBindings() {
         naviBar.resetLeftButtonAction({ [weak self] in
             self?.viewModel.backButtonTapped.send()
         }, .leftTitleWithLeftButton)
     }
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+// MARK: - UICollectionViewDelegate
 
-extension OnboardingInterestSelectionVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    
+extension OnboardingSelectInterestViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("OnboardingInterestSelectionVC 의 \(indexPath) 터치 ")
+    }
+}
+
+
+// MARK: - UICollectionViewDataSource
+
+extension OnboardingSelectInterestViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
@@ -119,10 +125,6 @@ extension OnboardingInterestSelectionVC: UICollectionViewDelegate, UICollectionV
         case 2: return viewModel.studys.count
         default: return 0
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("OnboardingInterestSelectionVC 의 \(indexPath) 터치 ")
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -169,11 +171,11 @@ extension OnboardingInterestSelectionVC: UICollectionViewDelegate, UICollectionV
             return UICollectionReusableView()
         }
     }
-    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension OnboardingInterestSelectionVC: UICollectionViewDelegateFlowLayout {
+
+extension OnboardingSelectInterestViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text: String
         switch indexPath.section {
@@ -191,7 +193,6 @@ extension OnboardingInterestSelectionVC: UICollectionViewDelegateFlowLayout {
         let cellWidth = textSize.width + 34
         return CGSize(width: cellWidth, height: 28)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8 // 아이템 간 최소 간격

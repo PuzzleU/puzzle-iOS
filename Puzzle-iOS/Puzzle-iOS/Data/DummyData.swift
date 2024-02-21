@@ -23,3 +23,5 @@ let LoginButtonData = [
                image: UIImage(named: "heart.fill") ?? UIImage(),
                color: .white)
 ]
+
+let animalProfile = ["imgMouse", "imgFox", "imgDog", "imgTiger", "imgOx", "imgLion", "imgPanda", "imgMonkey", "imgRabbit", "imgBear", "imgCat", "imgRobot"]

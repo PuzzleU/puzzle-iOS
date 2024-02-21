@@ -10,8 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class OnboardingCollectionView: UIView {
-    
+final class OnboardingCollectionView: UIView {
     
     // MARK: - Property
     
@@ -38,10 +37,8 @@ class OnboardingCollectionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.backgroundColor = .puzzleDarkGray
-        
         setUI()
+        setHierarchy()
         setLayout()
     }
     
@@ -52,7 +49,11 @@ class OnboardingCollectionView: UIView {
     // MARK: - UI & Layout
     
     private func setUI() {
-        self.addSubviews(onboardingCollectionView)
+        self.backgroundColor = .puzzleDarkGray
+    }
+    
+    private func setHierarchy() {
+        self.addSubview(onboardingCollectionView)
     }
     
     private func setLayout() {

@@ -1,5 +1,5 @@
 //
-//  OnboardingSignUpNameVC.swift
+//  OnboardingUserNameViewController.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/15/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class OnboardingSignUpNameVC: UIViewController {
+final class OnboardingUserNameViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -59,7 +59,7 @@ class OnboardingSignUpNameVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        setHierarchy()
         setLayout()
         setBindings()
     }
@@ -67,7 +67,7 @@ class OnboardingSignUpNameVC: UIViewController {
     
     // MARK: - UI & Layout
     
-    private func setUI() {
+    private func setHierarchy() {
         view.addSubviews(naviBar, nameTextField)
     }
     
@@ -92,5 +92,4 @@ class OnboardingSignUpNameVC: UIViewController {
             .assign(to: \.userName, on: viewModel)
             .store(in: cancelBag)
     }
-    
 }

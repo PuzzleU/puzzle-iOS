@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class AreaTableView: UIView {
+final class AreaTableView: UIView {
     
     private let areaTableView = UITableView().then {
         $0.backgroundColor = .puzzleDarkGray
@@ -18,10 +18,8 @@ class AreaTableView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.backgroundColor = .puzzleRealWhite
-        
         setUI()
+        setHierarchy()
         setLayout()
     }
     
@@ -32,13 +30,18 @@ class AreaTableView: UIView {
     // MARK: - UI & Layout
     
     private func setUI() {
-        self.addSubviews(areaTableView)
+        backgroundColor = .puzzleRealWhite
+        
     }
+    
+    private func setHierarchy() {
+        addSubview(areaTableView)
+    }
+    
     
     private func setLayout() {
         areaTableView.snp.makeConstraints() {
             $0.edges.equalToSuperview()
         }
     }
-    
 }

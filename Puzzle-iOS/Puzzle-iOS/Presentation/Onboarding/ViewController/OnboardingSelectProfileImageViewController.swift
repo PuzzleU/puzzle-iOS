@@ -1,5 +1,5 @@
 //
-//  OnboardingSelectProfileImageVC.swift
+//  OnboardingSelectProfileImageViewController.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/17/24.
@@ -11,7 +11,7 @@ import Combine
 import SnapKit
 import Then
 
-class OnboardingSelectProfileImageVC: UIViewController {
+final class OnboardingSelectProfileImageViewController: UIViewController {
     
     // MARK: - Properties
     private let rootView = OnboardingBaseView()
@@ -45,12 +45,11 @@ class OnboardingSelectProfileImageVC: UIViewController {
         self.view = rootView
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
-        setLayout()
+        setHierarchy()
         setDelegate()
+        setLayout()
         setNaviBindings()
         register()
         bindViewModel()
@@ -62,7 +61,7 @@ class OnboardingSelectProfileImageVC: UIViewController {
     
     // MARK: - UI & Layout
     
-    private func setUI() {
+    private func setHierarchy() {
         view.addSubviews(naviBar, alertLabel, profileImageCollectionView)
     }
     
@@ -98,7 +97,7 @@ class OnboardingSelectProfileImageVC: UIViewController {
 
 // MARK: - Methods
 
-extension OnboardingSelectProfileImageVC: UICollectionViewDataSource, UICollectionViewDelegate {
+extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.animalImages.count
     }

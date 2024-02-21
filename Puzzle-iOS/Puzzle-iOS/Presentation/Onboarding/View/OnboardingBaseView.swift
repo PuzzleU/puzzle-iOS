@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingBaseView: UIView {
+final class OnboardingBaseView: UIView {
     
     // MARK: - UI Components
     
@@ -24,7 +24,6 @@ class OnboardingBaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // MARK: - UI & Layout
     
     private func setUI() {
@@ -38,5 +37,4 @@ class OnboardingBaseView: UIView {
     func bringNextButtonToFront() {
         bringSubviewToFront(nextButton)
     }
-    
 }

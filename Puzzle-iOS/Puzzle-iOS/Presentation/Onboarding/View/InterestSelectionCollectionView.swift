@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class InterestSelectionCollectionView: UIView {
+final class InterestSelectionCollectionView: UIView {
     
     // MARK: - UI Components
     
@@ -20,19 +20,17 @@ class InterestSelectionCollectionView: UIView {
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize // 자동 사이즈
-
+        
         $0.collectionViewLayout = layout
         $0.backgroundColor = .clear
     }
-
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.backgroundColor = .puzzleRealWhite
-        
         setUI()
+        setHierarchy()
         setLayout()
     }
     
@@ -43,8 +41,13 @@ class InterestSelectionCollectionView: UIView {
     // MARK: - UI & Layout
     
     private func setUI() {
-        self.addSubviews(mapCollectionView)
+        backgroundColor = .puzzleRealWhite
     }
+    
+    private func         setHierarchy() {
+        addSubview(mapCollectionView)
+    }
+    
     
     private func setLayout() {
         mapCollectionView.snp.makeConstraints() {

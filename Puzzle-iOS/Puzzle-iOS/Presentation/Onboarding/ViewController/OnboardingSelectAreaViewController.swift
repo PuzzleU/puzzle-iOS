@@ -1,5 +1,5 @@
 //
-//  OnboardingSelectAreaVC.swift
+//  OnboardingSelectAreaViewController.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/18/24.
@@ -12,7 +12,7 @@ import Then
 
 import Combine
 
-class OnboardingSelectAreaVC: UIViewController {
+final class OnboardingSelectAreaViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -26,14 +26,8 @@ class OnboardingSelectAreaVC: UIViewController {
     
     // MARK: - UI Components
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("활동 가능 지역을 선택해주세요")
-    
-    private let alertLabel = UILabel().then {
-        let label = "최대 2개의 지역을 선택할 수 있어요."
-        $0.highlightSpecialText(mainText: label, specialTexts: ["최대 2개"], mainAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.black], specialAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.puzzlePurple])
-        $0.numberOfLines = 0
-    }
-    
-    private lazy var activityAreaSelectView = UIView().then {
+        
+    private let activityAreaSelectView = UIView().then {
         $0.layer.cornerRadius = 5
         $0.layer.borderColor = UIColor.puzzleLightGray.cgColor
         $0.layer.borderWidth = 1
@@ -47,6 +41,12 @@ class OnboardingSelectAreaVC: UIViewController {
         $0.text = "자주 활동하는 지역을 검색해주세요."
         $0.font = .body3
         $0.textColor = .puzzleDarkGray
+    }
+    
+    private let alertLabel = UILabel().then {
+        let label = "최대 2개의 지역을 선택할 수 있어요."
+        $0.highlightSpecialText(mainText: label, specialTexts: ["최대 2개"], mainAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.black], specialAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.puzzlePurple])
+        $0.numberOfLines = 0
     }
     
     // MARK: - Life Cycles
@@ -64,23 +64,20 @@ class OnboardingSelectAreaVC: UIViewController {
         self.view = rootView
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        setHierarchy()
+        setDelegate()
         setLayout()
         register()
-        delegate()
         setNaviBindings()
-        setupBindings()
+        setBindings()
     }
     
     // MARK: - UI & Layout
     
-    private func setUI() {
+    private func setHierarchy() {
         view.addSubviews(naviBar, activityAreaSelectView, locationImage, activityAreaSelectLabel, alertLabel)
-        
-        rootView.bringNextButtonToFront()
     }
     
     private func setLayout() {
@@ -110,14 +107,13 @@ class OnboardingSelectAreaVC: UIViewController {
             $0.top.equalTo(activityAreaSelectView.snp.bottom).offset(8)
             $0.leading.equalTo(self.view.safeAreaLayoutGuide).offset(27)
         }
-        
     }
     
     private func register() {
         /// 지역 선택 이후에 이벤트를 받고 현재 뷰 에 담을 컬렉션뷰 등록
     }
     
-    private func delegate() {
+    private func setDelegate() {
         /// 지역 선택 이후에 이벤트를 받고 현재 뷰 에 담을 컬렉션뷰 delegate 등록
     }
     
@@ -125,7 +121,7 @@ class OnboardingSelectAreaVC: UIViewController {
 
 // MARK: - Methods
 
-extension OnboardingSelectAreaVC {
+extension OnboardingSelectAreaViewController {
     private func setNaviBindings() {
         naviBar.resetLeftButtonAction({ [weak self] in
             self?.viewModel.backButtonTapped.send()
@@ -133,7 +129,7 @@ extension OnboardingSelectAreaVC {
     }
     
     /// 활동하는 지역 View 탭 제스처 퍼블리셔
-    private func setupBindings() {
+    private func setBindings() {
         activityAreaSelectView.gesture(.tap())
             .sink { [weak self] _ in
                 // 메인 VC로 이벤트 전달

@@ -30,23 +30,23 @@ final class OnboardingViewController: UIViewController {
     private lazy var progressBar = ProgressView(totalSteps: orderedViewControllers.count)
     
     private lazy var orderedViewControllers: [UIViewController] = {
-        let signUpNameVC = OnboardingSignUpNameVC(viewModel: onboardingViewModel)
-        let signUpIdVC = OnboardingSignUpIdVC(viewModel: onboardingViewModel)
-        let selectProfileVC = OnboardingSelectProfileImageVC(viewModel: animalViewModel)
-        let selectPositionVC = OnboardingSelectPositionVC(viewModel: positionViewModel)
-        let interestVC = OnboardingInterestSelectionVC(viewModel: interestViewModel)
-        let areaVC = OnboardingSelectAreaVC(viewModel: areaViewModel)
-        return [signUpNameVC, signUpIdVC, selectProfileVC, selectPositionVC, interestVC, areaVC]
+        let UserNameVC = OnboardingUserNameViewController(viewModel: onboardingViewModel)
+        let UserIdVC = OnboardingUserIdViewController(viewModel: onboardingViewModel)
+        let selectProfileVC = OnboardingSelectProfileImageViewController(viewModel: animalViewModel)
+        let selectPositionVC = OnboardingSelectPositionViewController(viewModel: positionViewModel)
+        let selectInterestVC = OnboardingSelectInterestViewController(viewModel: interestViewModel)
+        let selectAreaVC = OnboardingSelectAreaViewController(viewModel: areaViewModel)
+        return [UserNameVC, UserIdVC, selectProfileVC, selectPositionVC, selectInterestVC, selectAreaVC]
     }()
     
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUI()
-        setLayout()
+        setHierarchy()
         setDelegate()
+        setLayout()
         setBindings()
     }
     
@@ -54,7 +54,7 @@ final class OnboardingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let areaVC = orderedViewControllers.first(where: { $0 is OnboardingSelectAreaVC }) as? OnboardingSelectAreaVC {
+        if let areaVC = orderedViewControllers.first(where: { $0 is OnboardingSelectAreaViewController }) as? OnboardingSelectAreaViewController {
             areaVC.showBottomSheetSubject
                 .sink { [weak self] _ in
                     self?.showAreaBottomSheet()
@@ -66,8 +66,11 @@ final class OnboardingViewController: UIViewController {
     // MARK: - UI & Layout
     
     private func setUI() {
-        view.addSubviews(pageViewController.view)
         view.backgroundColor = .puzzleRealWhite
+    }
+    
+    private func setHierarchy() {
+        view.addSubviews(pageViewController.view, progressBar)
     }
     
     private func setLayout() {
@@ -80,7 +83,6 @@ final class OnboardingViewController: UIViewController {
             $0.bottom.equalToSuperview()
         }
         
-        view.addSubview(progressBar)
         progressBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.left.right.equalToSuperview()
@@ -96,12 +98,9 @@ final class OnboardingViewController: UIViewController {
     }
 }
 
-
-
 // MARK: - Methods
 
 extension OnboardingViewController {
-    
     private func setBindings() {
         onboardingViewModel.backButtonTapped
             .sink { [weak self] _ in
@@ -152,14 +151,12 @@ extension OnboardingViewController {
     
     // 바텀시트를 띄우는 임시 코드 입니다.
     private func showAreaBottomSheet() {
-        let bottomSheetVC = PuzzleBottomSheetViewController(bottomType: .high, insertView: OnboardingPlusView())
-        bottomSheetVC.modalPresentationStyle = .overFullScreen
-        present(bottomSheetVC, animated: true)
+        // 여기에 바텀시트를 올리는 코드를 추가하거나
+        // 또는 OnboradingSelectAreaVC 에 구현
+        // 바텀 시트 리팩터링 후 진행
+        print("바텀 시트 이벤트")
     }
 }
-
-
-
 
 // MARK: - UIPageViewControllerDataSource, UIPageViewControllerDelegate
 

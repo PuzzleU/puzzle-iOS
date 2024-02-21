@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class OnboardingCollectionViewCell: UICollectionViewCell {
+final class OnboardingCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
@@ -19,7 +19,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        setHierarchy()
         setLayout()
     }
     
@@ -29,9 +29,11 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI & Layout
     
+    private func setHierarchy() {
+        addSubview(imageView)
+    }
+    
     private func setLayout() {
-        self.addSubview(imageView)
-        
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -41,6 +43,5 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     
     func bindData(with image: UIImage) {
         imageView.image = image
-        print(image)
     }
 }

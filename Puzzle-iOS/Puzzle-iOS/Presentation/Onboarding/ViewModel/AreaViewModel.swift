@@ -25,5 +25,4 @@ class AreaViewModel {
         let area = ["서울", "경기", "제주", "강원", "인천", "부산", "춘천", "등등.."]
         Areas = area.compactMap { $0 }
     }
-
 }

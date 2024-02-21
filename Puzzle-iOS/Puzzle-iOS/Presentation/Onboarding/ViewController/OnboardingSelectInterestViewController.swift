@@ -10,6 +10,24 @@ import UIKit
 import SnapKit
 import Then
 
+@frozen
+enum InterestSectionType: Int, CaseIterable {
+    case competitions = 0
+    case jobs
+    case studys
+    
+    var title: String {
+        switch self {
+        case .competitions:
+            return "공모전"
+        case .jobs:
+            return "직무"
+        case .studys:
+            return "스터디"
+        }
+    }
+}
+
 final class OnboardingSelectInterestViewController: UIViewController {
     
     // MARK: - Properties
@@ -119,70 +137,59 @@ extension OnboardingSelectInterestViewController {
 
 extension OnboardingSelectInterestViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("OnboardingInterestSelectionVC 의 \(indexPath) 터치 ")
+        print("🍀 OnboardingSelectInterestViewController 의 \(indexPath) 터치 ")
     }
 }
-
 
 // MARK: - UICollectionViewDataSource
 
 extension OnboardingSelectInterestViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return InterestSectionType.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case 0: return viewModel.competitions.count
-        case 1: return viewModel.jobs.count
-        case 2: return viewModel.studys.count
-        default: return 0
+        guard let sectionType = InterestSectionType(rawValue: section) else { return 0 }
+        
+        switch sectionType {
+        case .competitions:
+            return viewModel.competitions.count
+        case .jobs:
+            return viewModel.jobs.count
+        case .studys:
+            return viewModel.studys.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InterestSelectionViewCell.className, for: indexPath) as? InterestSelectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InterestSelectionViewCell.className, for: indexPath) as? InterestSelectionViewCell,
+              let sectionType = InterestSectionType(rawValue: indexPath.section) else {
             return UICollectionViewCell()
         }
+        
         let text: String
-        switch indexPath.section {
-        case 0:
+        switch sectionType {
+        case .competitions:
             text = viewModel.competitions[indexPath.row]
-        case 1:
+        case .jobs:
             text = viewModel.jobs[indexPath.row]
-        case 2:
+        case .studys:
             text = viewModel.studys[indexPath.row]
-        default:
-            text = ""
         }
+        
         cell.bindData(with: text)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader {
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: InterestSelectionHeaderView.className, for: indexPath) as? InterestSelectionHeaderView else {
-                return UICollectionReusableView()
-            }
-            
-            let sectionTitle: String
-            switch indexPath.section {
-            case 0:
-                sectionTitle = "공모전"
-            case 1:
-                sectionTitle = "직무"
-            case 2:
-                sectionTitle = "스터디"
-            default:
-                sectionTitle = ""
-            }
-            
-            headerView.bindData(with: sectionTitle)
-            
-            return headerView
-        } else {
+        guard kind == UICollectionView.elementKindSectionHeader,
+              let sectionType = InterestSectionType(rawValue: indexPath.section),
+              let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: InterestSelectionHeaderView.className, for: indexPath) as? InterestSelectionHeaderView else {
             return UICollectionReusableView()
         }
+        
+        headerView.bindData(with: sectionType.title)
+        return headerView
     }
 }
 
@@ -190,16 +197,16 @@ extension OnboardingSelectInterestViewController: UICollectionViewDataSource {
 
 extension OnboardingSelectInterestViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let sectionType = InterestSectionType(rawValue: indexPath.section) else { return .zero }
+        
         let text: String
-        switch indexPath.section {
-        case 0:
+        switch sectionType {
+        case .competitions:
             text = viewModel.competitions[indexPath.row]
-        case 1:
+        case .jobs:
             text = viewModel.jobs[indexPath.row]
-        case 2:
+        case .studys:
             text = viewModel.studys[indexPath.row]
-        default:
-            text = ""
         }
         
         let textSize = (text as NSString).size(withAttributes: [.font: UIFont.body2])

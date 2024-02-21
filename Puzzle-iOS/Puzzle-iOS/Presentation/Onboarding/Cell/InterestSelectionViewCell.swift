@@ -43,7 +43,6 @@ final class InterestSelectionViewCell: UICollectionViewCell {
     
     private func setHierarchy() {
         contentView.addSubview(titleLabel)
-        
     }
     
     private func setLayout() {

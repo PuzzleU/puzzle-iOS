@@ -50,11 +50,11 @@ final class OnboardingSelectAreaViewController: UIViewController {
             mainText: label,
             specialTexts: [specialCharacter],
             mainAttributes: [
-                .font: UIFont.body3,
+                .font: UIFont.subTitle3,
                 .foregroundColor: UIColor.black
             ],
             specialAttributes: [
-                .font: UIFont.body3,
+                .font: UIFont.subTitle3,
                 .foregroundColor: UIColor.puzzlePurple
             ]
         )

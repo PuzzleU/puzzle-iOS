@@ -122,11 +122,11 @@ final class OnboardingSelectAreaViewController: UIViewController {
     }
     
     private func register() {
-        /// 지역 선택 이후에 이벤트를 받고 현재 뷰 에 담을 컬렉션뷰 등록
+        // 지역 선택 이후에 이벤트를 받고 현재 뷰 에 담을 컬렉션뷰 등록
     }
     
     private func setDelegate() {
-        /// 지역 선택 이후에 이벤트를 받고 현재 뷰 에 담을 컬렉션뷰 delegate 등록
+        // 지역 선택 이후에 이벤트를 받고 현재 뷰 에 담을 컬렉션뷰 delegate 등록
     }
     
 }

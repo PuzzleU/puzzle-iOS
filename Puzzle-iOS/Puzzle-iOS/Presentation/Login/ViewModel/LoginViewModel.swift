@@ -65,11 +65,8 @@ final class LoginViewModel: NSObject, ViewModelType {
                     print("OAuth 토큰을 받지 못했습니다.")
                 }
             }
-        }
-        
-        // 카카오톡이 설치되어 있지 않을 때 -> 사파리로 연결
-        else {
-            UserApi.shared.loginWithKakaoAccount{(oauthToken, error) in
+        } else { // 카카오톡이 설치되어 있지 않을 때 -> 사파리로 연결
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
                 if let error = error {
                     print(error)
                 } else if let token = oauthToken {
@@ -94,14 +91,13 @@ final class LoginViewModel: NSObject, ViewModelType {
                     print("email, name 을 받지 못했습니다.")
                     return
                 }
-                
-                //TODO: - 서버에 토큰 보내는 코드
+                // TODO: - 서버에 토큰 보내는 코드
             }
         }
     }
 }
 
-    //MARK: - Apple Login
+    // MARK: - Apple Login
 
 extension LoginViewModel: ASAuthorizationControllerDelegate {
     private func requestAppleLogin() {

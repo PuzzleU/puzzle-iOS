@@ -17,9 +17,9 @@ class OnboardingService: OnboardingServiceType {
         return animalProfile
             .publisher
             .catch { error in
-                return Fail(error: error)
-                    .eraseToAnyPublisher()
-            }.compactMap { UIImage(named: $0) }
+                Fail(error: error)
+            }
+            .compactMap { UIImage(named: $0) }
             .eraseToAnyPublisher()
     }
 }

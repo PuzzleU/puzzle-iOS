@@ -181,8 +181,7 @@ extension PuzzleBottomSheetViewController {
                     UIView.animate(withDuration: 0.1, animations: {
                         self.view.transform = CGAffineTransform(translationX: 0, y: viewTranslation.y)
                     })
-                }
-                else {
+                } else {
                     bottomSheetShown = false
                 }
             }
@@ -192,8 +191,7 @@ extension PuzzleBottomSheetViewController {
                 UIView.animate(withDuration: 0.1, animations: {
                     self.view.transform = .identity
                 })
-            }
-            else {
+            } else {
                 bottomSheetShown = false
             }
             

@@ -10,7 +10,6 @@ disabled_rules:
   - function_parameter_count
   - function_body_length
   - nesting
-  - force_cast
   - comment_spacing
 
 opt_in_rules:
@@ -22,9 +21,11 @@ opt_in_rules:
 included:
   - Puzzle-iOS
 excluded:
-  # AppDelegate, SceneDelegate file 무시
+  # AppDelegate, SceneDelegate, Config file 무시
   - Puzzle-iOS/Application/AppDelegate.swift
   - Puzzle-iOS/Application/SceneDelegate.swift
+  - Puzzle-iOS/Resource/Config/Config.swift
+  - Puzzle-iOS/Resource/Utils/LeftAlignedFlowLayout.swift
 
 file_length:
     warning: 400

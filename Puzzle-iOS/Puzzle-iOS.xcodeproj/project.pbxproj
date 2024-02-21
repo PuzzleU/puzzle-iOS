@@ -683,6 +683,7 @@
 				7181504D2B629725005E4451 /* XCRemoteSwiftPackageReference "Then" */,
 				2C5310D82B6E6FB700704371 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2C55EEB72B711ACA001AD42E /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				7127DA6C2B85F91E00B262DA /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = 7181500C2B6291D7005E4451 /* Products */;
 			projectDirPath = "";
@@ -745,7 +746,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1185,6 +1186,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.20.0;
+			};
+		};
+		7127DA6C2B85F91E00B262DA /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.54.0;
 			};
 		};
 		718150482B629709005E4451 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {

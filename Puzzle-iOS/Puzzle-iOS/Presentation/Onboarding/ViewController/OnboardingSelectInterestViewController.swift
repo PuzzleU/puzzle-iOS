@@ -75,7 +75,6 @@ final class OnboardingSelectInterestViewController: UIViewController {
         self.view = rootView
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setHierarchy()

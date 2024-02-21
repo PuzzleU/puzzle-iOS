@@ -19,7 +19,6 @@ final class OnboardingUserIdViewController: UIViewController {
     private var viewModel: OnboardingTextViewModel
     private var cancelBag = CancelBag()
     
-    
     // MARK: - UI Components
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("퍼즐에서 사용할 아이디를 입력해주세요")
     
@@ -64,8 +63,6 @@ final class OnboardingUserIdViewController: UIViewController {
         $0.leftView = containerView
         $0.leftViewMode = .always
     }
-    
-    
     
     private let recommededLabel = UILabel().then {
         let label = StringLiterals.Onboarding.recommededLabel
@@ -141,7 +138,6 @@ final class OnboardingUserIdViewController: UIViewController {
             .store(in: cancelBag)
     }
 }
-
 
 // MARK: - Methods
 

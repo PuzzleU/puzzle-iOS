@@ -28,7 +28,6 @@ class AnimalsViewModel: ViewModelType {
     @Published var animalImages: [UIImage] = []
     let backButtonTapped = PassthroughSubject<Void, Never>()
     
-    
     // MARK: - Life Cycles
     
     init(onboardingServiceType: OnboardingServiceType = OnboardingService()) {

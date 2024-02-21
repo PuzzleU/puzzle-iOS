@@ -49,7 +49,7 @@ final class LoginViewModel: NSObject, ViewModelType {
         return Output(userInfoPublisher: userInfoPublisher)
     }
     
-    //MARK: - Kakao Login
+    // MARK: - Kakao Login
     
     private func requestKakaoLogin() {
         

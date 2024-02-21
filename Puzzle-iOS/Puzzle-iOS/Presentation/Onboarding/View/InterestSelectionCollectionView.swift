@@ -48,9 +48,8 @@ final class InterestSelectionCollectionView: UIView {
         addSubview(mapCollectionView)
     }
     
-    
     private func setLayout() {
-        mapCollectionView.snp.makeConstraints() {
+        mapCollectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }

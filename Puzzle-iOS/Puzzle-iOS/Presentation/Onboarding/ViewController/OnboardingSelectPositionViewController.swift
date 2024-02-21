@@ -130,7 +130,6 @@ extension OnboardingSelectPositionViewController: UICollectionViewDelegate {
     }
 }
 
-
 // MARK: - UICollectionViewDataSource
 
 extension OnboardingSelectPositionViewController: UICollectionViewDataSource {

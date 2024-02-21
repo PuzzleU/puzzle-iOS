@@ -64,7 +64,6 @@ final class OnboardingUserNameViewController: UIViewController {
         setBindings()
     }
     
-    
     // MARK: - UI & Layout
     
     private func setHierarchy() {

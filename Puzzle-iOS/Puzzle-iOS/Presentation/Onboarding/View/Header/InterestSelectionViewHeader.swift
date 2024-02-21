@@ -55,4 +55,3 @@ final class InterestSelectionHeaderView: UICollectionReusableView {
         titleLabel.text = title
     }
 }
-

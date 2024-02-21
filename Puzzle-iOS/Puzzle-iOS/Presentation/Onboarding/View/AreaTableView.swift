@@ -38,9 +38,8 @@ final class AreaTableView: UIView {
         addSubview(areaTableView)
     }
     
-    
     private func setLayout() {
-        areaTableView.snp.makeConstraints() {
+        areaTableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }

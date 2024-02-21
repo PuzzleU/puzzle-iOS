@@ -53,13 +53,13 @@ final class LoginView: UIView {
     }
     
     private func setLayout() {
-        titleLabel.snp.makeConstraints() {
+        titleLabel.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(429)
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().inset(39)
         }
         
-        loginCollectionView.snp.makeConstraints() {
+        loginCollectionView.snp.makeConstraints {
             $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-19)
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().inset(22)

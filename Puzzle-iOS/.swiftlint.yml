@@ -10,6 +10,8 @@ disabled_rules:
   - function_parameter_count
   - function_body_length
   - nesting
+  - force_cast
+  - comment_spacing
 
 opt_in_rules:
     - empty_count

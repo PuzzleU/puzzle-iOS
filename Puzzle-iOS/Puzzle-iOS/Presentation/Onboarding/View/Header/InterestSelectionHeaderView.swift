@@ -31,13 +31,11 @@ class InterestSelectionHeaderView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
     // MARK: - Method
     
     func configure(with title: String) {
         titleLabel.text = title
     }
-    
     
     // MARK: - UI & Layout
     
@@ -50,4 +48,3 @@ class InterestSelectionHeaderView: UICollectionReusableView {
         }
     }
 }
-

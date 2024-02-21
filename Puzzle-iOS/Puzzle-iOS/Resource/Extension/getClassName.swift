@@ -23,4 +23,3 @@ extension NSObject {
         NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
     }
 }
-

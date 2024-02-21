@@ -57,15 +57,15 @@ final class LoginCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        loginButtonView.snp.makeConstraints() {
+        loginButtonView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
-        loginLabel.snp.makeConstraints() {
+        loginLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
         
-        loginImageView.snp.makeConstraints() {
+        loginImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalTo(loginLabel.snp.leading).offset(7)
             $0.size.equalTo(20)

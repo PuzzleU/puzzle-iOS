@@ -20,13 +20,13 @@ enum NavigationBarType {
 
 final class PuzzleNavigationBar: UIView {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     private var naviType: NavigationBarType!
     private var viewController: UIViewController?
     private var leftButtonClosure: (() -> Void)?
     
-    //MARK: - UI Components
+    // MARK: - UI Components
     
     private lazy var leftTitleLabel = createTitleLabel()
     private lazy var centerTitleLabel = createTitleLabel()
@@ -51,7 +51,7 @@ final class PuzzleNavigationBar: UIView {
     
 }
 
-//MARK: - UI & Layout
+// MARK: - UI & Layout
 
 extension PuzzleNavigationBar {
     private func setUI(_ type: NavigationBarType) {
@@ -91,7 +91,7 @@ extension PuzzleNavigationBar {
     }
 }
 
-//MARK: - Custom methods
+// MARK: - Custom methods
 
 extension PuzzleNavigationBar {
     func hideNaviBar(_ isHidden: Bool) {

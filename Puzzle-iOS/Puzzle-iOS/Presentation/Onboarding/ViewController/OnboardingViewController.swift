@@ -22,7 +22,6 @@ final class OnboardingViewController: UIViewController {
     private let areaViewModel = AreaViewModel()
     private var cancelBag = CancelBag()
     
-    
     // MARK: - UI Components
     
     let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)

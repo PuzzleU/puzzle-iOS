@@ -68,10 +68,6 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
         bindViewModel()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     // MARK: - UI & Layout
     
     private func setHierarchy() {
@@ -142,4 +138,3 @@ extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource
         viewDidLoadPublisher.send()
     }
 }
-

@@ -6,11 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
-
-import Combine
 
 final class OnboardingSelectAreaViewController: UIViewController {
     
@@ -26,7 +25,7 @@ final class OnboardingSelectAreaViewController: UIViewController {
     
     // MARK: - UI Components
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("활동 가능 지역을 선택해주세요")
-        
+    
     private let activityAreaSelectView = UIView().then {
         $0.layer.cornerRadius = 5
         $0.layer.borderColor = UIColor.puzzleLightGray.cgColor
@@ -44,8 +43,21 @@ final class OnboardingSelectAreaViewController: UIViewController {
     }
     
     private let alertLabel = UILabel().then {
-        let label = "최대 2개의 지역을 선택할 수 있어요."
-        $0.highlightSpecialText(mainText: label, specialTexts: ["최대 2개"], mainAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.black], specialAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.puzzlePurple])
+        let label = StringLiterals.Onboarding.selectArea
+        let specialCharacter = StringLiterals.Onboarding.selectAreaSpecial
+        
+        $0.highlightSpecialText(
+            mainText: label,
+            specialTexts: [specialCharacter],
+            mainAttributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.black
+            ],
+            specialAttributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.puzzlePurple
+            ]
+        )
         $0.numberOfLines = 0
     }
     

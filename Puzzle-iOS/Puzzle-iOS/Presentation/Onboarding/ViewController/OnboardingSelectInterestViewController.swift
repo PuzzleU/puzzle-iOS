@@ -24,8 +24,21 @@ final class OnboardingSelectInterestViewController: UIViewController {
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("관심있는 분야를 모두 선택해주세요")
     
     private let alertLabel = UILabel().then {
-        let label = "관심 분야에 맞는 활동을 추천해드려요."
-        $0.highlightSpecialText(mainText: label, specialTexts: ["활동"], mainAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.black], specialAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.puzzlePurple])
+        let label = StringLiterals.Onboarding.selectInterest
+        let specialCharacter = StringLiterals.Onboarding.selectInterestSpecial
+        
+        $0.highlightSpecialText(
+            mainText: label,
+            specialTexts: [specialCharacter],
+            mainAttributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.black
+            ],
+            specialAttributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.puzzlePurple
+            ]
+        )
         $0.numberOfLines = 0
     }
     

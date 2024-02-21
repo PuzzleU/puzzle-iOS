@@ -25,7 +25,7 @@ final class OnboardingUserIdViewController: UIViewController {
     
     private let idTextField = UITextField().then {
         $0.attributedPlaceholder = NSAttributedString(
-            string: "아이디를 입력해주세요. (최대 20자)",
+            string: StringLiterals.Onboarding.inputId,
             attributes: [
                 .font: UIFont.body3,
                 .foregroundColor: UIColor.puzzleLightGray
@@ -68,8 +68,8 @@ final class OnboardingUserIdViewController: UIViewController {
     
     
     private let recommededLabel = UILabel().then {
-        let label = "인스타그램 아이디를 사용하면 친구들이 찾기 쉬워요!"
-        let specialCharacter = "인스타그램 아이디"
+        let label = StringLiterals.Onboarding.recommededLabel
+        let specialCharacter = StringLiterals.Onboarding.recommededLabelSpecial
         
         $0.highlightSpecialText(
             mainText: label,

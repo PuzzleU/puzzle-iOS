@@ -26,8 +26,21 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("퍼즐에서 사용할 프로필을 선택해주세요")
     
     private let alertLabel = UILabel().then {
-        let label = "내 프로필로 만들고 싶은 동물을 하나 선택해주세요."
-        $0.highlightSpecialText(mainText: label, specialTexts: ["내 프로필"], mainAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.black], specialAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.puzzlePurple])
+        let label = StringLiterals.Onboarding.selectAnimalProfile
+        let specialCharacter = StringLiterals.Onboarding.selectAnimalProfileSpecial
+        
+        $0.highlightSpecialText(
+            mainText: label,
+            specialTexts: [specialCharacter],
+            mainAttributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.black
+            ],
+            specialAttributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.puzzlePurple
+            ]
+        )
     }
     
     // MARK: - Life Cycles
@@ -124,7 +137,7 @@ extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource
             viewDidAppear: viewDidLoadPublisher.eraseToAnyPublisher()
         )
         
-        let output = viewModel.transform(from: input, cancelBag: cancelBag)
+        let _ = viewModel.transform(from: input, cancelBag: cancelBag)
         
         viewDidLoadPublisher.send()
     }

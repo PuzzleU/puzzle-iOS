@@ -25,7 +25,7 @@ final class OnboardingUserNameViewController: UIViewController {
     
     private let nameTextField = UITextField().then {
         $0.attributedPlaceholder = NSAttributedString(
-            string: "이름을 입력해주세요!",
+            string: StringLiterals.Onboarding.inputName,
             attributes: [
                 .font: UIFont.body3,
                 .foregroundColor: UIColor.puzzleLightGray

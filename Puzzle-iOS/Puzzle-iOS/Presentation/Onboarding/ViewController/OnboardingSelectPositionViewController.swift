@@ -24,8 +24,21 @@ final class OnboardingSelectPositionViewController: UIViewController {
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("내 포지션을 선택해주세요")
     
     private let alertLabel = UILabel().then {
-        let label = "포지션에 맞는 공모전을 추천해드려요.\n(최대 2개까지 선택 가능)"
-        $0.highlightSpecialText(mainText: label, specialTexts: ["공모전"], mainAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.black], specialAttributes: [.font: UIFont.body3, .foregroundColor: UIColor.puzzlePurple])
+        let label = StringLiterals.Onboarding.selectPosition
+        let specialCharacter = StringLiterals.Onboarding.selectPositionSpecial
+        
+        $0.highlightSpecialText(
+            mainText: label,
+            specialTexts: [specialCharacter],
+            mainAttributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.black
+            ],
+            specialAttributes: [
+                .font: UIFont.body3,
+                .foregroundColor: UIColor.puzzlePurple
+            ]
+        )
         $0.numberOfLines = 0
     }
     

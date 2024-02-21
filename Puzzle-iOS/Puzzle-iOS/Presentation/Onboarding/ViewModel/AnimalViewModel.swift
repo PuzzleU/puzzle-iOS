@@ -41,8 +41,8 @@ class AnimalsViewModel: ViewModelType {
         input.viewDidAppear
             .flatMap { [weak self] _ -> AnyPublisher<[UIImage], Never> in
                 self?.onboardingServiceType.getAnimalImage()
-                    .collect() // Collects all emitted images into an array
-                    .replaceError(with: []) // In case of error, provides an empty array
+                    .collect() // 배열 방출
+                    .replaceError(with: []) // 에러 케이스
                     .eraseToAnyPublisher() ?? Just([]).eraseToAnyPublisher()
             }
             .assign(to: \.animalImages, on: self)

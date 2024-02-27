@@ -15,7 +15,7 @@ final class OnboardingViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let onboardingViewModel = OnboardingTextViewModel()
+    private let inputNameViewModel = InputNameViewModel()
     private let animalViewModel = AnimalsViewModel()
     private let positionViewModel = PositionViewModel()
     private let interestViewModel = InterestViewModel()
@@ -29,8 +29,8 @@ final class OnboardingViewController: UIViewController {
     private lazy var progressBar = ProgressView(totalSteps: orderedViewControllers.count)
     
     private lazy var orderedViewControllers: [UIViewController] = {
-        let UserNameVC = OnboardingUserNameViewController(viewModel: onboardingViewModel)
-        let UserIdVC = OnboardingUserIdViewController(viewModel: onboardingViewModel)
+        let UserNameVC = OnboardingUserNameViewController(viewModel: inputNameViewModel)
+        let UserIdVC = OnboardingUserIdViewController(viewModel: inputNameViewModel)
         let selectProfileVC = OnboardingSelectProfileImageViewController(viewModel: animalViewModel)
         let selectPositionVC = OnboardingSelectPositionViewController(viewModel: positionViewModel)
         let selectInterestVC = OnboardingSelectInterestViewController(viewModel: interestViewModel)
@@ -101,7 +101,7 @@ final class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController {
     private func setBindings() {
-        onboardingViewModel.backButtonTapped
+        inputNameViewModel.backButtonTapped
             .sink { [weak self] _ in
                 self?.moveToPreviousPage()
             }

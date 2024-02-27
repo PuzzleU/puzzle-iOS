@@ -16,7 +16,7 @@ final class OnboardingUserIdViewController: UIViewController {
     
     private let rootView = OnboardingBaseView()
     
-    private var viewModel: OnboardingTextViewModel
+    private var viewModel: InputNameViewModel
     private var cancelBag = CancelBag()
     
     // MARK: - UI Components
@@ -84,7 +84,7 @@ final class OnboardingUserIdViewController: UIViewController {
     
     // MARK: - Life Cycles
     
-    init(viewModel: OnboardingTextViewModel) {
+    init(viewModel: InputNameViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -101,7 +101,6 @@ final class OnboardingUserIdViewController: UIViewController {
         super.viewDidLoad()
         setHierarchy()
         setLayout()
-        setBindings()
         setupNaviBindings()
     }
     
@@ -128,14 +127,6 @@ final class OnboardingUserIdViewController: UIViewController {
             $0.top.equalTo(idTextField.snp.bottom).offset(8)
             $0.leading.equalTo(view.safeAreaLayoutGuide).inset(28)
         }
-    }
-    
-    private func setBindings() {
-        idTextField.textPublisher
-            .print()
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.userId, on: viewModel)
-            .store(in: cancelBag)
     }
 }
 

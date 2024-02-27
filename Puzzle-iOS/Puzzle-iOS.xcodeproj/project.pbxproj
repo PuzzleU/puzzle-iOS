@@ -67,7 +67,7 @@
 		718D090D2B7A40310021AD40 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 718D090C2B7A40310021AD40 /* Pretendard-Light.otf */; };
 		718D09162B7A947F0021AD40 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09152B7A947F0021AD40 /* OnboardingViewController.swift */; };
 		718D09192B7A94930021AD40 /* OnboardingBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09182B7A94930021AD40 /* OnboardingBaseView.swift */; };
-		718D091C2B7A9B090021AD40 /* OnboardingTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D091B2B7A9B090021AD40 /* OnboardingTextViewModel.swift */; };
+		718D091C2B7A9B090021AD40 /* InputNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D091B2B7A9B090021AD40 /* InputNameViewModel.swift */; };
 		718D091E2B7E23C20021AD40 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D091D2B7E23C20021AD40 /* UITextField+.swift */; };
 		718D09202B7E305C0021AD40 /* OnboardingUserIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D091F2B7E305C0021AD40 /* OnboardingUserIdViewController.swift */; };
 		718D09222B7E30D10021AD40 /* OnboardingUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09212B7E30D10021AD40 /* OnboardingUserNameViewController.swift */; };
@@ -159,7 +159,7 @@
 		718D090C2B7A40310021AD40 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		718D09152B7A947F0021AD40 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		718D09182B7A94930021AD40 /* OnboardingBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseView.swift; sourceTree = "<group>"; };
-		718D091B2B7A9B090021AD40 /* OnboardingTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTextViewModel.swift; sourceTree = "<group>"; };
+		718D091B2B7A9B090021AD40 /* InputNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNameViewModel.swift; sourceTree = "<group>"; };
 		718D091D2B7E23C20021AD40 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		718D091F2B7E305C0021AD40 /* OnboardingUserIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUserIdViewController.swift; sourceTree = "<group>"; };
 		718D09212B7E30D10021AD40 /* OnboardingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUserNameViewController.swift; sourceTree = "<group>"; };
@@ -561,7 +561,7 @@
 		718D091A2B7A9AF90021AD40 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				718D091B2B7A9B090021AD40 /* OnboardingTextViewModel.swift */,
+				718D091B2B7A9B090021AD40 /* InputNameViewModel.swift */,
 				718D09302B8093170021AD40 /* AnimalViewModel.swift */,
 				718D09362B80D7CE0021AD40 /* PositionViewModel.swift */,
 				7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */,
@@ -798,7 +798,7 @@
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
 				718D09222B7E30D10021AD40 /* OnboardingUserNameViewController.swift in Sources */,
-				718D091C2B7A9B090021AD40 /* OnboardingTextViewModel.swift in Sources */,
+				718D091C2B7A9B090021AD40 /* InputNameViewModel.swift in Sources */,
 				7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
 				718D09372B80D7CE0021AD40 /* PositionViewModel.swift in Sources */,

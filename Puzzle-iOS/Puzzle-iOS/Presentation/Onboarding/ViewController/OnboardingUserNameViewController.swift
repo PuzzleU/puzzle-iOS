@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
@@ -16,14 +17,25 @@ final class OnboardingUserNameViewController: UIViewController {
     
     private let rootView = OnboardingBaseView()
     
-    private var viewModel: OnboardingTextViewModel
+    private var viewModel: InputNameViewModel
     private var cancelBag = CancelBag()
+    
+    private let nameSubject: PassthroughSubject<String, Never> = .init()
+    var namePublisher: AnyPublisher<String, Never> {
+        return nameSubject.eraseToAnyPublisher()
+    }
+    
+    private lazy var viewTapPublisher: AnyPublisher<Void, Never> = {
+        self.view.gesture(.tap())
+            .map { _ in () }
+            .eraseToAnyPublisher()
+    }()
     
     // MARK: - UI Components
     
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("이름을 알려주세요")
     
-    private let nameTextField = UITextField().then {
+    private lazy var nameTextField = UITextField().then {
         $0.attributedPlaceholder = NSAttributedString(
             string: StringLiterals.Onboarding.inputName,
             attributes: [
@@ -44,7 +56,7 @@ final class OnboardingUserNameViewController: UIViewController {
     
     // MARK: - Life Cycles
     
-    init(viewModel: OnboardingTextViewModel) {
+    init(viewModel: InputNameViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -61,7 +73,9 @@ final class OnboardingUserNameViewController: UIViewController {
         super.viewDidLoad()
         setHierarchy()
         setLayout()
-        setBindings()
+        setDelegate()
+        bind()
+        observe()
     }
     
     // MARK: - UI & Layout
@@ -84,11 +98,50 @@ final class OnboardingUserNameViewController: UIViewController {
         }
     }
     
-    private func setBindings() {
-        nameTextField.textPublisher
-            .print()
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.userName, on: viewModel)
-            .store(in: cancelBag)
+    // MARK: - Methods
+    
+    private func setDelegate() {
+        nameTextField.delegate = self
+    }
+    
+    private func bind() {
+        let input = InputNameViewModel.Input(
+            namePublisher: namePublisher,
+            backgroundTapPublisher: viewTapPublisher
+        )
+        
+        let output = viewModel.transform(from: input, cancelBag: cancelBag)
+        
+        output.buttonIsValid.sink { bool in
+            print("버튼 활성화 하는 코드 \(bool)")
+        }.store(in: cancelBag)
+    }
+    
+    private func observe() {
+        viewTapPublisher.sink { [unowned self] _ in
+            view.endEditing(true)
+        }.store(in: cancelBag)
+        
+        nameTextField.textPublisher.sink { [unowned self] text in
+            nameSubject.send(text)
+        }.store(in: cancelBag)
+    }
+}
+
+extension OnboardingUserNameViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        
+        // 변경 후의 텍스트 길이를 계산합니다.
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        // 변경 후의 텍스트 길이가 12자 이하인지 확인하고 그에 따라 true 또는 false를 반환합니다.
+        return updatedText.count <= 12
     }
 }

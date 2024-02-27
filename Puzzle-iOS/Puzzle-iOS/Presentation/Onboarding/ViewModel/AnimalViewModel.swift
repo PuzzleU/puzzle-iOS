@@ -42,7 +42,7 @@ class AnimalsViewModel: ViewModelType {
                 onboardingServiceType.getAnimalImage()
                     .collect()
                     .catch { error -> Just<[UIImage]> in
-                        print("error \(error)")
+                        print("‼️‼️ Error \(error)\n")
                         return Just([])
                     }
                     .eraseToAnyPublisher()
@@ -50,7 +50,6 @@ class AnimalsViewModel: ViewModelType {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] images in
                 self?.animalImages = images
-                print("‼️‼️images\(images)‼️‼️")
             })
             .store(in: cancelBag)
         

@@ -14,6 +14,7 @@ import Then
 final class OnboardingSelectProfileImageViewController: UIViewController {
     
     // MARK: - Properties
+    
     private let rootView = OnboardingBaseView()
     
     private let viewDidLoadSubject = PassthroughSubject<Void, Never>()
@@ -22,7 +23,6 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     var viewDidLoadPublisher: AnyPublisher<Void, Never> {
         return viewDidLoadSubject.eraseToAnyPublisher()
     }
-    
     var imagePublisher: AnyPublisher<Int, Never> {
         return imageSubject.eraseToAnyPublisher()
     }
@@ -32,6 +32,7 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     private var cancelBag = CancelBag()
     
     // MARK: - UI Components
+    
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("퍼즐에서 사용할 프로필을 선택해주세요")
     
     private let alertLabel = UILabel().then {
@@ -72,10 +73,10 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
         setHierarchy()
         setDelegate()
         setLayout()
-        setNaviBindings()
         register()
-        bindViewModel()
+        bind()
         observe()
+        setNaviBind()
     }
     
     // MARK: - UI & Layout
@@ -103,6 +104,8 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
         }
     }
     
+    // MARK: - Methods
+    
     private func register() {
         profileImageCollectionView.onboardingCollectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: OnboardingCollectionViewCell.className)
     }
@@ -116,33 +119,7 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
         viewDidLoadSubject.send()
     }
     
-}
-
-// MARK: - Methods
-
-extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.animalImages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell()}
-        cell.bindData(with: viewModel.animalImages[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        imageSubject.send(indexPath.row)
-    }
-    
-    private func setNaviBindings() {
-        naviBar.resetLeftButtonAction({ [weak self] in
-            self?.viewModel.backButtonTapped.send()
-        }, .leftTitleWithLeftButton)
-    }
-    
-    private func bindViewModel() {
-        
+    private func bind() {
         let input = AnimalsViewModel.Input(
             viewDidAppear: viewDidLoadPublisher,
             imagePublisher: imagePublisher
@@ -155,6 +132,33 @@ extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource
             .sink { bool in
                 print("터치 값 \(bool)")
             }.store(in: cancelBag)
-        
+    }
+    
+    private func setNaviBind() {
+        naviBar.resetLeftButtonAction({ [weak self] in
+            self?.viewModel.backButtonTapped.send()
+        }, .leftTitleWithLeftButton)
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension OnboardingSelectProfileImageViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        imageSubject.send(indexPath.row)
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.animalImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell()}
+        cell.bindData(with: viewModel.animalImages[indexPath.row])
+        return cell
     }
 }

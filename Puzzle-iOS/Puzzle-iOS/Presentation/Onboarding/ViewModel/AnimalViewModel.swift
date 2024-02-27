@@ -11,43 +11,55 @@ import Combine
 class AnimalsViewModel: ViewModelType {
     
     // MARK: - Properties
+    @Published var animalImages: [UIImage] = []
+    let backButtonTapped = PassthroughSubject<Void, Never>()
+    let buttonIsValidSubject: PassthroughSubject<Bool, Never> = .init()
+    
+    // MARK: - Inputs
     
     struct Input {
         let viewDidAppear: AnyPublisher<Void, Never>
+        let imagePublisher: AnyPublisher<Int, Never>
     }
     
+    // MARK: - Outputs
+    
     struct Output {
-        let touchImage: PassthroughSubject<Output, Never>
+        let buttonIsValid: AnyPublisher<Bool, Never>
     }
     
     private let onboardingServiceType: OnboardingServiceType
-    private let output: PassthroughSubject<Output, Never> = .init()
     
-    private var cancelBag = CancelBag()
-    
-    @Published var animalImages: [UIImage] = []
-    let backButtonTapped = PassthroughSubject<Void, Never>()
-    
-    // MARK: - Life Cycles
+    // MARK: - init
     
     init(onboardingServiceType: OnboardingServiceType = OnboardingService()) {
         self.onboardingServiceType = onboardingServiceType
     }
     
-    // MARK: - Methods
-    
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         input.viewDidAppear
-            .flatMap { [weak self] _ -> AnyPublisher<[UIImage], Never> in
-                self?.onboardingServiceType.getAnimalImage()
-                    .collect() // 배열 방출
-                    .replaceError(with: []) // 에러 케이스
-                    .eraseToAnyPublisher() ?? Just([]).eraseToAnyPublisher()
+            .flatMap { [unowned self] _ in
+                onboardingServiceType.getAnimalImage()
+                    .collect()
+                    .catch { error -> Just<[UIImage]> in
+                        print("error \(error)")
+                        return Just([])
+                    }
+                    .eraseToAnyPublisher()
             }
-            .assign(to: \.animalImages, on: self)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] images in
+                self?.animalImages = images
+                print("‼️‼️images\(images)‼️‼️")
+            })
             .store(in: cancelBag)
         
-        return Output(touchImage: output)
+        let buttonIsValid: AnyPublisher<Bool, Never> = input.imagePublisher.flatMap { value in
+            print("OnboardingSelectProfileImageVC 의 \(value) 터치 ")
+            return Just(true)
+        }.eraseToAnyPublisher()
+        
+        return Output(buttonIsValid: buttonIsValid)
     }
     
 }

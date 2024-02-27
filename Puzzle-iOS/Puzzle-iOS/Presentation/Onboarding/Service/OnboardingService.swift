@@ -14,12 +14,14 @@ import Combine
 
 class OnboardingService: OnboardingServiceType {
     func getAnimalImage() -> AnyPublisher<UIImage, Error> {
-        return animalProfile
-            .publisher
-            .catch { error in
-                Fail(error: error)
+        Publishers.Sequence(sequence: animalProfile)
+            .flatMap { imageName -> AnyPublisher<UIImage, Error> in
+                guard let image = UIImage(named: imageName) else {
+                    return Fail(error: NSError(domain: "ImageError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Image not found for \(imageName)"])).eraseToAnyPublisher()
+                }
+                return Just(image).setFailureType(to: Error.self).eraseToAnyPublisher()
             }
-            .compactMap { UIImage(named: $0) }
             .eraseToAnyPublisher()
     }
+
 }

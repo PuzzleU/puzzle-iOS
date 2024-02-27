@@ -16,7 +16,16 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     // MARK: - Properties
     private let rootView = OnboardingBaseView()
     
-    private lazy var viewDidLoadPublisher = PassthroughSubject<Void, Never>()
+    private let viewDidLoadSubject = PassthroughSubject<Void, Never>()
+    private let imageSubject = PassthroughSubject<Int, Never>()
+    
+    var viewDidLoadPublisher: AnyPublisher<Void, Never> {
+        return viewDidLoadSubject.eraseToAnyPublisher()
+    }
+    
+    var imagePublisher: AnyPublisher<Int, Never> {
+        return imageSubject.eraseToAnyPublisher()
+    }
     
     private var profileImageCollectionView = OnboardingCollectionView()
     private var viewModel: AnimalsViewModel
@@ -66,6 +75,7 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
         setNaviBindings()
         register()
         bindViewModel()
+        observe()
     }
     
     // MARK: - UI & Layout
@@ -102,6 +112,10 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
         profileImageCollectionView.onboardingCollectionView.dataSource = self
     }
     
+    private func observe() {
+        viewDidLoadSubject.send()
+    }
+    
 }
 
 // MARK: - Methods
@@ -118,7 +132,7 @@ extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("OnboardingSelectProfileImageVC 의 \(indexPath.row) 터치 ")
+        imageSubject.send(indexPath.row)
     }
     
     private func setNaviBindings() {
@@ -130,11 +144,17 @@ extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource
     private func bindViewModel() {
         
         let input = AnimalsViewModel.Input(
-            viewDidAppear: viewDidLoadPublisher.eraseToAnyPublisher()
+            viewDidAppear: viewDidLoadPublisher,
+            imagePublisher: imagePublisher
         )
         
-        let _ = viewModel.transform(from: input, cancelBag: cancelBag)
+        let output = viewModel.transform(from: input, cancelBag: cancelBag)
         
-        viewDidLoadPublisher.send()
+        output.buttonIsValid
+            .receive(on: RunLoop.main)
+            .sink { bool in
+                print("터치 값 \(bool)")
+            }.store(in: cancelBag)
+        
     }
 }

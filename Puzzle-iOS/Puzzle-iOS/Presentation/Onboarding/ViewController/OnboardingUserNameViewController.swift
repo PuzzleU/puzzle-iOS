@@ -128,6 +128,8 @@ final class OnboardingUserNameViewController: UIViewController {
     }
 }
 
+// MARK: - UITextFieldDelegate
+
 extension OnboardingUserNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
@@ -137,11 +139,9 @@ extension OnboardingUserNameViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
         
-        // 변경 후의 텍스트 길이를 계산합니다.
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
-        // 변경 후의 텍스트 길이가 12자 이하인지 확인하고 그에 따라 true 또는 false를 반환합니다.
-        return updatedText.count <= 12
+        return updatedText.count <= IntLiterals.InputValidationRule.nameMaximumLength
     }
 }

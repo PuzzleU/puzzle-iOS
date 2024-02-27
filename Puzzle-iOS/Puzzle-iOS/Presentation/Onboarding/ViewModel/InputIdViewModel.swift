@@ -1,13 +1,13 @@
 //
-//  InputNameViewModel.swift
+//  InputIdViewModel.swift
 //  Puzzle-iOS
 //
-//  Created by 이명진 on 2/13/24.
+//  Created by 이명진 on 2/28/24.
 //
 
 import Combine
 
-class InputNameViewModel: ViewModelType {
+class InputIdViewModel: ViewModelType {
     
     // MARK: - Properties
     
@@ -16,7 +16,7 @@ class InputNameViewModel: ViewModelType {
     // MARK: - Inputs
     
     struct Input {
-        let namePublisher: AnyPublisher<String, Never>
+        let idPublisher: AnyPublisher<String, Never>
         let backgroundTapPublisher: AnyPublisher<Void, Never>
     }
     
@@ -27,8 +27,8 @@ class InputNameViewModel: ViewModelType {
     }
     
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
-        let buttonIsValidPublisher = input.namePublisher.flatMap { name in
-            if name.count >= IntLiterals.InputValidationRule.minimumLength && name.count <= IntLiterals.InputValidationRule.nameMaximumLength {
+        let buttonIsValidPublisher = input.idPublisher.flatMap { name in
+            if name.count >= IntLiterals.InputValidationRule.minimumLength && name.count <= IntLiterals.InputValidationRule.idMaximumLength {
                 return Just(true)
             } else {
                 return Just(false)

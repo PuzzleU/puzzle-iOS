@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
@@ -16,10 +17,22 @@ final class OnboardingUserIdViewController: UIViewController {
     
     private let rootView = OnboardingBaseView()
     
-    private var viewModel: InputNameViewModel
+    private var viewModel: InputIdViewModel
     private var cancelBag = CancelBag()
     
+    private let idSubject: PassthroughSubject<String, Never> = .init()
+    var idPublisher: AnyPublisher<String, Never> {
+        return idSubject.eraseToAnyPublisher()
+    }
+    
+    private lazy var viewTapPublisher: AnyPublisher<Void, Never> = {
+        self.view.gesture(.tap())
+            .map { _ in () }
+            .eraseToAnyPublisher()
+    }()
+    
     // MARK: - UI Components
+    
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("퍼즐에서 사용할 아이디를 입력해주세요")
     
     private let idTextField = UITextField().then {
@@ -84,7 +97,7 @@ final class OnboardingUserIdViewController: UIViewController {
     
     // MARK: - Life Cycles
     
-    init(viewModel: InputNameViewModel) {
+    init(viewModel: InputIdViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -101,7 +114,10 @@ final class OnboardingUserIdViewController: UIViewController {
         super.viewDidLoad()
         setHierarchy()
         setLayout()
-        setupNaviBindings()
+        setDelegate()
+        bind()
+        observe()
+        setNaviBind()
     }
     
     // MARK: - UI & Layout
@@ -128,14 +144,61 @@ final class OnboardingUserIdViewController: UIViewController {
             $0.leading.equalTo(view.safeAreaLayoutGuide).inset(28)
         }
     }
-}
-
-// MARK: - Methods
-
-extension OnboardingUserIdViewController {
-    private func setupNaviBindings() {
+    
+    // MARK: - Methods
+    
+    private func setDelegate() {
+        idTextField.delegate = self
+    }
+    
+    private func bind() {
+        let input = InputIdViewModel.Input(
+            idPublisher: idPublisher,
+            backgroundTapPublisher: viewTapPublisher
+        )
+        
+        let output = viewModel.transform(from: input, cancelBag: cancelBag)
+        
+        output.buttonIsValid.sink { bool in
+            print("버튼 활성화 하는 코드 \(bool)")
+        }.store(in: cancelBag)
+    }
+    
+    private func observe() {
+        viewTapPublisher.sink { [unowned self] _ in
+            view.endEditing(true)
+        }.store(in: cancelBag)
+        
+        idTextField.textPublisher.sink { [unowned self] text in
+            idSubject.send(text)
+        }.store(in: cancelBag)
+        
+        idPublisher.sink { str in
+            print(str)
+        }.store(in: cancelBag)
+    }
+    
+    private func setNaviBind() {
         naviBar.resetLeftButtonAction({ [weak self] in
             self?.viewModel.backButtonTapped.send()
         }, .leftTitleWithLeftButton)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension OnboardingUserIdViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        return updatedText.count <= IntLiterals.InputValidationRule.idMaximumLength
     }
 }

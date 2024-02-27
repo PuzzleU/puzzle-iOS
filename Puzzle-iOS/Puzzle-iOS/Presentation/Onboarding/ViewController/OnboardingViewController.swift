@@ -16,6 +16,7 @@ final class OnboardingViewController: UIViewController {
     // MARK: - Properties
     
     private let inputNameViewModel = InputNameViewModel()
+    private let inputIdViewModel = InputIdViewModel()
     private let animalViewModel = AnimalsViewModel()
     private let positionViewModel = PositionViewModel()
     private let interestViewModel = InterestViewModel()
@@ -30,7 +31,7 @@ final class OnboardingViewController: UIViewController {
     
     private lazy var orderedViewControllers: [UIViewController] = {
         let UserNameVC = OnboardingUserNameViewController(viewModel: inputNameViewModel)
-        let UserIdVC = OnboardingUserIdViewController(viewModel: inputNameViewModel)
+        let UserIdVC = OnboardingUserIdViewController(viewModel: inputIdViewModel)
         let selectProfileVC = OnboardingSelectProfileImageViewController(viewModel: animalViewModel)
         let selectPositionVC = OnboardingSelectPositionViewController(viewModel: positionViewModel)
         let selectInterestVC = OnboardingSelectInterestViewController(viewModel: interestViewModel)

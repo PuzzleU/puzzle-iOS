@@ -15,7 +15,7 @@ final class OnboardingCollectionView: UIView {
     // MARK: - Property
     
     final let itemSize = CGSize(width: 100, height: 100)
-    final let inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+    final let inset: UIEdgeInsets = UIEdgeInsets(top: 6, left: 8, bottom: 0, right: 8)
     final let lineSpacing: CGFloat = 8
     final let interItemSpacing: CGFloat = 8
     
@@ -31,6 +31,7 @@ final class OnboardingCollectionView: UIView {
         
         $0.collectionViewLayout = layout
         $0.isScrollEnabled = false
+        $0.backgroundColor = .clear
     }
     
     // MARK: - Life Cycles
@@ -49,7 +50,7 @@ final class OnboardingCollectionView: UIView {
     // MARK: - UI & Layout
     
     private func setUI() {
-        self.backgroundColor = .puzzleDarkGray
+        self.backgroundColor = .clear
     }
     
     private func setHierarchy() {

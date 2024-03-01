@@ -160,7 +160,7 @@ final class OnboardingUserIdViewController: UIViewController {
         let output = viewModel.transform(from: input, cancelBag: cancelBag)
         
         output.buttonIsValid.sink { bool in
-            print("버튼 활성화 하는 코드 \(bool)")
+            self.rootView.isEnabledNextButton(isEnabled: bool)
         }.store(in: cancelBag)
     }
     
@@ -175,6 +175,10 @@ final class OnboardingUserIdViewController: UIViewController {
         
         idPublisher.sink { str in
             print(str)
+        }.store(in: cancelBag)
+        
+        self.rootView.nextButtonTapped.sink { [weak self] _ in
+            self?.viewModel.nextButtonTapped.send()
         }.store(in: cancelBag)
     }
     

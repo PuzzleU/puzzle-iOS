@@ -32,6 +32,8 @@
 		2C55EEC02B711BB5001AD42E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF2B711BB5001AD42E /* Config.swift */; };
 		710309812B8E47AE0077EE17 /* InputIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309802B8E47AE0077EE17 /* InputIdViewModel.swift */; };
 		710309852B8E4C3E0077EE17 /* IntLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309842B8E4C3E0077EE17 /* IntLiterals.swift */; };
+		7103098B2B90B5470077EE17 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */; };
+		7103098D2B91D5860077EE17 /* UIKit+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098C2B91D5860077EE17 /* UIKit+Publisher.swift */; };
 		7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */; };
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
 		7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */; };
@@ -77,7 +79,7 @@
 		718D09262B807EF40021AD40 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09252B807EF40021AD40 /* UILabel+.swift */; };
 		718D09282B808A400021AD40 /* OnboardingSelectProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09272B808A3F0021AD40 /* OnboardingSelectProfileImageViewController.swift */; };
 		718D092F2B8091D30021AD40 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D092E2B8091D30021AD40 /* OnboardingCollectionViewCell.swift */; };
-		718D09312B8093170021AD40 /* AnimalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09302B8093170021AD40 /* AnimalViewModel.swift */; };
+		718D09312B8093170021AD40 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09302B8093170021AD40 /* ProfileViewModel.swift */; };
 		718D09332B8094A00021AD40 /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09322B8094A00021AD40 /* getClassName.swift */; };
 		718D09352B80A3BF0021AD40 /* OnboardingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09342B80A3BF0021AD40 /* OnboardingCollectionView.swift */; };
 		718D09372B80D7CE0021AD40 /* PositionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09362B80D7CE0021AD40 /* PositionViewModel.swift */; };
@@ -123,6 +125,8 @@
 		2C55EEBF2B711BB5001AD42E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		710309802B8E47AE0077EE17 /* InputIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputIdViewModel.swift; sourceTree = "<group>"; };
 		710309842B8E4C3E0077EE17 /* IntLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntLiterals.swift; sourceTree = "<group>"; };
+		7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
+		7103098C2B91D5860077EE17 /* UIKit+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Publisher.swift"; sourceTree = "<group>"; };
 		7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
 		7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
@@ -171,7 +175,7 @@
 		718D09252B807EF40021AD40 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		718D09272B808A3F0021AD40 /* OnboardingSelectProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectProfileImageViewController.swift; sourceTree = "<group>"; };
 		718D092E2B8091D30021AD40 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
-		718D09302B8093170021AD40 /* AnimalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewModel.swift; sourceTree = "<group>"; };
+		718D09302B8093170021AD40 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		718D09322B8094A00021AD40 /* getClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClassName.swift; sourceTree = "<group>"; };
 		718D09342B80A3BF0021AD40 /* OnboardingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionView.swift; sourceTree = "<group>"; };
 		718D09362B80D7CE0021AD40 /* PositionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionViewModel.swift; sourceTree = "<group>"; };
@@ -385,6 +389,8 @@
 			children = (
 				7127DA5E2B825E6400B262DA /* Publisher+UIControl.swift */,
 				7127DA602B82601000B262DA /* Publisher+UIGesture.swift */,
+				7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */,
+				7103098C2B91D5860077EE17 /* UIKit+Publisher.swift */,
 			);
 			path = "Combine+UIKit";
 			sourceTree = "<group>";
@@ -568,7 +574,7 @@
 			children = (
 				718D091B2B7A9B090021AD40 /* InputNameViewModel.swift */,
 				710309802B8E47AE0077EE17 /* InputIdViewModel.swift */,
-				718D09302B8093170021AD40 /* AnimalViewModel.swift */,
+				718D09302B8093170021AD40 /* ProfileViewModel.swift */,
 				718D09362B80D7CE0021AD40 /* PositionViewModel.swift */,
 				7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */,
 				7127DA582B82435500B262DA /* AreaViewModel.swift */,
@@ -764,6 +770,7 @@
 				718D09352B80A3BF0021AD40 /* OnboardingCollectionView.swift in Sources */,
 				718D09192B7A94930021AD40 /* OnboardingBaseView.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
+				7103098D2B91D5860077EE17 /* UIKit+Publisher.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
 				71814AAF2B77776B00B23378 /* PuzzleToastView.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
@@ -788,7 +795,8 @@
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
 				718D093B2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift in Sources */,
 				710309812B8E47AE0077EE17 /* InputIdViewModel.swift in Sources */,
-				718D09312B8093170021AD40 /* AnimalViewModel.swift in Sources */,
+				718D09312B8093170021AD40 /* ProfileViewModel.swift in Sources */,
+				7103098B2B90B5470077EE17 /* UIViewController+Combine.swift in Sources */,
 				71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */,
 				7127DA632B832E9800B262DA /* AreaTableView.swift in Sources */,
 				2C5310EA2B6E893C00704371 /* LoginViewModel.swift in Sources */,

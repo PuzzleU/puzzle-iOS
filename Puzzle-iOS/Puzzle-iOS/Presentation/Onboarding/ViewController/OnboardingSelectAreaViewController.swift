@@ -84,6 +84,7 @@ final class OnboardingSelectAreaViewController: UIViewController {
         register()
         setNaviBindings()
         setBindings()
+        observe()
     }
     
     // MARK: - UI & Layout
@@ -148,5 +149,11 @@ extension OnboardingSelectAreaViewController {
                 self?.showBottomSheetSubject.send()
             }
             .store(in: cancelBag)
+    }
+    
+    private func observe() {
+        rootView.nextButtonTapped.sink { [weak self] _ in
+            self?.viewModel.nextButtonTapped.send()
+        }.store(in: cancelBag)
     }
 }

@@ -5,9 +5,16 @@
 //  Created by 이명진 on 2/18/24.
 //
 
+import UIKit
 import Combine
 
-class InterestViewModel {
+struct Interest {
+    let competition: [String]
+    let job: [String]
+    let study: [String]
+}
+
+class InterestViewModel: ViewModelType {
     
     // MARK: - Properties
     
@@ -15,18 +22,51 @@ class InterestViewModel {
     @Published var jobs: [String] = []
     @Published var studys: [String] = []
     
+    @Published var selectedKeywords: Set<IndexPath> = []
+    
+    let nextButtonTapped = PassthroughSubject<Void, Never>()
     let backButtonTapped = PassthroughSubject<Void, Never>()
+    private let onboardingServiceType: OnboardingServiceType
     
-    init() {
-        loadDatas()
+    struct Input {
+        let viewDidLoad: AnyPublisher<Void, Never>
+        let selectKeyWordIndex: AnyPublisher<IndexPath, Never>
     }
     
-    private func loadDatas() {
-        let competition = ["기획", "마케팅", "네이밍", "디자인", "개발", "아주 긴 데이터 어떤데 ㅋㄱ", "미디어"]
-        let job = ["iOS", "전략 기획", "안드로이드", "갓 생 살아라"]
-        let study = ["언어", "경제/시사 이건 거의 1줄", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사"]
-        competitions = competition.compactMap { $0 }
-        jobs = job.compactMap { $0 }
-        studys = study.compactMap { $0 }
+    struct Output {
+        let selectkeywordIndex: AnyPublisher<Set<IndexPath>, Never>
     }
+    
+    init(onboardingServiceType: OnboardingServiceType = OnboardingService()) {
+        self.onboardingServiceType = onboardingServiceType
+    }
+    
+    func transform(from input: Input, cancelBag: CancelBag) -> Output {
+        input.viewDidLoad
+            .flatMap { [unowned self] _ in
+                self.onboardingServiceType.getInterestKeyword()
+            }
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }, receiveValue: { [weak self] interest in
+                self?.competitions = interest.competition
+                self?.jobs = interest.job
+                self?.studys = interest.study
+            })
+            .store(in: cancelBag)
+        
+        let selectedIndexPathPublisher = input.selectKeyWordIndex
+            .flatMap { [unowned self] indexPath -> AnyPublisher<Set<IndexPath>, Never> in
+                if self.selectedKeywords.contains(indexPath) {
+                    self.selectedKeywords.remove(indexPath)
+                } else if self.selectedKeywords.count < 6 {
+                    self.selectedKeywords.insert(indexPath)
+                }
+                return Just(selectedKeywords).eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+        
+        return Output(selectkeywordIndex: selectedIndexPathPublisher)
+    }
+
 }

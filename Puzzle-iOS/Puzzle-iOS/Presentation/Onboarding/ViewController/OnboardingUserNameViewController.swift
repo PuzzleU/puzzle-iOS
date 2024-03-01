@@ -21,6 +21,7 @@ final class OnboardingUserNameViewController: UIViewController {
     private var cancelBag = CancelBag()
     
     private let nameSubject: PassthroughSubject<String, Never> = .init()
+    
     var namePublisher: AnyPublisher<String, Never> {
         return nameSubject.eraseToAnyPublisher()
     }
@@ -112,8 +113,8 @@ final class OnboardingUserNameViewController: UIViewController {
         
         let output = viewModel.transform(from: input, cancelBag: cancelBag)
         
-        output.buttonIsValid.sink { bool in
-            print("버튼 활성화 하는 코드 \(bool)")
+        output.buttonIsValid.sink { [weak self] bool in
+            self?.rootView.isEnabledNextButton(isEnabled: bool)
         }.store(in: cancelBag)
     }
     
@@ -124,6 +125,10 @@ final class OnboardingUserNameViewController: UIViewController {
         
         nameTextField.textPublisher.sink { [unowned self] text in
             nameSubject.send(text)
+        }.store(in: cancelBag)
+        
+        rootView.nextButtonTapped.sink { [weak self] _ in
+            self?.viewModel.nextButtonTapped.send()
         }.store(in: cancelBag)
     }
 }

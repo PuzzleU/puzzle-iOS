@@ -44,7 +44,7 @@ final class PuzzleMainButton: UIButton {
         setTitleColor(.puzzleRealWhite, for: .normal)
         backgroundColor = .puzzleLightGray
         layer.cornerRadius = 15
-        addTarget(self, action: #selector(selectedButton), for: .touchUpInside)
+//        addTarget(self, action: #selector(selectedButton), for: .touchUpInside)
     }
     
     private func setLayout() {
@@ -59,10 +59,10 @@ final class PuzzleMainButton: UIButton {
     
     // MARK: - Custom methods
     
-    @objc 
-    private func selectedButton() {
-        isSelected.toggle()
-    }
+//    @objc 
+//    private func selectedButton() {
+//        isSelected.toggle()
+//    }
     
     private func updateButtonUI() {
         backgroundColor = isSelected ? .puzzlePurple : .puzzleLightGray

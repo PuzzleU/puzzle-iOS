@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
@@ -19,6 +20,11 @@ final class OnboardingSelectPositionViewController: UIViewController {
     private var positionCollectionView = OnboardingCollectionView()
     private var viewModel: PositionViewModel
     private var cancelBag = CancelBag()
+    
+    private let imageSubject = PassthroughSubject<Int, Never>()
+    var imagePublisher: AnyPublisher<Int, Never> {
+        return imageSubject.eraseToAnyPublisher()
+    }
     
     // MARK: - UI Components
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("내 포지션을 선택해주세요")
@@ -64,7 +70,8 @@ final class OnboardingSelectPositionViewController: UIViewController {
         setLayout()
         register()
         setNaviBindings()
-        bindViewModel()
+        bind()
+        observe()
     }
     
     // MARK: - UI & Layout
@@ -112,13 +119,36 @@ extension OnboardingSelectPositionViewController {
         }, .leftTitleWithLeftButton)
     }
     
-    private func bindViewModel() {
-        viewModel.$positionImages
+    private func bind() {
+        let input = PositionViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher,
+            selectImageAtIndex: imagePublisher
+        )
+        
+        let output = viewModel.transform(from: input, cancelBag: cancelBag)
+        
+        output.positionImage
             .receive(on: RunLoop.main)
-            .sink { [weak self] _ in
+            .sink(receiveValue: { [weak self] images in
+                self?.viewModel.positionImages = images
                 self?.positionCollectionView.onboardingCollectionView.reloadData()
+            })
+            .store(in: cancelBag)
+        
+        output.selectedIndices
+            .receive(on: RunLoop.main)
+            .sink { [weak self] selectedIndices in
+                print("OnboardingSelectPositionIndex= \(selectedIndices)")
+                self?.positionCollectionView.onboardingCollectionView.reloadData()
+                self?.rootView.isEnabledNextButton(isEnabled: !selectedIndices.isEmpty)
             }
             .store(in: cancelBag)
+    }
+    
+    private func observe() {
+        rootView.nextButtonTapped.sink { [weak self] _ in
+            self?.viewModel.nextButtonTapped.send()
+        }.store(in: cancelBag)
     }
 }
 
@@ -126,7 +156,12 @@ extension OnboardingSelectPositionViewController {
 
 extension OnboardingSelectPositionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        imageSubject.send(indexPath.row)
         print("OnboardingSelectPositionVC 의 \(indexPath.row) 터치 ")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.isSelected = viewModel.selectedPositionIndexes.contains(indexPath.row)
     }
 }
 

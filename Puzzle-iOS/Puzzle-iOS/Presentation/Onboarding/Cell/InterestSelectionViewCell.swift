@@ -20,6 +20,12 @@ final class InterestSelectionViewCell: UICollectionViewCell {
         $0.font = .body2
     }
     
+    override var isSelected: Bool {
+        didSet {
+            toggle()
+        }
+    }
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -52,6 +58,11 @@ final class InterestSelectionViewCell: UICollectionViewCell {
             $0.top.equalToSuperview().offset(5.5)
             $0.bottom.equalToSuperview().offset(-5.5)
         }
+    }
+    
+    private func toggle() {
+        titleLabel.textColor = isSelected ? .white : .black
+        contentView.backgroundColor = isSelected ? .black : .white
     }
     
     // MARK: - Method

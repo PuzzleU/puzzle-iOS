@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
@@ -37,6 +38,13 @@ final class OnboardingSelectInterestViewController: UIViewController {
     private var interestCollectionView = InterestSelectionCollectionView()
     private var viewModel: InterestViewModel
     private var cancelBag = CancelBag()
+    
+    private let keywordSubject: PassthroughSubject<IndexPath, Never> = .init()
+    var keywordPublisher: AnyPublisher<IndexPath, Never> {
+        return keywordSubject.eraseToAnyPublisher()
+    }
+    
+    private var selectedIndexPaths: [IndexPath] = []
     
     // MARK: - UI Components
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("관심있는 분야를 모두 선택해주세요")
@@ -77,11 +85,13 @@ final class OnboardingSelectInterestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         setHierarchy()
-        setDelegate()
         setLayout()
         register()
-        setNaviBindings()
+        setNaviBind()
+        observe()
+        setDelegate()
     }
     
     // MARK: - UI & Layout
@@ -105,7 +115,7 @@ final class OnboardingSelectInterestViewController: UIViewController {
         interestCollectionView.snp.makeConstraints {
             $0.top.equalTo(alertLabel.snp.bottom).offset(27)
             $0.leading.trailing.equalToSuperview().inset(28)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-70)
         }
     }
     
@@ -125,10 +135,34 @@ final class OnboardingSelectInterestViewController: UIViewController {
 // MARK: - Methods
 
 extension OnboardingSelectInterestViewController {
-    private func setNaviBindings() {
+    private func setNaviBind() {
         naviBar.resetLeftButtonAction({ [weak self] in
             self?.viewModel.backButtonTapped.send()
         }, .leftTitleWithLeftButton)
+    }
+    
+    private func observe() {
+        rootView.nextButtonTapped.sink { [weak self] _ in
+            self?.viewModel.nextButtonTapped.send()
+        }.store(in: cancelBag)
+    }
+    
+    private func bind() {
+        let input = InterestViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher,
+            selectKeyWordIndex: keywordPublisher
+        )
+        
+        let output = viewModel.transform(from: input, cancelBag: cancelBag)
+        
+        output.selectkeywordIndex
+            .receive(on: RunLoop.main)
+            .sink { [weak self] selectedKeywords in
+                self?.interestCollectionView.mapCollectionView.reloadData()
+                self?.rootView.isEnabledNextButton(isEnabled: !selectedKeywords.isEmpty)
+                print(selectedKeywords)
+            }
+            .store(in: cancelBag)
     }
 }
 
@@ -136,7 +170,12 @@ extension OnboardingSelectInterestViewController {
 
 extension OnboardingSelectInterestViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.keywordSubject.send(indexPath)
         print("🍀 OnboardingSelectInterestViewController 의 \(indexPath) 터치 ")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.isSelected = viewModel.selectedKeywords.contains(indexPath)
     }
 }
 

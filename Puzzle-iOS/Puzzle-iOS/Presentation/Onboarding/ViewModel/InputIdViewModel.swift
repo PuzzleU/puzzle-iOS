@@ -11,6 +11,7 @@ class InputIdViewModel: ViewModelType {
     
     // MARK: - Properties
     
+    let nextButtonTapped = PassthroughSubject<Void, Never>()
     let backButtonTapped = PassthroughSubject<Void, Never>()
     
     // MARK: - Inputs
@@ -27,13 +28,15 @@ class InputIdViewModel: ViewModelType {
     }
     
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
+        let initialValidation = Just(false).eraseToAnyPublisher()
+        
         let buttonIsValidPublisher = input.idPublisher.flatMap { name in
             if name.count >= IntLiterals.InputValidationRule.minimumLength && name.count <= IntLiterals.InputValidationRule.idMaximumLength {
                 return Just(true)
             } else {
                 return Just(false)
             }
-        }.eraseToAnyPublisher()
+        }.prepend(initialValidation).eraseToAnyPublisher()
         
         return Output(buttonIsValid: buttonIsValidPublisher)
     }

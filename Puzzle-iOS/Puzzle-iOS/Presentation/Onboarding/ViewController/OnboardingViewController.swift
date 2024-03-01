@@ -17,7 +17,7 @@ final class OnboardingViewController: UIViewController {
     
     private let inputNameViewModel = InputNameViewModel()
     private let inputIdViewModel = InputIdViewModel()
-    private let animalViewModel = AnimalsViewModel()
+    private let animalViewModel = ProfileViewModel()
     private let positionViewModel = PositionViewModel()
     private let interestViewModel = InterestViewModel()
     private let areaViewModel = AreaViewModel()
@@ -30,13 +30,13 @@ final class OnboardingViewController: UIViewController {
     private lazy var progressBar = ProgressView(totalSteps: orderedViewControllers.count)
     
     private lazy var orderedViewControllers: [UIViewController] = {
-        let UserNameVC = OnboardingUserNameViewController(viewModel: inputNameViewModel)
-        let UserIdVC = OnboardingUserIdViewController(viewModel: inputIdViewModel)
+        let inputUserNameVC = OnboardingUserNameViewController(viewModel: inputNameViewModel)
+        let inputUserIdVC = OnboardingUserIdViewController(viewModel: inputIdViewModel)
         let selectProfileVC = OnboardingSelectProfileImageViewController(viewModel: animalViewModel)
         let selectPositionVC = OnboardingSelectPositionViewController(viewModel: positionViewModel)
         let selectInterestVC = OnboardingSelectInterestViewController(viewModel: interestViewModel)
         let selectAreaVC = OnboardingSelectAreaViewController(viewModel: areaViewModel)
-        return [UserNameVC, UserIdVC, selectProfileVC, selectPositionVC, selectInterestVC, selectAreaVC]
+        return [inputUserNameVC, inputUserIdVC, selectProfileVC, selectPositionVC, selectInterestVC, selectAreaVC]
     }()
     
     // MARK: - Life Cycles
@@ -48,19 +48,6 @@ final class OnboardingViewController: UIViewController {
         setDelegate()
         setLayout()
         setBindings()
-    }
-    
-    // areaVC 에서 바텀시트를 띄울 임시 코드입니다.
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if let areaVC = orderedViewControllers.first(where: { $0 is OnboardingSelectAreaViewController }) as? OnboardingSelectAreaViewController {
-            areaVC.showBottomSheetSubject
-                .sink { [weak self] _ in
-                    self?.showAreaBottomSheet()
-                }
-                .store(in: cancelBag)
-        }
     }
     
     // MARK: - UI & Layout
@@ -102,7 +89,7 @@ final class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController {
     private func setBindings() {
-        inputNameViewModel.backButtonTapped
+        inputIdViewModel.backButtonTapped
             .sink { [weak self] _ in
                 self?.moveToPreviousPage()
             }
@@ -131,6 +118,42 @@ extension OnboardingViewController {
                 self?.moveToPreviousPage()
             }
             .store(in: cancelBag)
+        
+        inputNameViewModel.nextButtonTapped
+            .sink { [weak self] _ in
+                self?.moveToNextPage()
+            }
+            .store(in: cancelBag)
+        
+        inputIdViewModel.nextButtonTapped
+            .sink { [weak self] _ in
+                self?.moveToNextPage()
+            }
+            .store(in: cancelBag)
+        
+        animalViewModel.nextButtonTapped
+            .sink { [weak self] _ in
+                self?.moveToNextPage()
+            }
+            .store(in: cancelBag)
+        
+        positionViewModel.nextButtonTapped
+            .sink { [weak self] _ in
+                self?.moveToNextPage()
+            }
+            .store(in: cancelBag)
+        
+        interestViewModel.nextButtonTapped
+            .sink { [weak self] _ in
+                self?.moveToNextPage()
+            }
+            .store(in: cancelBag)
+        
+        areaViewModel.nextButtonTapped
+            .sink { [weak self] _ in
+                self?.moveToNextPage()
+            }
+            .store(in: cancelBag)
     }
     
     /// 네비게이션 바로 터치로 Page 뒤로가는 부분 구현 함수 입니다.
@@ -143,18 +166,28 @@ extension OnboardingViewController {
             return
         }
         
+        print(currentIndex)
+        
         let previousViewController = orderedViewControllers[currentIndex - 1]
         pageViewController.setViewControllers([previousViewController], direction: .reverse, animated: true, completion: nil)
         
         progressBar.setCurrentStep(currentIndex)
     }
     
-    // 바텀시트를 띄우는 임시 코드 입니다.
-    private func showAreaBottomSheet() {
-        // 여기에 바텀시트를 올리는 코드를 추가하거나
-        // 또는 OnboradingSelectAreaVC 에 구현
-        // 바텀 시트 리팩터링 후 진행
-        print("바텀 시트 이벤트")
+    private func moveToNextPage() {
+        print("Page 앞으로 + progressBar 작동")
+        
+        guard let currentViewController = pageViewController.viewControllers?.first,
+              let currentIndex = orderedViewControllers.firstIndex(of: currentViewController),
+              currentIndex + 1 < orderedViewControllers.count else {
+            return
+        }
+        
+        let nextViewController = orderedViewControllers[currentIndex + 1]
+        
+        pageViewController.setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
+        
+        progressBar.setCurrentStep(currentIndex + 1)
     }
 }
 

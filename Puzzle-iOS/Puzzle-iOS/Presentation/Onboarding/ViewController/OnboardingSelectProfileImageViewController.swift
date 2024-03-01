@@ -17,19 +17,16 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     
     private let rootView = OnboardingBaseView()
     
-    private let viewDidLoadSubject = PassthroughSubject<Void, Never>()
     private let imageSubject = PassthroughSubject<Int, Never>()
-    
-    var viewDidLoadPublisher: AnyPublisher<Void, Never> {
-        return viewDidLoadSubject.eraseToAnyPublisher()
-    }
     var imagePublisher: AnyPublisher<Int, Never> {
         return imageSubject.eraseToAnyPublisher()
     }
     
     private var profileImageCollectionView = OnboardingCollectionView()
-    private var viewModel: AnimalsViewModel
+    private var viewModel: ProfileViewModel
     private var cancelBag = CancelBag()
+    
+    private var selectedIndexPath: IndexPath?
     
     // MARK: - UI Components
     
@@ -55,7 +52,7 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     
     // MARK: - Life Cycles
     
-    init(viewModel: AnimalsViewModel) {
+    init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -71,12 +68,12 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setHierarchy()
-        setDelegate()
-        setLayout()
-        register()
         bind()
         observe()
+        setLayout()
+        register()
         setNaviBind()
+        setDelegate()
     }
     
     // MARK: - UI & Layout
@@ -116,22 +113,36 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     }
     
     private func observe() {
-        viewDidLoadSubject.send()
+        rootView.nextButtonTapped.sink { [weak self] _ in
+            self?.viewModel.nextButtonTapped.send()
+        }.store(in: cancelBag)
     }
     
     private func bind() {
-        let input = AnimalsViewModel.Input(
-            viewDidAppear: viewDidLoadPublisher,
-            imagePublisher: imagePublisher
+        let input = ProfileViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher,
+            selectImageAtIndex: imagePublisher
         )
         
         let output = viewModel.transform(from: input, cancelBag: cancelBag)
         
-        output.buttonIsValid
+        output.animalImages
             .receive(on: RunLoop.main)
-            .sink { bool in
-                print("터치 값 \(bool)")
-            }.store(in: cancelBag)
+            .sink(receiveValue: { [weak self] images in
+                self?.viewModel.animalImages = images
+                self?.profileImageCollectionView.onboardingCollectionView.reloadData()
+            })
+            .store(in: cancelBag)
+        
+        output.selectedImageIndex
+            .receive(on: RunLoop.main)
+            .sink { [weak self] selectedIndex in
+                guard let selectedIndex = selectedIndex else { return }
+                print("selectedIndex= \(selectedIndex)")
+                self?.selectedIndexPath = IndexPath(item: selectedIndex, section: 0)
+                self?.rootView.isEnabledNextButton(isEnabled: true)
+            }
+            .store(in: cancelBag)
     }
     
     private func setNaviBind() {
@@ -144,8 +155,10 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
 // MARK: - UICollectionViewDelegate
 
 extension OnboardingSelectProfileImageViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         imageSubject.send(indexPath.row)
+        print("OnboardingSelectProfileImageVC 의 \(indexPath.row) 터치 ")
     }
 }
 
@@ -157,8 +170,10 @@ extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell() }
         cell.bindData(with: viewModel.animalImages[indexPath.row])
+        cell.isSelected = indexPath == selectedIndexPath
         return cell
     }
+    
 }

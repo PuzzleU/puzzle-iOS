@@ -33,7 +33,8 @@
 		710309812B8E47AE0077EE17 /* InputIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309802B8E47AE0077EE17 /* InputIdViewModel.swift */; };
 		710309852B8E4C3E0077EE17 /* IntLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309842B8E4C3E0077EE17 /* IntLiterals.swift */; };
 		7103098B2B90B5470077EE17 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */; };
-		7103098D2B91D5860077EE17 /* UIKit+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098C2B91D5860077EE17 /* UIKit+Publisher.swift */; };
+		7103098D2B91D5860077EE17 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098C2B91D5860077EE17 /* UIButton+Combine.swift */; };
+		7103098F2B91E4430077EE17 /* UITextField+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098E2B91E4430077EE17 /* UITextField+Combine.swift */; };
 		7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */; };
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
 		7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */; };
@@ -126,7 +127,8 @@
 		710309802B8E47AE0077EE17 /* InputIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputIdViewModel.swift; sourceTree = "<group>"; };
 		710309842B8E4C3E0077EE17 /* IntLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntLiterals.swift; sourceTree = "<group>"; };
 		7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
-		7103098C2B91D5860077EE17 /* UIKit+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Publisher.swift"; sourceTree = "<group>"; };
+		7103098C2B91D5860077EE17 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
+		7103098E2B91E4430077EE17 /* UITextField+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Combine.swift"; sourceTree = "<group>"; };
 		7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
 		7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
@@ -390,7 +392,8 @@
 				7127DA5E2B825E6400B262DA /* Publisher+UIControl.swift */,
 				7127DA602B82601000B262DA /* Publisher+UIGesture.swift */,
 				7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */,
-				7103098C2B91D5860077EE17 /* UIKit+Publisher.swift */,
+				7103098C2B91D5860077EE17 /* UIButton+Combine.swift */,
+				7103098E2B91E4430077EE17 /* UITextField+Combine.swift */,
 			);
 			path = "Combine+UIKit";
 			sourceTree = "<group>";
@@ -770,7 +773,7 @@
 				718D09352B80A3BF0021AD40 /* OnboardingCollectionView.swift in Sources */,
 				718D09192B7A94930021AD40 /* OnboardingBaseView.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
-				7103098D2B91D5860077EE17 /* UIKit+Publisher.swift in Sources */,
+				7103098D2B91D5860077EE17 /* UIButton+Combine.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
 				71814AAF2B77776B00B23378 /* PuzzleToastView.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
@@ -814,6 +817,7 @@
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
 				718D09222B7E30D10021AD40 /* OnboardingUserNameViewController.swift in Sources */,
+				7103098F2B91E4430077EE17 /* UITextField+Combine.swift in Sources */,
 				718D091C2B7A9B090021AD40 /* InputNameViewModel.swift in Sources */,
 				7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,

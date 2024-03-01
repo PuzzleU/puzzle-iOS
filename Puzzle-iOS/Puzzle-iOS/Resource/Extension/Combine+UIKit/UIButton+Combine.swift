@@ -1,5 +1,5 @@
 //
-//  UIControl+Combine.swift
+//  UIButton+Combine.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 3/1/24.

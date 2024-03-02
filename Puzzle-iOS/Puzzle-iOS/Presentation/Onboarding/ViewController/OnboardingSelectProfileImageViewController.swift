@@ -27,7 +27,7 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     private var cancelBag = CancelBag()
     
     private var selectedIndexPath: IndexPath?
-    
+        
     // MARK: - UI Components
     
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("퍼즐에서 사용할 프로필을 선택해주세요")

@@ -28,14 +28,20 @@ class InterestViewModel: ViewModelType {
     let backButtonTapped = PassthroughSubject<Void, Never>()
     private let onboardingServiceType: OnboardingServiceType
     
+    // MARK: - Inputs
+    
     struct Input {
         let viewDidLoad: AnyPublisher<Void, Never>
         let selectKeyWordIndex: AnyPublisher<IndexPath, Never>
     }
     
+    // MARK: - Outputs
+    
     struct Output {
         let selectkeywordIndex: AnyPublisher<Set<IndexPath>, Never>
     }
+    
+    // MARK: - init
     
     init(onboardingServiceType: OnboardingServiceType = OnboardingService()) {
         self.onboardingServiceType = onboardingServiceType
@@ -68,5 +74,4 @@ class InterestViewModel: ViewModelType {
         
         return Output(selectkeywordIndex: selectedIndexPathPublisher)
     }
-
 }

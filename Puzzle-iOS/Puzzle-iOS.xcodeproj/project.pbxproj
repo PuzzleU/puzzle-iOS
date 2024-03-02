@@ -31,7 +31,6 @@
 		2C55EEBD2B711ACA001AD42E /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 2C55EEBC2B711ACA001AD42E /* KakaoSDKUser */; };
 		2C55EEC02B711BB5001AD42E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF2B711BB5001AD42E /* Config.swift */; };
 		710309812B8E47AE0077EE17 /* InputIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309802B8E47AE0077EE17 /* InputIdViewModel.swift */; };
-		710309852B8E4C3E0077EE17 /* IntLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309842B8E4C3E0077EE17 /* IntLiterals.swift */; };
 		7103098B2B90B5470077EE17 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */; };
 		7103098D2B91D5860077EE17 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098C2B91D5860077EE17 /* UIButton+Combine.swift */; };
 		7103098F2B91E4430077EE17 /* UITextField+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098E2B91E4430077EE17 /* UITextField+Combine.swift */; };
@@ -125,7 +124,6 @@
 		2C5310EF2B6E8CA000704371 /* CancelBag+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CancelBag+.swift"; sourceTree = "<group>"; };
 		2C55EEBF2B711BB5001AD42E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		710309802B8E47AE0077EE17 /* InputIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputIdViewModel.swift; sourceTree = "<group>"; };
-		710309842B8E4C3E0077EE17 /* IntLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntLiterals.swift; sourceTree = "<group>"; };
 		7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
 		7103098C2B91D5860077EE17 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
 		7103098E2B91E4430077EE17 /* UITextField+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Combine.swift"; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 			children = (
 				2C1765072B7279A000CD789E /* StringLiterals.swift */,
 				71814A882B77353900B23378 /* FontLiterals.swift */,
-				710309842B8E4C3E0077EE17 /* IntLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -812,7 +809,6 @@
 				718D09242B7FCE950021AD40 /* ProgressView.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
-				710309852B8E4C3E0077EE17 /* IntLiterals.swift in Sources */,
 				7127DA5C2B8243CB00B262DA /* OnboardingSelectAreaViewController.swift in Sources */,
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,

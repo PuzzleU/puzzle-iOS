@@ -10,11 +10,14 @@ import Combine
 
 final class OnboardingBaseView: UIView {
     
+    // MARK: - Property
+    
+    var nextButtonTapped: PassthroughSubject<Void, Never> = .init()
+    private var cancelBag = CancelBag()
+    
     // MARK: - UI Components
     
     private let nextButton = PuzzleMainButton(title: StringLiterals.Onboarding.next)
-    
-    var nextButtonTapped: PassthroughSubject<Void, Never> = .init()
     
     // MARK: - Life Cycles
     
@@ -39,7 +42,7 @@ final class OnboardingBaseView: UIView {
     
     // MARK: - Methods
     
-    /// 버튼을 최상단으로 올리는 코드 입니다.
+    /// 버튼을 최상단으로 올리는 함수
     func bringNextButtonToFront() {
         bringSubviewToFront(nextButton)
     }
@@ -49,12 +52,10 @@ final class OnboardingBaseView: UIView {
         nextButton.isEnabled = isEnabled
     }
     
-    // nextButton 이벤트를 바인딩하는 함수
     private func bind() {
-        nextButton.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
-    }
-    
-    @objc private func nextButtonAction() {
-        nextButtonTapped.send()
+        nextButton.tapPublisher
+            .sink { [unowned self] _ in
+                nextButtonTapped.send()
+            }.store(in: cancelBag)
     }
 }

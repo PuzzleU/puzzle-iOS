@@ -15,6 +15,7 @@ final class OnboardingUserIdViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let idMaximumLength = 20
     private let rootView = OnboardingBaseView()
     
     private var viewModel: InputIdViewModel
@@ -203,6 +204,6 @@ extension OnboardingUserIdViewController: UITextFieldDelegate {
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
-        return updatedText.count <= IntLiterals.InputValidationRule.idMaximumLength
+        return updatedText.count <= idMaximumLength
     }
 }

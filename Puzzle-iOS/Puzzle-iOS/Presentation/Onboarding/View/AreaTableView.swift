@@ -31,7 +31,6 @@ final class AreaTableView: UIView {
     
     private func setUI() {
         backgroundColor = .puzzleRealWhite
-        
     }
     
     private func setHierarchy() {

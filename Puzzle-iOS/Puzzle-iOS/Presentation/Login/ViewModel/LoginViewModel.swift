@@ -97,7 +97,7 @@ final class LoginViewModel: NSObject, ViewModelType {
     }
 }
 
-    // MARK: - Apple Login
+// MARK: - Apple Login
 
 extension LoginViewModel: ASAuthorizationControllerDelegate {
     private func requestAppleLogin() {

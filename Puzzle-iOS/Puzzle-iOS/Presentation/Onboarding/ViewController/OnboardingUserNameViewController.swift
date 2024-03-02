@@ -15,6 +15,7 @@ final class OnboardingUserNameViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let nameMaximumLength = 12
     private let rootView = OnboardingBaseView()
     
     private var viewModel: InputNameViewModel
@@ -124,6 +125,7 @@ final class OnboardingUserNameViewController: UIViewController {
         }.store(in: cancelBag)
         
         nameTextField.textPublisher.sink { [unowned self] text in
+            print(text)
             nameSubject.send(text)
         }.store(in: cancelBag)
         
@@ -147,6 +149,6 @@ extension OnboardingUserNameViewController: UITextFieldDelegate {
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
-        return updatedText.count <= IntLiterals.InputValidationRule.nameMaximumLength
+        return updatedText.count <= nameMaximumLength
     }
 }

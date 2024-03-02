@@ -30,5 +30,4 @@ enum StringLiterals {
         static let selectArea = "최대 2개의 지역을 선택할 수 있어요."
         static let selectAreaSpecial = "최대 2개"
     }
-    
 }

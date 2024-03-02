@@ -25,9 +25,9 @@ class PuzzleTabBarController: UITabBarController {
 extension PuzzleTabBarController {
     private func setUI() {
         tabBar.do {
-            $0.backgroundColor = .white
-            $0.unselectedItemTintColor = .blue
-            $0.tintColor = .gray
+            $0.backgroundColor = .puzzleWhite
+            $0.unselectedItemTintColor = .puzzleBlack
+            $0.tintColor = .puzzleGray400
             $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
     }

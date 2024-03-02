@@ -16,7 +16,7 @@ final class OnboardingPlusView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .puzzleRealWhite
+        self.backgroundColor = .puzzleWhite
     }
     
     required init?(coder: NSCoder) {

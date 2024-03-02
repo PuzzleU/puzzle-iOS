@@ -38,7 +38,7 @@ final class PuzzleBottomSheetViewController: UIViewController {
     private var insertView = UIView()
     private let dimmedView = UIView()
     private let bottomSheetView = UIView().then {
-        $0.backgroundColor = .puzzleRealWhite
+        $0.backgroundColor = .puzzleWhite
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         $0.layer.cornerRadius = 20
         $0.layer.masksToBounds = true
@@ -127,7 +127,7 @@ extension PuzzleBottomSheetViewController {
             }
             
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-                self.dimmedView.backgroundColor = .black.withAlphaComponent(0.5)
+                self.dimmedView.backgroundColor = .puzzleDimmed
                 self.view.layoutIfNeeded()
             }
         } 

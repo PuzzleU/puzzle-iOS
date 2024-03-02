@@ -32,7 +32,7 @@ public class PuzzleToastView {
         }
         let toastLabel = UILabel().then {
             $0.text = message
-            $0.textColor = .white
+            $0.textColor = .puzzleWhite
             $0.font = .body3
             $0.textAlignment = .center
             $0.clipsToBounds = true

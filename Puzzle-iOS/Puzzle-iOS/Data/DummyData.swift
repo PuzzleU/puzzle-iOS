@@ -21,7 +21,7 @@ let LoginButtonData = [
                color: .kakao),
     LoginModel(title: "Apple 로그인",
                image: UIImage(named: "heart.fill") ?? UIImage(),
-               color: .white)
+               color: .puzzleWhite)
 ]
 
 let animalProfile = ["imgMouse", "imgFox", "imgDog", "imgTiger", "imgOx", "imgLion", "imgPanda", "imgMonkey", "imgRabbit", "imgBear", "imgCat", "imgRobot"]

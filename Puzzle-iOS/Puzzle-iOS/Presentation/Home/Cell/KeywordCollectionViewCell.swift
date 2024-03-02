@@ -1,8 +1,8 @@
 //
-//  InterestSelectionViewCell.swift
+//  KeywordCollectionViewCell.swift
 //  Puzzle-iOS
 //
-//  Created by 이명진 on 2/17/24.
+//  Created by 이명진 on 3/2/24.
 //
 
 import UIKit
@@ -10,13 +10,13 @@ import UIKit
 import SnapKit
 import Then
 
-final class InterestSelectionViewCell: UICollectionViewCell {
+final class KeywordCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
     private let titleLabel = UILabel().then {
         $0.textAlignment = .center
-        $0.numberOfLines = 0
+        $0.numberOfLines = 1
         $0.font = .body2
     }
     

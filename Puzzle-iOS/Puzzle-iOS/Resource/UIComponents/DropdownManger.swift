@@ -22,6 +22,7 @@ class DropdownManager {
     // MARK: - Properties
     
     static let shared = DropdownManager()
+    
     private init() {}
     
     // MARK: - UI Components

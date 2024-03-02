@@ -57,7 +57,8 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI & Layout
     private func setHierarchy() {
-        addSubviews(imageView, borderView, checkBackgroundView, checkIcon)
+        addSubviews(imageView, borderView, checkBackgroundView)
+        checkBackgroundView.addSubview(checkIcon)
     }
     
     private func setLayout() {

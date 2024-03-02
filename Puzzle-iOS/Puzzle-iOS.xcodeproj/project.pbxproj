@@ -30,10 +30,25 @@
 		2C55EEBB2B711ACA001AD42E /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2C55EEBA2B711ACA001AD42E /* KakaoSDKAuth */; };
 		2C55EEBD2B711ACA001AD42E /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 2C55EEBC2B711ACA001AD42E /* KakaoSDKUser */; };
 		2C55EEC02B711BB5001AD42E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF2B711BB5001AD42E /* Config.swift */; };
+		2C804D572B7DB7C100379C07 /* NumberLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C804D562B7DB7C100379C07 /* NumberLiterals.swift */; };
+		2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */; };
+		2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */; };
+		2C9813BD2B7CF28C00C56D0B /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BC2B7CF28C00C56D0B /* UITableViewCell+.swift */; };
+		2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BE2B7CF38100C56D0B /* UIStackView+.swift */; };
+		2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */; };
+		2C9813C52B7D4CC200C56D0B /* DropdownManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */; };
 		710309812B8E47AE0077EE17 /* InputIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309802B8E47AE0077EE17 /* InputIdViewModel.swift */; };
 		7103098B2B90B5470077EE17 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */; };
 		7103098D2B91D5860077EE17 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098C2B91D5860077EE17 /* UIButton+Combine.swift */; };
 		7103098F2B91E4430077EE17 /* UITextField+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098E2B91E4430077EE17 /* UITextField+Combine.swift */; };
+		710309952B9314530077EE17 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309942B9314530077EE17 /* HomeViewController.swift */; };
+		710309972B9315790077EE17 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309962B9315790077EE17 /* LogoView.swift */; };
+		710309992B9315A10077EE17 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309982B9315A10077EE17 /* TitleView.swift */; };
+		7103099B2B9315B40077EE17 /* KeywordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103099A2B9315B40077EE17 /* KeywordView.swift */; };
+		7103099D2B9315C10077EE17 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103099C2B9315C10077EE17 /* ResultView.swift */; };
+		7103099F2B9315CA0077EE17 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103099E2B9315CA0077EE17 /* MainView.swift */; };
+		710309A12B931F1C0077EE17 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A02B931F1C0077EE17 /* LabelFactory.swift */; };
+		710309A32B932EA50077EE17 /* KeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A22B932EA50077EE17 /* KeywordCollectionViewCell.swift */; };
 		7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */; };
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
 		7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */; };
@@ -47,13 +62,6 @@
 		7127DA682B83941100B262DA /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA672B83941100B262DA /* OnboardingService.swift */; };
 		71355AEA2B80E371007E1822 /* OnboardingSelectInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AE92B80E371007E1822 /* OnboardingSelectInterestViewController.swift */; };
 		71355AEC2B80ECC1007E1822 /* InterestSelectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */; };
-		2C804D572B7DB7C100379C07 /* NumberLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C804D562B7DB7C100379C07 /* NumberLiterals.swift */; };
-		2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */; };
-		2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */; };
-		2C9813BD2B7CF28C00C56D0B /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BC2B7CF28C00C56D0B /* UITableViewCell+.swift */; };
-		2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BE2B7CF38100C56D0B /* UIStackView+.swift */; };
-		2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */; };
-		2C9813C52B7D4CC200C56D0B /* DropdownManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
 		71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A842B76554500B23378 /* PuzzleNavigationBar.swift */; };
@@ -130,10 +138,25 @@
 		2C5310EC2B6E8BD200704371 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		2C5310EF2B6E8CA000704371 /* CancelBag+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CancelBag+.swift"; sourceTree = "<group>"; };
 		2C55EEBF2B711BB5001AD42E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2C804D562B7DB7C100379C07 /* NumberLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberLiterals.swift; sourceTree = "<group>"; };
+		2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropDownTableViewCell.swift; sourceTree = "<group>"; };
+		2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropdownView.swift; sourceTree = "<group>"; };
+		2C9813BC2B7CF28C00C56D0B /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		2C9813BE2B7CF38100C56D0B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropdownTableView.swift; sourceTree = "<group>"; };
+		2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownManger.swift; sourceTree = "<group>"; };
 		710309802B8E47AE0077EE17 /* InputIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputIdViewModel.swift; sourceTree = "<group>"; };
 		7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
 		7103098C2B91D5860077EE17 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
 		7103098E2B91E4430077EE17 /* UITextField+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Combine.swift"; sourceTree = "<group>"; };
+		710309942B9314530077EE17 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		710309962B9315790077EE17 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		710309982B9315A10077EE17 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		7103099A2B9315B40077EE17 /* KeywordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordView.swift; sourceTree = "<group>"; };
+		7103099C2B9315C10077EE17 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		7103099E2B9315CA0077EE17 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		710309A02B931F1C0077EE17 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
+		710309A22B932EA50077EE17 /* KeywordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCollectionViewCell.swift; sourceTree = "<group>"; };
 		7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
 		7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
@@ -147,13 +170,6 @@
 		7127DA672B83941100B262DA /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		71355AE92B80E371007E1822 /* OnboardingSelectInterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectInterestViewController.swift; sourceTree = "<group>"; };
 		71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewCell.swift; sourceTree = "<group>"; };
-		2C804D562B7DB7C100379C07 /* NumberLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberLiterals.swift; sourceTree = "<group>"; };
-		2C9813B62B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropDownTableViewCell.swift; sourceTree = "<group>"; };
-		2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropdownView.swift; sourceTree = "<group>"; };
-		2C9813BC2B7CF28C00C56D0B /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
-		2C9813BE2B7CF38100C56D0B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
-		2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropdownTableView.swift; sourceTree = "<group>"; };
-		2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownManger.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		71814A7F2B74F17100B23378 /* Puzzle-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Puzzle-iOS.entitlements"; sourceTree = "<group>"; };
@@ -392,6 +408,52 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		710309902B93139B0077EE17 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				710309932B9313B40077EE17 /* ViewController */,
+				710309922B9313AE0077EE17 /* View */,
+				710309912B9313A50077EE17 /* ViewModel */,
+				710309A42B932EB60077EE17 /* Cell */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		710309912B9313A50077EE17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		710309922B9313AE0077EE17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				710309962B9315790077EE17 /* LogoView.swift */,
+				710309982B9315A10077EE17 /* TitleView.swift */,
+				7103099A2B9315B40077EE17 /* KeywordView.swift */,
+				7103099C2B9315C10077EE17 /* ResultView.swift */,
+				7103099E2B9315CA0077EE17 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		710309932B9313B40077EE17 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				710309942B9314530077EE17 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		710309A42B932EB60077EE17 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				710309A22B932EA50077EE17 /* KeywordCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7127DA572B820DAE00B262DA /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +510,7 @@
 			children = (
 				71814AAE2B77776B00B23378 /* PuzzleToastView.swift */,
 				7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */,
+				710309A02B931F1C0077EE17 /* LabelFactory.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -541,6 +604,7 @@
 		718150462B62953F005E4451 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				710309902B93139B0077EE17 /* Home */,
 				718D09102B7A94060021AD40 /* Onboarding */,
 				2C33B1762B764A2400A9476D /* OnboardingPlus */,
 				2C5310EB2B6E8BC600704371 /* Protocol */,
@@ -789,6 +853,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				718D09352B80A3BF0021AD40 /* OnboardingCollectionView.swift in Sources */,
+				7103099F2B9315CA0077EE17 /* MainView.swift in Sources */,
 				718D09192B7A94930021AD40 /* OnboardingBaseView.swift in Sources */,
 				2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
@@ -804,7 +869,9 @@
 				2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */,
 				718D09282B808A400021AD40 /* OnboardingSelectProfileImageViewController.swift in Sources */,
 				7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */,
+				710309A12B931F1C0077EE17 /* LabelFactory.swift in Sources */,
 				2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */,
+				710309972B9315790077EE17 /* LogoView.swift in Sources */,
 				718D09332B8094A00021AD40 /* getClassName.swift in Sources */,
 				2C17650A2B7283A500CD789E /* UIViewController+.swift in Sources */,
 				2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */,
@@ -820,10 +887,12 @@
 				71355AEA2B80E371007E1822 /* OnboardingSelectInterestViewController.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
 				718D093B2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift in Sources */,
+				710309952B9314530077EE17 /* HomeViewController.swift in Sources */,
 				710309812B8E47AE0077EE17 /* InputIdViewModel.swift in Sources */,
 				718D09312B8093170021AD40 /* ProfileViewModel.swift in Sources */,
 				7103098B2B90B5470077EE17 /* UIViewController+Combine.swift in Sources */,
 				2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */,
+				710309992B9315A10077EE17 /* TitleView.swift in Sources */,
 				2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */,
 				71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */,
 				7127DA632B832E9800B262DA /* AreaTableView.swift in Sources */,
@@ -833,6 +902,7 @@
 				7127DA5F2B825E6400B262DA /* Publisher+UIControl.swift in Sources */,
 				718D09202B7E305C0021AD40 /* OnboardingUserIdViewController.swift in Sources */,
 				2C55EEC02B711BB5001AD42E /* Config.swift in Sources */,
+				7103099D2B9315C10077EE17 /* ResultView.swift in Sources */,
 				2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */,
 				718D09242B7FCE950021AD40 /* ProgressView.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
@@ -841,6 +911,7 @@
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
 				718D09222B7E30D10021AD40 /* OnboardingUserNameViewController.swift in Sources */,
+				7103099B2B9315B40077EE17 /* KeywordView.swift in Sources */,
 				7103098F2B91E4430077EE17 /* UITextField+Combine.swift in Sources */,
 				718D091C2B7A9B090021AD40 /* InputNameViewModel.swift in Sources */,
 				7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */,
@@ -851,6 +922,7 @@
 				718D09262B807EF40021AD40 /* UILabel+.swift in Sources */,
 				718D092F2B8091D30021AD40 /* OnboardingCollectionViewCell.swift in Sources */,
 				71355AEC2B80ECC1007E1822 /* InterestSelectionViewCell.swift in Sources */,
+				710309A32B932EA50077EE17 /* KeywordCollectionViewCell.swift in Sources */,
 				71814A872B76568B00B23378 /* UIView+.swift in Sources */,
 				7127DA592B82435500B262DA /* AreaViewModel.swift in Sources */,
 				2C33B17E2B76537300A9476D /* PuzzleBottomSheetViewController.swift in Sources */,

@@ -44,7 +44,7 @@ final class InterestSelectionViewCell: UICollectionViewCell {
     private func setUI() {
         contentView.layer.cornerRadius = 12
         contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.puzzleDarkGray.cgColor
+        contentView.layer.borderColor = UIColor.puzzleGray400.cgColor
     }
     
     private func setHierarchy() {

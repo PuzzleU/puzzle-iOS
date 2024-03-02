@@ -41,14 +41,14 @@ final class OnboardingUserIdViewController: UIViewController {
             string: StringLiterals.Onboarding.inputId,
             attributes: [
                 .font: UIFont.body3,
-                .foregroundColor: UIColor.puzzleLightGray
+                .foregroundColor: UIColor.puzzleGray300
             ]
         )
         
         // 텍스트 필드 입력 값 스타일
         $0.layer.cornerRadius = 4
         $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.puzzleLightGray.cgColor
+        $0.layer.borderColor = UIColor.puzzleGray300.cgColor
         $0.font = .body2
         $0.textColor = .black
         

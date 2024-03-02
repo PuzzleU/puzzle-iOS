@@ -34,7 +34,7 @@ final class OnboardingBaseView: UIView {
     // MARK: - UI & Layout
     
     private func setUI() {
-        backgroundColor = .puzzleRealWhite
+        backgroundColor = .puzzleWhite
         addSubview(nextButton)
         
         isEnabledNextButton(isEnabled: false)

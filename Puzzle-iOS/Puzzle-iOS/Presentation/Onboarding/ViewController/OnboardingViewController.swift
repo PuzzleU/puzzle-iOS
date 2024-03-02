@@ -53,7 +53,7 @@ final class OnboardingViewController: UIViewController {
     // MARK: - UI & Layout
     
     private func setUI() {
-        view.backgroundColor = .puzzleRealWhite
+        view.backgroundColor = .puzzleWhite
     }
     
     private func setHierarchy() {

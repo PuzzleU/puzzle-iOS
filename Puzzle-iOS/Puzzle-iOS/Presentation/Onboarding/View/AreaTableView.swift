@@ -13,7 +13,7 @@ import Then
 final class AreaTableView: UIView {
     
     private let areaTableView = UITableView().then {
-        $0.backgroundColor = .puzzleDarkGray
+        $0.backgroundColor = .puzzleWhite
     }
     
     override init(frame: CGRect) {
@@ -30,7 +30,7 @@ final class AreaTableView: UIView {
     // MARK: - UI & Layout
     
     private func setUI() {
-        backgroundColor = .puzzleRealWhite
+        backgroundColor = .puzzleWhite
     }
     
     private func setHierarchy() {

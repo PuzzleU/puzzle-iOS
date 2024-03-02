@@ -41,7 +41,7 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
             specialTexts: [specialCharacter],
             mainAttributes: [
                 .font: UIFont.subTitle3,
-                .foregroundColor: UIColor.black
+                .foregroundColor: UIColor.puzzleGray800
             ],
             specialAttributes: [
                 .font: UIFont.subTitle3,

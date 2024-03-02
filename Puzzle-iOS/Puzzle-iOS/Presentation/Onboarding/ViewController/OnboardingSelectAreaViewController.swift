@@ -28,7 +28,7 @@ final class OnboardingSelectAreaViewController: UIViewController {
     
     private let activityAreaSelectView = UIView().then {
         $0.layer.cornerRadius = 5
-        $0.layer.borderColor = UIColor.puzzleLightGray.cgColor
+        $0.layer.borderColor = UIColor.puzzleGray300.cgColor
         $0.layer.borderWidth = 1
     }
     
@@ -39,7 +39,7 @@ final class OnboardingSelectAreaViewController: UIViewController {
     private let activityAreaSelectLabel = UILabel().then {
         $0.text = "자주 활동하는 지역을 검색해주세요."
         $0.font = .body3
-        $0.textColor = .puzzleDarkGray
+        $0.textColor = .puzzleBlack
     }
     
     private let alertLabel = UILabel().then {

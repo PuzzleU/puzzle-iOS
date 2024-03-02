@@ -42,13 +42,13 @@ final class OnboardingUserNameViewController: UIViewController {
             string: StringLiterals.Onboarding.inputName,
             attributes: [
                 .font: UIFont.body3,
-                .foregroundColor: UIColor.puzzleLightGray
+                .foregroundColor: UIColor.puzzleGray300
             ]
         )
         
         $0.layer.cornerRadius = 4
         $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.puzzleLightGray.cgColor
+        $0.layer.borderColor = UIColor.puzzleGray300.cgColor
         
         $0.font = .body3
         $0.textColor = .black

@@ -25,7 +25,7 @@ final class ProgressView: UIView {
     
     private let progressView = UIProgressView(progressViewStyle: .bar).then {
         $0.layer.cornerRadius = 4
-        $0.backgroundColor = .puzzleLightGray
+        $0.backgroundColor = .puzzleGray100
         $0.progressTintColor = .puzzlePurple
         $0.setProgress(0, animated: false)
     }

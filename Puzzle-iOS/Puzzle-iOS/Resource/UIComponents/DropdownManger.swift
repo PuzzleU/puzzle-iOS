@@ -26,7 +26,7 @@ class DropdownManager {
     
     // MARK: - UI Components
     
-    private var dropdowns: [UIView : PuzzleDropdownTableView] = [:]
+    private var dropdowns: [UIView: PuzzleDropdownTableView] = [:]
     
     // MARK: - Create Dropdown
     
@@ -72,4 +72,3 @@ class DropdownManager {
         dropdownView.isHidden.toggle()
     }
 }
-

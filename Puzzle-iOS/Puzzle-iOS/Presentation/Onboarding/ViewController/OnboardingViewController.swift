@@ -187,7 +187,7 @@ extension OnboardingViewController {
         
         pageViewController.setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
         
-        progressBar.setCurrentStep(currentIndex + 1)
+        progressBar.setCurrentStep(currentIndex + 2)
     }
 }
 

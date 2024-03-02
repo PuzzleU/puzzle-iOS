@@ -43,14 +43,14 @@ final class PuzzleDropdownTableView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Delegate
+    // MARK: - Delegate
     
     private func setDelegate() {
         dropdownTableView.dataSource = self
         dropdownTableView.delegate = self
     }
     
-    //MARK: - UI & Layout
+    // MARK: - UI & Layout
     
     private func setHierarchy() {
         self.addSubview(dropdownTableView)
@@ -62,14 +62,14 @@ final class PuzzleDropdownTableView: UIView {
         }
     }
     
-    //MARK: - Notification
+    // MARK: - Notification
     
     func sendTitle(title: String) {
         NotificationCenter.default.post(name: NSNotification.Name("updatePuzzleDropdownTitle"), object: self, userInfo: ["title": title])
     }
 }
 
-//MARK: - TableView DataSource and Delegate
+// MARK: - TableView DataSource and Delegate
 
 extension PuzzleDropdownTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,4 +92,3 @@ extension PuzzleDropdownTableView: UITableViewDelegate {
         return NumberLiterals.DropDown.dropDownHeight
     }
 }
-

@@ -17,7 +17,7 @@ final class KeywordView: UIView {
     final let itemSize = CGSize(width: 100, height: 100)
     final let interItemSpacing: CGFloat = 8
     
-    private let keyword: [String] = ["전체", "기획", "디자인", "기타등등 많음", "iOS", "미디어", "예술"]
+    private let keyword: [String] = ["전체", "기획", "디자인", "문학", "iOS", "미디어", "예술", "IT", "동적으로 변하는 레이아웃"]
     
     // MARK: - UI Components
     
@@ -71,7 +71,7 @@ final class KeywordView: UIView {
     }
     
     private func register() {
-        keywordCollectionView.register(KeywordCollectionViewCell.self, forCellWithReuseIdentifier: KeywordCollectionViewCell.className)
+        keywordCollectionView.register(KeywordCell.self, forCellWithReuseIdentifier: KeywordCell.className)
     }
     
 }
@@ -92,7 +92,7 @@ extension KeywordView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCollectionViewCell.className, for: indexPath) as? KeywordCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCell.className, for: indexPath) as? KeywordCell else {
             return UICollectionViewCell()
         }
         

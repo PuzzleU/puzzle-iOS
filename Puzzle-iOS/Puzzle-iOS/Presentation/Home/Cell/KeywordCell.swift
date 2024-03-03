@@ -1,5 +1,5 @@
 //
-//  KeywordCollectionViewCell.swift
+//  KeywordCell.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 3/2/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class KeywordCollectionViewCell: UICollectionViewCell {
+final class KeywordCell: UICollectionViewCell {
     
     // MARK: - UI Components
     

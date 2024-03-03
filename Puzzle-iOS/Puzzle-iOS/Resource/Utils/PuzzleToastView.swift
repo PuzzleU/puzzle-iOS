@@ -1,5 +1,5 @@
 //
-//  Toast.swift
+//  PuzzleToastView.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 2/10/24.
@@ -40,7 +40,7 @@ public class PuzzleToastView {
             $0.sizeToFit()
         }
         
-        //MARK: - UI & Layout
+        // MARK: - UI & Layout
         
         let toastConatinerWidth = toastLabel.intrinsicContentSize.width + 40.0
         
@@ -58,7 +58,7 @@ public class PuzzleToastView {
             $0.center.equalToSuperview()
         }
         
-        //MARK: - Animation
+        // MARK: - Animation
         
         UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
             toastContainer.alpha = 1.0
@@ -71,4 +71,3 @@ public class PuzzleToastView {
         })
     }
 }
-

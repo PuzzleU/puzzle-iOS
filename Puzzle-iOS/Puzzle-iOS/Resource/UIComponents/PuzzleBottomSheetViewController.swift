@@ -77,7 +77,7 @@ final class PuzzleBottomSheetViewController: UIViewController {
         bottomSheetShown = true
     }
     
-    //MARK: - UI & Layout
+    // MARK: - UI & Layout
 
     private func setHierarchy() {
         self.view.addSubviews(dimmedView, bottomSheetView)
@@ -85,19 +85,19 @@ final class PuzzleBottomSheetViewController: UIViewController {
     }
     
     private func setLayout() {
-        dimmedView.snp.makeConstraints() {
+        dimmedView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
-        bottomSheetView.snp.makeConstraints() {
+        bottomSheetView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
-        insertView.snp.makeConstraints() {
+        insertView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
-        cancelButton.snp.makeConstraints() {
+        cancelButton.snp.makeConstraints {
             $0.top.trailing.equalToSuperview().inset(16)
             $0.size.equalTo(25)
         }
@@ -181,8 +181,7 @@ extension PuzzleBottomSheetViewController {
                     UIView.animate(withDuration: 0.1, animations: {
                         self.view.transform = CGAffineTransform(translationX: 0, y: viewTranslation.y)
                     })
-                }
-                else {
+                } else {
                     bottomSheetShown = false
                 }
             }
@@ -192,8 +191,7 @@ extension PuzzleBottomSheetViewController {
                 UIView.animate(withDuration: 0.1, animations: {
                     self.view.transform = .identity
                 })
-            }
-            else {
+            } else {
                 bottomSheetShown = false
             }
             

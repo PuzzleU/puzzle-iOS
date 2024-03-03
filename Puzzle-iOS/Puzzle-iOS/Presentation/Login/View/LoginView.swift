@@ -16,7 +16,7 @@ final class LoginView: UIView {
     
     private let titleLabel = UILabel().then {
         $0.text = StringLiterals.Login.title
-        $0.font = .largeTitle1
+        $0.font = .title1
         $0.textColor = .puzzleBlack
         $0.textAlignment = .left
         $0.numberOfLines = 2
@@ -53,13 +53,13 @@ final class LoginView: UIView {
     }
     
     private func setLayout() {
-        titleLabel.snp.makeConstraints() {
+        titleLabel.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(429)
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().inset(39)
         }
         
-        loginCollectionView.snp.makeConstraints() {
+        loginCollectionView.snp.makeConstraints {
             $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-19)
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().inset(22)

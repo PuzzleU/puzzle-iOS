@@ -48,7 +48,8 @@
 		7103099D2B9315C10077EE17 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103099C2B9315C10077EE17 /* ResultView.swift */; };
 		7103099F2B9315CA0077EE17 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103099E2B9315CA0077EE17 /* MainView.swift */; };
 		710309A12B931F1C0077EE17 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A02B931F1C0077EE17 /* LabelFactory.swift */; };
-		710309A32B932EA50077EE17 /* KeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A22B932EA50077EE17 /* KeywordCollectionViewCell.swift */; };
+		710309A32B932EA50077EE17 /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A22B932EA50077EE17 /* KeywordCell.swift */; };
+		710309A62B9434B00077EE17 /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A52B9434B00077EE17 /* HomeFeedCell.swift */; };
 		7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */; };
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
 		7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */; };
@@ -156,7 +157,8 @@
 		7103099C2B9315C10077EE17 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		7103099E2B9315CA0077EE17 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		710309A02B931F1C0077EE17 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
-		710309A22B932EA50077EE17 /* KeywordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCollectionViewCell.swift; sourceTree = "<group>"; };
+		710309A22B932EA50077EE17 /* KeywordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
+		710309A52B9434B00077EE17 /* HomeFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedCell.swift; sourceTree = "<group>"; };
 		7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
 		7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
@@ -449,7 +451,8 @@
 		710309A42B932EB60077EE17 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				710309A22B932EA50077EE17 /* KeywordCollectionViewCell.swift */,
+				710309A22B932EA50077EE17 /* KeywordCell.swift */,
+				710309A52B9434B00077EE17 /* HomeFeedCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */,
 				2C1765082B7279A000CD789E /* StringLiterals.swift in Sources */,
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
+				710309A62B9434B00077EE17 /* HomeFeedCell.swift in Sources */,
 				7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */,
 				718D09162B7A947F0021AD40 /* OnboardingViewController.swift in Sources */,
 				7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */,
@@ -922,7 +926,7 @@
 				718D09262B807EF40021AD40 /* UILabel+.swift in Sources */,
 				718D092F2B8091D30021AD40 /* OnboardingCollectionViewCell.swift in Sources */,
 				71355AEC2B80ECC1007E1822 /* InterestSelectionViewCell.swift in Sources */,
-				710309A32B932EA50077EE17 /* KeywordCollectionViewCell.swift in Sources */,
+				710309A32B932EA50077EE17 /* KeywordCell.swift in Sources */,
 				71814A872B76568B00B23378 /* UIView+.swift in Sources */,
 				7127DA592B82435500B262DA /* AreaViewModel.swift in Sources */,
 				2C33B17E2B76537300A9476D /* PuzzleBottomSheetViewController.swift in Sources */,

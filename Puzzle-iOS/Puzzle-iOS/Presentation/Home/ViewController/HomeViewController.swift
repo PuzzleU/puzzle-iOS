@@ -21,6 +21,8 @@ final class HomeViewController: UIViewController {
     private let resultView = ResultView()
     private let mainView = MainView()
     
+    private let homeHeight: Int = 40
+    
     // MARK: - UIComponents
     
     private lazy var vStackView: UIStackView = {
@@ -62,19 +64,19 @@ final class HomeViewController: UIViewController {
         }
         
         logoView.snp.makeConstraints {
-            $0.height.equalTo(40)
+            $0.height.equalTo(homeHeight)
         }
         
         titleView.snp.makeConstraints {
-            $0.height.equalTo(40)
+            $0.height.equalTo(homeHeight)
         }
         
         keywordView.snp.makeConstraints {
-            $0.height.equalTo(40)
+            $0.height.equalTo(homeHeight)
         }
         
         resultView.snp.makeConstraints {
-            $0.height.equalTo(40)
+            $0.height.equalTo(homeHeight)
         }
         
         mainView.snp.makeConstraints {

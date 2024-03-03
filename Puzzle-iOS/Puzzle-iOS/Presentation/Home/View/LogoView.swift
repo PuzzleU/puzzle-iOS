@@ -38,6 +38,7 @@ class LogoView: UIView {
         ]
     ).then {
         $0.spacing = 4.5
+        $0.axis = .horizontal
     }
     
     // MARK: - Life Cycles

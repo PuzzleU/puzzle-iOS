@@ -91,7 +91,6 @@ class ResultView: UIView {
             $0.bottom.equalTo(filterView.snp.bottom).offset(-5.56)
             $0.centerX.equalTo(filterView.snp.centerX)
             $0.leading.equalTo(filterView.snp.leading).offset(8)
-            $0.trailing.equalTo(filterView.snp.trailing).offset(-7)
         }
         
         filterIcon.snp.makeConstraints {

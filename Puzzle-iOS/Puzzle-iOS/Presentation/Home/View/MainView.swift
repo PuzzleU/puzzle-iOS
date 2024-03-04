@@ -82,7 +82,7 @@ class MainView: UIView {
                                                        collectionViewLayout: UICollectionViewLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
-        layout.sectionInset = UIEdgeInsets(top: 9, left: 7, bottom: 9, right: 7)
+        layout.sectionInset = UIEdgeInsets(top: 9, left: 20, bottom: 9, right: 20)
         layout.minimumLineSpacing = 11
         layout.scrollDirection = .vertical
         
@@ -118,7 +118,7 @@ class MainView: UIView {
     private func setLayout() {
         mainFeedCollectionView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(5)
         }
     }
     

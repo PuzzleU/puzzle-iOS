@@ -97,10 +97,11 @@ class HomeFeedCell: UICollectionViewCell {
             views,
             buildingTeams,
             interests
-        ]).then {
-            $0.axis = .horizontal
-            $0.spacing = 12
-            $0.distribution = .fillEqually
+        ]
+    ).then {
+        $0.axis = .horizontal
+        $0.spacing = 12
+        $0.distribution = .fillEqually
     }
     
     private lazy var vStackView = UIStackView(
@@ -109,9 +110,10 @@ class HomeFeedCell: UICollectionViewCell {
             titleLabel,
             keywordHStackView,
             infoHStackView
-        ]).then {
-            $0.axis = .vertical
-            $0.spacing = 2
+        ]
+    ).then {
+        $0.axis = .vertical
+        $0.spacing = 2
     }
     
     // MARK: - Life Cycles
@@ -139,7 +141,6 @@ class HomeFeedCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        
         vStackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -155,7 +156,6 @@ class HomeFeedCell: UICollectionViewCell {
         dateLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(4)
         }
-        
     }
     
     func setData(model: Competition) {

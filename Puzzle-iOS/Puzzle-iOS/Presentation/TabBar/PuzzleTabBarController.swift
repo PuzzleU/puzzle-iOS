@@ -28,7 +28,9 @@ extension PuzzleTabBarController {
             $0.backgroundColor = .puzzleWhite
             $0.unselectedItemTintColor = .puzzleBlack
             $0.tintColor = .puzzleGray400
+            $0.layer.cornerRadius = 20
             $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            $0.layer.applyShadow(alpha: 0.03, y: -4, blur: 5)
         }
     }
     

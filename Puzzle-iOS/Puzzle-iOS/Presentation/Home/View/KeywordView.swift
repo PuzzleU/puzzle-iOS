@@ -78,9 +78,11 @@ final class KeywordView: UIView {
     // 처음 뷰에 들어오면 "전체" 키워드가 클릭되어 있는 이벤트입니다.
     private func selectDefaultKeyword() {
         DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
             let defaultIndexPath = IndexPath(item: 0, section: 0)
-            self?.keywordCollectionView.selectItem(at: defaultIndexPath, animated: false, scrollPosition: .left)
-            self?.collectionView(self?.keywordCollectionView ?? UICollectionView(), didSelectItemAt: defaultIndexPath)
+            self.keywordCollectionView.selectItem(at: defaultIndexPath, animated: false, scrollPosition: .left)
+            self.collectionView(self.keywordCollectionView, didSelectItemAt: defaultIndexPath)
         }
     }
 }

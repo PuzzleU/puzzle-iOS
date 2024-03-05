@@ -1,31 +1,31 @@
 disabled_rules:
-  # 비활성화하고 싶은 규칙
-  - trailing_whitespace
-  - identifier_name
-  - line_length
-  - type_name
-  - legacy_constructor
-  - unused_setter_value
-  - void_function_in_ternary
-  - function_parameter_count
-  - function_body_length
-  - nesting
-  - comment_spacing
+    # 비활성화하고 싶은 규칙
+    - trailing_whitespace
+    - identifier_name
+    - line_length
+    - type_name
+    - legacy_constructor
+    - unused_setter_value
+    - void_function_in_ternary
+    - function_parameter_count
+    - function_body_length
+    - nesting
+    - comment_spacing
 
 opt_in_rules:
     - empty_count
     - empty_string
     - closure_end_indentation
     - let_var_whitespace
-    
+
 included:
-  - Puzzle-iOS
+    - Puzzle-iOS
 excluded:
-  # AppDelegate, SceneDelegate, Config file 무시
-  - Puzzle-iOS/Application/AppDelegate.swift
-  - Puzzle-iOS/Application/SceneDelegate.swift
-  - Puzzle-iOS/Resource/Config/Config.swift
-  - Puzzle-iOS/Resource/Utils/LeftAlignedFlowLayout.swift
+    # AppDelegate, SceneDelegate 등 file 무시
+    - Puzzle-iOS/Application/AppDelegate.swift
+    - Puzzle-iOS/Application/SceneDelegate.swift
+    - Puzzle-iOS/Resource/Config/Config.swift
+    - Puzzle-iOS/Resource/Utils/LeftAlignedFlowLayout.swift
 
 file_length:
     warning: 400

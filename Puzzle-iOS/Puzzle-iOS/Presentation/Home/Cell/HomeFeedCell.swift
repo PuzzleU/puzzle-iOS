@@ -45,7 +45,7 @@ enum DateStatus {
     }
 }
 
-class HomeFeedCell: UICollectionViewCell {
+final class HomeFeedCell: UICollectionViewCell {
     
     // MARK: - Property
     
@@ -58,11 +58,11 @@ class HomeFeedCell: UICollectionViewCell {
     private let dateLabel = UILabel()
     
     private let imageView = UIImageView().then {
-        $0.image = UIImage(resource: .imgbear)
+        $0.image = UIImage(resource: .imgBear)
     }
     
     private let titleLabel = LabelFactory.build(
-        text: "제21회 KPR 대학생 PR 아이디어 공모전",
+        text: "",
         font: .body2,
         textColor: .puzzleBlack,
         textAlignment: .left
@@ -158,6 +158,8 @@ class HomeFeedCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - Methods
+    
     func setData(model: Competition) {
         self.imageView.image = model.image
         self.titleLabel.text = model.title
@@ -165,8 +167,8 @@ class HomeFeedCell: UICollectionViewCell {
         self.views.text = model.views
         self.buildingTeams.text = model.buildingTeams
         self.interests.text = model.interests
-        setKeywordStackViewLayout()
-        setDateLabelColor(date: model.date)
+        self.setKeywordStackViewLayout()
+        self.setDateLabelColor(date: model.date)
     }
     
     private func setDateLabelColor(date: Int) {

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ResultView: UIView {
+final class ResultView: UIView {
     
     // MARK: - Properties
     

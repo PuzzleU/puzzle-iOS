@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MainView: UIView {
+final class MainView: UIView {
     
     // MARK: - Property
     
@@ -49,7 +49,7 @@ class MainView: UIView {
         views: "조회 1800",
         buildingTeams: "빌딩중인 팀 6",
         interests: "스크랩 106",
-        date: 30
+        date: 1
     ), Competition(
         image: UIImage(resource: .imgOx),
         title: "제 21회KPR 대학생 PR 아이디어 공모전",
@@ -65,7 +65,7 @@ class MainView: UIView {
         views: "조회 1800",
         buildingTeams: "빌딩중인 팀 6",
         interests: "스크랩 106",
-        date: 30
+        date: 100
     ), Competition(
         image: UIImage(resource: .imgOx),
         title: "제 21회KPR 대학생 PR 아이디어 공모전",
@@ -73,7 +73,7 @@ class MainView: UIView {
         views: "조회 1800",
         buildingTeams: "빌딩중인 팀 6",
         interests: "스크랩 106",
-        date: 30
+        date: 57
     )]
     
     // MARK: - UI Components
@@ -131,6 +131,8 @@ class MainView: UIView {
     }
     
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension MainView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

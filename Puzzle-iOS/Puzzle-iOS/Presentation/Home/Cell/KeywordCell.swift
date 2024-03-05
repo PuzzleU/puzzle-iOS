@@ -14,11 +14,11 @@ final class KeywordCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
-    private let titleLabel = UILabel().then {
-        $0.textAlignment = .center
-        $0.numberOfLines = 1
-        $0.font = .body2
-    }
+    private let titleLabel = LabelFactory.build(
+        text: "",
+        font: .body2,
+        textAlignment: .center
+    )
     
     override var isSelected: Bool {
         didSet {

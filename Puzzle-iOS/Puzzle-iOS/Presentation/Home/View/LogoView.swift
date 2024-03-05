@@ -8,7 +8,7 @@
 import UIKit
 import Then
 
-class LogoView: UIView {
+final class LogoView: UIView {
     
     // MARK: - Properties
     

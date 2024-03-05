@@ -50,6 +50,7 @@
 		710309A12B931F1C0077EE17 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A02B931F1C0077EE17 /* LabelFactory.swift */; };
 		710309A32B932EA50077EE17 /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A22B932EA50077EE17 /* KeywordCell.swift */; };
 		710309A62B9434B00077EE17 /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A52B9434B00077EE17 /* HomeFeedCell.swift */; };
+		710309A82B9634A60077EE17 /* addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309A72B9634A60077EE17 /* addShadow.swift */; };
 		7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */; };
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
 		7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */; };
@@ -159,6 +160,7 @@
 		710309A02B931F1C0077EE17 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		710309A22B932EA50077EE17 /* KeywordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
 		710309A52B9434B00077EE17 /* HomeFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedCell.swift; sourceTree = "<group>"; };
+		710309A72B9634A60077EE17 /* addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addShadow.swift; sourceTree = "<group>"; };
 		7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
 		7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				71814AAE2B77776B00B23378 /* PuzzleToastView.swift */,
 				7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */,
 				710309A02B931F1C0077EE17 /* LabelFactory.swift */,
+				710309A72B9634A60077EE17 /* addShadow.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				2C55EEC02B711BB5001AD42E /* Config.swift in Sources */,
 				7103099D2B9315C10077EE17 /* ResultView.swift in Sources */,
 				2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */,
+				710309A82B9634A60077EE17 /* addShadow.swift in Sources */,
 				718D09242B7FCE950021AD40 /* ProgressView.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,

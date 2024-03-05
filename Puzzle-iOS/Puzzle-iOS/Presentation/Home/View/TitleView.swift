@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleView: UIView {
+final class TitleView: UIView {
     
     // MARK: - UIComponents
     

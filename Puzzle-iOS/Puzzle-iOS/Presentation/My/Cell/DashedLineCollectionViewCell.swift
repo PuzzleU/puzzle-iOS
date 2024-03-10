@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class DashedLineCollectionViewCell: UICollectionViewCell {
+final class DashedLineCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UIComponents
     

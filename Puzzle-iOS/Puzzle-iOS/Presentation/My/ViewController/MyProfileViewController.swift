@@ -69,7 +69,7 @@ final class MyProfileViewController: UIViewController {
     }
     
     private func setHierarchy() {
-        view.addSubviews(profileView)
+        view.addSubview(profileView)
     }
     
     private func setLayout() {

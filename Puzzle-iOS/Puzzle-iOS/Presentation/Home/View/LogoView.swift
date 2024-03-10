@@ -20,12 +20,12 @@ final class LogoView: UIView {
     
     private let logoLabel = LabelFactory.build(
         text: "PUZZLE",
-        font: .subTitle2,
+        font: .title2,
         textColor: .puzzlePurple)
     
     private let emptyView = UIView()
     
-    private let bellImageView = UIImageView().then {
+    private let trailingImageView = UIImageView().then {
         $0.image = UIImage(resource: .icBell)
     }
     
@@ -34,7 +34,7 @@ final class LogoView: UIView {
             logoImageView,
             logoLabel,
             emptyView,
-            bellImageView
+            trailingImageView
         ]
     ).then {
         $0.spacing = 4.5
@@ -74,9 +74,12 @@ final class LogoView: UIView {
             $0.width.equalTo(220)
         }
         
-        bellImageView.snp.makeConstraints {
+        trailingImageView.snp.makeConstraints {
             $0.width.height.equalTo(20)
         }
-        
+    }
+    
+    func changeTrailingImageComponent(image: UIImage) {
+        trailingImageView.image = image
     }
 }

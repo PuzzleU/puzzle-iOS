@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = PuzzleTabBarController()
+        let tabBarController = PuzzleTabBarController()
+        tabBarController.selectedIndex = 4
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
     

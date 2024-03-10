@@ -64,7 +64,7 @@ enum PuzzleTabBarItem {
         case .home:
             return HomeViewController()
         case .myPage:
-            return MyViewController()
+            return MyProfileViewController()
         case .search, .register, .applicationStatus:
             return ViewController() // 각 탭의 뷰컨 추가 되면 case 마다 변경
         }

@@ -29,7 +29,7 @@ final class PuzzleBottomSheetViewController: UIViewController {
 
     // MARK: - Properties
     
-    @Published private var bottomSheetShown = false
+    @Published private var bottomSheetShown = true
     private var cancelBag = CancelBag()
     private var bottomHeight = 700.0
     
@@ -64,24 +64,30 @@ final class PuzzleBottomSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.view.backgroundColor = UIColor.clear
         
         setHierarchy()
         setLayout()
         setPublisher()
+        updateBottomSheetUI(shown: true)
         setDismissAction()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        bottomSheetShown = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateBottomSheetUI(shown: true)
     }
     
     // MARK: - UI & Layout
 
     private func setHierarchy() {
-        self.view.addSubviews(dimmedView, bottomSheetView)
-        bottomSheetView.addSubviews(insertView, completeButton, cancelButton)
+        self.view.addSubviews(dimmedView,
+                              bottomSheetView)
+        self.view.sendSubviewToBack(dimmedView)
+        bottomSheetView.addSubviews(insertView,
+                                    completeButton,
+                                    cancelButton)
     }
     
     private func setLayout() {
@@ -128,6 +134,7 @@ extension PuzzleBottomSheetViewController {
             
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                 self.dimmedView.backgroundColor = .puzzleDimmed
+                self.dimmedView.alpha = 0.5
                 self.view.layoutIfNeeded()
             }
         } 
@@ -142,9 +149,7 @@ extension PuzzleBottomSheetViewController {
                 self.dimmedView.backgroundColor = .clear
                 self.view.layoutIfNeeded()
             }, completion: { _ in 
-                if self.presentingViewController != nil {
                     self.dismiss(animated: true)
-                }
             })
         }
     }

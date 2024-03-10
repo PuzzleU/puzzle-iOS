@@ -22,7 +22,7 @@ class DashedLineCollectionViewCell: UICollectionViewCell {
         $0.textAlignment = .center
     }
     
-    private let dashedView = DashedBorderView()
+    private let dashedView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,6 +32,11 @@ class DashedLineCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        dashedView.addDashedBorder(strokeColor: .puzzleGray300, lineWidth: 2, dashPattern: [3, 3], cornerRadius: 16)
     }
     
     private func setHierarchy() {
@@ -64,46 +69,15 @@ class DashedLineCollectionViewCell: UICollectionViewCell {
     }
 }
 
-class DashedBorderView: UIView {
-    private var dashBorder: CAShapeLayer?
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        // 기존에 추가된 CAShapeLayer 제거
-        dashBorder?.removeFromSuperlayer()
-        
-        let dashPattern: [CGFloat] = [3, 3]
-        let shapeLayer = CAShapeLayer().then {
-            $0.lineWidth = 2
-            $0.strokeColor = UIColor.puzzleGray300.cgColor
-            $0.lineDashPattern = dashPattern as [NSNumber]
-            $0.fillColor = nil
-            $0.path = UIBezierPath(roundedRect: self.bounds, cornerRadius: 16).cgPath
-        }
-        
-        self.layer.addSublayer(shapeLayer)
-        self.dashBorder = shapeLayer
-    }
-}
-
 extension UIView {
-    func addDashedBorder() {
-        let color = UIColor.red.cgColor
+    func addDashedBorder(strokeColor: UIColor, lineWidth: CGFloat, dashPattern: [NSNumber], cornerRadius: CGFloat) {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.lineWidth = lineWidth
+        shapeLayer.strokeColor = strokeColor.cgColor
+        shapeLayer.lineDashPattern = dashPattern
+        shapeLayer.fillColor = nil
+        shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
         
-        let shapeLayer: CAShapeLayer = CAShapeLayer()
-        let frameSize = self.frame.size
-        let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
-        
-        shapeLayer.bounds = shapeRect
-        shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = color
-        shapeLayer.lineWidth = 2
-        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
-        shapeLayer.lineDashPattern = [6, 3]
-        shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
-        
-        self.layer.addSublayer(shapeLayer)
+        layer.addSublayer(shapeLayer)
     }
 }

@@ -11,6 +11,8 @@ import Then
 
 class DashedLineCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - UIComponents
+    
     private let titleLabel = LabelFactory.build(
         text: "타이틀",
         font: .body1
@@ -24,6 +26,8 @@ class DashedLineCollectionViewCell: UICollectionViewCell {
     
     private let dashedView = UIView()
     
+    // MARK: - Life Cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setHierarchy()
@@ -36,8 +40,15 @@ class DashedLineCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        dashedView.addDashedBorder(strokeColor: .puzzleGray300, lineWidth: 2, dashPattern: [3, 3], cornerRadius: 16)
+        dashedView.addDashedBorder(
+            strokeColor: .puzzleGray300,
+            lineWidth: 2,
+            dashPattern: [3, 3],
+            cornerRadius: 16
+        )
     }
+    
+    // MARK: - UI & Layout
     
     private func setHierarchy() {
         addSubviews(titleLabel, dashedView)
@@ -63,21 +74,10 @@ class DashedLineCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configure(title: String, content: String) {
+    // MARK: - Methods
+    
+    func bindData(title: String, content: String) {
         titleLabel.text = title
         contentLabel.text = content
-    }
-}
-
-extension UIView {
-    func addDashedBorder(strokeColor: UIColor, lineWidth: CGFloat, dashPattern: [NSNumber], cornerRadius: CGFloat) {
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.lineWidth = lineWidth
-        shapeLayer.strokeColor = strokeColor.cgColor
-        shapeLayer.lineDashPattern = dashPattern
-        shapeLayer.fillColor = nil
-        shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
-        
-        layer.addSublayer(shapeLayer)
     }
 }

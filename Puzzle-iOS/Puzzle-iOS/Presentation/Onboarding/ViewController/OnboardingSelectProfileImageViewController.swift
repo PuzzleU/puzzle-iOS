@@ -67,6 +67,7 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setHierarchy()
         bind()
         observe()
@@ -79,7 +80,11 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     // MARK: - UI & Layout
     
     private func setHierarchy() {
-        view.addSubviews(naviBar, alertLabel, profileImageCollectionView)
+        view.addSubviews(
+            naviBar,
+            alertLabel,
+            profileImageCollectionView
+        )
     }
     
     private func setLayout() {

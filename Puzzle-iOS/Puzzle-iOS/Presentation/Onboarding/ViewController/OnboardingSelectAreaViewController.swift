@@ -78,6 +78,7 @@ final class OnboardingSelectAreaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setHierarchy()
         setDelegate()
         setLayout()
@@ -90,7 +91,13 @@ final class OnboardingSelectAreaViewController: UIViewController {
     // MARK: - UI & Layout
     
     private func setHierarchy() {
-        view.addSubviews(naviBar, activityAreaSelectView, locationImage, activityAreaSelectLabel, alertLabel)
+        view.addSubviews(
+            naviBar,
+            activityAreaSelectView,
+            locationImage,
+            activityAreaSelectLabel,
+            alertLabel
+        )
     }
     
     private func setLayout() {

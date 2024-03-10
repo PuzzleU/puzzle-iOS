@@ -24,6 +24,7 @@ final class InterestSelectionHeaderView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUI()
         setHierarchy()
         setLayout()

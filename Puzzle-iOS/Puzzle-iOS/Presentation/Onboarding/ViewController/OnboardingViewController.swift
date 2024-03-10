@@ -43,6 +43,7 @@ final class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUI()
         setHierarchy()
         setDelegate()
@@ -57,7 +58,10 @@ final class OnboardingViewController: UIViewController {
     }
     
     private func setHierarchy() {
-        view.addSubviews(pageViewController.view, progressBar)
+        view.addSubviews(
+            pageViewController.view,
+            progressBar
+        )
     }
     
     private func setLayout() {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import Then
 
 struct TypeIconFactory {

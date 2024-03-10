@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 import Then
 
@@ -27,6 +28,7 @@ final class MyProfileView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setHierarchy()
         setLayout()
     }
@@ -38,7 +40,10 @@ final class MyProfileView: UIView {
     // MARK: - UI & Layout
     
     private func setHierarchy() {
-        addSubviews(logoView, profileCollectionView)
+        addSubviews(
+            logoView,
+            profileCollectionView
+        )
     }
     
     private func setLayout() {

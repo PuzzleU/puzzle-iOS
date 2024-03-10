@@ -21,6 +21,7 @@ final class TitleView: UIView {
     
     init() {
         super.init(frame: .zero)
+        
         setUI()
         setHierarchy()
         setLayout()

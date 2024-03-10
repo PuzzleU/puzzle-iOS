@@ -113,6 +113,7 @@ final class OnboardingUserIdViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setHierarchy()
         setLayout()
         setDelegate()
@@ -124,7 +125,11 @@ final class OnboardingUserIdViewController: UIViewController {
     // MARK: - UI & Layout
     
     private func setHierarchy() {
-        view.addSubviews(naviBar, idTextField, recommededLabel)
+        view.addSubviews(
+            naviBar,
+            idTextField,
+            recommededLabel
+        )
     }
     
     private func setLayout() {

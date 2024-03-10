@@ -120,6 +120,7 @@ final class HomeFeedCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUI()
         setHierarchy()
         setLayout()
@@ -136,7 +137,10 @@ final class HomeFeedCell: UICollectionViewCell {
     }
     
     private func setHierarchy() {
-        addSubviews(vStackView, dateView)
+        addSubviews(
+            vStackView,
+            dateView
+        )
         dateView.addSubview(dateLabel)
     }
     

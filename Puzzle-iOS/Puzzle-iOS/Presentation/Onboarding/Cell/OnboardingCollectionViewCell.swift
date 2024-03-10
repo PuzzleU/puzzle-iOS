@@ -42,6 +42,7 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setHierarchy()
         setLayout()
     }
@@ -57,7 +58,11 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI & Layout
     private func setHierarchy() {
-        addSubviews(imageView, borderView, checkBackgroundView)
+        addSubviews(
+            imageView,
+            borderView,
+            checkBackgroundView
+        )
         checkBackgroundView.addSubview(checkIcon)
     }
     

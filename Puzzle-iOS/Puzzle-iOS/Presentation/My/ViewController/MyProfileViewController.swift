@@ -109,13 +109,13 @@ extension MyProfileViewController: UICollectionViewDataSource {
         
         switch section {
         case .dashedLineExperience:
-            (cell as? DashedLineCollectionViewCell)?.bindData(title: "🥇 대표경험", content: "+ 대표경험 서술")
+            (cell as? DashedLineCollectionViewCell)?.bindData(title: StringLiterals.MyProfile.bestExperience, content: StringLiterals.MyProfile.bestExperienceDetail)
         case .dashedLineWorkExperience:
-            (cell as? DashedLineCollectionViewCell)?.bindData(title: "💼 경험 했어요", content: "+ 경력 입력")
+            (cell as? DashedLineCollectionViewCell)?.bindData(title: StringLiterals.MyProfile.workExperience, content: StringLiterals.MyProfile.workExperienceDetail)
         case .dashedLineSkillSet:
-            (cell as? DashedLineCollectionViewCell)?.bindData(title: "📌 스킬 셋", content: "+ 전문분야·스킬 등록 ")
+            (cell as? DashedLineCollectionViewCell)?.bindData(title: StringLiterals.MyProfile.skillSet, content: StringLiterals.MyProfile.skillSetDetail)
         case .dashedLineEducation:
-            (cell as? DashedLineCollectionViewCell)?.bindData(title: "🎓 학력", content: "+ 학교, 전공, 기간 등 입력")
+            (cell as? DashedLineCollectionViewCell)?.bindData(title: StringLiterals.MyProfile.education, content: StringLiterals.MyProfile.educationDetail)
         default:
             break
         }

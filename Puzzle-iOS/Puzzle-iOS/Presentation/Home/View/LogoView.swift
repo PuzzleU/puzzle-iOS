@@ -27,7 +27,12 @@ final class LogoView: UIView {
         $0.image = UIImage(resource: .icBell)
     }
     
-    private lazy var leftStackView = UIStackView(arrangedSubviews: [logoImageView, logoLabel]).then {
+    private lazy var leftStackView = UIStackView(
+        arrangedSubviews: [
+            logoImageView,
+            logoLabel
+        ]
+    ).then {
         $0.spacing = 4.5
         $0.axis = .horizontal
     }
@@ -41,6 +46,7 @@ final class LogoView: UIView {
     
     init() {
         super.init(frame: .zero)
+        
         setUI()
         setHierarchy()
         setLayout()

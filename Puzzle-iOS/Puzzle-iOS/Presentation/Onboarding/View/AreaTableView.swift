@@ -18,6 +18,7 @@ final class AreaTableView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUI()
         setHierarchy()
         setLayout()

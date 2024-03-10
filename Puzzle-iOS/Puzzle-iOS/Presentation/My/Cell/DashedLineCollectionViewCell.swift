@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 import Then
 
@@ -30,6 +31,7 @@ final class DashedLineCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setHierarchy()
         setLayout()
     }
@@ -38,20 +40,13 @@ final class DashedLineCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        dashedView.addDashedBorder(
-            strokeColor: .puzzleGray300,
-            lineWidth: 2,
-            dashPattern: [3, 3],
-            cornerRadius: 16
-        )
-    }
-    
     // MARK: - UI & Layout
     
     private func setHierarchy() {
-        addSubviews(titleLabel, dashedView)
+        addSubviews(
+            titleLabel,
+            dashedView
+        )
         dashedView.addSubview(contentLabel)
     }
     
@@ -72,6 +67,19 @@ final class DashedLineCollectionViewCell: UICollectionViewCell {
             $0.centerX.equalTo(dashedView.snp.centerX)
             $0.centerY.equalTo(dashedView.snp.centerY)
         }
+        
+        updateDashedBorderUI()
+    }
+    
+    private func updateDashedBorderUI() {
+        self.layoutIfNeeded()
+        
+        dashedView.addDashedBorder(
+            strokeColor: .puzzleGray300,
+            lineWidth: 2,
+            dashPattern: [3, 3],
+            cornerRadius: 16
+        )
     }
     
     // MARK: - Methods

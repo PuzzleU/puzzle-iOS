@@ -65,6 +65,7 @@ final class OnboardingSelectPositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setHierarchy()
         setDelegate()
         setLayout()
@@ -77,7 +78,11 @@ final class OnboardingSelectPositionViewController: UIViewController {
     // MARK: - UI & Layout
     
     private func setHierarchy() {
-        view.addSubviews(naviBar, alertLabel, positionCollectionView)
+        view.addSubviews(
+            naviBar,
+            alertLabel,
+            positionCollectionView
+        )
     }
     
     private func setLayout() {

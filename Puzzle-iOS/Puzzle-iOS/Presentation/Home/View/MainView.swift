@@ -99,6 +99,7 @@ final class MainView: UIView {
     
     init() {
         super.init(frame: .zero)
+        
         setUI()
         setHierarchy()
         setLayout()

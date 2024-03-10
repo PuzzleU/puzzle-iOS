@@ -6,10 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
-import Combine
 
 final class MyProfileCell: UICollectionViewCell {
     
@@ -37,12 +37,10 @@ final class MyProfileCell: UICollectionViewCell {
     private lazy var vBackgroundStackView = UIStackView(
         arrangedSubviews: [
             profileBackgroundView,
-            introduceBackgroundView,
-            UIView()
+            introduceBackgroundView
         ]
     ).then {
         $0.axis = .vertical
-        $0.spacing = 2
     }
     
     private let titleName = LabelFactory.build(
@@ -115,6 +113,7 @@ final class MyProfileCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUI()
         setHierarchy()
         setLayout()
@@ -124,13 +123,6 @@ final class MyProfileCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contatinerView.layer.cornerRadius = contatinerView.frame.width / 2
-        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-    }
-    
     // MARK: - UI & Layout
     
     private func setUI() {
@@ -138,20 +130,22 @@ final class MyProfileCell: UICollectionViewCell {
     }
     
     private func setHierarchy() {
-        addSubviews(vBackgroundStackView, contatinerView, profileImageView, infoVStackView)
+        addSubviews(
+            vBackgroundStackView,
+            contatinerView,
+            profileImageView,
+            infoVStackView
+        )
     }
     
     private func setLayout() {
+        
         vBackgroundStackView.snp.makeConstraints {
             $0.leading.trailing.top.bottom.equalToSuperview()
         }
         
         profileBackgroundView.snp.makeConstraints {
             $0.height.equalTo(123)
-        }
-        
-        introduceBackgroundView.snp.makeConstraints {
-            $0.height.equalTo(197)
         }
         
         contatinerView.snp.makeConstraints {
@@ -171,5 +165,14 @@ final class MyProfileCell: UICollectionViewCell {
             $0.leading.equalToSuperview().inset(22)
             $0.trailing.equalToSuperview().inset(32)
         }
+        
+        updateProfileImageUI()
+    }
+    
+    private func updateProfileImageUI() {
+        self.layoutIfNeeded()
+        
+        contatinerView.layer.cornerRadius = contatinerView.bounds.width / 2
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
     }
 }

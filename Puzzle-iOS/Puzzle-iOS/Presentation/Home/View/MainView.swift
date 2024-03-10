@@ -14,9 +14,6 @@ final class MainView: UIView {
     
     // MARK: - Property
     
-    private let cellWidth: CGFloat = 161
-    private let cellHeight: CGFloat = 219
-    
     // 삭제될 객체 입니다. 또는 ViewModel에서 받을 데이터 입니다.
     var feedList: [Competition] = [Competition(
         image: UIImage(resource: .imgOx),
@@ -81,9 +78,17 @@ final class MainView: UIView {
     lazy var mainFeedCollectionView = UICollectionView(frame: .zero,
                                                        collectionViewLayout: UICollectionViewLayout()).then {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
+        let screenWidth = UIScreen.main.bounds.width
+        
         layout.sectionInset = UIEdgeInsets(top: 9, left: 20, bottom: 9, right: 20)
+        layout.minimumInteritemSpacing = 15
         layout.minimumLineSpacing = 11
+        
+        let totalSpacing = layout.sectionInset.left + layout.sectionInset.right + layout.minimumInteritemSpacing
+        let cellWidth = (screenWidth - totalSpacing) / 2
+        let cellHeight = cellWidth * (219 / 161)
+        
+        layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
         layout.scrollDirection = .vertical
         
         $0.collectionViewLayout = layout
@@ -117,8 +122,7 @@ final class MainView: UIView {
     
     private func setLayout() {
         mainFeedCollectionView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(5)
+            $0.edges.equalToSuperview()
         }
     }
     

@@ -149,6 +149,10 @@ final class HomeFeedCell: UICollectionViewCell {
             $0.height.equalTo(148)
         }
         
+        keywordHStackView.snp.makeConstraints {
+            $0.height.equalTo(18)
+        }
+        
         dateView.snp.makeConstraints {
             $0.top.leading.equalTo(imageView).inset(7)
         }
@@ -173,7 +177,7 @@ final class HomeFeedCell: UICollectionViewCell {
     
     private func setDateLabelColor(date: Int) {
         dateLabel.do {
-            $0.text = "D-\(date)"
+            $0.text = "D- \(date)"
             $0.font = .chip1
             $0.textColor = .puzzleWhite
         }

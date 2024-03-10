@@ -9,9 +9,9 @@ import UIKit
 
 import Then
 
-class PuzzleTabBarController: UITabBarController {
+final class PuzzleTabBarController: UITabBarController {
     
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +20,17 @@ class PuzzleTabBarController: UITabBarController {
     }
 }
 
-//MARK: - Methods
+// MARK: - Methods
 
 extension PuzzleTabBarController {
     private func setUI() {
         tabBar.do {
             $0.backgroundColor = .puzzleWhite
-            $0.unselectedItemTintColor = .puzzleBlack
-            $0.tintColor = .puzzleGray400
+            $0.unselectedItemTintColor = .puzzleGray400
+            $0.tintColor = .puzzleBlack
+            $0.layer.cornerRadius = 20
             $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            $0.layer.applyShadow(alpha: 0.03, y: -4, blur: 5)
         }
     }
     

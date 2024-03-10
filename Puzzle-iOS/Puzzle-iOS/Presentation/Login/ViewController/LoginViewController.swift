@@ -47,7 +47,7 @@ final class LoginViewController: UIViewController {
     // MARK: - Custom Methods
     
     private func register() {
-        rootView.loginCollectionView.register(LoginCollectionViewCell.self, forCellWithReuseIdentifier: LoginCollectionViewCell.cellIdentifier)
+        rootView.loginCollectionView.register(LoginCollectionViewCell.self, forCellWithReuseIdentifier: LoginCollectionViewCell.className)
     }
     
     private func delegate() {

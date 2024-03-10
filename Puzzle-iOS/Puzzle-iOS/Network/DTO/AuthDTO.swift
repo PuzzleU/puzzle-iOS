@@ -7,7 +7,7 @@
 
 import Foundation
 
-//TODO: API명세서 나온 뒤 수정 예정
+// TODO: API명세서 나온 뒤 수정 예정
 
 struct AuthRequestDTO: Encodable {
     let socialPlatform: String

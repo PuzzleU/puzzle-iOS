@@ -74,6 +74,11 @@ final class PuzzleBottomSheetViewController: UIViewController {
         setDismissAction()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateBottomSheetUI(shown: true)
+    }
+    
     //MARK: - UI & Layout
 
     private func setHierarchy() {
@@ -144,9 +149,7 @@ extension PuzzleBottomSheetViewController {
                 self.dimmedView.backgroundColor = .clear
                 self.view.layoutIfNeeded()
             }, completion: { _ in 
-                if self.presentingViewController != nil {
                     self.dismiss(animated: true)
-                }
             })
         }
     }

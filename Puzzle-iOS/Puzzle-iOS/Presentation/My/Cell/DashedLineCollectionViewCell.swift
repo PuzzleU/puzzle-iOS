@@ -77,7 +77,7 @@ final class DashedLineCollectionViewCell: UICollectionViewCell {
         dashedView.addDashedBorder(
             strokeColor: .puzzleGray300,
             lineWidth: 2,
-            dashPattern: [3, 3],
+            dashPattern: [2, 2],
             cornerRadius: 16
         )
     }

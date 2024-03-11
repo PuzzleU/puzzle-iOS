@@ -78,6 +78,8 @@ final class MyProfileViewController: UIViewController {
         }
     }
     
+    // MARK: - Methods
+    
     private func setDelegate() {
         profileView.profileCollectionView.dataSource = self
         profileView.profileCollectionView.delegate = self

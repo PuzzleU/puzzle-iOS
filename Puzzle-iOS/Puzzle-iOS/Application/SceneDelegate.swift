@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let nav = UINavigationController(rootViewController: PuzzleTabBarController())
+        let nav = UINavigationController(rootViewController: ViewController())
         window.rootViewController = nav
         self.window = window
         window.makeKeyAndVisible()

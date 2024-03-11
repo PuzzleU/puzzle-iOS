@@ -36,6 +36,7 @@ final class ProgressView: UIView {
         self.totalSteps = max(totalSteps, 1) // 최소 단계 수를 1로 설정하여 0으로 나누는 것을 방지
         
         super.init(frame: .zero)
+        
         setProgressView()
     }
     

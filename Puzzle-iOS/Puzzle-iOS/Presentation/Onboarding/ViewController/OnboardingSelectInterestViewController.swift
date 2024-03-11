@@ -85,6 +85,7 @@ final class OnboardingSelectInterestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         bind()
         setHierarchy()
         setLayout()
@@ -96,7 +97,11 @@ final class OnboardingSelectInterestViewController: UIViewController {
     
     // MARK: - UI & Layout
     private func setHierarchy() {
-        view.addSubviews(naviBar, alertLabel, interestCollectionView)
+        view.addSubviews(
+            naviBar,
+            alertLabel,
+            interestCollectionView
+        )
         rootView.bringNextButtonToFront()
     }
     

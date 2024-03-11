@@ -20,31 +20,33 @@ final class LogoView: UIView {
     
     private let logoLabel = LabelFactory.build(
         text: "PUZZLE",
-        font: .subTitle2,
+        font: .title2,
         textColor: .puzzlePurple)
     
-    private let emptyView = UIView()
-    
-    private let bellImageView = UIImageView().then {
+    private let trailingImageView = UIImageView().then {
         $0.image = UIImage(resource: .icBell)
     }
     
-    private lazy var hStackView = UIStackView(
+    private lazy var leftStackView = UIStackView(
         arrangedSubviews: [
             logoImageView,
-            logoLabel,
-            emptyView,
-            bellImageView
+            logoLabel
         ]
     ).then {
         $0.spacing = 4.5
         $0.axis = .horizontal
     }
     
+    private lazy var mainStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.distribution = .equalSpacing
+    }
+    
     // MARK: - Life Cycles
     
     init() {
         super.init(frame: .zero)
+        
         setUI()
         setHierarchy()
         setLayout()
@@ -61,22 +63,23 @@ final class LogoView: UIView {
     }
     
     private func setHierarchy() {
-        addSubviews(hStackView)
+        addSubview(mainStackView)
+        mainStackView.addArrangedSubview(leftStackView)
+        mainStackView.addArrangedSubview(trailingImageView)
     }
     
     private func setLayout() {
-        hStackView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(20)
+        mainStackView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.centerY.equalToSuperview()
         }
         
-        emptyView.snp.makeConstraints {
-            $0.width.equalTo(220)
-        }
-        
-        bellImageView.snp.makeConstraints {
+        trailingImageView.snp.makeConstraints {
             $0.width.height.equalTo(20)
         }
-        
+    }
+    
+    func changeTrailingImageComponent(image: UIImage) {
+        trailingImageView.image = image
     }
 }

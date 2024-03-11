@@ -30,4 +30,15 @@ enum StringLiterals {
         static let selectArea = "최대 2개의 지역을 선택할 수 있어요."
         static let selectAreaSpecial = "최대 2개"
     }
+    
+    enum MyProfile {
+        static let bestExperience = "🥇 대표경험"
+        static let bestExperienceDetail = "+ 대표경험 서술"
+        static let workExperience = "💼 경험 했어요"
+        static let workExperienceDetail = "+ 경력 입력"
+        static let skillSet = "📌 스킬 셋"
+        static let skillSetDetail = "+ 전문분야·스킬 등록"
+        static let education = "🎓 학력"
+        static let educationDetail = "+ 학교, 전공, 기간 등 입력"
+    }
 }

@@ -37,6 +37,7 @@ final class KeywordView: UIView {
     
     init() {
         super.init(frame: .zero)
+        
         setUI()
         setHierarchy()
         setLayout()
@@ -74,6 +75,8 @@ final class KeywordView: UIView {
     private func register() {
         keywordCollectionView.register(KeywordCell.self, forCellWithReuseIdentifier: KeywordCell.className)
     }
+    
+    // MARK: - Methods
     
     // 처음 뷰에 들어오면 "전체" 키워드가 클릭되어 있는 이벤트입니다.
     private func selectDefaultKeyword() {

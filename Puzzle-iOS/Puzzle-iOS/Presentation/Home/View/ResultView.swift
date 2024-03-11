@@ -53,6 +53,7 @@ final class ResultView: UIView {
     
     init() {
         super.init(frame: .zero)
+        
         setUI()
         setHierarchy()
         setLayout()
@@ -69,7 +70,10 @@ final class ResultView: UIView {
     }
     
     private func setHierarchy() {
-        addSubviews(resultLabel, filterView)
+        addSubviews(
+            resultLabel,
+            filterView
+        )
         filterView.addSubview(hStackView)
     }
     

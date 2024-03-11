@@ -29,6 +29,7 @@ final class InterestSelectionCollectionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUI()
         setHierarchy()
         setLayout()

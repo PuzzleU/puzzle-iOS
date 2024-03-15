@@ -62,7 +62,7 @@ enum PuzzleTabBarItem {
     var viewController: UIViewController {
         switch self {
         case .home, .search, .register, .applicationStatus, .myPage:
-            return ViewController() // 각 탭의 뷰컨 추가 되면 case 마다 변경
+            return ViewController(repository: DefaultSplashRepository(splashService: DefaultSplashService())) // 각 탭의 뷰컨 추가 되면 case 마다 변경
         }
     }
 }

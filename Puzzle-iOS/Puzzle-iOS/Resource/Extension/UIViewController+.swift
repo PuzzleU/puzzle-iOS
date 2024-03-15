@@ -13,7 +13,7 @@ import Then
 extension UIViewController {
     
     func pushToViewController() {
-        let viewController = ViewController()
+        let viewController = ViewController(repository: DefaultSplashRepository(splashService: DefaultSplashService()))
         navigationController?.pushViewController(viewController, animated: true)
     }
     

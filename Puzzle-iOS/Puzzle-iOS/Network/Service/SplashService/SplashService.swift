@@ -12,13 +12,7 @@ protocol SplashService {
     func getLoginData() -> AnyPublisher<SplashDTO, Error>
 }
 
-final class DefaultUSplashService: NSObject, Networking {
-    private var urlSession: URLSession = URLSession(configuration: URLSessionConfiguration.default,
-                                                    delegate: nil,
-                                                    delegateQueue: nil)
-}
-
-extension DefaultUSplashService: SplashService {
+final class DefaultSplashService: NSObject, Networking, SplashService {
     func getLoginData() -> AnyPublisher<SplashDTO, Error> {
         do {
             let request = try makeHTTPRequest(path: URLs.Login.splash,
@@ -29,10 +23,10 @@ extension DefaultUSplashService: SplashService {
             NetworkLogger.log(request: request)
             
             return URLSession.shared.dataTaskPublisher(for: request)
-                .map { $0.data }
-                .decode(type: SplashDTO.self, decoder: JSONDecoder())
-                .mapError { $0 }
-                .eraseToAnyPublisher()
+                        .map(\.data)
+                        .decode(type: SplashDTO.self, decoder: JSONDecoder())
+                        .mapError { $0 as Error }
+                        .eraseToAnyPublisher()
             
         } catch {
             return Fail(error: error).eraseToAnyPublisher()

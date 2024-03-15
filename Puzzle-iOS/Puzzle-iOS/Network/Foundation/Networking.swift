@@ -8,7 +8,8 @@
 import Foundation
 
 protocol Networking {
-    func makeHTTPRequest(path: String,
+    func makeHTTPRequest(baseURL: String,
+                         path: String,
                          method: HTTPMethod,
                          queryItems: [URLQueryItem]?,
                          headers: [String: String]?,
@@ -16,7 +17,8 @@ protocol Networking {
 }
 
 extension Networking {
-    func makeHTTPRequest(path: String,
+    func makeHTTPRequest(baseURL: String = Config.baseURL,
+                         path: String,
                          method: HTTPMethod,
                          queryItems: [URLQueryItem]? = nil,
                          headers: [String: String]?,
@@ -24,7 +26,6 @@ extension Networking {
         
         //URL + Path
         
-        let baseURL: String = Bundle.main.object(forInfoDictionaryKey: Config.baseURL) as! String
         guard var urlComponents = URLComponents(string: baseURL + path) else {
             throw NetworkError.badGateway
         }

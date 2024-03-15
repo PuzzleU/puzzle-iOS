@@ -9,13 +9,15 @@ import Foundation
 
 struct SplashDTO: Codable {
     let success: Bool
-    let response: [ResponseList]
-    let error: [ErrorList]
+    let response: ResponseList
+    let error: ErrorList
+    let jwt: String
 }
 
 struct ResponseList: Codable {
     let postionList: [PositionListDetail]
     let interestList: [InterestListDetail]
+    let locationList: [LocationListDetail]
     let profileList: [ProfileListDetail]
 }
 
@@ -32,6 +34,11 @@ struct InterestListDetail: Codable {
 struct InterestListMoreDetail: Codable {
     let interestName: String
     let interestId: Int
+}
+
+struct LocationListDetail: Codable {
+    let locationName: String
+    let locationId: Int
 }
 
 struct ProfileListDetail: Codable {

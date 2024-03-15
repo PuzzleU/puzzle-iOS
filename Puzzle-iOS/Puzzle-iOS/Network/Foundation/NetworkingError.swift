@@ -11,6 +11,7 @@ public enum NetworkServiceError: Int, Error {
     
     //Client Error
     
+    case badURL
     case badRequest = 400
     case unauthorized = 401
     case forBidden = 403

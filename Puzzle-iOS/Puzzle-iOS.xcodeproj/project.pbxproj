@@ -40,6 +40,7 @@
 		2CA684272BA450A90034C3E7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684262BA450A90034C3E7 /* Networking.swift */; };
 		2CA684292BA451B10034C3E7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684282BA451B10034C3E7 /* HTTPMethod.swift */; };
 		2CA6842B2BA453760034C3E7 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6842A2BA453760034C3E7 /* NetworkingError.swift */; };
+		2CA6842E2BA45CCA0034C3E7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6842D2BA45CCA0034C3E7 /* URLs.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
 		71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A842B76554500B23378 /* PuzzleNavigationBar.swift */; };
@@ -111,6 +112,7 @@
 		2CA684262BA450A90034C3E7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		2CA684282BA451B10034C3E7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		2CA6842A2BA453760034C3E7 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		2CA6842D2BA45CCA0034C3E7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		71814A7F2B74F17100B23378 /* Puzzle-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Puzzle-iOS.entitlements"; sourceTree = "<group>"; };
@@ -340,6 +342,14 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		2CA6842C2BA45CAF0034C3E7 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2CA6842D2BA45CCA0034C3E7 /* URLs.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		71773C5D2B64BD040041605E /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +447,7 @@
 		7181503F2B6294C8005E4451 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2CA6842C2BA45CAF0034C3E7 /* Constant */,
 				71814A832B76546700B23378 /* UIComponents */,
 				2C1765062B72799400CD789E /* Literals */,
 				2C55EEC12B71203B001AD42E /* Config */,
@@ -661,6 +672,7 @@
 				2C17650A2B7283A500CD789E /* UIViewController+.swift in Sources */,
 				2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */,
 				2C1765082B7279A000CD789E /* StringLiterals.swift in Sources */,
+				2CA6842E2BA45CCA0034C3E7 /* URLs.swift in Sources */,
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,

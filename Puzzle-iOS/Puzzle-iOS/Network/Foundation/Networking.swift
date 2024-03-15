@@ -8,17 +8,15 @@
 import Foundation
 
 protocol Networking {
-    func makeHTTPRequest(baseURL: String,
-                         path: String,
+    func makeHTTPRequest(path: String,
                          method: HTTPMethod,
-                         queryItem: [URLQueryItem]?,
+                         queryItems: [URLQueryItem]?,
                          headers: [String: String]?,
                          body: Data?) throws -> URLRequest
 }
 
 extension Networking {
-    func makeHTTPRequest(baseURL: String = Bundle.main.object(forInfoDictionaryKey: Config.baseURL) as! String,
-                         path: String,
+    func makeHTTPRequest(path: String,
                          method: HTTPMethod,
                          queryItems: [URLQueryItem]? = nil,
                          headers: [String: String]?,
@@ -26,18 +24,17 @@ extension Networking {
         
         //URL + Path
         
+        let baseURL: String = Bundle.main.object(forInfoDictionaryKey: Config.baseURL) as! String
         guard var urlComponents = URLComponents(string: baseURL + path) else {
-            throw NetworkServiceError.badURL
+            throw NetworkError.badGateway
         }
         if queryItems != nil {
             urlComponents.queryItems = queryItems
         }
         
         guard let url = urlComponents.url else {
-            throw NetworkServiceError.badURL
+            throw NetworkError.badURL
         }
-        
-        // Request
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue

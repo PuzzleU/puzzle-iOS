@@ -10,7 +10,7 @@ import Foundation
 struct SplashDTO: Codable {
     let success: Bool
     let response: [ResponseList]
-    let error: [Error]
+    let error: [ErrorList]
 }
 
 struct ResponseList: Codable {
@@ -39,7 +39,7 @@ struct ProfileListDetail: Codable {
     let profileUrl: String
 }
 
-struct Error: Codable {
+struct ErrorList: Codable {
     let status: Int
     let message: String
 }

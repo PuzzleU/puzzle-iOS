@@ -41,6 +41,8 @@
 		2CA684292BA451B10034C3E7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684282BA451B10034C3E7 /* HTTPMethod.swift */; };
 		2CA6842B2BA453760034C3E7 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6842A2BA453760034C3E7 /* NetworkingError.swift */; };
 		2CA6842E2BA45CCA0034C3E7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6842D2BA45CCA0034C3E7 /* URLs.swift */; };
+		2CA684312BA45FD20034C3E7 /* SplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684302BA45FD20034C3E7 /* SplashService.swift */; };
+		2CA684332BA460DC0034C3E7 /* SplashDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684322BA460DC0034C3E7 /* SplashDTO.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
 		71773C642B66AB770041605E /* PuzzleTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C632B66AB770041605E /* PuzzleTabBarItem.swift */; };
 		71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71814A842B76554500B23378 /* PuzzleNavigationBar.swift */; };
@@ -113,6 +115,8 @@
 		2CA684282BA451B10034C3E7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		2CA6842A2BA453760034C3E7 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		2CA6842D2BA45CCA0034C3E7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		2CA684302BA45FD20034C3E7 /* SplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashService.swift; sourceTree = "<group>"; };
+		2CA684322BA460DC0034C3E7 /* SplashDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashDTO.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
 		71773C632B66AB770041605E /* PuzzleTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarItem.swift; sourceTree = "<group>"; };
 		71814A7F2B74F17100B23378 /* Puzzle-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Puzzle-iOS.entitlements"; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 		2C372A412B6B8C29009B7BF6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2CA6842F2BA45FBD0034C3E7 /* SplashService */,
 				2C372A3A2B6B7A60009B7BF6 /* AuthService */,
 			);
 			path = Service;
@@ -228,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */,
+				2CA684322BA460DC0034C3E7 /* SplashDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -348,6 +354,14 @@
 				2CA6842D2BA45CCA0034C3E7 /* URLs.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		2CA6842F2BA45FBD0034C3E7 /* SplashService */ = {
+			isa = PBXGroup;
+			children = (
+				2CA684302BA45FD20034C3E7 /* SplashService.swift */,
+			);
+			path = SplashService;
 			sourceTree = "<group>";
 		};
 		71773C5D2B64BD040041605E /* TabBar */ = {
@@ -675,6 +689,7 @@
 				2CA6842E2BA45CCA0034C3E7 /* URLs.swift in Sources */,
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
+				2CA684332BA460DC0034C3E7 /* SplashDTO.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
 				2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */,
@@ -692,6 +707,7 @@
 				2CA684292BA451B10034C3E7 /* HTTPMethod.swift in Sources */,
 				2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */,
 				71814A872B76568B00B23378 /* UIView+.swift in Sources */,
+				2CA684312BA45FD20034C3E7 /* SplashService.swift in Sources */,
 				2C33B17E2B76537300A9476D /* PuzzleBottomSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

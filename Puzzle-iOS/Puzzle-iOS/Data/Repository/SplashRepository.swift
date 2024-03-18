@@ -13,13 +13,13 @@ protocol SplashRepository {
 }
 
 struct DefaultSplashRepository: SplashRepository {
-    
+
     private var splashService: SplashService
-    
+
     init(splashService: SplashService) {
         self.splashService = splashService
     }
-    
+
     func getLoginData() -> AnyPublisher<SplashDTO, Error> {
         return splashService.getLoginData()
     }

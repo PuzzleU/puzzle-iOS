@@ -134,6 +134,6 @@ extension LoginViewModel: ASAuthorizationControllerDelegate {
     
     /// 애플 로그인 실패 처리
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-//        print("[🍎] Apple Login error - \(error.localizedDescription)")
+        print("[🍎] Apple Login error - \(error.localizedDescription)")
     }
 }

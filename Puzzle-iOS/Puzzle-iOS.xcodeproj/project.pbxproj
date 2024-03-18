@@ -37,15 +37,15 @@
 		2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813BE2B7CF38100C56D0B /* UIStackView+.swift */; };
 		2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */; };
 		2C9813C52B7D4CC200C56D0B /* DropdownManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */; };
-		2CA684272BA450A90034C3E7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684262BA450A90034C3E7 /* Networking.swift */; };
-		2CA684292BA451B10034C3E7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684282BA451B10034C3E7 /* HTTPMethod.swift */; };
-		2CA6842B2BA453760034C3E7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6842A2BA453760034C3E7 /* NetworkError.swift */; };
-		2CA6842E2BA45CCA0034C3E7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6842D2BA45CCA0034C3E7 /* URLs.swift */; };
-		2CA684312BA45FD20034C3E7 /* SplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684302BA45FD20034C3E7 /* SplashService.swift */; };
-		2CA684332BA460DC0034C3E7 /* SplashDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684322BA460DC0034C3E7 /* SplashDTO.swift */; };
-		2CA684352BA4699E0034C3E7 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684342BA4699E0034C3E7 /* NetworkLogger.swift */; };
-		2CA684372BA469BB0034C3E7 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684362BA469BB0034C3E7 /* APIConstant.swift */; };
-		2CA684392BA46F900034C3E7 /* SplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684382BA46F900034C3E7 /* SplashRepository.swift */; };
+		2CA6843B2BA806E10034C3E7 /* SpalshDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6843A2BA806E10034C3E7 /* SpalshDTO.swift */; };
+		2CA6843E2BA8070E0034C3E7 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6843D2BA8070E0034C3E7 /* APIConstant.swift */; };
+		2CA684402BA807290034C3E7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6843F2BA807290034C3E7 /* HTTPMethod.swift */; };
+		2CA684422BA807480034C3E7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684412BA807480034C3E7 /* NetworkError.swift */; };
+		2CA684442BA8075E0034C3E7 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684432BA8075E0034C3E7 /* NetworkLogger.swift */; };
+		2CA684462BA807840034C3E7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684452BA807840034C3E7 /* Networking.swift */; };
+		2CA684492BA807D50034C3E7 /* SplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA684482BA807D50034C3E7 /* SplashService.swift */; };
+		2CA6844B2BA807FD0034C3E7 /* SplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6844A2BA807FD0034C3E7 /* SplashRepository.swift */; };
+		2CA6844E2BA808420034C3E7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6844D2BA808420034C3E7 /* URLs.swift */; };
 		710309812B8E47AE0077EE17 /* InputIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710309802B8E47AE0077EE17 /* InputIdViewModel.swift */; };
 		7103098B2B90B5470077EE17 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */; };
 		7103098D2B91D5860077EE17 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103098C2B91D5860077EE17 /* UIButton+Combine.swift */; };
@@ -163,15 +163,15 @@
 		2C9813BE2B7CF38100C56D0B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDropdownTableView.swift; sourceTree = "<group>"; };
 		2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownManger.swift; sourceTree = "<group>"; };
-		2CA684262BA450A90034C3E7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		2CA684282BA451B10034C3E7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		2CA6842A2BA453760034C3E7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		2CA6842D2BA45CCA0034C3E7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
-		2CA684302BA45FD20034C3E7 /* SplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashService.swift; sourceTree = "<group>"; };
-		2CA684322BA460DC0034C3E7 /* SplashDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashDTO.swift; sourceTree = "<group>"; };
-		2CA684342BA4699E0034C3E7 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
-		2CA684362BA469BB0034C3E7 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
-		2CA684382BA46F900034C3E7 /* SplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRepository.swift; sourceTree = "<group>"; };
+		2CA6843A2BA806E10034C3E7 /* SpalshDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpalshDTO.swift; sourceTree = "<group>"; };
+		2CA6843D2BA8070E0034C3E7 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		2CA6843F2BA807290034C3E7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		2CA684412BA807480034C3E7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		2CA684432BA8075E0034C3E7 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		2CA684452BA807840034C3E7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		2CA684482BA807D50034C3E7 /* SplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashService.swift; sourceTree = "<group>"; };
+		2CA6844A2BA807FD0034C3E7 /* SplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRepository.swift; sourceTree = "<group>"; };
+		2CA6844D2BA808420034C3E7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		710309802B8E47AE0077EE17 /* InputIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputIdViewModel.swift; sourceTree = "<group>"; };
 		7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
 		7103098C2B91D5860077EE17 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 		2C372A412B6B8C29009B7BF6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				2CA6842F2BA45FBD0034C3E7 /* SplashService */,
+				2CA684472BA807A80034C3E7 /* SplashService */,
 				2C372A3A2B6B7A60009B7BF6 /* AuthService */,
 			);
 			path = Service;
@@ -337,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */,
-				2CA684322BA460DC0034C3E7 /* SplashDTO.swift */,
+				2CA6843A2BA806E10034C3E7 /* SpalshDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -355,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */,
+				2CA6844A2BA807FD0034C3E7 /* SplashRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -446,33 +447,34 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		2CA684252BA450970034C3E7 /* Foundation */ = {
+		2CA6843C2BA807010034C3E7 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				2CA684262BA450A90034C3E7 /* Networking.swift */,
-				2CA684282BA451B10034C3E7 /* HTTPMethod.swift */,
-				2CA6842A2BA453760034C3E7 /* NetworkError.swift */,
-				2CA684342BA4699E0034C3E7 /* NetworkLogger.swift */,
-				2CA684362BA469BB0034C3E7 /* APIConstant.swift */,
+				2CA6843D2BA8070E0034C3E7 /* APIConstant.swift */,
+				2CA6843F2BA807290034C3E7 /* HTTPMethod.swift */,
+				2CA684412BA807480034C3E7 /* NetworkError.swift */,
+				2CA684432BA8075E0034C3E7 /* NetworkLogger.swift */,
+				2CA684452BA807840034C3E7 /* Networking.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		2CA6842C2BA45CAF0034C3E7 /* Constant */ = {
+		2CA684472BA807A80034C3E7 /* SplashService */ = {
 			isa = PBXGroup;
 			children = (
-				2CA6842D2BA45CCA0034C3E7 /* URLs.swift */,
+				2CA684482BA807D50034C3E7 /* SplashService.swift */,
+			);
+			path = SplashService;
+			sourceTree = "<group>";
+		};
+		2CA6844C2BA8082B0034C3E7 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2CA6844D2BA808420034C3E7 /* URLs.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
 		};
-		2CA6842F2BA45FBD0034C3E7 /* SplashService */ = {
-			isa = PBXGroup;
-			children = (
-				2CA684302BA45FD20034C3E7 /* SplashService.swift */,
-				2CA684382BA46F900034C3E7 /* SplashRepository.swift */,
-			);
-			path = SplashService;
 		710309902B93139B0077EE17 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,7 +669,7 @@
 		7181503F2B6294C8005E4451 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				2CA6842C2BA45CAF0034C3E7 /* Constant */,
+				2CA6844C2BA8082B0034C3E7 /* Constant */,
 				71814A832B76546700B23378 /* UIComponents */,
 				2C1765062B72799400CD789E /* Literals */,
 				2C55EEC12B71203B001AD42E /* Config */,
@@ -683,7 +685,7 @@
 		718150452B629536005E4451 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				2CA684252BA450970034C3E7 /* Foundation */,
+				2CA6843C2BA807010034C3E7 /* Foundation */,
 				2C372A422B6B8C37009B7BF6 /* DTO */,
 				2C372A412B6B8C29009B7BF6 /* Service */,
 			);
@@ -981,44 +983,45 @@
 				718D09192B7A94930021AD40 /* OnboardingBaseView.swift in Sources */,
 				2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
-				2CA6842B2BA453760034C3E7 /* NetworkError.swift in Sources */,
 				7103098D2B91D5860077EE17 /* UIButton+Combine.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
 				71814AAF2B77776B00B23378 /* PuzzleToastView.swift in Sources */,
 				2C9813BD2B7CF28C00C56D0B /* UITableViewCell+.swift in Sources */,
 				2C372A3C2B6B7ABE009B7BF6 /* AuthKakaoService.swift in Sources */,
-				2CA684272BA450A90034C3E7 /* Networking.swift in Sources */,
 				2C372A442B6B8C44009B7BF6 /* AuthDTO.swift in Sources */,
 				2C9813C52B7D4CC200C56D0B /* DropdownManger.swift in Sources */,
 				2C5310E32B6E782B00704371 /* LoginCollectionViewCell.swift in Sources */,
 				2C804D572B7DB7C100379C07 /* NumberLiterals.swift in Sources */,
-				2CA684352BA4699E0034C3E7 /* NetworkLogger.swift in Sources */,
 				2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */,
-				2CA684392BA46F900034C3E7 /* SplashRepository.swift in Sources */,
 				718D09282B808A400021AD40 /* OnboardingSelectProfileImageViewController.swift in Sources */,
 				7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */,
 				71A5BB102B9B2CE300655835 /* MyProfileViewController.swift in Sources */,
+				2CA684402BA807290034C3E7 /* HTTPMethod.swift in Sources */,
 				710309A12B931F1C0077EE17 /* LabelFactory.swift in Sources */,
 				2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */,
+				2CA6843B2BA806E10034C3E7 /* SpalshDTO.swift in Sources */,
 				710309972B9315790077EE17 /* LogoView.swift in Sources */,
 				718D09332B8094A00021AD40 /* getClassName.swift in Sources */,
 				2C17650A2B7283A500CD789E /* UIViewController+.swift in Sources */,
 				2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */,
 				2C1765082B7279A000CD789E /* StringLiterals.swift in Sources */,
-				2CA6842E2BA45CCA0034C3E7 /* URLs.swift in Sources */,
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
 				7118EAF32B9DBAEA00012D94 /* EmptyCell.swift in Sources */,
 				710309A62B9434B00077EE17 /* HomeFeedCell.swift in Sources */,
+				2CA684422BA807480034C3E7 /* NetworkError.swift in Sources */,
 				7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */,
+				2CA684442BA8075E0034C3E7 /* NetworkLogger.swift in Sources */,
 				718D09162B7A947F0021AD40 /* OnboardingViewController.swift in Sources */,
+				2CA6844B2BA807FD0034C3E7 /* SplashRepository.swift in Sources */,
 				7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */,
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
-				2CA684332BA460DC0034C3E7 /* SplashDTO.swift in Sources */,
 				7127DA682B83941100B262DA /* OnboardingService.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,
+				2CA6844E2BA808420034C3E7 /* URLs.swift in Sources */,
 				718D091E2B7E23C20021AD40 /* UITextField+.swift in Sources */,
 				71355AEA2B80E371007E1822 /* OnboardingSelectInterestViewController.swift in Sources */,
 				7181500F2B6291D7005E4451 /* AppDelegate.swift in Sources */,
+				2CA684462BA807840034C3E7 /* Networking.swift in Sources */,
 				718D093B2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift in Sources */,
 				7118EAF12B9DB0D400012D94 /* MyProfileCell.swift in Sources */,
 				710309952B9314530077EE17 /* HomeViewController.swift in Sources */,
@@ -1029,8 +1032,8 @@
 				2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */,
 				710309992B9315A10077EE17 /* TitleView.swift in Sources */,
 				2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */,
-				2CA684372BA469BB0034C3E7 /* APIConstant.swift in Sources */,
 				71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */,
+				2CA6843E2BA8070E0034C3E7 /* APIConstant.swift in Sources */,
 				7127DA632B832E9800B262DA /* AreaTableView.swift in Sources */,
 				2C5310EA2B6E893C00704371 /* LoginViewModel.swift in Sources */,
 				7127DA562B820DA800B262DA /* InterestSelectionViewHeader.swift in Sources */,
@@ -1043,6 +1046,7 @@
 				710309A82B9634A60077EE17 /* addShadow.swift in Sources */,
 				718D09242B7FCE950021AD40 /* ProgressView.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
+				2CA684492BA807D50034C3E7 /* SplashService.swift in Sources */,
 				7118EAF52B9DBCA300012D94 /* TypeIconFactory.swift in Sources */,
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
 				7127DA5C2B8243CB00B262DA /* OnboardingSelectAreaViewController.swift in Sources */,
@@ -1056,7 +1060,6 @@
 				718D091C2B7A9B090021AD40 /* InputNameViewModel.swift in Sources */,
 				7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
-				2CA684292BA451B10034C3E7 /* HTTPMethod.swift in Sources */,
 				718D09372B80D7CE0021AD40 /* PositionViewModel.swift in Sources */,
 				7127DA652B8330C500B262DA /* AreaTableViewCell.swift in Sources */,
 				2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */,
@@ -1065,7 +1068,6 @@
 				71355AEC2B80ECC1007E1822 /* InterestSelectionViewCell.swift in Sources */,
 				710309A32B932EA50077EE17 /* KeywordCell.swift in Sources */,
 				71814A872B76568B00B23378 /* UIView+.swift in Sources */,
-				2CA684312BA45FD20034C3E7 /* SplashService.swift in Sources */,
 				7127DA592B82435500B262DA /* AreaViewModel.swift in Sources */,
 				2C33B17E2B76537300A9476D /* PuzzleBottomSheetViewController.swift in Sources */,
 			);

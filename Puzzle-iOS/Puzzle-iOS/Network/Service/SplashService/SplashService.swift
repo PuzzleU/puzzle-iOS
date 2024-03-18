@@ -19,15 +19,15 @@ final class DefaultSplashService: NSObject, Networking, SplashService {
                                               method: .get,
                                               headers: APIConstants.noTokenHeader,
                                               body: nil)
-            
+
             NetworkLogger.log(request: request)
-            
+
             return URLSession.shared.dataTaskPublisher(for: request)
                         .map(\.data)
                         .decode(type: SplashDTO.self, decoder: JSONDecoder())
                         .mapError { $0 as Error }
                         .eraseToAnyPublisher()
-            
+
         } catch {
             return Fail(error: error).eraseToAnyPublisher()
         }

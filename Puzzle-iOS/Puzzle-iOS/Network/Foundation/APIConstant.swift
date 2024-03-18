@@ -14,7 +14,7 @@ struct APIConstants {
     static let auth = "Authorization"
     static let refresh = "RefreshToken"
     static let fcm = "FcmToken"
-    
+
     static let boundary = "Boundary-\(UUID().uuidString)"
 }
 

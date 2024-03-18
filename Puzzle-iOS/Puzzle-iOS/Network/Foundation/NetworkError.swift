@@ -8,23 +8,23 @@
 import Foundation
 
 enum NetworkError: Int, Error, CustomStringConvertible {
-
+    
     public var description: String { self.errorDescription }
-    
+
     //Client Error
-    
+
     case badURL = 0
     case badRequest = 400
     case unauthorized = 401
     case forBidden = 403
     case notFound = 404
-    
+
     //Server Error
-    
+
     case internalServerError = 500
     case notImplemented = 501
     case badGateway = 502
-    
+
     var errorDescription: String {
         switch self {
         case .badURL: return "BadURL"

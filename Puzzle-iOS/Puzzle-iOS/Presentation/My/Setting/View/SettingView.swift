@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SettingView: UIView {
+final class SettingView: UIView {
     
     // MARK: - UIComponents
     

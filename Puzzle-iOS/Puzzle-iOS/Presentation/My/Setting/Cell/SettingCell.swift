@@ -18,7 +18,7 @@ final class SettingCell: UICollectionViewCell {
     )
     
     private let arrowImage = UIImageView().then {
-        $0.image = UIImage(resource: .icRightArrow)
+        $0.image = UIImage(resource: .icRightArrowBlack)
     }
     
     private lazy var hStackView = UIStackView(
@@ -50,10 +50,6 @@ final class SettingCell: UICollectionViewCell {
     
     private func setUI() {
         backgroundColor = .puzzleWhite
-        
-        arrowImage.do {
-            $0.tintColor = .puzzleGray800
-        }
     }
     
     private func setHierarchy() {

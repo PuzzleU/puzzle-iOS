@@ -43,6 +43,8 @@ enum StringLiterals {
     }
     
     enum Setting {
+        static let SettingViewTitle = "설정"
+        
         static let guideHeaderTitle = "안내"
         static let personalSettingHeaderTitle = "사용자 설정"
         static let accountHeaderTitle = "계정"
@@ -51,9 +53,11 @@ enum StringLiterals {
         }
         static let appInfoHeaderTitle = "현재 버전 \(version)"
         
-        static let guideSectionTitles = ["공지사항", "자주묻는 질문", "고객센터"]
+        static let guideSectionTitles = ["공지사항", "자주 묻는 질문", "고객센터"]
         static let personalSettingSectionTitle = "알림 설정"
         static let accountSectionTitle = "로그아웃"
         static let appInfoSectionTitles = ["개인정보 처리방침", "이용약관"]
+        
+        static let accountDeletionTitle = "회원 탈퇴"
     }
 }

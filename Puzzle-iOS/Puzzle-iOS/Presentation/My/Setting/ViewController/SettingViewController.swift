@@ -20,24 +20,24 @@ enum SettingSection: Int, CaseIterable {
     case account
     case separator4
     case appInfo
-    case separator5
+    case accountDeletion
     
     var cellIdentifier: String {
         switch self {
-        case .guide, .personalSetting, .account, .appInfo:
+        case .guide, .personalSetting, .account, .appInfo, .accountDeletion:
             return SettingCell.className
-        case .separator1, .separator2, .separator3, .separator4, .separator5:
+        case .separator1, .separator2, .separator3, .separator4:
             return EmptyCell.className
         }
     }
     
     var cellHeight: CGFloat {
         switch self {
-        case .guide, .personalSetting, .account, .appInfo:
+        case .guide, .personalSetting, .account, .appInfo, .accountDeletion:
             return 45
         case .separator1:
             return 12
-        case .separator2, .separator3, .separator4, .separator5:
+        case .separator2, .separator3, .separator4:
             return 2
         }
     }
@@ -70,6 +70,7 @@ final class SettingViewController: UIViewController {
         setDelegate()
         setRegister()
     }
+    
     // MARK: - UI & Layout
     
     private func setUI() {
@@ -95,6 +96,8 @@ final class SettingViewController: UIViewController {
         }
     }
     
+    // MARK: - Methods
+    
     private func setDelegate() {
         settingCollectionView.settingCollectionView.delegate = self
         settingCollectionView.settingCollectionView.dataSource = self
@@ -113,6 +116,7 @@ final class SettingViewController: UIViewController {
 
 extension SettingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: 탭 이벤트
         print(indexPath)
     }
 }
@@ -121,7 +125,7 @@ extension SettingViewController: UICollectionViewDelegate {
 
 extension SettingViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return ProfileSection.allCases.count
+        return SettingSection.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -130,18 +134,18 @@ extension SettingViewController: UICollectionViewDataSource {
         switch section {
         case .guide:
             return 3
-        case .personalSetting, .account:
+        case .personalSetting, .account, .accountDeletion:
             return 1
         case .appInfo:
             return 2
-        case .separator1, .separator2, .separator3, .separator4, .separator5:
+        case .separator1, .separator2, .separator3, .separator4:
             return 1
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let section = SettingSection(rawValue: indexPath.section) else { return UICollectionViewCell() }
-        if section == .separator1 || section == .separator2 || section == .separator3 || section == .separator4 || section == .separator5 {
+        if section == .separator1 || section == .separator2 || section == .separator3 || section == .separator4 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyCell.className, for: indexPath) as? EmptyCell else {
                 return UICollectionViewCell()
             }
@@ -160,6 +164,8 @@ extension SettingViewController: UICollectionViewDataSource {
                 cell.dataBind(title: StringLiterals.Setting.accountSectionTitle)
             case .appInfo:
                 cell.dataBind(title: StringLiterals.Setting.appInfoSectionTitles[indexPath.row])
+            case .accountDeletion:
+                cell.dataBind(title: StringLiterals.Setting.accountDeletionTitle)
             default:
                 cell.dataBind(title: "")
             }
@@ -169,7 +175,7 @@ extension SettingViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader,
-              let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SettingHeaderView", for: indexPath) as? SettingHeaderView else {
+              let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SettingHeaderView.className, for: indexPath) as? SettingHeaderView else {
             return UICollectionReusableView()
         }
         
@@ -199,7 +205,7 @@ extension SettingViewController: UICollectionViewDelegateFlowLayout {
         guard let section = SettingSection(rawValue: indexPath.section) else { return CGSize(width: 0, height: 0) }
         
         switch section {
-        case .separator2, .separator3, .separator4, .separator5:
+        case .separator2, .separator3, .separator4:
             return CGSize(width: screenWidth - 48, height: section.cellHeight)
         default:
             return CGSize(width: screenWidth, height: section.cellHeight)
@@ -210,7 +216,7 @@ extension SettingViewController: UICollectionViewDelegateFlowLayout {
         guard let sectionType = SettingSection(rawValue: section) else { return 0 }
         
         switch sectionType {
-        case .guide, .personalSetting, .account, .appInfo:
+        case .guide, .personalSetting, .account, .appInfo, .accountDeletion:
             return 0
         default:
             return 18

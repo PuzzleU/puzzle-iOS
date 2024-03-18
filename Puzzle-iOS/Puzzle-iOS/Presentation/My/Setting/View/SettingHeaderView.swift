@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SettingHeaderView: UICollectionReusableView {
+final class SettingHeaderView: UICollectionReusableView {
     
     // MARK: - UIComponents
     
@@ -23,6 +23,7 @@ class SettingHeaderView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setHierarchy()
         setLayout()
     }

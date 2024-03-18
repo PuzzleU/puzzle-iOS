@@ -35,7 +35,7 @@ final class ResultView: UIView {
     )
     
     private let filterIcon = UIImageView().then {
-        $0.image = UIImage(resource: .icV)
+        $0.image = UIImage(resource: .icDownArrow)
     }
     
     private lazy var hStackView = UIStackView(

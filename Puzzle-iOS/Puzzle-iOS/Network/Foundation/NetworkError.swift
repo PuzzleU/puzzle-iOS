@@ -27,7 +27,7 @@ enum NetworkError: Int, Error, CustomStringConvertible {
     
     var errorDescription: String {
         switch self {
-        case .badURL: return "BadUrl"
+        case .badURL: return "BadURL"
         case .badRequest: return "BadRequest"
         case .unauthorized: return "Unauthorized"
         case .forBidden: return "ForBidden"

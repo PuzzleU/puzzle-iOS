@@ -12,7 +12,7 @@ import Then
 
 final class PuzzleMainButton: UIButton {
     
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
     
     override var isSelected: Bool {
         didSet {
@@ -36,20 +36,20 @@ final class PuzzleMainButton: UIButton {
         setLayout()
     }
     
-    //MARK: - UI & Layout
+    // MARK: - UI & Layout
     
     private func setUI(title: String) {
         setTitle(title, for: .normal)
-        titleLabel?.font = .itemTitle
+        titleLabel?.font = .body2
         setTitleColor(.puzzleWhite, for: .normal)
         backgroundColor = .puzzleGray300
         layer.cornerRadius = 15
-        addTarget(self, action: #selector(selectedButton), for: .touchUpInside)
+//        addTarget(self, action: #selector(selectedButton), for: .touchUpInside)
     }
     
     private func setLayout() {
         guard let superview = superview else { return }
-        self.snp.makeConstraints() {
+        self.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().inset(22)
             $0.height.equalTo(52)
@@ -57,12 +57,12 @@ final class PuzzleMainButton: UIButton {
         }
     }
     
-    //MARK: - Custom methods
+    // MARK: - Custom methods
     
-    @objc 
-    private func selectedButton() {
-        isSelected.toggle()
-    }
+//    @objc 
+//    private func selectedButton() {
+//        isSelected.toggle()
+//    }
     
     private func updateButtonUI() {
         backgroundColor = isSelected ? .puzzlePurple : .puzzleGray300

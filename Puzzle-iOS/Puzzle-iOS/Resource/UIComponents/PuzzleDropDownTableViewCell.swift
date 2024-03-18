@@ -36,7 +36,7 @@ final class PuzzleDropDownTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - UI & Layout
+    // MARK: - UI & Layout
 
     private func setHierarchy() {
         self.addSubviews(divderView,
@@ -55,7 +55,7 @@ final class PuzzleDropDownTableViewCell: UITableViewCell {
         }
     }
     
-    //MARK: - Data
+    // MARK: - Data
     
     func bindText(text: String) {
         cellLabel.text = text

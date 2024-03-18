@@ -11,7 +11,6 @@ final class OnboardingPlusView: UIView {
 
     // MARK: - UI Components
 
-    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {

@@ -32,36 +32,40 @@ enum PuzzleTabBarItem {
     var unselectedImage: UIImage {
         switch self {
         case .home:
-            return UIImage(named: "home") ?? UIImage()
+            return UIImage(resource: .icHome)
         case .search:
-            return UIImage(named: "search") ?? UIImage()
+            return UIImage(resource: .icSearch)
         case .register:
-            return UIImage(named: "register") ?? UIImage()
+            return UIImage(resource: .icRegister)
         case .applicationStatus:
-            return UIImage(named: "applicationStatus") ?? UIImage()
+            return UIImage(resource: .icApplicationStatus)
         case .myPage:
-            return UIImage(named: "myPage") ?? UIImage()
+            return UIImage(resource: .icMyPage)
         }
     }
     
     var selectedImage: UIImage {
         switch self {
         case .home:
-            return UIImage(named: "home_fill") ?? UIImage()
+            return UIImage(resource: .icHomeFill)
         case .search:
-            return UIImage(named: "search_fill") ?? UIImage()
+            return UIImage(resource: .icSearchFill)
         case .register:
-            return UIImage(named: "register_fill") ?? UIImage()
+            return UIImage(resource: .icRegisterFill)
         case .applicationStatus:
-            return UIImage(named: "applicationStatus_fill") ?? UIImage()
+            return UIImage(resource: .icApplicationStatusFill)
         case .myPage:
-            return UIImage(named: "myPage_fill") ?? UIImage()
+            return UIImage(resource: .icMyPageFill)
         }
     }
     
     var viewController: UIViewController {
         switch self {
-        case .home, .search, .register, .applicationStatus, .myPage:
+        case .home:
+            return HomeViewController()
+        case .myPage:
+            return MyProfileViewController()
+        case .search, .register, .applicationStatus:
             return ViewController() // 각 탭의 뷰컨 추가 되면 case 마다 변경
         }
     }

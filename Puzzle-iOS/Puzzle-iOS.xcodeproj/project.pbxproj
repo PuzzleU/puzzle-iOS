@@ -65,6 +65,7 @@
 		7118EAF32B9DBAEA00012D94 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118EAF22B9DBAEA00012D94 /* EmptyCell.swift */; };
 		7118EAF52B9DBCA300012D94 /* TypeIconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118EAF42B9DBCA300012D94 /* TypeIconFactory.swift */; };
 		7118EAF82B9DC48F00012D94 /* DashedLineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118EAF72B9DC48F00012D94 /* DashedLineCollectionViewCell.swift */; };
+		7122CCFD2BA815CF00CA56AC /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CCFC2BA815CF00CA56AC /* SettingHeaderView.swift */; };
 		7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */; };
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
 		7127DA542B82071700B262DA /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */; };
@@ -117,6 +118,9 @@
 		718D093B2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D093A2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift */; };
 		71A5BB102B9B2CE300655835 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5BB0F2B9B2CE300655835 /* MyProfileViewController.swift */; };
 		71A5BB122B9B312900655835 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5BB112B9B312900655835 /* MyProfileView.swift */; };
+		71EB2E962BA468FE00EB64B2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */; };
+		71EB2E9A2BA4694900EB64B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E992BA4694900EB64B2 /* SettingView.swift */; };
+		71EB2E9C2BA46F4300EB64B2 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +195,7 @@
 		7118EAF22B9DBAEA00012D94 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		7118EAF42B9DBCA300012D94 /* TypeIconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeIconFactory.swift; sourceTree = "<group>"; };
 		7118EAF72B9DC48F00012D94 /* DashedLineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLineCollectionViewCell.swift; sourceTree = "<group>"; };
+		7122CCFC2BA815CF00CA56AC /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
 		7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
@@ -246,6 +251,9 @@
 		718D093A2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectPositionViewController.swift; sourceTree = "<group>"; };
 		71A5BB0F2B9B2CE300655835 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		71A5BB112B9B312900655835 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
+		71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		71EB2E992BA4694900EB64B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -772,10 +780,8 @@
 		71A5BB0B2B9B2AE300655835 /* My */ = {
 			isa = PBXGroup;
 			children = (
-				71A5BB0C2B9B2B2A00655835 /* ViewController */,
-				71A5BB0D2B9B2B3200655835 /* View */,
-				71A5BB0E2B9B2B3B00655835 /* ViewModel */,
-				7118EAEF2B9DA5E300012D94 /* Cell */,
+				71EB2E932BA468BF00EB64B2 /* Profile */,
+				71EB2E942BA468D200EB64B2 /* Setting */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -801,6 +807,52 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		71EB2E932BA468BF00EB64B2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				71A5BB0C2B9B2B2A00655835 /* ViewController */,
+				71A5BB0D2B9B2B3200655835 /* View */,
+				71A5BB0E2B9B2B3B00655835 /* ViewModel */,
+				7118EAEF2B9DA5E300012D94 /* Cell */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		71EB2E942BA468D200EB64B2 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				71EB2E972BA4692900EB64B2 /* ViewController */,
+				71EB2E982BA4692F00EB64B2 /* View */,
+				71EB2E9D2BA46F4700EB64B2 /* Cell */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		71EB2E972BA4692900EB64B2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		71EB2E982BA4692F00EB64B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71EB2E992BA4694900EB64B2 /* SettingView.swift */,
+				7122CCFC2BA815CF00CA56AC /* SettingHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71EB2E9D2BA46F4700EB64B2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -980,6 +1032,7 @@
 			files = (
 				718D09352B80A3BF0021AD40 /* OnboardingCollectionView.swift in Sources */,
 				7103099F2B9315CA0077EE17 /* MainView.swift in Sources */,
+				7122CCFD2BA815CF00CA56AC /* SettingHeaderView.swift in Sources */,
 				718D09192B7A94930021AD40 /* OnboardingBaseView.swift in Sources */,
 				2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
@@ -1006,6 +1059,7 @@
 				2C9813BB2B7CED2000C56D0B /* PuzzleDropdownView.swift in Sources */,
 				2C1765082B7279A000CD789E /* StringLiterals.swift in Sources */,
 				718150132B6291D7005E4451 /* ViewController.swift in Sources */,
+				71EB2E9A2BA4694900EB64B2 /* SettingView.swift in Sources */,
 				7118EAF32B9DBAEA00012D94 /* EmptyCell.swift in Sources */,
 				710309A62B9434B00077EE17 /* HomeFeedCell.swift in Sources */,
 				2CA684422BA807480034C3E7 /* NetworkError.swift in Sources */,
@@ -1032,6 +1086,7 @@
 				2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */,
 				710309992B9315A10077EE17 /* TitleView.swift in Sources */,
 				2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */,
+				71EB2E962BA468FE00EB64B2 /* SettingViewController.swift in Sources */,
 				71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */,
 				2CA6843E2BA8070E0034C3E7 /* APIConstant.swift in Sources */,
 				7127DA632B832E9800B262DA /* AreaTableView.swift in Sources */,
@@ -1061,6 +1116,7 @@
 				7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
 				718D09372B80D7CE0021AD40 /* PositionViewModel.swift in Sources */,
+				71EB2E9C2BA46F4300EB64B2 /* SettingCell.swift in Sources */,
 				7127DA652B8330C500B262DA /* AreaTableViewCell.swift in Sources */,
 				2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */,
 				718D09262B807EF40021AD40 /* UILabel+.swift in Sources */,

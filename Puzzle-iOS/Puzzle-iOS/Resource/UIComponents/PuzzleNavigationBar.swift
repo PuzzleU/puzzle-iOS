@@ -12,10 +12,14 @@ import Then
 
 @frozen
 enum NavigationBarType {
-    case leftTitle /// 좌측 타이틀만
-    case centerTitle /// 중앙 타이틀만
-    case leftTitleWithLeftButton /// 뒤로가기 버튼 + 좌측 타이틀
-    case centerTitleWithLeftButton /// 뒤로가기 버튼 + 중앙 타이틀
+    /// 좌측 타이틀만
+    case leftTitle
+    /// 중앙 타이틀만
+    case centerTitle
+    /// 뒤로가기 버튼 + 좌측 타이틀
+    case leftTitleWithLeftButton
+    /// 뒤로가기 버튼 + 중앙 타이틀
+    case centerTitleWithLeftButton
 }
 
 final class PuzzleNavigationBar: UIView {
@@ -32,7 +36,7 @@ final class PuzzleNavigationBar: UIView {
     private lazy var centerTitleLabel = createTitleLabel()
     
     let leftButton = UIButton().then {
-        $0.setImage(UIImage(resource: .icArrow), for: .normal)
+        $0.setImage(UIImage(resource: .icLeftArrow), for: .normal)
     }
     
     // MARK: - Life Cycles

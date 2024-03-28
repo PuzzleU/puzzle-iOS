@@ -26,7 +26,9 @@ class InterestViewModel: ViewModelType {
     
     let nextButtonTapped = PassthroughSubject<Void, Never>()
     let backButtonTapped = PassthroughSubject<Void, Never>()
-    private let onboardingServiceType: OnboardingServiceType
+    private let onboardingServiceType: SplashService
+    
+    var cancel = CancelBag()
     
     // MARK: - Inputs
     
@@ -43,21 +45,39 @@ class InterestViewModel: ViewModelType {
     
     // MARK: - init
     
-    init(onboardingServiceType: OnboardingServiceType = OnboardingService()) {
+    init(onboardingServiceType: SplashService = OnboardingService()) {
         self.onboardingServiceType = onboardingServiceType
     }
     
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         input.viewDidLoad
             .flatMap { [unowned self] _ in
-                self.onboardingServiceType.getInterestKeyword()
+                self.onboardingServiceType.getOnboardingData()
             }
-            .sink(receiveCompletion: { completion in
-                print(completion)
-            }, receiveValue: { [weak self] interest in
-                self?.competitions = interest.competition
-                self?.jobs = interest.job
-                self?.studys = interest.study
+            .map { interestData -> (competitions: [String], jobs: [String], studies: [String]) in
+                var competitions = [String]()
+                var jobs = [String]()
+                var studies = [String]()
+                
+                for interest in interestData.response.interestList {
+                    switch interest.interestType {
+                    case "Competition":
+                        competitions.append(contentsOf: interest.interestList.map { $0.interestName })
+                    case "Job":
+                        jobs.append(contentsOf: interest.interestList.map { $0.interestName })
+                    case "Study":
+                        studies.append(contentsOf: interest.interestList.map { $0.interestName })
+                    default:
+                        break
+                    }
+                }
+                
+                return (competitions, jobs, studies)
+            }
+            .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] interest in
+                self?.competitions = interest.competitions
+                self?.jobs = interest.jobs
+                self?.studys = interest.studies
             })
             .store(in: cancelBag)
         

@@ -8,21 +8,19 @@
 import UIKit
 import Combine
 
-struct Interest {
-    let competition: [String]
-    let job: [String]
-    let study: [String]
+struct InterestKeyword {
+    let name: String
+    let id: Int
 }
-
 class InterestViewModel: ViewModelType {
     
     // MARK: - Properties
     
-    @Published var competitions: [String] = []
-    @Published var jobs: [String] = []
-    @Published var studys: [String] = []
+    @Published var competitionKeywords: [InterestKeyword] = []
+    @Published var jobKeywords: [InterestKeyword] = []
+    @Published var studyKeywords: [InterestKeyword] = []
     
-    @Published var selectedKeywords: Set<IndexPath> = []
+    @Published var selectedKeywords: Set<Int> = []
     
     let nextButtonTapped = PassthroughSubject<Void, Never>()
     let backButtonTapped = PassthroughSubject<Void, Never>()
@@ -34,13 +32,13 @@ class InterestViewModel: ViewModelType {
     
     struct Input {
         let viewDidLoad: AnyPublisher<Void, Never>
-        let selectKeyWordIndex: AnyPublisher<IndexPath, Never>
+        let selectKeyWordIndex: AnyPublisher<Int, Never>
     }
     
     // MARK: - Outputs
     
     struct Output {
-        let selectkeywordIndex: AnyPublisher<Set<IndexPath>, Never>
+        let selectkeywordIndex: AnyPublisher<Set<Int>, Never>
     }
     
     // MARK: - init
@@ -51,38 +49,18 @@ class InterestViewModel: ViewModelType {
     
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         input.viewDidLoad
-            .flatMap { [unowned self] _ in
-                self.onboardingServiceType.getOnboardingData()
+            .flatMap { [unowned self] _ in self.onboardingServiceType.getOnboardingData() }
+            .map { [unowned self] responseData in
+                self.competitionKeywords = responseData.response.interestList.first { $0.interestType == "Competition" }?.interestList
+                    .map { InterestKeyword(name: $0.interestName, id: $0.interestId) } ?? []
+                self.jobKeywords = responseData.response.interestList.first { $0.interestType == "Job" }?.interestList.map { InterestKeyword(name: $0.interestName, id: $0.interestId) } ?? []
+                self.studyKeywords = responseData.response.interestList.first { $0.interestType == "Study" }?.interestList.map { InterestKeyword(name: $0.interestName, id: $0.interestId) } ?? []
             }
-            .map { interestData -> (competitions: [String], jobs: [String], studies: [String]) in
-                var competitions = [String]()
-                var jobs = [String]()
-                var studies = [String]()
-                
-                for interest in interestData.response.interestList {
-                    switch interest.interestType {
-                    case "Competition":
-                        competitions.append(contentsOf: interest.interestList.map { $0.interestName })
-                    case "Job":
-                        jobs.append(contentsOf: interest.interestList.map { $0.interestName })
-                    case "Study":
-                        studies.append(contentsOf: interest.interestList.map { $0.interestName })
-                    default:
-                        break
-                    }
-                }
-                
-                return (competitions, jobs, studies)
-            }
-            .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] interest in
-                self?.competitions = interest.competitions
-                self?.jobs = interest.jobs
-                self?.studys = interest.studies
-            })
+            .sink(receiveCompletion: { _ in }, receiveValue: { _ in })
             .store(in: cancelBag)
         
         let selectedIndexPathPublisher = input.selectKeyWordIndex
-            .flatMap { [unowned self] indexPath -> AnyPublisher<Set<IndexPath>, Never> in
+            .flatMap { [unowned self] indexPath -> AnyPublisher<Set<Int>, Never> in
                 if self.selectedKeywords.contains(indexPath) {
                     self.selectedKeywords.remove(indexPath)
                 } else if self.selectedKeywords.count < 6 {

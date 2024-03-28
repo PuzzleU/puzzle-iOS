@@ -21,6 +21,6 @@ struct DefaultSplashRepository: SplashRepository {
     }
 
     func getLoginData() -> AnyPublisher<SplashDTO, Error> {
-        return splashService.getLoginData()
+        return splashService.getOnboardingData()
     }
 }

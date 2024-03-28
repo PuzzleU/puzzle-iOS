@@ -14,7 +14,7 @@ struct SplashDTO: Codable {
 
 struct ResponseList: Codable {
     let positionList: [PositionListDetail]
-    let interestTotal: [InterestListDetail]
+    let interestList: [InterestListDetail]
     let locationList: [LocationListDetail]
     let profileList: [ProfileListDetail]
 }
@@ -22,6 +22,7 @@ struct ResponseList: Codable {
 struct PositionListDetail: Codable {
     let positionId: Int
     let positionName: String
+//    let positionUrl: String?
 }
 
 struct InterestListDetail: Codable {

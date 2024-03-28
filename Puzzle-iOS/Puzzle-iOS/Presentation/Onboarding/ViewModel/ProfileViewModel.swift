@@ -31,26 +31,36 @@ class ProfileViewModel: ViewModelType {
         let selectedImageIndex: AnyPublisher<Int?, Never>
     }
     
-    private let onboardingServiceType: OnboardingServiceType
+    private let onboardingServiceType: SplashService
     
     // MARK: - init
     
-    init(onboardingServiceType: OnboardingServiceType = OnboardingService()) {
+    init(onboardingServiceType: SplashService = OnboardingService()) {
         self.onboardingServiceType = onboardingServiceType
     }
     
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         let animalImagesPublisher = input.viewDidLoad
-            .flatMap { [unowned self] _ in
-                self.onboardingServiceType.getAnimalImage()
-                    .collect()
-                    .catch { _ in Just(self.animalImages) }
+            .flatMap { [unowned self] _ -> AnyPublisher<[UIImage], Never> in
+                self.onboardingServiceType.getOnboardingData()
+                    .map { splashData -> [String] in
+                        splashData.response.profileList.map { $0.profileUrl }
+                    }
+                    .print() // TODO: 배포시 삭제 코드
+                    .flatMap { [unowned self] profileUrls -> AnyPublisher<[UIImage], Never> in
+                        let imagePublishers = profileUrls.map { profileUrl in
+                            self.loadImage(from: URL(string: profileUrl))
+                        }
+                        // 모든 이미지 로딩 작업을 병렬로 수행하고, 결과를 하나의 배열로 모음
+                        return Publishers.MergeMany(imagePublishers)
+                            .collect()
+                            .eraseToAnyPublisher()
+                    }
+                    .replaceError(with: []) // 오류 처리
                     .eraseToAnyPublisher()
             }
-            .share()
             .eraseToAnyPublisher()
         
-        // 이 부분에서 selectImageAtIndex 입력을 받아서 처리
         let selectedImageIndexPublisher = input.selectImageAtIndex
             .map { Optional($0) }
             .eraseToAnyPublisher()
@@ -59,5 +69,16 @@ class ProfileViewModel: ViewModelType {
             animalImages: animalImagesPublisher,
             selectedImageIndex: selectedImageIndexPublisher
         )
+    }
+    
+    private func loadImage(from url: URL?) -> AnyPublisher<UIImage, Never> {
+        guard let url = url else {
+            return Just(UIImage()).eraseToAnyPublisher() // URL이 유효하지 않은 경우 빈 UIImage 반환
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map { data, _ in UIImage(data: data) ?? UIImage() }
+            .replaceError(with: UIImage())
+            .eraseToAnyPublisher()
     }
 }

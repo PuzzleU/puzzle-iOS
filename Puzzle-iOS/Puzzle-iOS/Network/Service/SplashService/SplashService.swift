@@ -9,11 +9,11 @@ import Foundation
 import Combine
 
 protocol SplashService {
-    func getLoginData() -> AnyPublisher<SplashDTO, Error>
+    func getOnboardingData() -> AnyPublisher<SplashDTO, Error>
 }
 
-final class DefaultSplashService: NSObject, Networking, SplashService {
-    func getLoginData() -> AnyPublisher<SplashDTO, Error> {
+final class OnboardingService: NSObject, Networking, SplashService {
+    func getOnboardingData() -> AnyPublisher<SplashDTO, Error> {
         do {
             let request = try makeHTTPRequest(path: URLs.Login.splash,
                                               method: .get,

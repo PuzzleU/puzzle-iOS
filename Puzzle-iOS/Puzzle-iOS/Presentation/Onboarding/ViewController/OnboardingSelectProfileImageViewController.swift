@@ -26,6 +26,8 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     private var viewModel: ProfileViewModel
     private var cancelBag = CancelBag()
     
+    private var animalImages: [UIImage] = []
+    
     private var selectedIndexPath: IndexPath?
         
     // MARK: - UI Components
@@ -134,7 +136,7 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
         output.animalImages
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] images in
-                self?.viewModel.animalImages = images
+                self?.animalImages = images
                 self?.profileImageCollectionView.onboardingCollectionView.reloadData()
             })
             .store(in: cancelBag)
@@ -171,12 +173,12 @@ extension OnboardingSelectProfileImageViewController: UICollectionViewDelegate {
 
 extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.animalImages.count
+        return animalImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell() }
-        cell.bindData(with: viewModel.animalImages[indexPath.row])
+        cell.bindData(image: animalImages[indexPath.row])
         cell.isSelected = indexPath == selectedIndexPath
         return cell
     }

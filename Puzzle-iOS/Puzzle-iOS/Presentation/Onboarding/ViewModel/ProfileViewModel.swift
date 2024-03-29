@@ -12,8 +12,6 @@ class ProfileViewModel: ViewModelType {
     
     // MARK: - Properties
     
-    @Published var animalImages = [UIImage]()
-    
     let nextButtonTapped = PassthroughSubject<Void, Never>()
     let backButtonTapped = PassthroughSubject<Void, Never>()
     
@@ -46,7 +44,6 @@ class ProfileViewModel: ViewModelType {
                     .map { splashData -> [String] in
                         splashData.response.profileList.map { $0.profileUrl }
                     }
-                    .print() // TODO: 배포시 삭제 코드
                     .flatMap { [unowned self] profileUrls -> AnyPublisher<[UIImage], Never> in
                         let imagePublishers = profileUrls.map { profileUrl in
                             self.loadImage(from: URL(string: profileUrl))

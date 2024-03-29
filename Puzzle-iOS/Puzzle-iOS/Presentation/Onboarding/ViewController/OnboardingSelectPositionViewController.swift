@@ -20,6 +20,7 @@ final class OnboardingSelectPositionViewController: UIViewController {
     private var positionCollectionView = OnboardingCollectionView()
     private var viewModel: PositionViewModel
     private var cancelBag = CancelBag()
+    private var positionImages: [UIImage] = []
     
     private let imageSubject = PassthroughSubject<Int, Never>()
     var imagePublisher: AnyPublisher<Int, Never> {
@@ -135,7 +136,7 @@ extension OnboardingSelectPositionViewController {
         output.positionImage
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] images in
-                self?.viewModel.positionImages = images
+                self?.positionImages = images
                 self?.positionCollectionView.onboardingCollectionView.reloadData()
             })
             .store(in: cancelBag)
@@ -174,12 +175,12 @@ extension OnboardingSelectPositionViewController: UICollectionViewDelegate {
 
 extension OnboardingSelectPositionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.positionImages.count
+        return positionImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell()}
-        cell.bindData(with: viewModel.positionImages[indexPath.row])
+        cell.bindData(image: positionImages[indexPath.row])
         return cell
     }
 }

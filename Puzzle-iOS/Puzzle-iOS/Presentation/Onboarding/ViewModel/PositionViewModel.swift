@@ -12,13 +12,12 @@ class PositionViewModel: ViewModelType {
     
     // MARK: - Properties
     
-    @Published var positionImages: [UIImage] = []
     @Published var selectedPositionIndexes: Set<Int> = []
     
     let nextButtonTapped = PassthroughSubject<Void, Never>()
     let backButtonTapped = PassthroughSubject<Void, Never>()
     
-    private let onboardingServiceType: OnboardingServiceType
+    private let onboardingServiceType: SplashService
     
     // MARK: - Inputs
     
@@ -36,20 +35,30 @@ class PositionViewModel: ViewModelType {
     
     // MARK: - init
     
-    init(onboardingServiceType: OnboardingServiceType = OnboardingService()) {
+    init(onboardingServiceType: SplashService = OnboardingService()) {
         self.onboardingServiceType = onboardingServiceType
     }
     
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         
         let positionImagesPublisher = input.viewDidLoad
-            .flatMap { [unowned self] _ in
-                self.onboardingServiceType.getPositionImage()
-                    .collect()
-                    .catch { _ in Just(self.positionImages) }
+            .flatMap { [unowned self] _ -> AnyPublisher<[UIImage], Never> in
+                self.onboardingServiceType.getOnboardingData()
+                    .map { splashData -> [String] in
+                        splashData.response.positionList.map { $0.positionUrl }
+                    }
+                    .flatMap { [unowned self] postionUrls -> AnyPublisher<[UIImage], Never> in
+                        let imagePublishers = postionUrls.map { postionUrl in
+                            self.loadImage(from: URL(string: postionUrl))
+                        }
+                        // 모든 이미지 로딩 작업을 병렬로 수행하고, 결과를 하나의 배열로 모음
+                        return Publishers.MergeMany(imagePublishers)
+                            .collect()
+                            .eraseToAnyPublisher()
+                    }
+                    .replaceError(with: []) // 오류 처리
                     .eraseToAnyPublisher()
             }
-            .share()
             .eraseToAnyPublisher()
         
         let selectedIndicesPublisher = input.selectImageAtIndex
@@ -66,5 +75,16 @@ class PositionViewModel: ViewModelType {
         return Output(positionImage: positionImagesPublisher,
                       selectedIndices: selectedIndicesPublisher)
         
+    }
+    
+    private func loadImage(from url: URL?) -> AnyPublisher<UIImage, Never> {
+        guard let url = url else {
+            return Just(UIImage()).eraseToAnyPublisher() // URL이 유효하지 않은 경우 빈 UIImage 반환
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map { data, _ in UIImage(data: data) ?? UIImage() }
+            .replaceError(with: UIImage())
+            .eraseToAnyPublisher()
     }
 }

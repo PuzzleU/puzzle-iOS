@@ -76,7 +76,6 @@
 		7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA602B82601000B262DA /* Publisher+UIGesture.swift */; };
 		7127DA632B832E9800B262DA /* AreaTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA622B832E9800B262DA /* AreaTableView.swift */; };
 		7127DA652B8330C500B262DA /* AreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA642B8330C500B262DA /* AreaTableViewCell.swift */; };
-		7127DA682B83941100B262DA /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA672B83941100B262DA /* OnboardingService.swift */; };
 		71355AEA2B80E371007E1822 /* OnboardingSelectInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AE92B80E371007E1822 /* OnboardingSelectInterestViewController.swift */; };
 		71355AEC2B80ECC1007E1822 /* InterestSelectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */; };
 		71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */; };
@@ -121,6 +120,8 @@
 		71EB2E962BA468FE00EB64B2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */; };
 		71EB2E9A2BA4694900EB64B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E992BA4694900EB64B2 /* SettingView.swift */; };
 		71EB2E9C2BA46F4300EB64B2 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */; };
+		71F4F6BE2BB53DCE006C799B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F4F6BD2BB53DCE006C799B /* SplashViewController.swift */; };
+		71F4F6C02BB53F28006C799B /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F4F6BF2BB53F28006C799B /* ViewControllerUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,7 +207,6 @@
 		7127DA602B82601000B262DA /* Publisher+UIGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+UIGesture.swift"; sourceTree = "<group>"; };
 		7127DA622B832E9800B262DA /* AreaTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaTableView.swift; sourceTree = "<group>"; };
 		7127DA642B8330C500B262DA /* AreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaTableViewCell.swift; sourceTree = "<group>"; };
-		7127DA672B83941100B262DA /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		71355AE92B80E371007E1822 /* OnboardingSelectInterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectInterestViewController.swift; sourceTree = "<group>"; };
 		71355AEB2B80ECC1007E1822 /* InterestSelectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewCell.swift; sourceTree = "<group>"; };
 		71773C5E2B64BEFB0041605E /* PuzzleTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTabBarController.swift; sourceTree = "<group>"; };
@@ -254,6 +254,8 @@
 		71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		71EB2E992BA4694900EB64B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		71F4F6BD2BB53DCE006C799B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		71F4F6BF2BB53F28006C799B /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,14 +572,6 @@
 			path = "Combine+UIKit";
 			sourceTree = "<group>";
 		};
-		7127DA662B8393FB00B262DA /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				7127DA672B83941100B262DA /* OnboardingService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		71773C5D2B64BD040041605E /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -607,6 +601,7 @@
 				71814AAE2B77776B00B23378 /* PuzzleToastView.swift */,
 				7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */,
 				710309A72B9634A60077EE17 /* addShadow.swift */,
+				71F4F6BF2BB53F28006C799B /* ViewControllerUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -703,6 +698,7 @@
 		718150462B62953F005E4451 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				71F4F6BC2BB53DAF006C799B /* Splash */,
 				710309902B93139B0077EE17 /* Home */,
 				71A5BB0B2B9B2AE300655835 /* My */,
 				718D09102B7A94060021AD40 /* Onboarding */,
@@ -718,7 +714,6 @@
 		718D09102B7A94060021AD40 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				7127DA662B8393FB00B262DA /* Service */,
 				718D091A2B7A9AF90021AD40 /* ViewModel */,
 				718D09142B7A94660021AD40 /* ViewController */,
 				718D09132B7A94580021AD40 /* View */,
@@ -853,6 +848,14 @@
 				71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		71F4F6BC2BB53DAF006C799B /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				71F4F6BD2BB53DCE006C799B /* SplashViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1034,6 +1037,7 @@
 				7103099F2B9315CA0077EE17 /* MainView.swift in Sources */,
 				7122CCFD2BA815CF00CA56AC /* SettingHeaderView.swift in Sources */,
 				718D09192B7A94930021AD40 /* OnboardingBaseView.swift in Sources */,
+				71F4F6C02BB53F28006C799B /* ViewControllerUtils.swift in Sources */,
 				2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
 				7103098D2B91D5860077EE17 /* UIButton+Combine.swift in Sources */,
@@ -1051,6 +1055,7 @@
 				71A5BB102B9B2CE300655835 /* MyProfileViewController.swift in Sources */,
 				2CA684402BA807290034C3E7 /* HTTPMethod.swift in Sources */,
 				710309A12B931F1C0077EE17 /* LabelFactory.swift in Sources */,
+				71F4F6BE2BB53DCE006C799B /* SplashViewController.swift in Sources */,
 				2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */,
 				2CA6843B2BA806E10034C3E7 /* SpalshDTO.swift in Sources */,
 				710309972B9315790077EE17 /* LogoView.swift in Sources */,
@@ -1069,7 +1074,6 @@
 				2CA6844B2BA807FD0034C3E7 /* SplashRepository.swift in Sources */,
 				7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */,
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
-				7127DA682B83941100B262DA /* OnboardingService.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,
 				2CA6844E2BA808420034C3E7 /* URLs.swift in Sources */,
 				718D091E2B7E23C20021AD40 /* UITextField+.swift in Sources */,

@@ -96,7 +96,7 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Custom Methods
     
-    func bindData(with image: UIImage) {
+    func bindData(image: UIImage) {
         imageView.image = image
     }
     

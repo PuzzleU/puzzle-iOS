@@ -45,6 +45,8 @@ class InterestViewModel: ViewModelType {
         self.onboardingServiceType = onboardingServiceType
     }
     
+    // MARK: - Methods
+    
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         let competitionKeywordsPublisher = input.viewDidLoad
             .flatMap { [unowned self] _ in

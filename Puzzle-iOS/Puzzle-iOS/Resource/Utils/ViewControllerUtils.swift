@@ -8,12 +8,12 @@
 import UIKit
 
 /**
-
-  - Description:
  
-          RootViewController를 만들어주는 유틸입니다. SnapShot을 찍어서 전환합니다.
-          
-*/
+ - Description:
+ 
+ RootViewController를 만들어주는 유틸입니다. SnapShot을 찍어서 전환합니다.
+ 
+ */
 struct ViewControllerUtils {
     static func setRootViewController(window: UIWindow, viewController: UIViewController, withAnimation: Bool) {
         if !withAnimation {
@@ -21,7 +21,7 @@ struct ViewControllerUtils {
             window.makeKeyAndVisible()
             return
         }
-
+        
         if let snapshot = window.snapshotView(afterScreenUpdates: true) {
             viewController.view.addSubview(snapshot)
             window.rootViewController = viewController
@@ -35,4 +35,3 @@ struct ViewControllerUtils {
         }
     }
 }
-

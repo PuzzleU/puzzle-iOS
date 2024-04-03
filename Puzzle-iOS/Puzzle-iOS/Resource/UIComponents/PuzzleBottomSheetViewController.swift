@@ -26,7 +26,7 @@ enum PuzzleBottomSheetType {
 }
 
 final class PuzzleBottomSheetViewController: UIViewController {
-
+    
     // MARK: - Properties
     
     @Published private var bottomSheetShown = true
@@ -64,7 +64,7 @@ final class PuzzleBottomSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = UIColor.clear
         
         setHierarchy()
@@ -80,7 +80,7 @@ final class PuzzleBottomSheetViewController: UIViewController {
     }
     
     // MARK: - UI & Layout
-
+    
     private func setHierarchy() {
         self.view.addSubviews(dimmedView,
                               bottomSheetView)
@@ -100,13 +100,24 @@ final class PuzzleBottomSheetViewController: UIViewController {
         }
         
         insertView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(completeButton.snp.top).offset(10)
         }
         
         cancelButton.snp.makeConstraints {
             $0.top.trailing.equalToSuperview().inset(16)
             $0.size.equalTo(25)
         }
+    }
+    
+    func updateInsertView() {
+        insertView.snp.updateConstraints {
+            $0.top.equalToSuperview().inset(58)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(completeButton.snp.top).inset(79)
+        }
+        
+        view.backgroundColor = .puzzleGray100
     }
     
     // MARK: - Publish methods
@@ -137,7 +148,7 @@ extension PuzzleBottomSheetViewController {
                 self.dimmedView.alpha = 0.5
                 self.view.layoutIfNeeded()
             }
-        } 
+        }
         
         /// bottomSheet 제거
         else {
@@ -148,8 +159,8 @@ extension PuzzleBottomSheetViewController {
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
                 self.dimmedView.backgroundColor = .clear
                 self.view.layoutIfNeeded()
-            }, completion: { _ in 
-                    self.dismiss(animated: true)
+            }, completion: { _ in
+                self.dismiss(animated: true)
             })
         }
     }
@@ -165,6 +176,7 @@ extension PuzzleBottomSheetViewController {
         self.dimmedView.addGestureRecognizer(tapGesture)
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dismissBottomSheetByPanGesture))
+        panGesture.delegate = self // delegate를 self로 설정합니다.
         bottomSheetView.addGestureRecognizer(panGesture)
     }
     
@@ -176,32 +188,40 @@ extension PuzzleBottomSheetViewController {
     @objc
     private func dismissBottomSheetByPanGesture(_ sender: UIPanGestureRecognizer) {
         let viewTranslation = sender.translation(in: view)
-        let viewVelocity = sender.translation(in: view)
+        let viewVelocity = sender.velocity(in: view)
         
         switch sender.state {
         case .changed:
-            if abs(viewVelocity.y) > abs(viewVelocity.x) {
-                if viewVelocity.y > 0 && viewVelocity.y < 250 {
-                    self.dimmedView.backgroundColor = .clear
-                    UIView.animate(withDuration: 0.1, animations: {
-                        self.view.transform = CGAffineTransform(translationX: 0, y: viewTranslation.y)
-                    })
-                } else {
-                    bottomSheetShown = false
+            if abs(viewVelocity.y) > abs(viewVelocity.x) && viewTranslation.y > 0 {
+                if viewVelocity.y > 0 && viewTranslation.y < 250 {
+                    // dimmedView는 그대로 두고 bottomSheetView만 이동
+                    bottomSheetView.transform = CGAffineTransform(translationX: 0, y: viewTranslation.y)
                 }
             }
             
-        case .ended:
+        case .ended, .cancelled:
             if viewTranslation.y < 250 {
-                UIView.animate(withDuration: 0.1, animations: {
-                    self.view.transform = .identity
+                // 제스처 종료 시 bottomSheetView를 원래 위치로 돌림
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.bottomSheetView.transform = .identity
+                    
+                    self.dimmedView.alpha = 0.5
                 })
             } else {
+                // 드래그 거리가 충분히 크면 bottom sheet를 숨김
                 bottomSheetShown = false
             }
             
         default:
             break
         }
+    }
+    
+}
+
+extension PuzzleBottomSheetViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // true 면 여러 제스처를 동시에 인식
+        return true
     }
 }

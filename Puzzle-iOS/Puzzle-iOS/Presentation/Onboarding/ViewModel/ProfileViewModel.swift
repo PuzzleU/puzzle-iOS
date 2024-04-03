@@ -37,6 +37,8 @@ class ProfileViewModel: ViewModelType {
         self.onboardingServiceType = onboardingServiceType
     }
     
+    // MARK: - Methods
+    
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         let animalImagesPublisher = input.viewDidLoad
             .flatMap { [unowned self] _ -> AnyPublisher<[UIImage], Never> in

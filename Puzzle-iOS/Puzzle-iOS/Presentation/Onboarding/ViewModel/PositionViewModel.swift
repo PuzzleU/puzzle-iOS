@@ -39,6 +39,8 @@ class PositionViewModel: ViewModelType {
         self.onboardingServiceType = onboardingServiceType
     }
     
+    // MARK: - Methods
+    
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         
         let positionImagesPublisher = input.viewDidLoad

@@ -6,15 +6,24 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
 
 final class AreaTableView: UIView {
     
+    // MARK: - UI Components
+    
     private let areaTableView = UITableView().then {
         $0.backgroundColor = .puzzleWhite
     }
+    
+    private var areaDatas: [String] = []
+    
+    var cancelBag = CancelBag()
+    
+    // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +31,8 @@ final class AreaTableView: UIView {
         setUI()
         setHierarchy()
         setLayout()
+        setDelegate()
+        setRegister()
     }
     
     required init?(coder: NSCoder) {
@@ -43,4 +54,44 @@ final class AreaTableView: UIView {
             $0.edges.equalToSuperview()
         }
     }
+    
+    private func setDelegate() {
+        areaTableView.delegate = self
+        areaTableView.dataSource = self
+    }
+    
+    private func setRegister() {
+        areaTableView.register(AreaTableViewCell.self, forCellReuseIdentifier: AreaTableViewCell.className)
+    }
+    
+    // MARK: - Methods
+    
+    func bind(areaData: [String]) {
+        self.areaDatas = areaData
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension AreaTableView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO 서버로 보내기
+        print(indexPath)
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension AreaTableView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.areaDatas.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AreaTableViewCell.className, for: indexPath) as? AreaTableViewCell else { return UITableViewCell() }
+        
+        cell.bindData(text: self.areaDatas[indexPath.row])
+        return cell
+    }
+    
 }

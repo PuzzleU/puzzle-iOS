@@ -23,7 +23,17 @@ final class OnboardingSelectAreaViewController: UIViewController {
     
     let showBottomSheetSubject = PassthroughSubject<Void, Never>()
     
+    private var areaLists: [Area] = []
+    
+    private let locationTapSubject: PassthroughSubject<Int, Never> = .init()
+    var locationTapPublisher: AnyPublisher<Int, Never> {
+        return locationTapSubject.eraseToAnyPublisher()
+    }
+    
+    private lazy var puzzleBottomSheet = PuzzleBottomSheetViewController(bottomType: .high, insertView: areaTableView)
+    
     // MARK: - UI Components
+    
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("활동 가능 지역을 선택해주세요")
     
     private let activityAreaSelectView = UIView().then {
@@ -80,9 +90,7 @@ final class OnboardingSelectAreaViewController: UIViewController {
         super.viewDidLoad()
         
         setHierarchy()
-        setDelegate()
         setLayout()
-        register()
         setNaviBindings()
         setBindings()
         observe()
@@ -128,15 +136,6 @@ final class OnboardingSelectAreaViewController: UIViewController {
             $0.leading.equalTo(self.view.safeAreaLayoutGuide).offset(27)
         }
     }
-    
-    private func register() {
-        // 지역 선택 이후에 이벤트를 받고 현재 뷰 에 담을 컬렉션뷰 등록
-    }
-    
-    private func setDelegate() {
-        // 지역 선택 이후에 이벤트를 받고 현재 뷰 에 담을 컬렉션뷰 delegate 등록
-    }
-    
 }
 
 // MARK: - Methods
@@ -148,19 +147,49 @@ extension OnboardingSelectAreaViewController {
         }, .leftTitleWithLeftButton)
     }
     
-    /// 활동하는 지역 View 탭 제스처 퍼블리셔
     private func setBindings() {
+        
+        let input = AreaViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher,
+            LocationTapPublisher: self.locationTapPublisher
+        )
+        
+        let output = viewModel.transform(from: input, cancelBag: cancelBag)
+        
+        output.locationListPublisher.sink(receiveCompletion: { completion in
+            print("completion = \(completion)")
+        }, receiveValue: { [weak self] value in
+            self?.areaLists = value
+            self?.areaTableView.bind(areaData: value.map {$0.name})
+            print("🍎 정제한 데이터? value= \(value.map { $0.name })")
+        }).store(in: cancelBag)
+        
+        // 활동하는 지역 View 탭 제스처 퍼블리셔
         activityAreaSelectView.gesture(.tap())
             .sink { [weak self] _ in
-                // 메인 VC로 이벤트 전달
                 self?.showBottomSheetSubject.send()
+                self?.presentBottomSheet()
             }
             .store(in: cancelBag)
+        
     }
     
     private func observe() {
         rootView.nextButtonTapped.sink { [weak self] _ in
             self?.viewModel.nextButtonTapped.send()
         }.store(in: cancelBag)
+    }
+    
+    private func presentBottomSheet() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self, self.isViewLoaded && self.view.window != nil else {
+                return
+            }
+            
+            let bottomSheetVC = self.puzzleBottomSheet
+            bottomSheetVC.modalPresentationStyle = .overFullScreen
+            self.present(bottomSheetVC, animated: false, completion: nil)
+            bottomSheetVC.updateInsertView()
+        }
     }
 }

@@ -106,7 +106,7 @@ final class OnboardingViewController: UIViewController {
         setDelegate()
         setLayout()
         setBindings()
-        bind()
+        setNetworkBinds()
         
     }
     
@@ -276,7 +276,6 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
     }
 }
 
-
 // MARK: - UIPageViewControllerDelegate
 
 extension OnboardingViewController: UIPageViewControllerDelegate {
@@ -288,31 +287,10 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
     
 }
 
+// MARK: - Network
+
 extension OnboardingViewController {
-    private func bind() {
-        
-        let userInfoReady = Publishers.CombineLatest4(
-            viewModel.userNameSubject, viewModel.userIdSubject, viewModel.userProfileSubject,
-            Publishers.CombineLatest3(
-                viewModel.userPositionSubject, viewModel.userInterestSubject, viewModel.userLocationSubject
-            )
-        )
-            .map { userName, userId, userProfile, positionInterestLocation in
-                !userName.isEmpty && !userId.isEmpty && userProfile != 0 &&
-                !positionInterestLocation.0.isEmpty && !positionInterestLocation.1.isEmpty &&
-                !positionInterestLocation.2.isEmpty
-            }
-            .removeDuplicates() // 중복되는 신호 제거
-            .receive(on: RunLoop.main)
-        
-        userInfoReady
-            .filter { $0 }
-            .sink { [weak self] _ in
-                self?.userInfoSubject.send()
-                print("User info ready to send.")
-            }
-            .store(in: cancelBag)
-        
+    private func setNetworkBinds() {        
         userInfoSubject
             .sink { [weak self] _ in
                 self?.sendUserInfoDataToServer()

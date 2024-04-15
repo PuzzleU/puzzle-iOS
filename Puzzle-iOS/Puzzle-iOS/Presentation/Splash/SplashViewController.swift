@@ -24,8 +24,6 @@ final class SplashViewController: UIViewController {
         super.viewDidLoad()
         
         setUI()
-        setHierarchy()
-        setLayout()
         checkDidSignIn()
     }
     
@@ -33,14 +31,6 @@ final class SplashViewController: UIViewController {
     
     private func setUI() {
         view.backgroundColor = .puzzleGreen
-    }
-    
-    private func setHierarchy() {
-        
-    }
-    
-    private func setLayout() {
-        
     }
     
     // MARK: - Methods
@@ -54,15 +44,14 @@ final class SplashViewController: UIViewController {
     
     // 온보딩 해야되는 경우
     private func pushToOnboardingViewController() {
-        let onboardingController = OnboardingViewController()
+        let onboardingController = OnboardingViewController(viewModel: OnboardingViewModel())
         guard let window = self.view.window else { return }
         ViewControllerUtils.setRootViewController(window: window, viewController: onboardingController, withAnimation: true)
     }
-    
 }
 
 extension SplashViewController {
-    // TODO: 여기서 회원 가입했는지 안했는지 로직 구현
+    // TODO: 여기서 회원 가입했는지 안했는지 로직 구현 해야 합니다.
     private func checkDidSignIn() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.pushToOnboardingViewController()

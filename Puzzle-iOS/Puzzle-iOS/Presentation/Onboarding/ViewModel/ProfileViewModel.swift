@@ -8,6 +8,11 @@
 import UIKit
 import Combine
 
+struct ProfileImage {
+    let id: Int
+    let profileImage: UIImage
+}
+
 class ProfileViewModel: ViewModelType {
     
     // MARK: - Properties
@@ -25,7 +30,7 @@ class ProfileViewModel: ViewModelType {
     // MARK: - Outputs
     
     struct Output {
-        let animalImages: AnyPublisher<[UIImage], Never>
+        let animalImages: AnyPublisher<[ProfileImage], Never>
         let selectedImageIndex: AnyPublisher<Int?, Never>
     }
     
@@ -41,16 +46,18 @@ class ProfileViewModel: ViewModelType {
     
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         let animalImagesPublisher = input.viewDidLoad
-            .flatMap { [unowned self] _ -> AnyPublisher<[UIImage], Never> in
+            .flatMap { [unowned self] _ -> AnyPublisher<[ProfileImage], Never> in
                 self.onboardingServiceType.getOnboardingData()
-                    .map { splashData -> [String] in
-                        splashData.response.profileList.map { $0.profileUrl }
-                    }
-                    .flatMap { [unowned self] profileUrls -> AnyPublisher<[UIImage], Never> in
-                        let imagePublishers = profileUrls.map { profileUrl in
-                            self.loadImage(from: URL(string: profileUrl))
+                    .flatMap { splashData -> AnyPublisher<[ProfileImage], Never> in
+                        let profileURLs = splashData.response.profileList
+                        let imagePublishers = profileURLs.map { profile -> AnyPublisher<ProfileImage, Never> in
+                            guard let url = URL(string: profile.profileUrl) else {
+                                return Just(ProfileImage(id: profile.profileId, profileImage: UIImage())).eraseToAnyPublisher()
+                            }
+                            return self.loadImage(from: url)
+                                .map { ProfileImage(id: profile.profileId, profileImage: $0) }
+                                .eraseToAnyPublisher()
                         }
-                        // 모든 이미지 로딩 작업을 병렬로 수행하고, 결과를 하나의 배열로 모음
                         return Publishers.MergeMany(imagePublishers)
                             .collect()
                             .eraseToAnyPublisher()
@@ -70,14 +77,12 @@ class ProfileViewModel: ViewModelType {
         )
     }
     
-    private func loadImage(from url: URL?) -> AnyPublisher<UIImage, Never> {
-        guard let url = url else {
-            return Just(UIImage()).eraseToAnyPublisher() // URL이 유효하지 않은 경우 빈 UIImage 반환
-        }
-        
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map { data, _ in UIImage(data: data) ?? UIImage() }
-            .replaceError(with: UIImage())
+    private func loadImage(from url: URL) -> AnyPublisher<UIImage, Never> {
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map { data, _ -> UIImage in
+                UIImage(data: data) ?? UIImage()
+            }
+            .replaceError(with: UIImage()) // 오류가 발생하면 빈 이미지 반환
             .eraseToAnyPublisher()
     }
 }

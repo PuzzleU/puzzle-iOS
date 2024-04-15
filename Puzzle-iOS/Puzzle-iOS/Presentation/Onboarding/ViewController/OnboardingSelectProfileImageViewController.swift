@@ -26,10 +26,10 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
     private var viewModel: ProfileViewModel
     private var cancelBag = CancelBag()
     
-    private var animalImages: [UIImage] = []
+    private var profileImages: [ProfileImage] = []
     
     private var selectedIndexPath: IndexPath?
-        
+    
     // MARK: - UI Components
     
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("퍼즐에서 사용할 프로필을 선택해주세요")
@@ -135,8 +135,8 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
         
         output.animalImages
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { [weak self] images in
-                self?.animalImages = images
+            .sink(receiveValue: { [weak self] profileImages in
+                self?.profileImages = profileImages
                 self?.profileImageCollectionView.onboardingCollectionView.reloadData()
             })
             .store(in: cancelBag)
@@ -162,10 +162,10 @@ final class OnboardingSelectProfileImageViewController: UIViewController {
 // MARK: - UICollectionViewDelegate
 
 extension OnboardingSelectProfileImageViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        imageSubject.send(indexPath.row)
-        print("OnboardingSelectProfileImageVC 의 \(indexPath.row) 터치 ")
+        let selectedId = profileImages[indexPath.row].id
+        imageSubject.send(selectedId)
+        print("OnboardingSelectProfileImageVC 의 ID \(selectedId) 터치")
     }
 }
 
@@ -173,14 +173,15 @@ extension OnboardingSelectProfileImageViewController: UICollectionViewDelegate {
 
 extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return animalImages.count
+        return profileImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell() }
-        cell.bindData(image: animalImages[indexPath.row])
+        let profileImage = profileImages[indexPath.row].profileImage
+        cell.bindData(image: profileImage)
         cell.isSelected = indexPath == selectedIndexPath
+        print("⭐️\(cell.isSelected)")
         return cell
     }
-    
 }

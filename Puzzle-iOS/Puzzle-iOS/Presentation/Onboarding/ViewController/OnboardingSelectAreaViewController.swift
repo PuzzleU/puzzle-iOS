@@ -21,13 +21,15 @@ final class OnboardingSelectAreaViewController: UIViewController {
     private var viewModel: AreaViewModel
     private var cancelBag = CancelBag()
     
-    let showBottomSheetSubject = PassthroughSubject<Void, Never>()
-    
     private var areaLists: [Area] = []
     
-    private let locationTapSubject: PassthroughSubject<Int, Never> = .init()
     var locationTapPublisher: AnyPublisher<Int, Never> {
-        return locationTapSubject.eraseToAnyPublisher()
+        return areaTableView.locationIndexPublisher.eraseToAnyPublisher()
+    }
+    
+    private let areaSetSubject: PassthroughSubject<Set<Int>, Never> = .init()
+    var areaSetPublisher: AnyPublisher<Set<Int>, Never> {
+        return areaSetSubject.eraseToAnyPublisher()
     }
     
     private lazy var puzzleBottomSheet = PuzzleBottomSheetViewController(bottomType: .high, insertView: areaTableView)
@@ -164,10 +166,17 @@ extension OnboardingSelectAreaViewController {
             print("🍎 정제한 데이터? value= \(value.map { $0.name })")
         }).store(in: cancelBag)
         
+        output.tapLocationIndex
+            .receive(on: RunLoop.main)
+            .sink { [weak self] area in
+                self?.areaTableView.areaTableView.reloadData()
+                self?.areaSetSubject.send(area)
+                self?.rootView.isEnabledNextButton(isEnabled: !area.isEmpty)
+            }.store(in: cancelBag)
+        
         // 활동하는 지역 View 탭 제스처 퍼블리셔
         activityAreaSelectView.gesture(.tap())
             .sink { [weak self] _ in
-                self?.showBottomSheetSubject.send()
                 self?.presentBottomSheet()
             }
             .store(in: cancelBag)

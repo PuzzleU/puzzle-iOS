@@ -16,6 +16,8 @@ class AreaViewModel: ViewModelType {
     
     // MARK: - Properties
     
+    @Published var selectedAreaIndexes: Set<Int> = []
+    
     let nextButtonTapped = PassthroughSubject<Void, Never>()
     let backButtonTapped = PassthroughSubject<Void, Never>()
     
@@ -32,7 +34,7 @@ class AreaViewModel: ViewModelType {
     
     struct Output {
         let locationListPublisher: AnyPublisher<[Area], Never>
-        let tapLocationIndex: AnyPublisher<Int, Never>
+        let tapLocationIndex: AnyPublisher<Set<Int>, Never>
     }
     
     private var cancelBag = CancelBag()
@@ -60,6 +62,14 @@ class AreaViewModel: ViewModelType {
             .eraseToAnyPublisher()
         
         let tapLocationPublisher = input.LocationTapPublisher
+            .flatMap { [unowned self] indexPath -> AnyPublisher<Set<Int>, Never> in
+                if self.selectedAreaIndexes.contains(indexPath) {
+                    self.selectedAreaIndexes.remove(indexPath)
+                } else if self.selectedAreaIndexes.count < 3 {
+                    self.selectedAreaIndexes.insert(indexPath)
+                }
+                return Just(self.selectedAreaIndexes).eraseToAnyPublisher()
+            }
             .eraseToAnyPublisher()
         
         return Output(locationListPublisher: locationListPublisher, tapLocationIndex: tapLocationPublisher)

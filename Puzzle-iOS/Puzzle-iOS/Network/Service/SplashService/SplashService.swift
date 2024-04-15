@@ -10,7 +10,7 @@ import Combine
 
 protocol SplashService {
     func getOnboardingData() -> AnyPublisher<SplashDTO, Error>
-    func requestOnboardingUserInfo(data: UserInfoDTO) ->  AnyPublisher<Void, Error>
+    func requestOnboardingUserInfo(data: UserInfoDTO) -> AnyPublisher<Void, Error>
 }
 
 final class OnboardingService: NSObject, Networking, SplashService {

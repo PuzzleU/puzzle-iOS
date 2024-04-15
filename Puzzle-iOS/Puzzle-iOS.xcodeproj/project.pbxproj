@@ -117,6 +117,7 @@
 		718D093B2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D093A2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift */; };
 		71A5BB102B9B2CE300655835 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5BB0F2B9B2CE300655835 /* MyProfileViewController.swift */; };
 		71A5BB122B9B312900655835 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5BB112B9B312900655835 /* MyProfileView.swift */; };
+		71A659622BC4ED5500583D62 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A659612BC4ED5500583D62 /* OnboardingViewModel.swift */; };
 		71EB2E962BA468FE00EB64B2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */; };
 		71EB2E9A2BA4694900EB64B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E992BA4694900EB64B2 /* SettingView.swift */; };
 		71EB2E9C2BA46F4300EB64B2 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */; };
@@ -251,6 +252,7 @@
 		718D093A2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectPositionViewController.swift; sourceTree = "<group>"; };
 		71A5BB0F2B9B2CE300655835 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		71A5BB112B9B312900655835 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
+		71A659612BC4ED5500583D62 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		71EB2E992BA4694900EB64B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -752,6 +754,7 @@
 		718D091A2B7A9AF90021AD40 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				71A659612BC4ED5500583D62 /* OnboardingViewModel.swift */,
 				718D091B2B7A9B090021AD40 /* InputNameViewModel.swift */,
 				710309802B8E47AE0077EE17 /* InputIdViewModel.swift */,
 				718D09302B8093170021AD40 /* ProfileViewModel.swift */,
@@ -1117,6 +1120,7 @@
 				7103099B2B9315B40077EE17 /* KeywordView.swift in Sources */,
 				7103098F2B91E4430077EE17 /* UITextField+Combine.swift in Sources */,
 				718D091C2B7A9B090021AD40 /* InputNameViewModel.swift in Sources */,
+				71A659622BC4ED5500583D62 /* OnboardingViewModel.swift in Sources */,
 				7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
 				718D09372B80D7CE0021AD40 /* PositionViewModel.swift in Sources */,

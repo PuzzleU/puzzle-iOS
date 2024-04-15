@@ -116,8 +116,6 @@ final class PuzzleBottomSheetViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(completeButton.snp.top).inset(79)
         }
-        
-        view.backgroundColor = .puzzleGray100
     }
     
     // MARK: - Publish methods

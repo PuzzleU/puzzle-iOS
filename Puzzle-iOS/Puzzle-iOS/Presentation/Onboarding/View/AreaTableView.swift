@@ -15,11 +15,16 @@ final class AreaTableView: UIView {
     
     // MARK: - UI Components
     
-    private let areaTableView = UITableView().then {
+    let areaTableView = UITableView().then {
         $0.backgroundColor = .puzzleWhite
     }
     
     private var areaDatas: [String] = []
+    
+    private let locationIndexSubject: PassthroughSubject<Int, Never> = .init()
+    var locationIndexPublisher: AnyPublisher<Int, Never> {
+        return locationIndexSubject.eraseToAnyPublisher()
+    }
     
     var cancelBag = CancelBag()
     
@@ -75,8 +80,7 @@ final class AreaTableView: UIView {
 
 extension AreaTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO 서버로 보내기
-        print(indexPath)
+        locationIndexSubject.send(indexPath.row)
     }
 }
 

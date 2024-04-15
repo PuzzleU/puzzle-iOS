@@ -8,6 +8,11 @@
 import UIKit
 import Combine
 
+struct PositionKeyword {
+    let id: Int
+    let positionImage: UIImage
+}
+
 class PositionViewModel: ViewModelType {
     
     // MARK: - Properties
@@ -29,7 +34,7 @@ class PositionViewModel: ViewModelType {
     // MARK: - Outputs
     
     struct Output {
-        let positionImage: AnyPublisher<[UIImage], Never>
+        let positionImage: AnyPublisher<[PositionKeyword], Never>
         let selectedIndices: AnyPublisher<Set<Int>, Never>
     }
     
@@ -44,16 +49,18 @@ class PositionViewModel: ViewModelType {
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         
         let positionImagesPublisher = input.viewDidLoad
-            .flatMap { [unowned self] _ -> AnyPublisher<[UIImage], Never> in
+            .flatMap { [unowned self] _ -> AnyPublisher<[PositionKeyword], Never> in
                 self.onboardingServiceType.getOnboardingData()
-                    .map { splashData -> [String] in
-                        splashData.response.positionList.map { $0.positionUrl }
-                    }
-                    .flatMap { [unowned self] postionUrls -> AnyPublisher<[UIImage], Never> in
-                        let imagePublishers = postionUrls.map { postionUrl in
-                            self.loadImage(from: URL(string: postionUrl))
+                    .flatMap { splashData -> AnyPublisher<[PositionKeyword], Never> in
+                        let profileURLs = splashData.response.positionList
+                        let imagePublishers = profileURLs.map { position -> AnyPublisher<PositionKeyword, Never> in
+                            guard let url = URL(string: position.positionUrl) else {
+                                return Just(PositionKeyword(id: position.positionId, positionImage: UIImage())).eraseToAnyPublisher()
+                            }
+                            return self.loadImage(from: url)
+                                .map { PositionKeyword(id: position.positionId, positionImage: $0) }
+                                .eraseToAnyPublisher()
                         }
-                        // 모든 이미지 로딩 작업을 병렬로 수행하고, 결과를 하나의 배열로 모음
                         return Publishers.MergeMany(imagePublishers)
                             .collect()
                             .eraseToAnyPublisher()

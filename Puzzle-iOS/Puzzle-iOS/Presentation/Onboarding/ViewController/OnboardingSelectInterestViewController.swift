@@ -48,6 +48,11 @@ final class OnboardingSelectInterestViewController: UIViewController {
         return keywordSubject.eraseToAnyPublisher()
     }
     
+    private let keywordSetSubject: PassthroughSubject<Set<Int>, Never> = .init()
+    var keywordSetPublisher: AnyPublisher<Set<Int>, Never> {
+        return keywordSetSubject.eraseToAnyPublisher()
+    }
+    
     private var selectedIndexPaths: [IndexPath] = []
     
     // MARK: - UI Components
@@ -192,6 +197,7 @@ extension OnboardingSelectInterestViewController {
             .receive(on: RunLoop.main)
             .sink { [weak self] selectedKeywords in
                 self?.interestCollectionView.mapCollectionView.reloadData()
+                self?.keywordSetSubject.send(selectedKeywords)
                 self?.rootView.isEnabledNextButton(isEnabled: !selectedKeywords.isEmpty)
             }
             .store(in: cancelBag)

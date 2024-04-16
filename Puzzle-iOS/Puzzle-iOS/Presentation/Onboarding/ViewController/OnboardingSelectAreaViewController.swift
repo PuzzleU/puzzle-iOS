@@ -176,6 +176,7 @@ extension OnboardingSelectAreaViewController {
         
         // 활동하는 지역 View 탭 제스처 퍼블리셔
         activityAreaSelectView.gesture(.tap())
+            .receive(on: RunLoop.main)
             .sink { [weak self] _ in
                 self?.presentBottomSheet()
             }
@@ -190,15 +191,13 @@ extension OnboardingSelectAreaViewController {
     }
     
     private func presentBottomSheet() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self, self.isViewLoaded && self.view.window != nil else {
-                return
-            }
-            
-            let bottomSheetVC = self.puzzleBottomSheet
-            bottomSheetVC.modalPresentationStyle = .overFullScreen
-            self.present(bottomSheetVC, animated: false, completion: nil)
-            bottomSheetVC.updateInsertView()
+        guard view.window != nil else {
+            return
         }
+        
+        let bottomSheetVC = puzzleBottomSheet
+        bottomSheetVC.modalPresentationStyle = .overFullScreen
+        present(bottomSheetVC, animated: false, completion: nil)
+        bottomSheetVC.updateInsertView()
     }
 }

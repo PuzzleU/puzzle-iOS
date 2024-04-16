@@ -181,7 +181,6 @@ extension OnboardingSelectProfileImageViewController: UICollectionViewDataSource
         let profileImage = profileImages[indexPath.row].profileImage
         cell.bindData(image: profileImage)
         cell.isSelected = indexPath == selectedIndexPath
-        print("⭐️\(cell.isSelected)")
         return cell
     }
 }

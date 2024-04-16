@@ -5,18 +5,7 @@
 //  Created by 이명진 on 4/9/24.
 //
 
-import Foundation
-
 import Combine
-
-struct UserInfoDTO: Codable {
-    var userKoreaName: String?
-    var userPuzzleId: String?
-    var userProfileId: Int?
-    var userPositionIDs: [Int]?
-    var userInterestIdList: [Int]?
-    var userLocationIdList: [Int]?
-}
 
 final class OnboardingViewModel: ViewModelType {
     

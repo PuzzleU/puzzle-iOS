@@ -236,7 +236,7 @@ extension OnboardingSelectInterestViewController: UICollectionViewDelegate {
             keywordId = studyKeywords[indexPath.row].id
         }
         
-        // 셀의 선택 상태를 설정합니다.
+        // 셀의 선택 상태를 설정
         cell.isSelected = viewModel.selectedKeywords.contains(keywordId)
     }
 }

@@ -45,6 +45,7 @@ final class OnboardingViewController: UIViewController {
         let selectAreaVC = OnboardingSelectAreaViewController(viewModel: areaViewModel)
         
         inputUserNameVC.namePublisher
+            .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] name in
                 self?.viewModel.userName = name
                 print(name)
@@ -52,18 +53,21 @@ final class OnboardingViewController: UIViewController {
             .store(in: cancelBag)
         
         inputUserIdVC.idPublisher
+            .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] id in
                 self?.viewModel.userId = id
                 print(id)
             }.store(in: cancelBag)
         
         selectProfileVC.imagePublisher
+            .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] imageId in
                 self?.viewModel.userProfile = imageId
                 print(imageId)
             }.store(in: cancelBag)
         
         selectPositionVC.imageSetPublisher
+            .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] positionImageSet in
                 let result = positionImageSet.map { $0 + 1 }
                 self?.viewModel.userPosition = result
@@ -71,6 +75,7 @@ final class OnboardingViewController: UIViewController {
             }.store(in: cancelBag)
         
         selectInterestVC.keywordSetPublisher
+            .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] keywords in
                 let result = keywords.map { $0 }
                 self?.viewModel.userInterest = result
@@ -78,6 +83,7 @@ final class OnboardingViewController: UIViewController {
             }.store(in: cancelBag)
         
         selectAreaVC.areaSetPublisher
+            .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] area in
                 let result = area.map { $0 + 1 }
                 self?.viewModel.userLocation = result
@@ -290,7 +296,7 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
 // MARK: - Network
 
 extension OnboardingViewController {
-    private func setNetworkBinds() {        
+    private func setNetworkBinds() {
         userInfoSubject
             .sink { [weak self] _ in
                 self?.sendUserInfoDataToServer()
@@ -321,19 +327,15 @@ extension OnboardingViewController {
     }
     
     private func pushToTabBarViewController() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            
-            let tabBarController = PuzzleTabBarController()
-            guard let window = self.view.window else {
-                print("No window found for the current view")
-                return
-            }
-            
-            window.rootViewController = tabBarController
-            window.makeKeyAndVisible()
-            
-            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+        guard let window = view.window else {
+            print("현재 뷰에 윈도우 X")
+            return
         }
+        
+        let tabBarController = PuzzleTabBarController()
+        window.rootViewController = tabBarController
+        window.makeKeyAndVisible()
+        
+        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
     }
 }

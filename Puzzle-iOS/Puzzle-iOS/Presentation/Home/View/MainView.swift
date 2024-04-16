@@ -32,7 +32,7 @@ final class MainView: UIView {
         interests: "스크랩 106",
         date: 20
     ), Competition(
-        image: UIImage(resource: .imgData),
+        image: UIImage(resource: .imgCat),
         title: "제 21회KPR 대학생 PR 아이디어 공모전",
         keywords: ["마케팅", "미디어", "기획"],
         views: "조회 1800",

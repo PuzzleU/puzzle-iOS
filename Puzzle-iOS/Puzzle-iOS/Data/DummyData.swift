@@ -23,7 +23,3 @@ let LoginButtonData = [
                image: UIImage(named: "heart.fill") ?? UIImage(),
                color: .puzzleWhite)
 ]
-
-let animalProfile = ["imgMouse", "imgFox", "imgDog", "imgTiger", "imgOx", "imgLion", "imgPanda", "imgMonkey", "imgRabbit", "imgBear", "imgCat", "imgRobot"]
-
-let positionImage = ["imgDevelop", "imgPM", "imgMarketing", "imgDesign", "imgData", "imgMiscellaneous"]

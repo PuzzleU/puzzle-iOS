@@ -43,6 +43,7 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setUI()
         setHierarchy()
         setLayout()
     }
@@ -57,6 +58,12 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - UI & Layout
+    
+    private func setUI() {
+        backgroundColor = .puzzleGray100
+        layer.cornerRadius = 10
+    }
+    
     private func setHierarchy() {
         addSubviews(
             imageView,
@@ -89,7 +96,7 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Custom Methods
     
-    func bindData(with image: UIImage) {
+    func bindData(image: UIImage) {
         imageView.image = image
     }
     

@@ -16,10 +16,15 @@ final class AreaTableViewCell: UITableViewCell {
     
     private let areaLabel = UILabel().then {
         $0.text = StringLiterals.Onboarding.area
+        $0.font = .body2
+        $0.textColor = .puzzleGray800
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setHierarchy()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -34,14 +39,14 @@ final class AreaTableViewCell: UITableViewCell {
     
     private func setLayout() {
         areaLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(51)
         }
     }
     
     // MARK: - Method
     
-    func bindData(with text: String) {
+    func bindData(text: String) {
         areaLabel.text = text
     }
 }

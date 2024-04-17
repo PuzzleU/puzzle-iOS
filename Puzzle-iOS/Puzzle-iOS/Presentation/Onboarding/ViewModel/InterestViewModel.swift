@@ -8,70 +8,99 @@
 import UIKit
 import Combine
 
-struct Interest {
-    let competition: [String]
-    let job: [String]
-    let study: [String]
+struct InterestKeyword {
+    let name: String
+    let id: Int
 }
-
 class InterestViewModel: ViewModelType {
     
     // MARK: - Properties
     
-    @Published var competitions: [String] = []
-    @Published var jobs: [String] = []
-    @Published var studys: [String] = []
-    
-    @Published var selectedKeywords: Set<IndexPath> = []
+    @Published var selectedKeywords: Set<Int> = [] // 키워드 관련 로직 담당하는 변수 입니다.
     
     let nextButtonTapped = PassthroughSubject<Void, Never>()
     let backButtonTapped = PassthroughSubject<Void, Never>()
-    private let onboardingServiceType: OnboardingServiceType
+    
+    private let onboardingServiceType: SplashService
     
     // MARK: - Inputs
     
     struct Input {
         let viewDidLoad: AnyPublisher<Void, Never>
-        let selectKeyWordIndex: AnyPublisher<IndexPath, Never>
+        let selectKeyWordIndex: AnyPublisher<Int, Never>
     }
     
     // MARK: - Outputs
     
     struct Output {
-        let selectkeywordIndex: AnyPublisher<Set<IndexPath>, Never>
+        let competitionKeywords: AnyPublisher<[InterestKeyword], Never>
+        let jobKeywords: AnyPublisher<[InterestKeyword], Never>
+        let studyKeywords: AnyPublisher<[InterestKeyword], Never>
+        let selectkeywordIndex: AnyPublisher<Set<Int>, Never>
     }
     
     // MARK: - init
     
-    init(onboardingServiceType: OnboardingServiceType = OnboardingService()) {
+    init(onboardingServiceType: SplashService = OnboardingService()) {
         self.onboardingServiceType = onboardingServiceType
     }
     
+    // MARK: - Methods
+    
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
-        input.viewDidLoad
+        let competitionKeywordsPublisher = input.viewDidLoad
             .flatMap { [unowned self] _ in
-                self.onboardingServiceType.getInterestKeyword()
+                self.onboardingServiceType.getOnboardingData()
+                    .map { responseData -> [InterestKeyword] in
+                        responseData.response.interestList.first { $0.interestType == "Competition" }?.interestList
+                            .map { InterestKeyword(name: $0.interestName, id: $0.interestId) } ?? []
+                    }
+                    .catch { _ in Just<[InterestKeyword]>([]) }
+                    .eraseToAnyPublisher()
             }
-            .sink(receiveCompletion: { completion in
-                print(completion)
-            }, receiveValue: { [weak self] interest in
-                self?.competitions = interest.competition
-                self?.jobs = interest.job
-                self?.studys = interest.study
-            })
-            .store(in: cancelBag)
+            .eraseToAnyPublisher()
+        
+        let jobKeywordsPublisher = input.viewDidLoad
+            .flatMap { [unowned self] _ in
+                self.onboardingServiceType.getOnboardingData()
+                    .map { responseData -> [InterestKeyword] in
+                        responseData.response.interestList.first { $0.interestType == "Job" }?.interestList
+                            .map { InterestKeyword(name: $0.interestName, id: $0.interestId) } ?? []
+                    }
+                    .catch { _ in Just<[InterestKeyword]>([]) }
+                    .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+        
+        let studyKeywordsPublisher = input.viewDidLoad
+            .flatMap { [unowned self] _ in
+                self.onboardingServiceType.getOnboardingData()
+                    .map { responseData -> [InterestKeyword] in
+                        responseData.response.interestList.first { $0.interestType == "Study" }?.interestList
+                            .map { InterestKeyword(name: $0.interestName, id: $0.interestId) } ?? []
+                    }
+                    .catch { _ in Just<[InterestKeyword]>([]) }
+                    .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
         
         let selectedIndexPathPublisher = input.selectKeyWordIndex
-            .flatMap { [unowned self] indexPath -> AnyPublisher<Set<IndexPath>, Never> in
+            .flatMap { [unowned self] indexPath -> AnyPublisher<Set<Int>, Never> in
                 if self.selectedKeywords.contains(indexPath) {
                     self.selectedKeywords.remove(indexPath)
                 } else if self.selectedKeywords.count < 6 {
                     self.selectedKeywords.insert(indexPath)
                 }
-                return Just(selectedKeywords).eraseToAnyPublisher()
+                return Just(self.selectedKeywords).eraseToAnyPublisher()
             }
+            .print()
             .eraseToAnyPublisher()
         
-        return Output(selectkeywordIndex: selectedIndexPathPublisher)
+        return Output(
+            competitionKeywords: competitionKeywordsPublisher,
+            jobKeywords: jobKeywordsPublisher,
+            studyKeywords: studyKeywordsPublisher,
+            selectkeywordIndex: selectedIndexPathPublisher
+        )
     }
 }

@@ -30,6 +30,8 @@ class InputIdViewModel: ViewModelType {
         let buttonIsValid: AnyPublisher<Bool, Never>
     }
     
+    // MARK: - Methods
+    
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
         let initialValidation = Just(false).eraseToAnyPublisher()
         

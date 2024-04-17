@@ -23,11 +23,3 @@ let LoginButtonData = [
                image: UIImage(named: "heart.fill") ?? UIImage(),
                color: .puzzleWhite)
 ]
-
-let animalProfile = ["imgMouse", "imgFox", "imgDog", "imgTiger", "imgOx", "imgLion", "imgPanda", "imgMonkey", "imgRabbit", "imgBear", "imgCat", "imgRobot"]
-
-let positionImage = ["imgDevelop", "imgPM", "imgMarketing", "imgDesign", "imgData", "imgMiscellaneous"]
-
-let interest = Interest(competition: ["기획", "마케팅", "네이밍", "디자인", "개발", "아주 긴 데이터 어떤데 ㅋㄱ", "미디어"],
-                        job: ["iOS", "전략 기획", "안드로이드", "갓 생 살아라"],
-                        study: ["언어", "경제/시사 이건 거의 1줄", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사", "취업", "독서", "경제/시사"])

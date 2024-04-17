@@ -10,5 +10,6 @@ import Foundation
 enum URLs {
     enum Login {
         static let splash = "/splash"
+        static let essential = "/user/essential"
     }
 }

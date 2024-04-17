@@ -19,7 +19,7 @@ struct APIConstants {
 }
 
 extension APIConstants {
-    static var noTokenHeader: Dictionary<String, String> {
+    static var noTokenHeader: [String: String] {
         [contentType: applicationJSON]
     }
 }

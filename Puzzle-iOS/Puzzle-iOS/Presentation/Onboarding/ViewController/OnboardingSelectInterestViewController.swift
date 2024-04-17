@@ -39,9 +39,18 @@ final class OnboardingSelectInterestViewController: UIViewController {
     private var viewModel: InterestViewModel
     private var cancelBag = CancelBag()
     
-    private let keywordSubject: PassthroughSubject<IndexPath, Never> = .init()
-    var keywordPublisher: AnyPublisher<IndexPath, Never> {
+    private var competitionKeywords: [InterestKeyword] = []
+    private var jobKeywords: [InterestKeyword] = []
+    private var studyKeywords: [InterestKeyword] = []
+    
+    private let keywordSubject: PassthroughSubject<Int, Never> = .init()
+    var keywordPublisher: AnyPublisher<Int, Never> {
         return keywordSubject.eraseToAnyPublisher()
+    }
+    
+    private let keywordSetSubject: PassthroughSubject<Set<Int>, Never> = .init()
+    var keywordSetPublisher: AnyPublisher<Set<Int>, Never> {
+        return keywordSetSubject.eraseToAnyPublisher()
     }
     
     private var selectedIndexPaths: [IndexPath] = []
@@ -160,12 +169,36 @@ extension OnboardingSelectInterestViewController {
         
         let output = viewModel.transform(from: input, cancelBag: cancelBag)
         
+        output.competitionKeywords
+            .receive(on: RunLoop.main)
+            .sink { [weak self] keywords in
+                self?.competitionKeywords = keywords
+                self?.interestCollectionView.mapCollectionView.reloadData()
+            }
+            .store(in: cancelBag)
+        
+        output.jobKeywords
+            .receive(on: RunLoop.main)
+            .sink { [weak self] keywords in
+                self?.jobKeywords = keywords
+                self?.interestCollectionView.mapCollectionView.reloadData()
+            }
+            .store(in: cancelBag)
+        
+        output.studyKeywords
+            .receive(on: RunLoop.main)
+            .sink { [weak self] keywords in
+                self?.studyKeywords = keywords
+                self?.interestCollectionView.mapCollectionView.reloadData()
+            }
+            .store(in: cancelBag)
+        
         output.selectkeywordIndex
             .receive(on: RunLoop.main)
             .sink { [weak self] selectedKeywords in
                 self?.interestCollectionView.mapCollectionView.reloadData()
+                self?.keywordSetSubject.send(selectedKeywords)
                 self?.rootView.isEnabledNextButton(isEnabled: !selectedKeywords.isEmpty)
-                print(selectedKeywords)
             }
             .store(in: cancelBag)
     }
@@ -175,12 +208,36 @@ extension OnboardingSelectInterestViewController {
 
 extension OnboardingSelectInterestViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.keywordSubject.send(indexPath)
-        print("🍀 OnboardingSelectInterestViewController 의 \(indexPath) 터치 ")
+        
+        let sectionType = InterestSectionType(rawValue: indexPath.section)!
+        let keywordId: Int
+        switch sectionType {
+        case .competitions:
+            keywordId = competitionKeywords[indexPath.row].id
+        case .jobs:
+            keywordId = jobKeywords[indexPath.row].id
+        case .studys:
+            keywordId = studyKeywords[indexPath.row].id
+        }
+        
+        self.keywordSubject.send(keywordId)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        cell.isSelected = viewModel.selectedKeywords.contains(indexPath)
+        guard let sectionType = InterestSectionType(rawValue: indexPath.section) else { return }
+        
+        let keywordId: Int
+        switch sectionType {
+        case .competitions:
+            keywordId = competitionKeywords[indexPath.row].id
+        case .jobs:
+            keywordId = jobKeywords[indexPath.row].id
+        case .studys:
+            keywordId = studyKeywords[indexPath.row].id
+        }
+        
+        // 셀의 선택 상태를 설정
+        cell.isSelected = viewModel.selectedKeywords.contains(keywordId)
     }
 }
 
@@ -196,11 +253,11 @@ extension OnboardingSelectInterestViewController: UICollectionViewDataSource {
         
         switch sectionType {
         case .competitions:
-            return viewModel.competitions.count
+            return competitionKeywords.count
         case .jobs:
-            return viewModel.jobs.count
+            return jobKeywords.count
         case .studys:
-            return viewModel.studys.count
+            return studyKeywords.count
         }
     }
     
@@ -213,11 +270,11 @@ extension OnboardingSelectInterestViewController: UICollectionViewDataSource {
         let text: String
         switch sectionType {
         case .competitions:
-            text = viewModel.competitions[indexPath.row]
+            text = competitionKeywords[indexPath.row].name
         case .jobs:
-            text = viewModel.jobs[indexPath.row]
+            text = jobKeywords[indexPath.row].name
         case .studys:
-            text = viewModel.studys[indexPath.row]
+            text = studyKeywords[indexPath.row].name
         }
         
         cell.bindData(with: text)
@@ -245,11 +302,11 @@ extension OnboardingSelectInterestViewController: UICollectionViewDelegateFlowLa
         let text: String
         switch sectionType {
         case .competitions:
-            text = viewModel.competitions[indexPath.row]
+            text = competitionKeywords[indexPath.row].name
         case .jobs:
-            text = viewModel.jobs[indexPath.row]
+            text = jobKeywords[indexPath.row].name
         case .studys:
-            text = viewModel.studys[indexPath.row]
+            text = studyKeywords[indexPath.row].name
         }
         
         let textSize = (text as NSString).size(withAttributes: [.font: UIFont.body2])

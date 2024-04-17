@@ -30,8 +30,8 @@ final class OnboardingCollectionView: UIView {
         layout.minimumInteritemSpacing = interItemSpacing
         
         $0.collectionViewLayout = layout
-        $0.isScrollEnabled = false
         $0.backgroundColor = .clear
+        $0.isScrollEnabled = false
     }
     
     // MARK: - Life Cycles
@@ -51,7 +51,7 @@ final class OnboardingCollectionView: UIView {
     // MARK: - UI & Layout
     
     private func setUI() {
-        self.backgroundColor = .clear
+        backgroundColor = .clear
     }
     
     private func setHierarchy() {

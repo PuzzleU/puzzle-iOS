@@ -20,11 +20,19 @@ final class OnboardingSelectPositionViewController: UIViewController {
     private var positionCollectionView = OnboardingCollectionView()
     private var viewModel: PositionViewModel
     private var cancelBag = CancelBag()
+    private var positionImages: [PositionKeyword] = []
     
     private let imageSubject = PassthroughSubject<Int, Never>()
     var imagePublisher: AnyPublisher<Int, Never> {
         return imageSubject.eraseToAnyPublisher()
     }
+    
+    private var imageSetSubject = CurrentValueSubject<Set<Int>, Never>([])
+    var imageSetPublisher: AnyPublisher<Set<Int>, Never> {
+        return imageSetSubject.eraseToAnyPublisher()
+    }
+    
+    private var selectedIndexPath: IndexPath?
     
     // MARK: - UI Components
     private lazy var naviBar = PuzzleNavigationBar(self, type: .leftTitleWithLeftButton).setTitle("내 포지션을 선택해주세요")
@@ -135,7 +143,7 @@ extension OnboardingSelectPositionViewController {
         output.positionImage
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] images in
-                self?.viewModel.positionImages = images
+                self?.positionImages = images
                 self?.positionCollectionView.onboardingCollectionView.reloadData()
             })
             .store(in: cancelBag)
@@ -144,6 +152,7 @@ extension OnboardingSelectPositionViewController {
             .receive(on: RunLoop.main)
             .sink { [weak self] selectedIndices in
                 print("OnboardingSelectPositionIndex= \(selectedIndices)")
+                self?.imageSetSubject.send(selectedIndices)
                 self?.positionCollectionView.onboardingCollectionView.reloadData()
                 self?.rootView.isEnabledNextButton(isEnabled: !selectedIndices.isEmpty)
             }
@@ -161,7 +170,9 @@ extension OnboardingSelectPositionViewController {
 
 extension OnboardingSelectPositionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        imageSubject.send(indexPath.row)
+        let selectedId = positionImages[indexPath.row].id
+        imageSubject.send(selectedId - 1)
+        
         print("OnboardingSelectPositionVC 의 \(indexPath.row) 터치 ")
     }
     
@@ -174,12 +185,15 @@ extension OnboardingSelectPositionViewController: UICollectionViewDelegate {
 
 extension OnboardingSelectPositionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.positionImages.count
+        return positionImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.className, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell()}
-        cell.bindData(with: viewModel.positionImages[indexPath.row])
+        
+        let positionKeyword = positionImages[indexPath.row]
+        cell.bindData(image: positionKeyword.positionImage)
+//        cell.isSelected = imageSetSubject.value.contains(positionKeyword.id)
         return cell
     }
 }

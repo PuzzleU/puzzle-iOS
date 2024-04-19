@@ -65,6 +65,10 @@
 		7118EAF32B9DBAEA00012D94 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118EAF22B9DBAEA00012D94 /* EmptyCell.swift */; };
 		7118EAF52B9DBCA300012D94 /* TypeIconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118EAF42B9DBCA300012D94 /* TypeIconFactory.swift */; };
 		7118EAF82B9DC48F00012D94 /* DashedLineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118EAF72B9DC48F00012D94 /* DashedLineCollectionViewCell.swift */; };
+		7121D8602BD2342E0040C5D5 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D85F2BD2342E0040C5D5 /* PostView.swift */; };
+		7121D8642BD2344A0040C5D5 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D8632BD2344A0040C5D5 /* PostViewController.swift */; };
+		7121D8672BD234B20040C5D5 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D8662BD234B20040C5D5 /* PostViewModel.swift */; };
+		7121D8692BD236B30040C5D5 /* PuzzleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D8682BD236B30040C5D5 /* PuzzleInfoView.swift */; };
 		7122CCFD2BA815CF00CA56AC /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CCFC2BA815CF00CA56AC /* SettingHeaderView.swift */; };
 		7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */; };
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
@@ -198,6 +202,10 @@
 		7118EAF22B9DBAEA00012D94 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		7118EAF42B9DBCA300012D94 /* TypeIconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeIconFactory.swift; sourceTree = "<group>"; };
 		7118EAF72B9DC48F00012D94 /* DashedLineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLineCollectionViewCell.swift; sourceTree = "<group>"; };
+		7121D85F2BD2342E0040C5D5 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		7121D8632BD2344A0040C5D5 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		7121D8662BD234B20040C5D5 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		7121D8682BD236B30040C5D5 /* PuzzleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleInfoView.swift; sourceTree = "<group>"; };
 		7122CCFC2BA815CF00CA56AC /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
@@ -557,6 +565,40 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		7121D85E2BD233820040C5D5 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				7121D8652BD234670040C5D5 /* ViewModel */,
+				7121D8622BD2343A0040C5D5 /* ViewController */,
+				7121D8612BD234320040C5D5 /* View */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		7121D8612BD234320040C5D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7121D85F2BD2342E0040C5D5 /* PostView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7121D8622BD2343A0040C5D5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7121D8632BD2344A0040C5D5 /* PostViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7121D8652BD234670040C5D5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7121D8662BD234B20040C5D5 /* PostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		7127DA572B820DAE00B262DA /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,6 +638,7 @@
 				2C9813BA2B7CED2000C56D0B /* PuzzleDropdownView.swift */,
 				2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */,
 				2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */,
+				7121D8682BD236B30040C5D5 /* PuzzleInfoView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -703,6 +746,7 @@
 		718150462B62953F005E4451 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				7121D85E2BD233820040C5D5 /* Post */,
 				71F4F6BC2BB53DAF006C799B /* Splash */,
 				710309902B93139B0077EE17 /* Home */,
 				71A5BB0B2B9B2AE300655835 /* My */,
@@ -1053,6 +1097,7 @@
 				718D09192B7A94930021AD40 /* OnboardingBaseView.swift in Sources */,
 				71F4F6C02BB53F28006C799B /* ViewControllerUtils.swift in Sources */,
 				2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */,
+				7121D8672BD234B20040C5D5 /* PostViewModel.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
 				7103098D2B91D5860077EE17 /* UIButton+Combine.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
@@ -1105,6 +1150,7 @@
 				2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */,
 				710309992B9315A10077EE17 /* TitleView.swift in Sources */,
 				2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */,
+				7121D8602BD2342E0040C5D5 /* PostView.swift in Sources */,
 				71EB2E962BA468FE00EB64B2 /* SettingViewController.swift in Sources */,
 				71814A852B76554500B23378 /* PuzzleNavigationBar.swift in Sources */,
 				2CA6843E2BA8070E0034C3E7 /* APIConstant.swift in Sources */,
@@ -1123,12 +1169,14 @@
 				2CA684492BA807D50034C3E7 /* SplashService.swift in Sources */,
 				7118EAF52B9DBCA300012D94 /* TypeIconFactory.swift in Sources */,
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
+				7121D8692BD236B30040C5D5 /* PuzzleInfoView.swift in Sources */,
 				7127DA5C2B8243CB00B262DA /* OnboardingSelectAreaViewController.swift in Sources */,
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				7118EAEE2B9DA31400012D94 /* KeywordFactory.swift in Sources */,
 				71A5BB122B9B312900655835 /* MyProfileView.swift in Sources */,
 				718150112B6291D7005E4451 /* SceneDelegate.swift in Sources */,
 				718D09222B7E30D10021AD40 /* OnboardingUserNameViewController.swift in Sources */,
+				7121D8642BD2344A0040C5D5 /* PostViewController.swift in Sources */,
 				7103099B2B9315B40077EE17 /* KeywordView.swift in Sources */,
 				7103098F2B91E4430077EE17 /* UITextField+Combine.swift in Sources */,
 				718D091C2B7A9B090021AD40 /* InputNameViewModel.swift in Sources */,

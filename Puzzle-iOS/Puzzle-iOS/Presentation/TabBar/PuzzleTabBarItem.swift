@@ -10,7 +10,7 @@ import UIKit
 enum PuzzleTabBarItem {
     case home
     case search
-    case register
+    case post
     case applicationStatus
     case myPage
     
@@ -20,7 +20,7 @@ enum PuzzleTabBarItem {
             return "홈"
         case .search:
             return "검색"
-        case .register:
+        case .post:
             return "등록"
         case .applicationStatus:
             return "지원 현황"
@@ -35,7 +35,7 @@ enum PuzzleTabBarItem {
             return UIImage(resource: .icHome)
         case .search:
             return UIImage(resource: .icSearch)
-        case .register:
+        case .post:
             return UIImage(resource: .icRegister)
         case .applicationStatus:
             return UIImage(resource: .icApplicationStatus)
@@ -50,7 +50,7 @@ enum PuzzleTabBarItem {
             return UIImage(resource: .icHomeFill)
         case .search:
             return UIImage(resource: .icSearchFill)
-        case .register:
+        case .post:
             return UIImage(resource: .icRegisterFill)
         case .applicationStatus:
             return UIImage(resource: .icApplicationStatusFill)
@@ -65,7 +65,7 @@ enum PuzzleTabBarItem {
             return HomeViewController()
         case .myPage:
             return MyProfileViewController()
-        case .search, .register, .applicationStatus:
+        case .search, .post, .applicationStatus:
             return ViewController() // 각 탭의 뷰컨 추가 되면 case 마다 변경
         }
     }

@@ -10,6 +10,15 @@ import Combine
 
 final class PostViewController: UIViewController {
     
+    // MARK: - Property
+    
+    private lazy var placeholder = postView.placeholder
+    
+    private let vm = PostViewModel()
+    
+    var cancelBag = CancelBag()
+    
+    private var userInput: String = ""
     // MARK: - UIComponents
     
     private let postView = PostView()
@@ -22,64 +31,73 @@ final class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setDelegate()
-        setRegister()
+        bind()
     }
-
+    
     private func setDelegate() {
         postView.postTextView.delegate = self
     }
     
-    private func setRegister() {
+    private func bind() {
+        let input = PostViewModel.Input(
+            postTextViewDidChange: postView.postTextView.textDidChangePublisher,
+            postTextBeginEditingChange: postView.postTextView.textDidBeginEditingPublisher,
+            postTextEndEditingChange: postView.postTextView.textDidEndEditingPublisher
+        )
         
+        let output = vm.transform(from: input, cancelBag: cancelBag)
+        
+        output.postTextViewText
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .sink { [unowned self] text in
+                self.userInput = text
+            }.store(in: cancelBag)
+        
+        output.postTextViewBeginEditingChange
+            .sink { [unowned self] _ in
+                if postView.postTextView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    self.postView.postTextView.textColor = .puzzleGray400
+                    self.postView.postTextView.text = self.placeholder
+                } else if postView.postTextView.text == self.placeholder {
+                    self.postView.postTextView.textColor = .puzzleGray800
+                    self.postView.postTextView.text = nil
+                }
+            }
+            .store(in: cancelBag)
+        
+        output.postTextEndEditingChange
+            .sink { [unowned self] _ in
+                if self.postView.postTextView.text?.isEmpty ?? true {
+                    self.postView.postTextView.textColor = .puzzleGray300
+                    self.postView.postTextView.text = self.postView.placeholder
+                }
+                
+            }.store(in: cancelBag)
     }
     
 }
 
 extension PostViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            activityTextView.textColor = .g3
-            activityTextView.text = placeholder
-            
-        } else if textView.text == placeholder {
-            activityTextView.textColor = .g1
-            activityTextView.text = nil
-        }
-    }
     
-    func textViewDidChange(_ textView: UITextView) {
-        guard let text = activityTextView.text else { return }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 8
+        let currentText = textView.text ?? ""
         
-        // 커서 위치 저장
-        let selectedRange = textView.selectedRange
+        // NSRange를 Swift의 Range로 변환합니다.
+        guard let stringRange = Range(range, in: currentText) else { return false }
         
-        let attributedString = NSMutableAttributedString(string: textView.text)
-        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
+        // 변경될 텍스트를 적용하여 새로운 전체 텍스트를 생성합니다.
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
         
-        textView.attributedText = attributedString
-        textView.font = .b3
-        textView.textColor = .g1
-        
-        // 커서 위치 다시 설정
-        textView.selectedRange = selectedRange
-        
-        guard let courseTitleTextFieldText = self.courseTitleTextField.text else { return }
-        textDidChanged(courseTitleTextFieldText, text)
-        
-        if text.count > self.activityTextMaxLength {
-            self.activityTextView.deleteBackward()
+        // 업데이트된 텍스트의 길이가 10을 초과하는지 확인하고, 초과하면 false를 반환하여 입력을 거부합니다.
+        if updatedText.count > 10 {
+            self.showToast(message: "글자수가 넘어 갑니다.")
+            return false
         }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || textView.text == placeholder {
-            activityTextView.textColor = .g3
-            activityTextView.text = placeholder
-        }
+        
+        // 길이 제한에 걸리지 않는 경우 true를 반환하여 텍스트 변경을 허용합니다.
+        return true
     }
 }

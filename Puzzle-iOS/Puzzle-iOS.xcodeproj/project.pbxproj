@@ -69,6 +69,7 @@
 		7121D8642BD2344A0040C5D5 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D8632BD2344A0040C5D5 /* PostViewController.swift */; };
 		7121D8672BD234B20040C5D5 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D8662BD234B20040C5D5 /* PostViewModel.swift */; };
 		7121D8692BD236B30040C5D5 /* PuzzleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D8682BD236B30040C5D5 /* PuzzleInfoView.swift */; };
+		7121D86B2BD25CF50040C5D5 /* UITextView+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D86A2BD25CF50040C5D5 /* UITextView+Combine.swift */; };
 		7122CCFD2BA815CF00CA56AC /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CCFC2BA815CF00CA56AC /* SettingHeaderView.swift */; };
 		7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */; };
 		7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */; };
@@ -206,6 +207,7 @@
 		7121D8632BD2344A0040C5D5 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		7121D8662BD234B20040C5D5 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		7121D8682BD236B30040C5D5 /* PuzzleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleInfoView.swift; sourceTree = "<group>"; };
+		7121D86A2BD25CF50040C5D5 /* UITextView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Combine.swift"; sourceTree = "<group>"; };
 		7122CCFC2BA815CF00CA56AC /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		7127DA4F2B81C9C000B262DA /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		7127DA512B81EF6100B262DA /* InterestSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionCollectionView.swift; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 				7103098A2B90B5470077EE17 /* UIViewController+Combine.swift */,
 				7103098C2B91D5860077EE17 /* UIButton+Combine.swift */,
 				7103098E2B91E4430077EE17 /* UITextField+Combine.swift */,
+				7121D86A2BD25CF50040C5D5 /* UITextView+Combine.swift */,
 			);
 			path = "Combine+UIKit";
 			sourceTree = "<group>";
@@ -1164,6 +1167,7 @@
 				7103099D2B9315C10077EE17 /* ResultView.swift in Sources */,
 				2C33B1782B764A7000A9476D /* OnboardingPlusViewController.swift in Sources */,
 				710309A82B9634A60077EE17 /* addShadow.swift in Sources */,
+				7121D86B2BD25CF50040C5D5 /* UITextView+Combine.swift in Sources */,
 				718D09242B7FCE950021AD40 /* ProgressView.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
 				2CA684492BA807D50034C3E7 /* SplashService.swift in Sources */,

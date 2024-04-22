@@ -12,11 +12,15 @@ import Then
 
 final class PostView: UIView {
     
+    // MARK: - Property
+    
+    let placeholder = "같이 하고 싶은 팀원에 대해 자유롭게 설명해주세요!\n[예시]\n(스킬셋) 특히 포토샵을 잘 다루는 분이면 좋겠어요\n(경험) 공모전 수상 경험이 있는 분이면 좋겠어요\n(경험) 경험이 많지 않아도 같이 개발하며 성장할 수 있는 분이면 좋겠어요\n(지역) 대면 가능한 분만 원해요"
+    
     // MARK: - UIComponents
     
     private let competitionSelectionView = PuzzleCustomView.makeInfoView(title: "공모전 선택")
     
-    private let titleTextField = UITextField().then {
+    let titleTextField = UITextField().then {
         $0.placeholder = "제목을 입력해주세요"
     }
     
@@ -42,18 +46,24 @@ final class PostView: UIView {
         $0.spacing = 1
     }
     
-    let postTextView = UITextView().then {
+    lazy var postTextView = UITextView().then {
         $0.font = .body2
-        $0.text = "설명"
+        $0.text = self.placeholder
         $0.isEditable = true
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10
-        let attributedString = NSMutableAttributedString(string: $0.text, attributes: [.font: UIFont.body2, .foregroundColor: UIColor.puzzleBlack])
+        paragraphStyle.lineSpacing = 6
+        let attributedString = NSMutableAttributedString(
+            string: $0.text,
+            attributes: [
+                .font: UIFont.body2,
+                .foregroundColor: UIColor.puzzleGray400
+            ]
+        )
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
         $0.attributedText = attributedString
         $0.isScrollEnabled = false
         $0.sizeToFit()
-        $0.backgroundColor = .lightGray
+        $0.backgroundColor = .puzzleWhite
     }
     
     private lazy var postSaveButton = PuzzleMainButton(title: "항목 저장")
@@ -112,7 +122,7 @@ final class PostView: UIView {
             $0.leading.trailing.equalToSuperview()
             $0.height.greaterThanOrEqualTo(150)
         }
-
+        
     }
     
 }

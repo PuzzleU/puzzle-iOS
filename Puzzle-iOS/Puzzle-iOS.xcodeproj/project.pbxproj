@@ -121,6 +121,7 @@
 		718D09372B80D7CE0021AD40 /* PositionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09362B80D7CE0021AD40 /* PositionViewModel.swift */; };
 		718D093B2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D093A2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift */; };
 		718F0AE02BCD89E100E2829D /* UserInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F0ADF2BCD89E100E2829D /* UserInfoDTO.swift */; };
+		71A322052BDDA197005C8DCA /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A322042BDDA197005C8DCA /* BottomSheetViewController.swift */; };
 		71A5BB102B9B2CE300655835 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5BB0F2B9B2CE300655835 /* MyProfileViewController.swift */; };
 		71A5BB122B9B312900655835 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5BB112B9B312900655835 /* MyProfileView.swift */; };
 		71A659622BC4ED5500583D62 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A659612BC4ED5500583D62 /* OnboardingViewModel.swift */; };
@@ -262,6 +263,7 @@
 		718D09362B80D7CE0021AD40 /* PositionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionViewModel.swift; sourceTree = "<group>"; };
 		718D093A2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectPositionViewController.swift; sourceTree = "<group>"; };
 		718F0ADF2BCD89E100E2829D /* UserInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDTO.swift; sourceTree = "<group>"; };
+		71A322042BDDA197005C8DCA /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		71A5BB0F2B9B2CE300655835 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		71A5BB112B9B312900655835 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		71A659612BC4ED5500583D62 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -642,6 +644,7 @@
 				2C9813C02B7D03F100C56D0B /* PuzzleDropdownTableView.swift */,
 				2C9813C42B7D4CC200C56D0B /* DropdownManger.swift */,
 				7121D8682BD236B30040C5D5 /* PuzzleInfoView.swift */,
+				71A322042BDDA197005C8DCA /* BottomSheetViewController.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -1137,6 +1140,7 @@
 				2CA6844B2BA807FD0034C3E7 /* SplashRepository.swift in Sources */,
 				7127DA522B81EF6100B262DA /* InterestSelectionCollectionView.swift in Sources */,
 				71773C5F2B64BEFB0041605E /* PuzzleTabBarController.swift in Sources */,
+				71A322052BDDA197005C8DCA /* BottomSheetViewController.swift in Sources */,
 				2C5310F02B6E8CA000704371 /* CancelBag+.swift in Sources */,
 				2CA6844E2BA808420034C3E7 /* URLs.swift in Sources */,
 				718D091E2B7E23C20021AD40 /* UITextField+.swift in Sources */,

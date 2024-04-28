@@ -171,7 +171,7 @@ extension OnboardingSelectPositionViewController {
 extension OnboardingSelectPositionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedId = positionImages[indexPath.row].id
-        imageSubject.send(selectedId - 1)
+        imageSubject.send(selectedId)
         
         print("OnboardingSelectPositionVC 의 \(indexPath.row) 터치 ")
     }

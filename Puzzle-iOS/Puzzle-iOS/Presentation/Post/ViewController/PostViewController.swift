@@ -75,6 +75,12 @@ final class PostViewController: UIViewController {
                 }
                 
             }.store(in: cancelBag)
+        
+        postView.recruitCountView.gesture(.tap())
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.showBottomSheet()
+            }.store(in: cancelBag)
     }
     
 }
@@ -99,5 +105,13 @@ extension PostViewController: UITextViewDelegate {
         
         // 길이 제한에 걸리지 않는 경우 true를 반환하여 텍스트 변경을 허용합니다.
         return true
+    }
+}
+
+extension PostViewController {
+    func showBottomSheet() {
+        let bottomSheetVC = BottomSheetViewController(bottomType: .middle)
+        bottomSheetVC.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetVC, animated: false, completion: nil)
     }
 }

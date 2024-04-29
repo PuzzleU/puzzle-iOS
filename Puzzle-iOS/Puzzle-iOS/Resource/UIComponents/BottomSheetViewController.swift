@@ -11,7 +11,7 @@ import Combine
 import SnapKit
 import Then
 
-enum BottomSheet {
+enum BottomSheet: CaseIterable {
     case expand, middle, low, end
     
     var height: Double {
@@ -30,32 +30,42 @@ enum BottomSheet {
 
 final class BottomSheetViewController: UIViewController {
     
-    
     // MARK: - Property
     
-    private lazy var screenHeight = self.view.frame.height
+    private lazy var screenHeight = UIScreen.main.bounds.height
     
     private var bottomHeight: Double = 700.0
     private var cancelBag = CancelBag()
     
     // MARK: - UIComponents
     
+    private let contentViewController: UIViewController
+    
     private let dimmedView = UIView().then {
         $0.backgroundColor = .puzzleDimmed
+    }
+    
+    private let notchView = UIView().then {
+        $0.backgroundColor = .puzzleWhite
+        $0.layer.cornerRadius = 3
+        $0.isUserInteractionEnabled = true
     }
     
     private var bottomSheetView = UIView().then {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 10
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        $0.isUserInteractionEnabled = true
     }
     
     // MARK: - Life Cycles
     
-    init(bottomType: BottomSheet) {
+    init(bottomType: BottomSheet, contentViewController: UIViewController = ViewController()) {
+        self.contentViewController = contentViewController
+        self.bottomHeight = bottomType.height
+        
         super.init(nibName: nil, bundle: nil)
         
-        self.bottomHeight = bottomType.height
     }
     
     required init?(coder: NSCoder) {
@@ -75,11 +85,17 @@ final class BottomSheetViewController: UIViewController {
     // MARK: - UI & Layout
     
     private func setUI() {
-        
+        addChild(contentViewController)
+        bottomSheetView.addSubview(contentViewController.view)
+        contentViewController.didMove(toParent: self)
     }
     
     private func setHierarchy() {
-        view.addSubviews(dimmedView, bottomSheetView)
+        view.addSubviews(
+            dimmedView,
+            bottomSheetView,
+            notchView
+        )
         
         dimmedView.alpha = 0.0
     }
@@ -87,6 +103,13 @@ final class BottomSheetViewController: UIViewController {
     private func setLayout() {
         dimmedView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        notchView.snp.makeConstraints {
+            $0.bottom.equalTo(bottomSheetView.snp.top).offset(-10)
+            $0.centerX.equalTo(bottomSheetView.snp.centerX)
+            $0.width.equalTo(60)
+            $0.height.equalTo(notchView.layer.cornerRadius * 2)
         }
         
         bottomSheetView.snp.makeConstraints {
@@ -104,20 +127,22 @@ final class BottomSheetViewController: UIViewController {
                 self?.hideBottomSheetAndGoBack()
             }.store(in: cancelBag)
         
-//        bottomSheetView.gesture(.pan())
-//            .receive(on: RunLoop.main)
-//            .sink { [weak self] gesture in
-//                switch gesture {
-//                case .pan(let panGesture):
-//                    self?.handlePanGesture(sender: panGesture)
-//                    print("Gesture State: \(panGesture.state.rawValue)")
-//                default:
-//                    break
-//                }
-//            }
-//            .store(in: cancelBag)
+        //        bottomSheetView.gesture(.pan())
+        //            .receive(on: RunLoop.main)
+        //            .sink { [weak self] gesture in
+        //                switch gesture {
+        //                case .pan(let panGesture):
+        //                    self?.handlePanGesture(sender: panGesture)
+        //                    print("Gesture State: \(panGesture.state.rawValue)")
+        //                default:
+        //                    break
+        //                }
+        //            }
+        //            .store(in: cancelBag)
+        // 왜 퍼블리셔로 하면 case 3, 4가 호출이 안될까..? 미치겠네 ^^
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(sender:)))
+        panGesture.delegate = self
         bottomSheetView.addGestureRecognizer(panGesture)
         
     }
@@ -155,51 +180,58 @@ final class BottomSheetViewController: UIViewController {
     @objc
     private func handlePanGesture(sender: UIPanGestureRecognizer) {
         
-//        print("Gesture State: \(sender.state.rawValue)")
+        //        print("Gesture State: \(sender.state.rawValue)")
         let translation = sender.translation(in: view)
+        let velocity = sender.velocity(in: view)
         
         switch sender.state {
         case .changed:
             // 현재 바텀 시트의 top 위치를 계산
             let newTop = max(0, bottomSheetView.frame.origin.y + translation.y)
             
-            // 바텀 시트의 위치를 업데이트
-            bottomSheetView.snp.updateConstraints { make in
-                make.top.equalToSuperview().inset(newTop)
+            bottomSheetView.snp.updateConstraints {
+                $0.top.equalToSuperview().inset(newTop)
             }
-            view.layoutIfNeeded() // 즉시 레이아웃 업데이트
-
-            sender.setTranslation(CGPoint.zero, in: view) // 드래그 위치 초기화
-
+//            view.layoutIfNeeded()
+            
+            sender.setTranslation(CGPoint.zero, in: view)
+            
         case .ended, .cancelled:
-            print("끝")
-            // 드래그 종료 후 가장 가까운 위치로 스냅
-            snapBottomSheetToNearestPosition()
+            if velocity.y > 1500 {
+                hideBottomSheetAndGoBack()
+            } else {
+                // 드래그 종료 후 가장 가까운 위치로 스냅
+                snapBottomSheetToNearestPosition()
+            }
         default:
             break
         }
     }
-
+    
     private func snapBottomSheetToNearestPosition() {
-        // 계산된 각 위치를 배열로 저장
-        let positions = [
-            screenHeight * 0.86,  // expand
-            screenHeight * 0.5,   // middle
-            screenHeight * 0.3,   // low
-            0                     // end
-        ]
+        let positions: [Double] = BottomSheet.allCases.map { $0.height }
+        let currentTop = screenHeight - bottomSheetView.frame.minY
+        let closestPosition = positions.min(by: { abs(currentTop - $0) < abs(currentTop - $1) })!
         
-        let currentTop = bottomSheetView.frame.minY
-        let closestPosition = positions.min(by: { abs($0 - currentTop) < abs($1 - currentTop) })!
-        
-        // 최종 위치로 애니메이션
-        bottomSheetView.snp.updateConstraints { make in
-            make.top.equalToSuperview().inset(closestPosition)
+        if closestPosition == 0 {
+            hideBottomSheetAndGoBack()
+        } else {
+            bottomSheetView.snp.updateConstraints { make in
+                make.top.equalToSuperview().inset(screenHeight - closestPosition)
+            }
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-        })
     }
+    
+}
 
+extension BottomSheetViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // true 면 여러 제스처를 동시에 인식
+        
+        return true
+    }
 }

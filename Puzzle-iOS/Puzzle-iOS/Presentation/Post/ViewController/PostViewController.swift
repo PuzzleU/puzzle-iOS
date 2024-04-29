@@ -12,7 +12,8 @@ final class PostViewController: UIViewController {
     
     // MARK: - Property
     
-    private lazy var placeholder = postView.placeholder
+    private lazy var textFieldPlaceholder = rootView.textFieldPlaceHolder
+    private lazy var textViewPlaceholder = rootView.textViewPlaceholder
     
     private let vm = PostViewModel()
     
@@ -21,12 +22,12 @@ final class PostViewController: UIViewController {
     private var userInput: String = ""
     // MARK: - UIComponents
     
-    private let postView = PostView()
+    private let rootView = PostView()
     
     // MARK: - Life Cycles
     
     override func loadView() {
-        self.view = postView
+        self.view = rootView
     }
     
     override func viewDidLoad() {
@@ -34,17 +35,24 @@ final class PostViewController: UIViewController {
         
         setDelegate()
         bind()
+        setTapGesture()
+        setAddTarget()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setDelegate() {
-        postView.postTextView.delegate = self
+        rootView.postTextView.delegate = self
+        rootView.titleTextField.delegate = self
     }
     
     private func bind() {
         let input = PostViewModel.Input(
-            postTextViewDidChange: postView.postTextView.textDidChangePublisher,
-            postTextBeginEditingChange: postView.postTextView.textDidBeginEditingPublisher,
-            postTextEndEditingChange: postView.postTextView.textDidEndEditingPublisher
+            postTextViewDidChange: rootView.postTextView.textDidChangePublisher,
+            postTextBeginEditingChange: rootView.postTextView.textDidBeginEditingPublisher,
+            postTextEndEditingChange: rootView.postTextView.textDidEndEditingPublisher
         )
         
         let output = vm.transform(from: input, cancelBag: cancelBag)
@@ -57,33 +65,93 @@ final class PostViewController: UIViewController {
         
         output.postTextViewBeginEditingChange
             .sink { [unowned self] _ in
-                if postView.postTextView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    self.postView.postTextView.textColor = .puzzleGray400
-                    self.postView.postTextView.text = self.placeholder
-                } else if postView.postTextView.text == self.placeholder {
-                    self.postView.postTextView.textColor = .puzzleGray800
-                    self.postView.postTextView.text = nil
+                if rootView.postTextView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    self.rootView.postTextView.textColor = .puzzleGray400
+                    self.rootView.postTextView.text = self.textViewPlaceholder
+                } else if rootView.postTextView.text == self.textViewPlaceholder {
+                    self.rootView.postTextView.textColor = .puzzleGray800
+                    self.rootView.postTextView.text = nil
                 }
             }
             .store(in: cancelBag)
         
         output.postTextEndEditingChange
             .sink { [unowned self] _ in
-                if self.postView.postTextView.text?.isEmpty ?? true {
-                    self.postView.postTextView.textColor = .puzzleGray300
-                    self.postView.postTextView.text = self.postView.placeholder
+                if self.rootView.postTextView.text?.isEmpty ?? true {
+                    self.rootView.postTextView.textColor = .puzzleGray300
+                    self.rootView.postTextView.text = self.rootView.textViewPlaceholder
                 }
                 
             }.store(in: cancelBag)
         
-        postView.recruitCountView.gesture(.tap())
+        rootView.recruitCountView.gesture(.tap())
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
                 self?.showBottomSheet()
             }.store(in: cancelBag)
     }
     
+    private func setTapGesture() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    private func setAddTarget() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    @objc private func keyboardWillShow(_ sender: Notification) {
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        if rootView.postTextView.isFirstResponder {
+            let keyboardHeight = keyboardFrame.height * 0.7
+            self.view.frame.origin.y -= keyboardHeight
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ sender: Notification) {
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        if rootView.postTextView.isFirstResponder {
+            let keyboardHeight = keyboardFrame.height * 0.7
+            self.view.frame.origin.y += keyboardHeight
+            self.view.layoutIfNeeded()
+        }
+    }
 }
+
+// MARK: - UITextFieldDelegate
+
+extension PostViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == rootView.titleTextField {
+            rootView.postTextView.becomeFirstResponder()
+            return true
+        }
+        return false
+    }
+}
+
+// MARK: - UITextViewDelegate
 
 extension PostViewController: UITextViewDelegate {
     
@@ -98,7 +166,7 @@ extension PostViewController: UITextViewDelegate {
         let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
         
         // 업데이트된 텍스트의 길이가 10을 초과하는지 확인하고, 초과하면 false를 반환하여 입력을 거부합니다.
-        if updatedText.count > 10 {
+        if updatedText.count > 150 {
             self.showToast(message: "글자수가 넘어 갑니다.")
             return false
         }

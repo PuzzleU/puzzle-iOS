@@ -14,14 +14,20 @@ final class PostView: UIView {
     
     // MARK: - Property
     
-    let placeholder = "같이 하고 싶은 팀원에 대해 자유롭게 설명해주세요!\n[예시]\n(스킬셋) 특히 포토샵을 잘 다루는 분이면 좋겠어요\n(경험) 공모전 수상 경험이 있는 분이면 좋겠어요\n(경험) 경험이 많지 않아도 같이 개발하며 성장할 수 있는 분이면 좋겠어요\n(지역) 대면 가능한 분만 원해요"
+    let textFieldPlaceHolder = "제목을 입력해 주세여"
+    
+    let textViewPlaceholder = "같이 하고 싶은 팀원에 대해 자유롭게 설명해주세요!\n[예시]\n(스킬셋) 특히 포토샵을 잘 다루는 분이면 좋겠어요\n(경험) 공모전 수상 경험이 있는 분이면 좋겠어요\n(경험) 경험이 많지 않아도 같이 개발하며 성장할 수 있는 분이면 좋겠어요\n(지역) 대면 가능한 분만 원해요"
     
     // MARK: - UIComponents
     
     private let competitionSelectionView = PuzzleCustomView.makeInfoView(title: "공모전 선택")
     
-    let titleTextField = UITextField().then {
-        $0.placeholder = "제목을 입력해주세요"
+    lazy var titleTextField = UITextField().then {
+        $0.textColor = .puzzleBlack
+        $0.font = .body2
+        $0.textColor = .puzzleBlack
+        $0.placeholder = self.textFieldPlaceHolder
+        $0.setPlaceholderColor(.puzzleGray300)
     }
     
     private let splitView = UIView().then {
@@ -38,17 +44,20 @@ final class PostView: UIView {
             splitView,
             recruitCountView,
             selectionView,
-            postTextView
+            postTextView,
+            postSaveButton
         ]
     ).then {
         $0.axis = .vertical
         $0.alignment = .fill
         $0.spacing = 1
+        $0.setCustomSpacing(200, after: postTextView)
     }
     
     lazy var postTextView = UITextView().then {
         $0.font = .body2
-        $0.text = self.placeholder
+        $0.text = self.textViewPlaceholder
+        
         $0.isEditable = true
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 6
@@ -66,7 +75,7 @@ final class PostView: UIView {
         $0.backgroundColor = .puzzleWhite
     }
     
-    private lazy var postSaveButton = PuzzleMainButton(title: "항목 저장")
+    lazy var postSaveButton = PuzzleMainButton(title: "항목 저장")
     
     // MARK: - Life Cycles
     
@@ -89,7 +98,7 @@ final class PostView: UIView {
     }
     
     private func setHierarchy() {
-        addSubview(vStackView)
+        addSubviews(vStackView)
     }
     
     private func setLayout() {
@@ -119,10 +128,14 @@ final class PostView: UIView {
         }
         
         postTextView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.height.greaterThanOrEqualTo(150)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.greaterThanOrEqualTo(120)
         }
         
+        postSaveButton.snp.remakeConstraints {
+            $0.height.equalTo(52)
+            $0.horizontalEdges.equalToSuperview()
+        }
     }
     
 }

@@ -15,15 +15,21 @@ final class HomeDetailView: UIView {
     
     // MARK: - UIComponents
     
+    private let scrollView = UIScrollView().then {
+        $0.isScrollEnabled = true
+        $0.showsVerticalScrollIndicator = false
+    }
+
+    private let homeDetailHeaderView = HomeDetailHeaderView()
+    private let homeDetailDescriptionView = HomeDetailDescriptionView()
     
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .puzzleWhite
+        self.backgroundColor = .puzzleGray100
         
-        setUI()
         setHierarchy()
         setLayout()
     }
@@ -34,15 +40,28 @@ final class HomeDetailView: UIView {
     
     // MARK: - UI & Layout
     
-    private func setUI() {
-        backgroundColor = .puzzleWhite
-    }
-    
     private func setHierarchy() {
-        
+        addSubview(scrollView)
+        scrollView.addSubviews(homeDetailHeaderView,
+                             homeDetailDescriptionView)
     }
     
     private func setLayout() {
-
+        scrollView.snp.makeConstraints {
+            $0.edges.equalTo(safeAreaLayoutGuide.snp.edges)
+            $0.bottom.equalToSuperview()
+        }
+        
+        homeDetailHeaderView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(371)
+        }
+        
+        homeDetailDescriptionView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.top.equalTo(homeDetailHeaderView.snp.bottom)
+            $0.bottom.equalToSuperview()
+        }
     }
 }

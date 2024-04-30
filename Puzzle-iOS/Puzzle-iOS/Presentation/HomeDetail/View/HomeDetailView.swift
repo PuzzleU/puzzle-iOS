@@ -49,7 +49,7 @@ final class HomeDetailView: UIView {
     private func setLayout() {
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(safeAreaLayoutGuide.snp.edges)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
         
         homeDetailHeaderView.snp.makeConstraints {

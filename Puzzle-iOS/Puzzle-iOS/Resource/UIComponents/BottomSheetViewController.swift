@@ -19,10 +19,10 @@ enum BottomSheet: CaseIterable {
         case .expand:
             return UIScreen.main.bounds.height * 0.86
         case .middle:
-            return UIScreen.main.bounds.height * 0.5
+            return UIScreen.main.bounds.height * 0.6
         case .low:
-            return UIScreen.main.bounds.height * 0.3
-        case .end:
+            return UIScreen.main.bounds.height * 0.39
+        default:
             return 0
         }
     }
@@ -53,7 +53,8 @@ final class BottomSheetViewController: UIViewController {
     
     private var bottomSheetView = UIView().then {
         $0.backgroundColor = .white
-        $0.layer.cornerRadius = 10
+        $0.layer.cornerRadius = 15
+        $0.clipsToBounds = true
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         $0.isUserInteractionEnabled = true
     }
@@ -79,6 +80,9 @@ final class BottomSheetViewController: UIViewController {
         setHierarchy()
         setLayout()
         setAddTarget()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         showBottomSheet()
     }
     
@@ -192,7 +196,7 @@ final class BottomSheetViewController: UIViewController {
             bottomSheetView.snp.updateConstraints {
                 $0.top.equalToSuperview().inset(newTop)
             }
-//            view.layoutIfNeeded()
+            //            view.layoutIfNeeded()
             
             sender.setTranslation(CGPoint.zero, in: view)
             

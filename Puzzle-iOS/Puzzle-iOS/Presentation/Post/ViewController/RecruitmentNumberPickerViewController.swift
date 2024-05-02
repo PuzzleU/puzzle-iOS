@@ -16,10 +16,21 @@ final class RecruitmentNumberPickerViewController: UIViewController {
     
     var recruitPeopleLimitLists = (1...10).map { "\($0) 명" }
     
+    var cellInd: Int = 0
+    
     // MARK: - UIComponents
     
-    private let headTitle = LabelFactory.build(text: "모집 인원수", font: .body1)
-    private let bodyTitle = LabelFactory.build(text: "구하는 인원 수를 선택해 주세요", font: .subTitle3)
+    private let headTitle = LabelFactory.build(
+        text: "모집 인원수",
+        font: .body1,
+        textColor: .puzzleGray800
+    )
+    
+    private let bodyTitle = LabelFactory.build(
+        text: "구하는 인원 수를 선택해 주세요",
+        font: .subTitle3,
+        textColor: .puzzleGray400
+    )
     
     private lazy var vStackView = UIStackView(
         arrangedSubviews: [
@@ -32,8 +43,20 @@ final class RecruitmentNumberPickerViewController: UIViewController {
         $0.spacing = 8
     }
     
-    let pickerView = UIPickerView().then {
-        $0.backgroundColor = .green
+    private let pickerView = UIPickerView().then {
+        $0.backgroundColor = .clear
+    }
+    
+    private lazy var saveButton = PuzzleMainButton(title: "항목저장").then {
+        $0.isSelected = true
+    }
+    
+    private let upLine = UIView().then {
+        $0.backgroundColor = .black
+    }
+    
+    private let underLine = UIView().then {
+        $0.backgroundColor = .black
     }
     
     // MARK: - Life Cycles
@@ -47,6 +70,12 @@ final class RecruitmentNumberPickerViewController: UIViewController {
         setDelegate()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.setPickerView()
+    }
+    
     // MARK: - UI & Layout
     
     private func setUI() {
@@ -56,31 +85,62 @@ final class RecruitmentNumberPickerViewController: UIViewController {
     private func setHierarchy() {
         self.view.addSubviews(
             vStackView,
-            pickerView
+            pickerView,
+            saveButton
         )
     }
     
     private func setLayout() {
-        
         vStackView.snp.makeConstraints {
             $0.top.equalTo(self.view.snp.top).offset(24)
-            $0.leading.equalTo(self.view.snp.leading).inset(28)
+            $0.leading.equalToSuperview().inset(28)
         }
         
         pickerView.snp.makeConstraints {
-            $0.top.equalTo(vStackView.snp.bottom).offset(36)
+            $0.top.equalTo(vStackView.snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(100)
             $0.width.equalTo(120)
+            $0.height.equalTo(130)
+        }
+        
+        saveButton.snp.remakeConstraints {
+            $0.top.equalTo(pickerView.snp.bottom).offset(16)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(332)
+            $0.height.equalTo(52)
         }
     }
+    
+    
+    // MARK: - Methods
     
     private func setDelegate() {
         pickerView.delegate = self
         pickerView.dataSource = self
     }
     
+    private func setPickerView() {
+        pickerView.subviews[1].backgroundColor = .clear
+        
+        pickerView.subviews[1].addSubview(upLine)
+        pickerView.subviews[1].addSubview(underLine)
+        
+        upLine.snp.makeConstraints {
+            $0.width.equalTo(pickerView.snp.width)
+            $0.height.equalTo(0.8)
+            $0.top.equalToSuperview().offset(5)
+        }
+        
+        underLine.snp.makeConstraints {
+            $0.width.equalTo(pickerView.snp.width)
+            $0.height.equalTo(0.8)
+            $0.top.equalToSuperview().offset(40)
+        }
+    }
 }
+
+
+// MARK: - UIPickerViewDataSource
 
 extension RecruitmentNumberPickerViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -91,12 +151,32 @@ extension RecruitmentNumberPickerViewController: UIPickerViewDataSource {
         recruitPeopleLimitLists.count
     }
     
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 44
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 44))
+        
+        let puzzleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 120, height: 44))
+        puzzleLabel.text = recruitPeopleLimitLists[row]
+        puzzleLabel.textAlignment = .center
+        puzzleLabel.font = .body1
+        puzzleLabel.textColor = .black
+        
+        view.addSubview(puzzleLabel)
+        
+        return view
+    }
 }
 
+
+// MARK: - UIPickerViewDelegate
+
 extension RecruitmentNumberPickerViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return recruitPeopleLimitLists[row]
-    }
+    //    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    //        return recruitPeopleLimitLists[row]
+    //    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(row)

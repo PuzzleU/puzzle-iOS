@@ -34,8 +34,8 @@ final class PostView: UIView {
         $0.backgroundColor = .puzzleGray300
     }
     
-    let recruitCountView = PuzzleCustomView.makeInfoView(title: "모집 인원 수", image: UIImage(resource: .icDoublePeople))
-    private let selectionView = PuzzleCustomView.makeInfoView(title: "구인 포지션", image: UIImage(resource: .icWrench))
+    let recruitCountView = PuzzleCustomView.makeInfoView(title: "모집 인원 수", image: .icDoublePeople)
+    let selectionView = PuzzleCustomView.makeInfoView(title: "구인 포지션", image: .icWrench)
     
     private lazy var vStackView = UIStackView(
         arrangedSubviews: [

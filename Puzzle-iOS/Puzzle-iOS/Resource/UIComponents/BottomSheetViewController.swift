@@ -37,6 +37,8 @@ final class BottomSheetViewController: UIViewController {
     private var bottomHeight: Double = 700.0
     private var cancelBag = CancelBag()
     
+    private var upScroll: Bool
+    
     // MARK: - UIComponents
     
     private let contentViewController: UIViewController
@@ -61,9 +63,10 @@ final class BottomSheetViewController: UIViewController {
     
     // MARK: - Life Cycles
     
-    init(bottomType: BottomSheet, contentViewController: UIViewController = ViewController()) {
+    init(bottomType: BottomSheet, contentViewController: UIViewController = ViewController(), upScroll: Bool = true) {
         self.contentViewController = contentViewController
         self.bottomHeight = bottomType.height
+        self.upScroll = upScroll
         
         super.init(nibName: nil, bundle: nil)
         
@@ -121,6 +124,10 @@ final class BottomSheetViewController: UIViewController {
             $0.bottom.equalToSuperview()
             $0.top.equalTo(view.snp.bottom).offset(0)
         }
+        
+        contentViewController.view.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
     private func setAddTarget() {
@@ -146,7 +153,6 @@ final class BottomSheetViewController: UIViewController {
         // 왜 퍼블리셔로 하면 case 3, 4가 호출이 안될까..? 미치겠네 ^^
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(sender:)))
-        panGesture.delegate = self
         bottomSheetView.addGestureRecognizer(panGesture)
         
     }
@@ -181,32 +187,36 @@ final class BottomSheetViewController: UIViewController {
         }
     }
     
-    @objc
-    private func handlePanGesture(sender: UIPanGestureRecognizer) {
-        
-        //        print("Gesture State: \(sender.state.rawValue)")
+    @objc private func handlePanGesture(sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
         let velocity = sender.velocity(in: view)
+        let currentTop = bottomSheetView.frame.origin.y + translation.y
         
         switch sender.state {
         case .changed:
-            // 현재 바텀 시트의 top 위치를 계산
-            let newTop = max(0, bottomSheetView.frame.origin.y + translation.y)
-            
-            bottomSheetView.snp.updateConstraints {
-                $0.top.equalToSuperview().inset(newTop)
+            // upScrollLimit이 false이면 위로 올리는 것을 제한 true 값이여야 올릴 수 있음
+            if !upScroll && translation.y < 0 {
+                return // 위로 이동하는 제스처 차단
             }
-            //            view.layoutIfNeeded()
-            
+            // 현재 바텀 시트의 top 위치를 계산하고, 제한적으로 이동 가능하게 설정
+            let newTop = max(0, currentTop)
+            bottomSheetView.snp.updateConstraints { make in
+                make.top.equalToSuperview().inset(newTop)
+            }
             sender.setTranslation(CGPoint.zero, in: view)
             
         case .ended, .cancelled:
+            // 종료 시, 속도가 빠르고 아래로 이동하는 경우 바텀시트를 숨김
             if velocity.y > 1500 {
                 hideBottomSheetAndGoBack()
             } else {
-                // 드래그 종료 후 가장 가까운 위치로 스냅
-                snapBottomSheetToNearestPosition()
+                if upScroll { // true 이면 스냅 가능
+                    snapBottomSheetToNearestPosition()
+                } else { // false면 그냥 숨기기로 넘어감
+                    hideBottomSheetAndGoBack()
+                }
             }
+            
         default:
             break
         }
@@ -230,12 +240,4 @@ final class BottomSheetViewController: UIViewController {
         }
     }
     
-}
-
-extension BottomSheetViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        // true 면 여러 제스처를 동시에 인식
-        
-        return true
-    }
 }

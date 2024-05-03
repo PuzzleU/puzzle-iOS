@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C02354E2BE519C7001FA169 /* HomeDetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02354D2BE519C7001FA169 /* HomeDetailDTO.swift */; };
+		2C0235512BE51ACD001FA169 /* HomeDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0235502BE51ACD001FA169 /* HomeDetailService.swift */; };
 		2C11B7742BE08E0500CCACED /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11B7732BE08E0500CCACED /* HomeDetailViewController.swift */; };
 		2C11B7762BE08E7600CCACED /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11B7752BE08E7600CCACED /* HomeDetailView.swift */; };
 		2C11B7782BE08F4E00CCACED /* HomeDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11B7772BE08F4E00CCACED /* HomeDetailHeaderView.swift */; };
@@ -149,6 +151,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C02354D2BE519C7001FA169 /* HomeDetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailDTO.swift; sourceTree = "<group>"; };
+		2C0235502BE51ACD001FA169 /* HomeDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailService.swift; sourceTree = "<group>"; };
+		2C0235552BE52837001FA169 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		2C11B7732BE08E0500CCACED /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		2C11B7752BE08E7600CCACED /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
 		2C11B7772BE08F4E00CCACED /* HomeDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailHeaderView.swift; sourceTree = "<group>"; };
@@ -156,7 +161,6 @@
 		2C11B77B2BE0CAE700CCACED /* HomeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewModel.swift; sourceTree = "<group>"; };
 		2C1765072B7279A000CD789E /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 		2C1765092B7283A500CD789E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		2C33B1712B763CFB00A9476D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		2C33B1732B76404A00A9476D /* PuzzleMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleMainButton.swift; sourceTree = "<group>"; };
 		2C33B1772B764A7000A9476D /* OnboardingPlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPlusViewController.swift; sourceTree = "<group>"; };
 		2C33B1792B764A8300A9476D /* OnboardingPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPlusView.swift; sourceTree = "<group>"; };
@@ -304,6 +308,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C02354F2BE51ABB001FA169 /* HomeDetailService */ = {
+			isa = PBXGroup;
+			children = (
+				2C0235502BE51ACD001FA169 /* HomeDetailService.swift */,
+			);
+			path = HomeDetailService;
+			sourceTree = "<group>";
+		};
 		2C11B76F2BE08DC900CCACED /* HomeDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +399,7 @@
 		2C372A412B6B8C29009B7BF6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2C02354F2BE51ABB001FA169 /* HomeDetailService */,
 				2CA684472BA807A80034C3E7 /* SplashService */,
 				2C372A3A2B6B7A60009B7BF6 /* AuthService */,
 			);
@@ -398,6 +411,7 @@
 			children = (
 				2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */,
 				2CA6843A2BA806E10034C3E7 /* SpalshDTO.swift */,
+				2C02354D2BE519C7001FA169 /* HomeDetailDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -471,7 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				2C55EEBF2B711BB5001AD42E /* Config.swift */,
-				2C33B1712B763CFB00A9476D /* Config.xcconfig */,
+				2C0235552BE52837001FA169 /* Config.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1116,6 +1130,7 @@
 				7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */,
 				71A5BB102B9B2CE300655835 /* MyProfileViewController.swift in Sources */,
 				2CA684402BA807290034C3E7 /* HTTPMethod.swift in Sources */,
+				2C02354E2BE519C7001FA169 /* HomeDetailDTO.swift in Sources */,
 				710309A12B931F1C0077EE17 /* LabelFactory.swift in Sources */,
 				71F4F6BE2BB53DCE006C799B /* SplashViewController.swift in Sources */,
 				2C372A3E2B6B7ACD009B7BF6 /* AuthAppleService.swift in Sources */,
@@ -1148,6 +1163,7 @@
 				2CA684462BA807840034C3E7 /* Networking.swift in Sources */,
 				718D093B2B80DC8E0021AD40 /* OnboardingSelectPositionViewController.swift in Sources */,
 				7118EAF12B9DB0D400012D94 /* MyProfileCell.swift in Sources */,
+				2C0235512BE51ACD001FA169 /* HomeDetailService.swift in Sources */,
 				710309952B9314530077EE17 /* HomeViewController.swift in Sources */,
 				710309812B8E47AE0077EE17 /* InputIdViewModel.swift in Sources */,
 				7118EAF82B9DC48F00012D94 /* DashedLineCollectionViewCell.swift in Sources */,
@@ -1255,6 +1271,7 @@
 /* Begin XCBuildConfiguration section */
 		718150332B6291D8005E4451 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C0235552BE52837001FA169 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1318,7 +1335,7 @@
 		};
 		718150342B6291D8005E4451 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C33B1712B763CFB00A9476D /* Config.xcconfig */;
+			baseConfigurationReference = 2C0235552BE52837001FA169 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1410,7 +1427,6 @@
 		};
 		718150372B6291D8005E4451 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C33B1712B763CFB00A9476D /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

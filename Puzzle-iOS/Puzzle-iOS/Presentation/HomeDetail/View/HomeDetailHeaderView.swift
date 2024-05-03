@@ -17,6 +17,7 @@ final class HomeDetailHeaderView: UIView {
     private let competitionImageView = UIImageView().then {
         $0.image = UIImage(resource: .testPost)
         $0.contentMode = .scaleAspectFill
+        $0.isUserInteractionEnabled = true
     }
     
     lazy var homeDetailHeartButton = UIButton().then {

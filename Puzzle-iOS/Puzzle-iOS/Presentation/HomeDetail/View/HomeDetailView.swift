@@ -20,8 +20,8 @@ final class HomeDetailView: UIView {
         $0.showsVerticalScrollIndicator = false
     }
 
-    private let homeDetailHeaderView = HomeDetailHeaderView()
-    private let homeDetailDescriptionView = HomeDetailDescriptionView()
+    let homeDetailHeaderView = HomeDetailHeaderView()
+    let homeDetailDescriptionView = HomeDetailDescriptionView()
     
     // MARK: - Life Cycles
     

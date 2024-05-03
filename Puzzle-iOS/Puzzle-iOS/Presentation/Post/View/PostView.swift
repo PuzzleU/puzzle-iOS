@@ -25,7 +25,6 @@ final class PostView: UIView {
     lazy var titleTextField = UITextField().then {
         $0.textColor = .puzzleBlack
         $0.font = .body2
-        $0.textColor = .puzzleBlack
         $0.placeholder = self.textFieldPlaceHolder
         $0.setPlaceholderColor(.puzzleGray300)
     }
@@ -34,8 +33,20 @@ final class PostView: UIView {
         $0.backgroundColor = .puzzleGray300
     }
     
-    let recruitCountView = PuzzleCustomView.makeInfoView(title: "모집 인원 수", image: .icDoublePeople)
-    let selectionView = PuzzleCustomView.makeInfoView(title: "구인 포지션", image: .icWrench)
+    let recruitCountView = PuzzleCustomView.makeInfoView(
+        title: "모집 인원 수",
+        image: .icDoublePeople
+    )
+    
+    let selectionView = PuzzleCustomView.makeInfoView(
+        title: "구인 포지션",
+        image: .icWrench
+    )
+    
+    let recruitCountLabel = LabelFactory.build(
+        text: "",
+        font: .subTitle3
+    )
     
     private lazy var vStackView = UIStackView(
         arrangedSubviews: [
@@ -98,7 +109,8 @@ final class PostView: UIView {
     }
     
     private func setHierarchy() {
-        addSubviews(vStackView)
+        addSubview(vStackView)
+        recruitCountView.addSubview(recruitCountLabel)
     }
     
     private func setLayout() {
@@ -135,6 +147,11 @@ final class PostView: UIView {
         postSaveButton.snp.remakeConstraints {
             $0.height.equalTo(52)
             $0.horizontalEdges.equalToSuperview()
+        }
+        
+        recruitCountLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(20)
         }
     }
     

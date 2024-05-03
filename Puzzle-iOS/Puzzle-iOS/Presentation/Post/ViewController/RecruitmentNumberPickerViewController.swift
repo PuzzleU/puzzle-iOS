@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 import Then
@@ -14,10 +15,12 @@ final class RecruitmentNumberPickerViewController: UIViewController {
     
     // MARK: - Properties
     
-    var recruitPeopleLimitLists = (1...10).map { "\($0) 명" }
+    private let recruitPeopleLimitLists = (1...10).map { "\($0) 명" }
     
-    var cellInd: Int = 0
-    
+    private let itemSubject: PassthroughSubject<String, Never> = .init()
+    var itemPublisher: AnyPublisher<String, Never> {
+        return itemSubject.eraseToAnyPublisher()
+    }
     // MARK: - UIComponents
     
     private let headTitle = LabelFactory.build(
@@ -47,17 +50,10 @@ final class RecruitmentNumberPickerViewController: UIViewController {
         $0.backgroundColor = .clear
     }
     
-    private lazy var saveButton = PuzzleMainButton(title: "항목저장").then {
-        $0.isSelected = true
-    }
+    lazy var saveButton = PuzzleMainButton(title: "항목저장").then { $0.isSelected = true }
     
-    private let upLine = UIView().then {
-        $0.backgroundColor = .black
-    }
-    
-    private let underLine = UIView().then {
-        $0.backgroundColor = .black
-    }
+    private let upLine = UIView().then { $0.backgroundColor = .black }
+    private let underLine = UIView().then { $0.backgroundColor = .black }
     
     // MARK: - Life Cycles
     
@@ -80,6 +76,7 @@ final class RecruitmentNumberPickerViewController: UIViewController {
     
     private func setUI() {
         self.view.backgroundColor = .white
+        self.itemSubject.send("1 명")
     }
     
     private func setHierarchy() {
@@ -111,7 +108,6 @@ final class RecruitmentNumberPickerViewController: UIViewController {
         }
     }
     
-    
     // MARK: - Methods
     
     private func setDelegate() {
@@ -138,7 +134,6 @@ final class RecruitmentNumberPickerViewController: UIViewController {
         }
     }
 }
-
 
 // MARK: - UIPickerViewDataSource
 
@@ -170,7 +165,6 @@ extension RecruitmentNumberPickerViewController: UIPickerViewDataSource {
     }
 }
 
-
 // MARK: - UIPickerViewDelegate
 
 extension RecruitmentNumberPickerViewController: UIPickerViewDelegate {
@@ -179,6 +173,6 @@ extension RecruitmentNumberPickerViewController: UIPickerViewDelegate {
     //    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(row)
+        self.itemSubject.send(recruitPeopleLimitLists[row])
     }
 }

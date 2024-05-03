@@ -61,6 +61,10 @@ final class BottomSheetViewController: UIViewController {
         $0.isUserInteractionEnabled = true
     }
     
+    private let cancelButton = UIButton().then {
+        $0.setImage(.icCancel, for: .normal)
+    }
+    
     // MARK: - Life Cycles
     
     init(bottomType: BottomSheet, contentViewController: UIViewController = ViewController(), upScroll: Bool = true) {
@@ -128,6 +132,12 @@ final class BottomSheetViewController: UIViewController {
         contentViewController.view.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    // MARK: - Methods
+    
+    func closeBottomSheet() {
+        hideBottomSheetAndGoBack()
     }
     
     private func setAddTarget() {
@@ -239,5 +249,4 @@ final class BottomSheetViewController: UIViewController {
             })
         }
     }
-    
 }

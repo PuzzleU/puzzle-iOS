@@ -12,6 +12,8 @@ final class PostViewController: UIViewController {
     
     // MARK: - Property
     
+    private var numberOfPeople: Int?
+    
     private lazy var textFieldPlaceholder = rootView.textFieldPlaceHolder
     private lazy var textViewPlaceholder = rootView.textViewPlaceholder
     
@@ -43,6 +45,8 @@ final class PostViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    // MARK: - Methods
+    
     private func setDelegate() {
         rootView.postTextView.delegate = self
         rootView.titleTextField.delegate = self
@@ -52,7 +56,8 @@ final class PostViewController: UIViewController {
         let input = PostViewModel.Input(
             postTextViewDidChange: rootView.postTextView.textDidChangePublisher,
             postTextBeginEditingChange: rootView.postTextView.textDidBeginEditingPublisher,
-            postTextEndEditingChange: rootView.postTextView.textDidEndEditingPublisher
+            postTextEndEditingChange: rootView.postTextView.textDidEndEditingPublisher,
+            didUploadTapped: rootView.postSaveButton.tapPublisher
         )
         
         let output = vm.transform(from: input, cancelBag: cancelBag)
@@ -87,7 +92,7 @@ final class PostViewController: UIViewController {
         rootView.recruitCountView.gesture(.tap())
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
-                self?.showBottomSheet()
+                self?.showRecruitNumberBottomSheet()
             }.store(in: cancelBag)
     }
     
@@ -111,6 +116,8 @@ final class PostViewController: UIViewController {
             object: nil
         )
     }
+    
+    // MARK: - Objc function
     
     @objc private func keyboardWillShow(_ sender: Notification) {
         guard let userInfo = sender.userInfo,
@@ -177,9 +184,38 @@ extension PostViewController: UITextViewDelegate {
 }
 
 extension PostViewController {
-    func showBottomSheet() {
-        let bottomSheetVC = BottomSheetViewController(bottomType: .middle)
+    func showRecruitNumberBottomSheet() {
+        
+        let contentViewController = RecruitmentNumberPickerViewController()
+        let bottomSheetVC = BottomSheetViewController(
+            bottomType: .low,
+            contentViewController: contentViewController,
+            upScroll: false
+        )
+        
+        contentViewController
+            .itemPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] recruitCount in
+                guard let numberString = recruitCount.components(separatedBy: " ").first,
+                      let numberOfPeople = Int(numberString) else { return }
+                
+                self?.numberOfPeople = numberOfPeople
+                self?.recruitBind(recruitCount: recruitCount)
+                print(numberOfPeople)
+            }.store(in: cancelBag)
+        
+        contentViewController.saveButton
+            .tapPublisher
+            .sink { [weak bottomSheetVC] _ in
+                bottomSheetVC?.closeBottomSheet()
+            }.store(in: cancelBag)
+        
         bottomSheetVC.modalPresentationStyle = .overFullScreen
         self.present(bottomSheetVC, animated: false, completion: nil)
     }
+    
+    private func recruitBind(recruitCount: String) {
+        self.rootView.recruitCountLabel.text = recruitCount
+}
 }

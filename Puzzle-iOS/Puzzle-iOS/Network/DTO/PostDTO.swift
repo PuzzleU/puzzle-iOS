@@ -8,6 +8,7 @@
 import Foundation
 
 struct PostDTO: Codable {
-    
+    let teamMemberNow, teamMemberNeed: Int
+    let teamTitle, teamUrl, teamIntroduce, teamContent: String
+    let teamUntact, teamStatus: Bool
 }
-

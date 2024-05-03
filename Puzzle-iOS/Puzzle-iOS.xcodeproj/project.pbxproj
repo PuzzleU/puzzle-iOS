@@ -65,6 +65,9 @@
 		7118EAF32B9DBAEA00012D94 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118EAF22B9DBAEA00012D94 /* EmptyCell.swift */; };
 		7118EAF52B9DBCA300012D94 /* TypeIconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118EAF42B9DBCA300012D94 /* TypeIconFactory.swift */; };
 		7118EAF82B9DC48F00012D94 /* DashedLineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118EAF72B9DC48F00012D94 /* DashedLineCollectionViewCell.swift */; };
+		711D00352BE0393B005BED41 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D00342BE0393B005BED41 /* PostRepository.swift */; };
+		711D00372BE03980005BED41 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D00362BE03980005BED41 /* PostService.swift */; };
+		711D00392BE03A03005BED41 /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D00382BE03A03005BED41 /* PostDTO.swift */; };
 		7121D8602BD2342E0040C5D5 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D85F2BD2342E0040C5D5 /* PostView.swift */; };
 		7121D8642BD2344A0040C5D5 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D8632BD2344A0040C5D5 /* PostViewController.swift */; };
 		7121D8672BD234B20040C5D5 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7121D8662BD234B20040C5D5 /* PostViewModel.swift */; };
@@ -104,6 +107,7 @@
 		7181504A2B629709005E4451 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 718150492B629709005E4451 /* Kingfisher */; };
 		7181504F2B629725005E4451 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7181504E2B629725005E4451 /* Then */; };
 		718150522B62E05F005E4451 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 718150512B62E05F005E4451 /* .swiftlint.yml */; };
+		71826B282BE3A068005247DB /* RecruitmentNumberPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71826B272BE3A068005247DB /* RecruitmentNumberPickerViewController.swift */; };
 		718D090D2B7A40310021AD40 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 718D090C2B7A40310021AD40 /* Pretendard-Light.otf */; };
 		718D09162B7A947F0021AD40 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09152B7A947F0021AD40 /* OnboardingViewController.swift */; };
 		718D09192B7A94930021AD40 /* OnboardingBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D09182B7A94930021AD40 /* OnboardingBaseView.swift */; };
@@ -204,6 +208,9 @@
 		7118EAF22B9DBAEA00012D94 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		7118EAF42B9DBCA300012D94 /* TypeIconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeIconFactory.swift; sourceTree = "<group>"; };
 		7118EAF72B9DC48F00012D94 /* DashedLineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLineCollectionViewCell.swift; sourceTree = "<group>"; };
+		711D00342BE0393B005BED41 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		711D00362BE03980005BED41 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		711D00382BE03A03005BED41 /* PostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
 		7121D85F2BD2342E0040C5D5 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		7121D8632BD2344A0040C5D5 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		7121D8662BD234B20040C5D5 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
@@ -246,6 +253,7 @@
 		7181502F2B6291D8005E4451 /* Puzzle_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSUITests.swift; sourceTree = "<group>"; };
 		718150312B6291D8005E4451 /* Puzzle_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		718150512B62E05F005E4451 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		71826B272BE3A068005247DB /* RecruitmentNumberPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentNumberPickerViewController.swift; sourceTree = "<group>"; };
 		718D090C2B7A40310021AD40 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		718D09152B7A947F0021AD40 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		718D09182B7A94930021AD40 /* OnboardingBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseView.swift; sourceTree = "<group>"; };
@@ -364,6 +372,7 @@
 			children = (
 				2C372A432B6B8C44009B7BF6 /* AuthDTO.swift */,
 				2CA6843A2BA806E10034C3E7 /* SpalshDTO.swift */,
+				711D00382BE03A03005BED41 /* PostDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -383,6 +392,7 @@
 			children = (
 				2C372A472B6B8D3A009B7BF6 /* UserRepository.swift */,
 				2CA6844A2BA807FD0034C3E7 /* SplashRepository.swift */,
+				711D00342BE0393B005BED41 /* PostRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -490,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA684482BA807D50034C3E7 /* SplashService.swift */,
+				711D00362BE03980005BED41 /* PostService.swift */,
 			);
 			path = SplashService;
 			sourceTree = "<group>";
@@ -591,6 +602,7 @@
 			isa = PBXGroup;
 			children = (
 				7121D8632BD2344A0040C5D5 /* PostViewController.swift */,
+				71826B272BE3A068005247DB /* RecruitmentNumberPickerViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1174,10 +1186,12 @@
 				7121D86B2BD25CF50040C5D5 /* UITextView+Combine.swift in Sources */,
 				718D09242B7FCE950021AD40 /* ProgressView.swift in Sources */,
 				2C33B1742B76404A00A9476D /* PuzzleMainButton.swift in Sources */,
+				71826B282BE3A068005247DB /* RecruitmentNumberPickerViewController.swift in Sources */,
 				2CA684492BA807D50034C3E7 /* SplashService.swift in Sources */,
 				7118EAF52B9DBCA300012D94 /* TypeIconFactory.swift in Sources */,
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
 				7121D8692BD236B30040C5D5 /* PuzzleInfoView.swift in Sources */,
+				711D00352BE0393B005BED41 /* PostRepository.swift in Sources */,
 				7127DA5C2B8243CB00B262DA /* OnboardingSelectAreaViewController.swift in Sources */,
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				7118EAEE2B9DA31400012D94 /* KeywordFactory.swift in Sources */,
@@ -1191,7 +1205,9 @@
 				71A659622BC4ED5500583D62 /* OnboardingViewModel.swift in Sources */,
 				7127DA612B82601000B262DA /* Publisher+UIGesture.swift in Sources */,
 				2C5310E52B6E7B8700704371 /* LoginViewController.swift in Sources */,
+				711D00372BE03980005BED41 /* PostService.swift in Sources */,
 				718D09372B80D7CE0021AD40 /* PositionViewModel.swift in Sources */,
+				711D00392BE03A03005BED41 /* PostDTO.swift in Sources */,
 				71EB2E9C2BA46F4300EB64B2 /* SettingCell.swift in Sources */,
 				7127DA652B8330C500B262DA /* AreaTableViewCell.swift in Sources */,
 				2C5310DF2B6E71FF00704371 /* LoginView.swift in Sources */,

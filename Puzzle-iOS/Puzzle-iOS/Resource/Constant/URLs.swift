@@ -12,4 +12,8 @@ enum URLs {
         static let splash = "/splash"
         static let essential = "/user/essential"
     }
+    
+    enum Post {
+        static let team = "/team"
+    }
 }

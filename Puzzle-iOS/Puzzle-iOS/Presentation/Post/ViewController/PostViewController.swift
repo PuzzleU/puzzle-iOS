@@ -217,5 +217,32 @@ extension PostViewController {
     
     private func recruitBind(recruitCount: String) {
         self.rootView.recruitCountLabel.text = recruitCount
+    }
 }
+
+// MARK: - Network
+
+extension PostViewController {
+    private func uploadPost() {
+        
+        guard let titletext = rootView.postTextView.text else { return }
+        guard let descriptiontext = rootView.titleTextField.text else { return }
+        
+        let requestDto = PostDTO(
+            teamMemberNow: 1,
+            teamMemberNeed: 3,
+            teamTitle: titletext,
+            teamUrl: "주소",
+            teamIntroduce: descriptiontext,
+            teamContent: descriptiontext,
+            teamUntact: true,
+            teamStatus: true
+        )
+        
+        PostingService().requestPostData(data: requestDto)
+            .catch { error -> AnyPublisher<Void, Error> in
+                print("Error sending user info: \(error)")
+                return Fail(error: error).eraseToAnyPublisher()
+            }.eraseToAnyPublisher()
+    }
 }

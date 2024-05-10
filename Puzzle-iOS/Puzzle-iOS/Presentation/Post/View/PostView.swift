@@ -154,5 +154,4 @@ final class PostView: UIView {
             $0.trailing.equalToSuperview().inset(20)
         }
     }
-    
 }

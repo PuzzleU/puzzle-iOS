@@ -148,19 +148,19 @@ final class BottomSheetViewController: UIViewController {
                 self?.hideBottomSheetAndGoBack()
             }.store(in: cancelBag)
         
-        //        bottomSheetView.gesture(.pan())
-        //            .receive(on: RunLoop.main)
-        //            .sink { [weak self] gesture in
-        //                switch gesture {
-        //                case .pan(let panGesture):
-        //                    self?.handlePanGesture(sender: panGesture)
-        //                    print("Gesture State: \(panGesture.state.rawValue)")
-        //                default:
-        //                    break
-        //                }
-        //            }
-        //            .store(in: cancelBag)
-        // 왜 퍼블리셔로 하면 case 3, 4가 호출이 안될까..? 미치겠네 ^^
+//                bottomSheetView.gesture(.pan())
+//                    .receive(on: RunLoop.main)
+//                    .sink { [weak self] gesture in
+//                        switch gesture {
+//                        case .pan(let panGesture):
+//                            self?.handlePanGesture(sender: panGesture)
+//                            print("Gesture State: \(panGesture.state.rawValue)")
+//                        default:
+//                            break
+//                        }
+//                    }
+//                    .store(in: cancelBag)
+//         왜 퍼블리셔로 하면 case 3, 4가 호출이 안될까..? 미치겠네 ^^
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(sender:)))
         bottomSheetView.addGestureRecognizer(panGesture)

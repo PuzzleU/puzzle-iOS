@@ -15,7 +15,7 @@ final class RecruitmentNumberPickerViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let recruitPeopleLimitLists = (1...10).map { "\($0) 명" }
+    private let recruitPeopleLimitLists = pickerDummyData
     
     private let itemSubject: PassthroughSubject<String, Never> = .init()
     var itemPublisher: AnyPublisher<String, Never> {

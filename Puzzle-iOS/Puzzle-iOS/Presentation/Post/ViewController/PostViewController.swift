@@ -17,7 +17,7 @@ final class PostViewController: UIViewController {
     private lazy var textFieldPlaceholder = rootView.textFieldPlaceHolder
     private lazy var textViewPlaceholder = rootView.textViewPlaceholder
     
-    private let vm = PostViewModel()
+    private let viewModel = PostViewModel()
     
     var cancelBag = CancelBag()
     
@@ -60,7 +60,7 @@ final class PostViewController: UIViewController {
             didUploadTapped: rootView.postSaveButton.tapPublisher
         )
         
-        let output = vm.transform(from: input, cancelBag: cancelBag)
+        let output = viewModel.transform(from: input, cancelBag: cancelBag)
         
         output.postTextViewText
             .debounce(for: 0.5, scheduler: RunLoop.main)
@@ -166,19 +166,15 @@ extension PostViewController: UITextViewDelegate {
         
         let currentText = textView.text ?? ""
         
-        // NSRange를 Swift의 Range로 변환합니다.
         guard let stringRange = Range(range, in: currentText) else { return false }
         
-        // 변경될 텍스트를 적용하여 새로운 전체 텍스트를 생성합니다.
         let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
         
-        // 업데이트된 텍스트의 길이가 10을 초과하는지 확인하고, 초과하면 false를 반환하여 입력을 거부합니다.
         if updatedText.count > 150 {
             self.showToast(message: "글자수가 넘어 갑니다.")
             return false
         }
         
-        // 길이 제한에 걸리지 않는 경우 true를 반환하여 텍스트 변경을 허용합니다.
         return true
     }
 }
@@ -239,6 +235,8 @@ extension PostViewController {
             teamStatus: true
         )
         
+        
+        // TODO: 서버 연결 (아직 안함)
         PostingService().requestPostData(data: requestDto)
             .catch { error -> AnyPublisher<Void, Error> in
                 print("Error sending user info: \(error)")

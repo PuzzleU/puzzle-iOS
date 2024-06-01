@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol PostRepository {
-//    func postData() -> AnyPublisher<SplashDTO, Error>
+    func postData() -> AnyPublisher<Void, Never>/* -> AnyPublisher<SplashDTO, Never>*/
 }
 
 struct DefaultPostRepository: PostRepository {
@@ -19,8 +19,8 @@ struct DefaultPostRepository: PostRepository {
     init(postService: PostService) {
         self.postService = postService
     }
-//    func postData() -> AnyPublisher<SplashDTO, Error> {
-//        
-//    }
+    func postData() -> AnyPublisher<Void, Never> {
+        return Just(print("서버 통신")).eraseToAnyPublisher()
+    }
     
 }

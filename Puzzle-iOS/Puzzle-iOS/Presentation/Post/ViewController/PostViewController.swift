@@ -17,7 +17,7 @@ final class PostViewController: UIViewController {
     private lazy var textFieldPlaceholder = rootView.textFieldPlaceHolder
     private lazy var textViewPlaceholder = rootView.textViewPlaceholder
     
-    private let viewModel = PostViewModel()
+    private let viewModel: PostViewModel
     
     var cancelBag = CancelBag()
     
@@ -28,6 +28,16 @@ final class PostViewController: UIViewController {
     private let rootView = PostView()
     
     // MARK: - Life Cycles
+    
+    init(viewModel: PostViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         self.view = rootView

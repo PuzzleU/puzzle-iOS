@@ -12,6 +12,8 @@ class PostViewModel: ViewModelType {
     
     var cancelBag = CancelBag()
     
+    private let postRepository: PostRepository
+    
     struct Input {
         let postTextViewDidChange: AnyPublisher<String, Never>
         let postTextBeginEditingChange: AnyPublisher<Void, Never>
@@ -24,6 +26,10 @@ class PostViewModel: ViewModelType {
         let postTextViewBeginEditingChange: AnyPublisher<Void, Never>
         let postTextEndEditingChange: AnyPublisher<Void, Never>
         let didUploadPosting: AnyPublisher<Void, Never>
+    }
+    
+    init(postRepository: PostRepository) {
+        self.postRepository = postRepository
     }
     
     func transform(from input: Input, cancelBag: CancelBag) -> Output {
@@ -42,16 +48,14 @@ class PostViewModel: ViewModelType {
             .eraseToAnyPublisher()
         
         let didUploadPosting = input.didUploadTapped
-            .receive(on: RunLoop.main)
-            .print()
+            .flatMap { [weak self] _ -> AnyPublisher<Void, Never> in
+                guard let self = self else { return Just(()).eraseToAnyPublisher() }
+                return self.postRepository.postData()
+                    .catch { _ in Just(()) }
+                    .eraseToAnyPublisher()
+            }
             .eraseToAnyPublisher()
-        //            .flatMap { _ in
-        //                self.uploadPostToServer()
-        //                    .receive(on: RunLoop.main)
-        //                    .eraseToAnyPublisher()
-        //            }
-        //            .share()
-        //            .eraseToAnyPublisher()
+        
         
         return Output(
             postTextViewText: postTextViewDidChange,

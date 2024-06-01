@@ -22,6 +22,7 @@ final class PostViewController: UIViewController {
     var cancelBag = CancelBag()
     
     private var userInput: String = ""
+    
     // MARK: - UIComponents
     
     private let rootView = PostView()
@@ -119,30 +120,35 @@ final class PostViewController: UIViewController {
     
     // MARK: - Objc function
     
-    @objc private func keyboardWillShow(_ sender: Notification) {
-        guard let userInfo = sender.userInfo,
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
               let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
             return
         }
         
+        let contentInset = UIEdgeInsets(
+            top: 0.0,
+            left: 0.0,
+            bottom: keyboardFrame.size.height,
+            right: 0.0)
+        
+        rootView.scrollView.contentInset = contentInset
+        rootView.scrollView.scrollIndicatorInsets = contentInset
+        
         if rootView.postTextView.isFirstResponder {
-            let keyboardHeight = keyboardFrame.height * 0.7
-            self.view.frame.origin.y -= keyboardHeight
-            self.view.layoutIfNeeded()
+            let contentViewHeight = rootView.scrollView.contentSize.height
+            let textViewHeight = rootView.postTextView.frame.height
+            let textViewOffsetY = contentViewHeight - (contentInset.bottom + textViewHeight)
+            let position = CGPoint(x: 0, y: textViewOffsetY - 150)
+            rootView.scrollView.setContentOffset(position, animated: true)
+            return
         }
     }
     
     @objc private func keyboardWillHide(_ sender: Notification) {
-        guard let userInfo = sender.userInfo,
-              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
-            return
-        }
-        
-        if rootView.postTextView.isFirstResponder {
-            let keyboardHeight = keyboardFrame.height * 0.7
-            self.view.frame.origin.y += keyboardHeight
-            self.view.layoutIfNeeded()
-        }
+        let contentInset = UIEdgeInsets.zero
+        rootView.scrollView.contentInset = contentInset
+        rootView.scrollView.scrollIndicatorInsets = contentInset
     }
 }
 

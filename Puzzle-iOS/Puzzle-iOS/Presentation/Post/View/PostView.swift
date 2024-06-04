@@ -40,7 +40,7 @@ final class PostView: UIView {
         image: .icDoublePeople
     )
     
-    let selectionView = PuzzleCustomView.makeInfoView(
+    let selectPositionView = PuzzleCustomView.makeInfoView(
         title: "구인 포지션",
         image: .icWrench
     )
@@ -79,7 +79,7 @@ final class PostView: UIView {
             titleTextField,
             splitView,
             recruitCountView,
-            selectionView,
+            selectPositionView,
             postTextView,
             postSaveButton
         ]
@@ -148,7 +148,7 @@ final class PostView: UIView {
             $0.height.equalTo(40)
         }
         
-        selectionView.snp.makeConstraints {
+        selectPositionView.snp.makeConstraints {
             $0.height.equalTo(40)
         }
         
@@ -160,6 +160,7 @@ final class PostView: UIView {
         postSaveButton.snp.remakeConstraints {
             $0.height.equalTo(52)
             $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-17)
         }
         
         recruitCountLabel.snp.makeConstraints {

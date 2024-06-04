@@ -56,7 +56,6 @@ class PostViewModel: ViewModelType {
             }
             .eraseToAnyPublisher()
         
-        
         return Output(
             postTextViewText: postTextViewDidChange,
             postTextViewBeginEditingChange: postTextBeginEditingChange,

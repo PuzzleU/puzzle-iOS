@@ -105,6 +105,12 @@ final class PostViewController: UIViewController {
             .sink { [weak self] _ in
                 self?.showRecruitNumberBottomSheet()
             }.store(in: cancelBag)
+        
+        rootView.selectPositionView.gesture(.tap())
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.showJobPositionBottomSheet()
+            }.store(in: cancelBag)
     }
     
     private func setTapGesture() {
@@ -227,6 +233,20 @@ extension PostViewController {
         self.present(bottomSheetVC, animated: false, completion: nil)
     }
     
+    func showJobPositionBottomSheet() {
+        let contentViewController = JobPositionViewController()
+        
+        let bottomSheetVC = BottomSheetViewController(
+            bottomType: .middle,
+            contentViewController: contentViewController,
+            upScroll: true
+        )
+        
+        bottomSheetVC.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetVC, animated: false, completion: nil)
+        
+    }
+    
     private func recruitBind(recruitCount: String) {
         self.rootView.recruitCountLabel.text = recruitCount
     }
@@ -251,8 +271,8 @@ extension PostViewController {
             teamStatus: true
         )
         
-        
         // TODO: 서버 연결 (아직 안함)
+        
         PostingService().requestPostData(data: requestDto)
             .catch { error -> AnyPublisher<Void, Error> in
                 print("Error sending user info: \(error)")

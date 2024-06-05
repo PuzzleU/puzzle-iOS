@@ -129,6 +129,10 @@
 		71A5BB102B9B2CE300655835 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5BB0F2B9B2CE300655835 /* MyProfileViewController.swift */; };
 		71A5BB122B9B312900655835 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5BB112B9B312900655835 /* MyProfileView.swift */; };
 		71A659622BC4ED5500583D62 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A659612BC4ED5500583D62 /* OnboardingViewModel.swift */; };
+		71CA49BB2C0DE0EE00D162BC /* JobPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CA49BA2C0DE0EE00D162BC /* JobPositionViewController.swift */; };
+		71CA49BE2C0DE6D600D162BC /* PositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CA49BD2C0DE6D600D162BC /* PositionCell.swift */; };
+		71CA49C02C0F2E6300D162BC /* PositionCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CA49BF2C0F2E6300D162BC /* PositionCheckCell.swift */; };
+		71CA49C22C0F314100D162BC /* CompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CA49C12C0F314100D162BC /* CompositionalLayout.swift */; };
 		71EB2E962BA468FE00EB64B2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */; };
 		71EB2E9A2BA4694900EB64B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E992BA4694900EB64B2 /* SettingView.swift */; };
 		71EB2E9C2BA46F4300EB64B2 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */; };
@@ -275,6 +279,10 @@
 		71A5BB0F2B9B2CE300655835 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		71A5BB112B9B312900655835 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		71A659612BC4ED5500583D62 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		71CA49BA2C0DE0EE00D162BC /* JobPositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPositionViewController.swift; sourceTree = "<group>"; };
+		71CA49BD2C0DE6D600D162BC /* PositionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCell.swift; sourceTree = "<group>"; };
+		71CA49BF2C0F2E6300D162BC /* PositionCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCheckCell.swift; sourceTree = "<group>"; };
+		71CA49C12C0F314100D162BC /* CompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayout.swift; sourceTree = "<group>"; };
 		71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		71EB2E992BA4694900EB64B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		71EB2E9B2BA46F4300EB64B2 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -586,6 +594,7 @@
 				7121D8652BD234670040C5D5 /* ViewModel */,
 				7121D8622BD2343A0040C5D5 /* ViewController */,
 				7121D8612BD234320040C5D5 /* View */,
+				71CA49BC2C0DE6C900D162BC /* Cell */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -603,6 +612,7 @@
 			children = (
 				7121D8632BD2344A0040C5D5 /* PostViewController.swift */,
 				71826B272BE3A068005247DB /* RecruitmentNumberPickerViewController.swift */,
+				71CA49BA2C0DE0EE00D162BC /* JobPositionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -668,6 +678,7 @@
 				7127DA532B82071700B262DA /* LeftAlignedFlowLayout.swift */,
 				710309A72B9634A60077EE17 /* addShadow.swift */,
 				71F4F6BF2BB53F28006C799B /* ViewControllerUtils.swift */,
+				71CA49C12C0F314100D162BC /* CompositionalLayout.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -878,6 +889,15 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		71CA49BC2C0DE6C900D162BC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				71CA49BD2C0DE6D600D162BC /* PositionCell.swift */,
+				71CA49BF2C0F2E6300D162BC /* PositionCheckCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		71EB2E932BA468BF00EB64B2 /* Profile */ = {
@@ -1116,6 +1136,7 @@
 				71F4F6C02BB53F28006C799B /* ViewControllerUtils.swift in Sources */,
 				2C9813BF2B7CF38100C56D0B /* UIStackView+.swift in Sources */,
 				7121D8672BD234B20040C5D5 /* PostViewModel.swift in Sources */,
+				71CA49BB2C0DE0EE00D162BC /* JobPositionViewController.swift in Sources */,
 				71814A892B77353900B23378 /* FontLiterals.swift in Sources */,
 				7103098D2B91D5860077EE17 /* UIButton+Combine.swift in Sources */,
 				2C33B17A2B764A8300A9476D /* OnboardingPlusView.swift in Sources */,
@@ -1127,6 +1148,7 @@
 				2C5310E32B6E782B00704371 /* LoginCollectionViewCell.swift in Sources */,
 				2C804D572B7DB7C100379C07 /* NumberLiterals.swift in Sources */,
 				2C372A482B6B8D3A009B7BF6 /* UserRepository.swift in Sources */,
+				71CA49BE2C0DE6D600D162BC /* PositionCell.swift in Sources */,
 				718D09282B808A400021AD40 /* OnboardingSelectProfileImageViewController.swift in Sources */,
 				7127DA502B81C9C000B262DA /* InterestViewModel.swift in Sources */,
 				71A5BB102B9B2CE300655835 /* MyProfileViewController.swift in Sources */,
@@ -1166,6 +1188,7 @@
 				7118EAF82B9DC48F00012D94 /* DashedLineCollectionViewCell.swift in Sources */,
 				718D09312B8093170021AD40 /* ProfileViewModel.swift in Sources */,
 				7103098B2B90B5470077EE17 /* UIViewController+Combine.swift in Sources */,
+				71CA49C22C0F314100D162BC /* CompositionalLayout.swift in Sources */,
 				2C9813B72B7CEA1C00C56D0B /* PuzzleDropDownTableViewCell.swift in Sources */,
 				710309992B9315A10077EE17 /* TitleView.swift in Sources */,
 				2C9813C12B7D03F100C56D0B /* PuzzleDropdownTableView.swift in Sources */,
@@ -1192,6 +1215,7 @@
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
 				7121D8692BD236B30040C5D5 /* PuzzleInfoView.swift in Sources */,
 				711D00352BE0393B005BED41 /* PostRepository.swift in Sources */,
+				71CA49C02C0F2E6300D162BC /* PositionCheckCell.swift in Sources */,
 				7127DA5C2B8243CB00B262DA /* OnboardingSelectAreaViewController.swift in Sources */,
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				7118EAEE2B9DA31400012D94 /* KeywordFactory.swift in Sources */,

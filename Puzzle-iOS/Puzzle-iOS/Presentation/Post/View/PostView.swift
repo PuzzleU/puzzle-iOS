@@ -13,9 +13,16 @@ final class PostView: UIView {
     
     // MARK: - Property
     
-    let textFieldPlaceHolder = "제목을 입력해 주세여"
+    let textFieldPlaceHolder = "제목을 입력해 주세요"
     
-    let textViewPlaceholder = "같이 하고 싶은 팀원에 대해 자유롭게 설명해주세요!\n[예시]\n(스킬셋) 특히 포토샵을 잘 다루는 분이면 좋겠어요\n(경험) 공모전 수상 경험이 있는 분이면 좋겠어요\n(경험) 경험이 많지 않아도 같이 개발하며 성장할 수 있는 분이면 좋겠어요\n(지역) 대면 가능한 분만 원해요"
+    let textViewPlaceholder = """
+    같이 하고 싶은 팀원에 대해 자유롭게 설명해주세요!
+    [예시]
+    (스킬셋) 특히 포토샵을 잘 다루는 분이면 좋겠어요
+    (경험) 공모전 수상 경험이 있는 분이면 좋겠어요
+    (경험) 경험이 많지 않아도 같이 개발하며 성장할 수 있는 분이면 좋겠어요
+    (지역) 대면 가능한 분만 원해요
+    """
     
     // MARK: - UIComponents
     
@@ -53,7 +60,7 @@ final class PostView: UIView {
     lazy var postTextView = UITextView().then {
         $0.font = .body2
         $0.text = self.textViewPlaceholder
-        
+        $0.textColor = .puzzleGray400
         $0.isEditable = true
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 6
@@ -154,14 +161,14 @@ final class PostView: UIView {
         
         postTextView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
-            $0.height.greaterThanOrEqualTo(120)
+            $0.height.greaterThanOrEqualTo(437)
         }
         
-        postSaveButton.snp.remakeConstraints {
-            $0.height.equalTo(52)
-            $0.horizontalEdges.equalToSuperview()
-            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-17)
-        }
+//        postSaveButton.snp.makeConstraints {
+//            $0.height.equalTo(52)
+//            $0.horizontalEdges.equalToSuperview()
+//            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-17)
+//        }
         
         recruitCountLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()

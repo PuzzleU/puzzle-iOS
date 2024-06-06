@@ -33,7 +33,7 @@ struct PuzzleCustomView {
         
         icArrowRight.snp.makeConstraints {
             $0.trailing.equalToSuperview()
-            $0.centerY.equalToSuperview()
+            $0.top.equalTo(containerView.snp.top).offset(14)
         }
         
         underLineView.snp.makeConstraints {
@@ -49,19 +49,19 @@ struct PuzzleCustomView {
             
             imageView.snp.makeConstraints {
                 $0.leading.equalToSuperview()
-                $0.centerY.equalToSuperview()
+                $0.top.equalTo(containerView.snp.top).offset(12)
             }
             
             label.snp.makeConstraints {
                 $0.leading.equalTo(imageView.snp.trailing).offset(8)
-                $0.centerY.equalToSuperview()
+                $0.top.equalTo(containerView.snp.top).offset(10)
             }
         } else {
             containerView.addSubviews(label)
             
             label.snp.makeConstraints {
                 $0.leading.equalToSuperview()
-                $0.centerY.equalToSuperview()
+                $0.top.equalTo(containerView.snp.top).offset(10)
             }
         }
         

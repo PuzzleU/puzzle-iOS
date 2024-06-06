@@ -13,7 +13,11 @@ final class PostViewController: UIViewController {
     // MARK: - Property
     
     private var numberOfPeopleData: Int?
-    private var positionDatas: [String]?
+    private var positionDatas: [String] = [] {
+        didSet {
+            updatePositionChips()
+        }
+    }
     
     private lazy var textFieldPlaceholder = rootView.textFieldPlaceHolder
     private lazy var textViewPlaceholder = rootView.textViewPlaceholder
@@ -135,6 +139,11 @@ final class PostViewController: UIViewController {
         )
     }
     
+    private func updatePositionChips() {
+        // Chips에 따라 동적으로 
+        rootView.updatePositionChips(positions: positionDatas)
+    }
+    
     // MARK: - Objc function
     
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -157,7 +166,7 @@ final class PostViewController: UIViewController {
             let textViewHeight = rootView.postTextView.frame.height
             let textViewOffsetY = contentViewHeight - (contentInset.bottom + textViewHeight)
             
-            let position = CGPoint(x: 0, y: textViewOffsetY + 150)
+            let position = CGPoint(x: 0, y: textViewOffsetY + 225)
             rootView.scrollView.setContentOffset(position, animated: true)
             return
         }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 import Then
 
@@ -15,6 +16,15 @@ final class PostView: UIView {
     
     let textFieldPlaceHolder = StringLiterals.Post.textFieldPlaceholderLabel
     let textViewPlaceholder = StringLiterals.Post.textViewPlaceholderLabel
+    
+    private let keywordColors: [String: UIColor] = [
+        "개발": .chip1,
+        "기획": .chip5,
+        "마케팅": .chip2,
+        "디자인": .chip4,
+        "데이터": .chip3,
+        "기타": .puzzleGray500
+    ]
     
     // MARK: - UIComponents
     
@@ -45,6 +55,13 @@ final class PostView: UIView {
         title: StringLiterals.Post.selectPositionViewLabel,
         image: .icWrench
     )
+    
+    private let selectPositionChipsStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 4
+        $0.alignment = .fill
+        $0.distribution = .fillProportionally
+    }
     
     let recruitCountLabel = LabelFactory.build(
         text: "",
@@ -83,8 +100,8 @@ final class PostView: UIView {
             splitView,
             recruitCountView,
             selectPositionView,
-            postTextView,
-            postSaveButton
+            selectPositionChipsStackView,
+            postTextView
         ]
     ).then {
         $0.axis = .vertical
@@ -114,9 +131,10 @@ final class PostView: UIView {
     
     private func setHierarchy() {
         addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        scrollView.addSubviews(contentView, postSaveButton)
         contentView.addSubview(vStackView)
         recruitCountView.addSubview(recruitCountLabel)
+        selectPositionView.addSubview(selectPositionChipsStackView)
     }
     
     private func setLayout() {
@@ -156,19 +174,59 @@ final class PostView: UIView {
             $0.height.equalTo(40)
         }
         
-        postTextView.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(444)
+        selectPositionChipsStackView.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.leading.equalToSuperview()
+            $0.bottom.equalTo(selectPositionView.snp.bottom).inset(4)
         }
         
-        postSaveButton.snp.remakeConstraints {
+        postTextView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(52)
         }
         
         recruitCountLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(20)
         }
+    }
+    
+    // MARK: - Methods
+    
+    func updatePositionChips(positions: [String]) {
+        
+        guard !positions.isEmpty else {
+            
+            // 이 부분 없으면 Chips 하나가 남아서 있어야함
+            selectPositionChipsStackView.arrangedSubviews.forEach {
+                $0.removeFromSuperview()
+            }
+            
+            // 높이 다시 되돌리기
+            selectPositionView.snp.updateConstraints {
+                $0.height.equalTo(40)
+            }
+            return
+        }
+        
+        selectPositionChipsStackView.arrangedSubviews.forEach {
+            $0.removeFromSuperview()
+        }
+        
+        for position in positions {
+            let backgroundColor = keywordColors[position] ?? .puzzleGray500
+            
+            let chipView = KeywordFactory.build(
+                text: position,
+                font: .body2,
+                backgroundColor: backgroundColor
+            )
+            selectPositionChipsStackView.addArrangedSubview(chipView)
+        }
+        
+        selectPositionView.snp.updateConstraints {
+            $0.height.equalTo(60)
+        }
+        
+        layoutIfNeeded()
     }
 }

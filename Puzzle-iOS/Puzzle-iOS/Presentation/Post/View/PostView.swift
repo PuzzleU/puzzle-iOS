@@ -164,11 +164,11 @@ final class PostView: UIView {
             $0.height.greaterThanOrEqualTo(437)
         }
         
-//        postSaveButton.snp.makeConstraints {
-//            $0.height.equalTo(52)
-//            $0.horizontalEdges.equalToSuperview()
-//            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-17)
-//        }
+        postSaveButton.snp.remakeConstraints {
+            $0.height.equalTo(52)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-17)
+        }
         
         recruitCountLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()

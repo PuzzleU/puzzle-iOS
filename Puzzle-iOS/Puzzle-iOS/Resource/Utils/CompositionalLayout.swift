@@ -14,6 +14,8 @@ struct CompositionalLayout {
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
+        item.contentInsets.trailing = 12
+        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(40)
@@ -31,4 +33,3 @@ struct CompositionalLayout {
         return UICollectionViewCompositionalLayout(section: section)
     }
 }
-

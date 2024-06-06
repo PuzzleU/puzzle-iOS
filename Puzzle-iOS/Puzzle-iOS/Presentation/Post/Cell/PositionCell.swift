@@ -68,4 +68,8 @@ final class PositionCell: UITableViewCell {
     func bindData(text: String) {
         titleLabel.text = text
     }
+    
+    func setTitleColor(_ color: UIColor) {
+        titleLabel.textColor = color
+    }
 }

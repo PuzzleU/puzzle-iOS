@@ -1,5 +1,5 @@
 //
-//  PositionCheckCell.swift
+//  PositionChips.swift
 //  Puzzle-iOS
 //
 //  Created by 이명진 on 6/4/24.
@@ -10,13 +10,14 @@ import UIKit
 import SnapKit
 import Then
 
-final class PositionCheckCell: UICollectionViewCell {
+final class PositionChipCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
     private let titleLabel = LabelFactory.build(
         text: "개발",
         font: .body2,
+        textColor: .white,
         textAlignment: .left
     )
     
@@ -37,12 +38,6 @@ final class PositionCheckCell: UICollectionViewCell {
     ).then {
         $0.axis = .horizontal
         $0.alignment = .fill
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            toggle()
-        }
     }
     
     // MARK: - Life Cycles
@@ -79,10 +74,6 @@ final class PositionCheckCell: UICollectionViewCell {
         HStackView.snp.makeConstraints {
             $0.centerX.centerY.equalTo(keywordView)
         }
-    }
-    
-    private func toggle() {
-        titleLabel.textColor = isSelected ? .puzzlePurple : .puzzleGray800
     }
     
     func selfKeyword() -> String {

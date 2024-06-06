@@ -1,13 +1,5 @@
-//
-//  JobPositionViewController.swift
-//  Puzzle-iOS
-//
-//  Created by 이명진 on 6/3/24.
-//
-
 import UIKit
 import Combine
-
 import SnapKit
 import Then
 
@@ -86,11 +78,19 @@ final class JobPositionViewController: UIViewController {
         }
         
         keywordCollectionView.snp.makeConstraints {
-            $0.top.equalTo(divideView.snp.top).offset(25)
-            $0.leading.equalTo(divideView.snp.leading).offset(34)
+            $0.top.equalTo(divideView.snp.top).offset(10)
+            $0.leading.equalTo(divideView.snp.leading).offset(40)
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalTo(saveButton.snp.top).offset(4)
+        }
+        
+        saveButton.snp.makeConstraints {
+            $0.height.equalTo(52)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-17)
         }
     }
-
+    
     private func setDelegate() {
         positionTableView.delegate = self
         positionTableView.dataSource = self
@@ -100,8 +100,7 @@ final class JobPositionViewController: UIViewController {
     
     private func setRegister() {
         positionTableView.register(PositionCell.self, forCellReuseIdentifier: PositionCell.className)
-        keywordCollectionView.register(PositionCheckCell.self, forCellWithReuseIdentifier: PositionCheckCell.className)
-        
+        keywordCollectionView.register(PositionChipCell.self, forCellWithReuseIdentifier: PositionChipCell.className)
     }
     
     private func createTableHeaderView() -> UIView {
@@ -120,6 +119,25 @@ final class JobPositionViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
+
+extension JobPositionViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedPosition = positions[indexPath.row]
+        
+        if !keywords.contains(selectedPosition) {
+            keywords.append(selectedPosition)
+            updatePositionCellColors()
+            
+            keywordCollectionView.reloadData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
+    }
+}
+
 // MARK: - UITableViewDataSource
 
 extension JobPositionViewController: UITableViewDataSource {
@@ -131,37 +149,22 @@ extension JobPositionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PositionCell.className, for: indexPath) as? PositionCell else { return UITableViewCell() }
         
-        cell.bindData(text: positions[indexPath.row])
+        let position = positions[indexPath.row]
+        cell.bindData(text: position)
+        cell.setTitleColor(keywords.contains(position) ? .puzzlePurple : .puzzleGray800)
         
         return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-
-extension JobPositionViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        // 테이블뷰 에서 탭을 하면
-        // 컬렉션 뷰로 데이터를 전달 시키면 된다.
-        
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-        return
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
     }
 }
 
 // MARK: - UICollectionViewDelegate
 
 extension JobPositionViewController: UICollectionViewDelegate {
-    
-    // 컬렉션뷰에서 탭을 하면 해당 데이터 사라지게 하면 됩니다.
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        keywords.remove(at: indexPath.row)
+        keywordCollectionView.reloadData()
+        updatePositionCellColors()
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -172,11 +175,22 @@ extension JobPositionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PositionCheckCell.className, for: indexPath) as? PositionCheckCell
-        else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PositionChipCell.className, for: indexPath) as? PositionChipCell else { return UICollectionViewCell() }
         
         cell.bindData(text: keywords[indexPath.row])
         
         return cell
+    }
+}
+
+extension JobPositionViewController {
+    
+    private func updatePositionCellColors() {
+        for (index, position) in positions.enumerated() {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = positionTableView.cellForRow(at: indexPath) as? PositionCell {
+                cell.setTitleColor(keywords.contains(position) ? .puzzlePurple : .puzzleGray800)
+            }
+        }
     }
 }

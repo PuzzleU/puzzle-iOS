@@ -131,7 +131,7 @@
 		71A659622BC4ED5500583D62 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A659612BC4ED5500583D62 /* OnboardingViewModel.swift */; };
 		71CA49BB2C0DE0EE00D162BC /* JobPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CA49BA2C0DE0EE00D162BC /* JobPositionViewController.swift */; };
 		71CA49BE2C0DE6D600D162BC /* PositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CA49BD2C0DE6D600D162BC /* PositionCell.swift */; };
-		71CA49C02C0F2E6300D162BC /* PositionCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CA49BF2C0F2E6300D162BC /* PositionCheckCell.swift */; };
+		71CA49C02C0F2E6300D162BC /* PositionChipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CA49BF2C0F2E6300D162BC /* PositionChipCell.swift */; };
 		71CA49C22C0F314100D162BC /* CompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CA49C12C0F314100D162BC /* CompositionalLayout.swift */; };
 		71EB2E962BA468FE00EB64B2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */; };
 		71EB2E9A2BA4694900EB64B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EB2E992BA4694900EB64B2 /* SettingView.swift */; };
@@ -281,7 +281,7 @@
 		71A659612BC4ED5500583D62 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		71CA49BA2C0DE0EE00D162BC /* JobPositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPositionViewController.swift; sourceTree = "<group>"; };
 		71CA49BD2C0DE6D600D162BC /* PositionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCell.swift; sourceTree = "<group>"; };
-		71CA49BF2C0F2E6300D162BC /* PositionCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCheckCell.swift; sourceTree = "<group>"; };
+		71CA49BF2C0F2E6300D162BC /* PositionChipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionChipCell.swift; sourceTree = "<group>"; };
 		71CA49C12C0F314100D162BC /* CompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayout.swift; sourceTree = "<group>"; };
 		71EB2E952BA468FE00EB64B2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		71EB2E992BA4694900EB64B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -895,7 +895,7 @@
 			isa = PBXGroup;
 			children = (
 				71CA49BD2C0DE6D600D162BC /* PositionCell.swift */,
-				71CA49BF2C0F2E6300D162BC /* PositionCheckCell.swift */,
+				71CA49BF2C0F2E6300D162BC /* PositionChipCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1215,7 +1215,7 @@
 				2C5310E82B6E846100704371 /* DummyData.swift in Sources */,
 				7121D8692BD236B30040C5D5 /* PuzzleInfoView.swift in Sources */,
 				711D00352BE0393B005BED41 /* PostRepository.swift in Sources */,
-				71CA49C02C0F2E6300D162BC /* PositionCheckCell.swift in Sources */,
+				71CA49C02C0F2E6300D162BC /* PositionChipCell.swift in Sources */,
 				7127DA5C2B8243CB00B262DA /* OnboardingSelectAreaViewController.swift in Sources */,
 				2C5310ED2B6E8BD200704371 /* ViewModelType.swift in Sources */,
 				7118EAEE2B9DA31400012D94 /* KeywordFactory.swift in Sources */,

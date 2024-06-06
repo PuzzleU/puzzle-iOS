@@ -12,7 +12,8 @@ final class PostViewController: UIViewController {
     
     // MARK: - Property
     
-    private var numberOfPeople: Int?
+    private var numberOfPeopleData: Int?
+    private var positionDatas: [String]?
     
     private lazy var textFieldPlaceholder = rootView.textFieldPlaceHolder
     private lazy var textViewPlaceholder = rootView.textViewPlaceholder
@@ -155,7 +156,8 @@ final class PostViewController: UIViewController {
             let contentViewHeight = rootView.scrollView.contentSize.height
             let textViewHeight = rootView.postTextView.frame.height
             let textViewOffsetY = contentViewHeight - (contentInset.bottom + textViewHeight)
-            let position = CGPoint(x: 0, y: textViewOffsetY - 150)
+            
+            let position = CGPoint(x: 0, y: textViewOffsetY + 150)
             rootView.scrollView.setContentOffset(position, animated: true)
             return
         }
@@ -218,9 +220,9 @@ extension PostViewController {
                 guard let numberString = recruitCount.components(separatedBy: " ").first,
                       let numberOfPeople = Int(numberString) else { return }
                 
-                self?.numberOfPeople = numberOfPeople
+                self?.numberOfPeopleData = numberOfPeople
                 self?.recruitBind(recruitCount: recruitCount)
-                print(numberOfPeople)
+                print("모집 인원수 \(numberOfPeople)")
             }.store(in: cancelBag)
         
         contentViewController.saveButton
@@ -241,6 +243,13 @@ extension PostViewController {
             contentViewController: contentViewController,
             upScroll: true
         )
+        
+        contentViewController
+            .keywordsPublisher
+            .sink { [weak self] keyword in
+                self?.positionDatas = keyword
+                print("구인 포지션 \(keyword)")
+            }.store(in: cancelBag)
         
         bottomSheetVC.modalPresentationStyle = .overFullScreen
         self.present(bottomSheetVC, animated: false, completion: nil)

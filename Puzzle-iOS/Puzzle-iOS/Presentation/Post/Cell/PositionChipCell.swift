@@ -66,7 +66,6 @@ final class PositionChipCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        
         keywordView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }

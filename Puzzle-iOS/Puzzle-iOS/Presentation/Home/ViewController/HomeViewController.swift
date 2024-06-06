@@ -83,5 +83,4 @@ final class HomeViewController: UIViewController {
             $0.bottom.equalToSuperview()
         }
     }
-    
 }

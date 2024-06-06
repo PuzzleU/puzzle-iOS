@@ -13,23 +13,17 @@ final class PostView: UIView {
     
     // MARK: - Property
     
-    let textFieldPlaceHolder = "제목을 입력해 주세요"
-    
-    let textViewPlaceholder = """
-    같이 하고 싶은 팀원에 대해 자유롭게 설명해주세요!
-    [예시]
-    (스킬셋) 특히 포토샵을 잘 다루는 분이면 좋겠어요
-    (경험) 공모전 수상 경험이 있는 분이면 좋겠어요
-    (경험) 경험이 많지 않아도 같이 개발하며 성장할 수 있는 분이면 좋겠어요
-    (지역) 대면 가능한 분만 원해요
-    """
+    let textFieldPlaceHolder = StringLiterals.Post.textFieldPlaceholderLabel
+    let textViewPlaceholder = StringLiterals.Post.textViewPlaceholderLabel
     
     // MARK: - UIComponents
     
     let scrollView = UIScrollView()
     private let contentView = UIView()
     
-    private let competitionSelectionView = PuzzleCustomView.makeInfoView(title: "공모전 선택")
+    private let competitionSelectionView = PuzzleCustomView.makeInfoView(
+        title: StringLiterals.Post.competitionSelectionViewLabel
+    )
     
     lazy var titleTextField = UITextField().then {
         $0.textColor = .puzzleBlack
@@ -43,12 +37,12 @@ final class PostView: UIView {
     }
     
     let recruitCountView = PuzzleCustomView.makeInfoView(
-        title: "모집 인원 수",
+        title: StringLiterals.Post.recruitCountViewLabel,
         image: .icDoublePeople
     )
     
     let selectPositionView = PuzzleCustomView.makeInfoView(
-        title: "구인 포지션",
+        title: StringLiterals.Post.selectPositionViewLabel,
         image: .icWrench
     )
     
@@ -78,7 +72,9 @@ final class PostView: UIView {
         $0.backgroundColor = .puzzleWhite
     }
     
-    lazy var postSaveButton = PuzzleMainButton(title: "항목 저장")
+    lazy var postSaveButton = PuzzleMainButton(
+        title: StringLiterals.Post.postSaveButtonLabel
+    )
     
     private lazy var vStackView = UIStackView(
         arrangedSubviews: [
@@ -92,7 +88,6 @@ final class PostView: UIView {
         ]
     ).then {
         $0.axis = .vertical
-        $0.setCustomSpacing(300, after: postTextView)
         $0.alignment = .fill
         $0.spacing = 1
     }
@@ -131,12 +126,14 @@ final class PostView: UIView {
         }
         
         contentView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.top.bottom.equalToSuperview()
+            $0.edges.equalTo(scrollView)
+            $0.width.equalTo(scrollView)
+            $0.height.greaterThanOrEqualToSuperview().priority(.low)
         }
         
         vStackView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(21)
+            $0.width.equalToSuperview().offset(-42)
         }
         
         competitionSelectionView.snp.makeConstraints {
@@ -161,13 +158,12 @@ final class PostView: UIView {
         
         postTextView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
-            $0.height.greaterThanOrEqualTo(437)
+            $0.height.equalTo(444)
         }
         
         postSaveButton.snp.remakeConstraints {
-            $0.height.equalTo(52)
             $0.horizontalEdges.equalToSuperview()
-            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-17)
+            $0.height.equalTo(52)
         }
         
         recruitCountLabel.snp.makeConstraints {

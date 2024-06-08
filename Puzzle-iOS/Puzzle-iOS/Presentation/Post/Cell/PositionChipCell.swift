@@ -75,10 +75,6 @@ final class PositionChipCell: UICollectionViewCell {
         }
     }
     
-    func selfKeyword() -> String {
-        return self.titleLabel.text ?? "없는 키워드"
-    }
-    
     // MARK: - Method
     
     func bindData(text: String) {

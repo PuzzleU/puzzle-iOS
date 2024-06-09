@@ -108,6 +108,8 @@ final class BottomSheetViewController: UIViewController {
             notchView
         )
         
+        bottomSheetView.addSubview(cancelButton)
+        
         dimmedView.alpha = 0.0
     }
     
@@ -129,6 +131,11 @@ final class BottomSheetViewController: UIViewController {
             $0.top.equalTo(view.snp.bottom).offset(0)
         }
         
+        cancelButton.snp.makeConstraints {
+            $0.top.equalTo(bottomSheetView.snp.top).offset(14)
+            $0.trailing.equalTo(bottomSheetView.snp.trailing).offset(-16)
+        }
+        
         contentViewController.view.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -142,25 +149,30 @@ final class BottomSheetViewController: UIViewController {
     
     private func setAddTarget() {
         
+        cancelButton.tapPublisher
+            .sink { [weak self] _ in
+                self?.hideBottomSheetAndGoBack()
+            }.store(in: cancelBag)
+        
         dimmedView.gesture(.tap())
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
                 self?.hideBottomSheetAndGoBack()
             }.store(in: cancelBag)
         
-//                bottomSheetView.gesture(.pan())
-//                    .receive(on: RunLoop.main)
-//                    .sink { [weak self] gesture in
-//                        switch gesture {
-//                        case .pan(let panGesture):
-//                            self?.handlePanGesture(sender: panGesture)
-//                            print("Gesture State: \(panGesture.state.rawValue)")
-//                        default:
-//                            break
-//                        }
-//                    }
-//                    .store(in: cancelBag)
-//         왜 퍼블리셔로 하면 case 3, 4가 호출이 안될까..? 미치겠네 ^^
+        //                bottomSheetView.gesture(.pan())
+        //                    .receive(on: RunLoop.main)
+        //                    .sink { [weak self] gesture in
+        //                        switch gesture {
+        //                        case .pan(let panGesture):
+        //                            self?.handlePanGesture(sender: panGesture)
+        //                            print("Gesture State: \(panGesture.state.rawValue)")
+        //                        default:
+        //                            break
+        //                        }
+        //                    }
+        //                    .store(in: cancelBag)
+        //         왜 퍼블리셔로 하면 case 3, 4가 호출이 안될까..? 미치겠네 ^^
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(sender:)))
         bottomSheetView.addGestureRecognizer(panGesture)

@@ -140,7 +140,7 @@ final class PostViewController: UIViewController {
     }
     
     private func updatePositionChips() {
-        // Chips에 따라 동적으로 
+        // Chips에 따라 동적으로
         rootView.updatePositionChips(positions: positionDatas)
     }
     

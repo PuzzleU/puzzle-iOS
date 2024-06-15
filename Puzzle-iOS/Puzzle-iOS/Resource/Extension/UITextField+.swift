@@ -20,4 +20,14 @@ extension UITextField {
         self.rightView = paddingView
         self.rightViewMode = .always
     }
+    
+    func setPlaceholderColor(_ placeholderColor: UIColor) {
+        attributedPlaceholder = NSAttributedString(
+            string: placeholder ?? "",
+            attributes: [
+                .foregroundColor: placeholderColor,
+                .font: font
+            ].compactMapValues { $0 }
+        )
+    }
 }

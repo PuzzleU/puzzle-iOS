@@ -72,10 +72,10 @@ class PositionViewModel: ViewModelType {
         
         let selectedIndicesPublisher = input.selectImageAtIndex
             .flatMap { [unowned self] index -> AnyPublisher<Set<Int>, Never> in
-                if selectedPositionIndexes.contains(index) {
-                    selectedPositionIndexes.remove(index)
+                if selectedPositionIndexes.contains(index-1) {
+                    selectedPositionIndexes.remove(index-1)
                 } else if selectedPositionIndexes.count < 2 {
-                    selectedPositionIndexes.insert(index)
+                    selectedPositionIndexes.insert(index-1)
                 }
                 return Just(selectedPositionIndexes).eraseToAnyPublisher()
             }

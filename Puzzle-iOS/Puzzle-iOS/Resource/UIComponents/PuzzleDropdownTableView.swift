@@ -22,7 +22,6 @@ final class PuzzleDropdownTableView: UIView {
         $0.backgroundColor = .puzzleWhite
         $0.layer.cornerRadius = 10
         $0.layer.masksToBounds = true
-        $0.register(PuzzleDropDownTableViewCell.self, forCellReuseIdentifier: PuzzleDropDownTableViewCell.reuseIdentifier)
         $0.isScrollEnabled = true
         $0.separatorStyle = .none
     }
@@ -37,6 +36,7 @@ final class PuzzleDropdownTableView: UIView {
         setDelegate()
         setHierarchy()
         setLayout()
+        setRegister()
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +60,10 @@ final class PuzzleDropdownTableView: UIView {
         dropdownTableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    private func setRegister() {
+        dropdownTableView.register(PuzzleDropDownTableViewCell.self, forCellReuseIdentifier: PuzzleDropDownTableViewCell.reuseIdentifier)
     }
     
     // MARK: - Notification

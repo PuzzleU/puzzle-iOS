@@ -38,7 +38,7 @@ extension PuzzleTabBarController {
         let tabBarItems: [PuzzleTabBarItem] = [
             .home,
             .search,
-            .register,
+            .post,
             .applicationStatus,
             .myPage
         ]
